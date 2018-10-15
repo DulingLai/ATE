@@ -8,6 +8,7 @@ import dulinglai.android.ate.graphBuilder.TransitionEdge;
 import dulinglai.android.ate.graphBuilder.widgetNodes.AbstractWidgetNode;
 import dulinglai.android.ate.graphBuilder.widgetNodes.ClickWidgetNode;
 import dulinglai.android.ate.graphBuilder.widgetNodes.EditWidgetNode;
+import dulinglai.android.ate.propagationAnalysis.intents.IccIdentifier;
 import dulinglai.android.ate.resources.androidConstants.AndroidSootClassConstants;
 import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
 import dulinglai.android.ate.resources.resources.LayoutFileParser;
@@ -72,7 +73,7 @@ public abstract class AbstractJimpleAnalyzer {
     protected IValueProvider valueProvider = new SimpleConstantValueProvider();
 
     protected Set<String> activityList;
-    protected MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis;
+    protected List<IccIdentifier> iccUnitsForWidgetAnalysis;
 
     LayoutFileParser layoutFileParser;
     final ResourceValueProvider resourceValueProvider;
@@ -94,14 +95,14 @@ public abstract class AbstractJimpleAnalyzer {
 
     public AbstractJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> activityList,
                                   LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
-                                  MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis) throws IOException {
+                                  List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
         this(entryPointClasses, "AndroidCallbacks.txt", activityList,
                 layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
     }
 
     public AbstractJimpleAnalyzer(Set<SootClass> entryPointClasses, String callbackFile, Set<String> activityList,
                                   LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
-                                  MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis) throws IOException {
+                                  List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
         this(entryPointClasses, loadAndroidCallbacks(callbackFile), activityList,
                 layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
     }
@@ -109,7 +110,7 @@ public abstract class AbstractJimpleAnalyzer {
     public AbstractJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> androidCallbacks,
                                   Set<String> activityList, LayoutFileParser layoutFileParser,
                                   ResourceValueProvider resourceValueProvider,
-                                  MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis) {
+                                  List<IccIdentifier> iccUnitsForWidgetAnalysis) {
         this.entryPointClasses = entryPointClasses;
         this.androidCallbacks = androidCallbacks;
         this.activityList = activityList;
