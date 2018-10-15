@@ -1,0 +1,3106 @@
+name: "com.tinder"
+version: 9020020
+permissions {
+  name: "com.tinder.permission.MAPS_RECEIVE"
+  level: SIGNATURE
+}
+permissions {
+  name: "com.tinder.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.STORAGE"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "com.tinder.permission.MAPS_RECEIVE"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.CHANGE_WIFI_STATE"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.GET_TASKS"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "com.tinder.permission.C2D_MESSAGE"
+used_permissions: "android.permission.BLUETOOTH"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "com.google.android.providers.gsf.permission.READ_GSERVICES"
+components {
+  name: "com.tinder.receivers.InstallReferrerListener"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.tinder.fastmatch.view.FastMatchRecsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.onboarding.view.SmsConfirmationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.settings.activity.GenderSearchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.settings.activity.ExitSurveyFeedbackActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void d()>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/services/GCMRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void J()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.profile.activities.ProfileSpotifyAuthActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "com.tinder.overflow.analytics.RecommendProfileBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.extra.CHOSEN_COMPONENT"
+    }
+  }
+}
+components {
+  name: "com.tinder.settings.activity.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void d()>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/services/GCMRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.settings.activity.SettingsActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.tinder.settings.activity.SettingsActivity"
+      method: "<com.tinder.settings.activity.SettingsActivity: void ae()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/settings/activity/ShowMeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void J()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.Add3rdPartyCheckinJob"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.leanplum.LeanplumPushReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.leanplum.LeanplumPushListenerService"
+      value: "com.leanplum.LeanplumPushFirebaseMessagingService"
+    }
+  }
+}
+components {
+  name: "com.appsflyer.MultipleInstallBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void sendBroadcast(android.content.Intent)>(r14)"
+      class_name: "com.appsflyer.f"
+      method: "<com.appsflyer.f: void a(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 20
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appsflyer.MonitorBroadcast"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.appsflyer.nightvision"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.activities.ActivityEditProfile"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.places.settings.activity.PlacesSurveyOtherActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.learnmore.LearnMoreActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.leanplum.LeanplumPushInstanceIDService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.iid.InstanceID"
+    }
+  }
+}
+components {
+  name: "com.tinder.activities.WebViewActivityInstagram"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.services.GCMRegistrationIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.tinder.tinderselect.SelectNominationSplashActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.evernote.android.job.JobRescheduleService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.places.settings.activity.PlacesDisabledSurveyActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mapbox.android.telemetry.TelemetryService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.tinder.settings.activity.ShowMeActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.ads.AudienceNetworkActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.facebook.accountkit.ui.AccountKitEmailRedirectActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.accountkit.ui.AccountKitEmailRedirectActivity: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.facebook.accountkit.ui.AccountKitEmailRedirectActivity"
+      method: "<com.facebook.accountkit.ui.AccountKitEmailRedirectActivity: void onCreate(android.os.Bundle)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/accountkit/ui/AccountKitActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.foursquare.pilgrim.PilgrimBootReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.app.PendingIntent: void send()>()"
+      class_name: "com.foursquare.pilgrim.v"
+      method: "<com.foursquare.pilgrim.v: void b(android.content.Context,boolean)>"
+      id: 11
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/foursquare/pilgrim/ReceiverPilgrimBootFire"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.places.settings.activity.PlacesSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.loops.MediaSelectorActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.firebase.jobdispatcher.GooglePlayReceiver"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z1 = virtualinvoke $r10.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>($r11, r18, 1)"
+      class_name: "com.firebase.jobdispatcher.d"
+      method: "<com.firebase.jobdispatcher.d: void a(com.firebase.jobdispatcher.p)>"
+      id: 30
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.leanplum.LeanplumPushFcmListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.tinder.loops.LoopPreviewActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.spotify.activity.SpotifyAuthActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "callback"
+    }
+    attributes {
+      kind: SCHEME
+      value: "tinder-spotify"
+    }
+  }
+}
+components {
+  name: "com.tinder.activities.ActivityJob"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.profile.activities.MatchProfileActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.tinder.chat.activity.GrandGestureChatActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void d()>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/services/GCMRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void J()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.messageads.activity.MessageAdMatchProfileActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.evernote.android.job.v14.PlatformAlarmService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.evernote.android.job.v21.PlatformJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.tinder.activities.ImageCropperActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.android.billingclient.api.ProxyBillingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.foursquare.pilgrim.LocationJobService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.tinder.services.InstanceIdUpdateListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.iid.InstanceID"
+    }
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.ReceiverPilgrimBootFire"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r8.<android.content.Context: void sendBroadcast(android.content.Intent)>(r10)"
+      class_name: "com.google.android.gms.gcm.b"
+      method: "<com.google.android.gms.gcm.b: void a(java.lang.String,java.lang.Class)>"
+      id: 16
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r14)"
+      class_name: "com.google.android.gms.gcm.b"
+      method: "<com.google.android.gms.gcm.b: void a(com.google.android.gms.gcm.Task)>"
+      id: 17
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.onboarding.activities.OnboardingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.activities.MainActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "tinder"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "go.tinder.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/6Feb(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "go.tinder.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/6Feb(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.activities.MainActivity: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.tinder.activities.MainActivity"
+      method: "<com.tinder.activities.MainActivity: void b(android.content.Intent)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/ActivityEditProfile"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void d()>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/services/GCMRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void J()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.evernote.android.job.v14.PlatformAlarmServiceExact"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.tinder.webprofile.activity.WebProfileUsernameActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.notifications.NotificationSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.leanplum.LeanplumPushListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.tinder.settings.jobs.ReactivateAccountJob"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.tinder.settings.loops.activity.AutoPlayLoopsOptionsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.theartofdev.edmodo.cropper.CropImageActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.profile.activities.DummyProfileActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.gcm.GcmReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.tinder"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r30 = virtualinvoke r19.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.gcm.GcmReceiver"
+      method: "<com.google.android.gms.gcm.GcmReceiver: void b(android.content.Context,android.content.Intent)>"
+      id: 68
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.evernote.android.job.v14.PlatformAlarmReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.evernote.android.job.v14.RUN_JOB"
+      value: "net.vrallev.android.job.v14.RUN_JOB"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r11 = virtualinvoke r9.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r10)"
+      class_name: "com.evernote.android.job.j"
+      method: "<com.evernote.android.job.j: android.content.ComponentName a(android.content.Context,android.content.Intent)>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/evernote/android/job/v14/PlatformAlarmServiceExact"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.leanplum.LeanplumPushFirebaseMessagingService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.leanplum.LeanplumPushRegistrationService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.leanplum.ReceiveTransitionsIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.foursquare.pilgrim.ReceiverPilgrimActivityRecognitionFire"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.tinder.activities.ActivityAddPhoto"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.leanplum.LeanplumFcmServiceHelper"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.tinder.common.activity.FullscreenImageActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.chat.activity.ChatActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void startActivity(android.content.Intent)>($r7)"
+      class_name: "com.tinder.chat.view.ChatToolbar"
+      method: "<com.tinder.chat.view.ChatToolbar: void a(com.tinder.domain.match.model.Match,android.view.View)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void d()>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/services/GCMRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.settings.activity.SettingsActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.tinder.settings.activity.SettingsActivity"
+      method: "<com.tinder.settings.activity.SettingsActivity: void ae()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/settings/activity/ShowMeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.c"
+      method: "<com.facebook.ads.internal.a.c: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void J()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.tinder.settings.SettingsNotificationItemView$2"
+      method: "<com.tinder.settings.SettingsNotificationItemView$2: void onClick(android.view.View)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.tinder.settings.SettingsNotificationItemView$1"
+      method: "<com.tinder.settings.SettingsNotificationItemView$1: void onClick(android.view.View)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r7.<android.content.Context: void startActivity(android.content.Intent)>(r9)"
+      class_name: "com.tinder.apprating.a.a"
+      method: "<com.tinder.apprating.a.a: void k()>"
+      id: 14
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r17.<android.content.Context: void startActivity(android.content.Intent)>($r8)"
+      class_name: "com.tinder.chat.view.EmptyChatViewContainer$a"
+      method: "<com.tinder.chat.view.EmptyChatViewContainer$a: void onClick(android.view.View)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.settings.activity.MoreGenderActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.match.DeleteSponsoredMessageJobService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.tinder.loops.TrimAndCropActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.evernote.android.job.JobBootReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+      value: "com.htc.intent.action.QUICKBOOT_POWERON"
+      value: "android.intent.action.QUICKBOOT_POWERON"
+      value: "android.intent.action.MY_PACKAGE_REPLACED"
+    }
+  }
+}
+components {
+  name: "com.facebook.accountkit.ui.AccountKitActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.accountkit.ui.AccountKitActivity: void startActivity(android.content.Intent)>($r7)"
+      class_name: "com.facebook.accountkit.ui.AccountKitActivity"
+      method: "<com.facebook.accountkit.ui.AccountKitActivity: void a(int,com.facebook.accountkit.AccountKitLoginResult)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.INFO"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.LAUNCHER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r0, 1)"
+      class_name: "com.facebook.accountkit.internal.v"
+      method: "<com.facebook.accountkit.internal.v: boolean a()>"
+      id: 22
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.tinder.account.view.UpdateAccountEmailPasswordActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.activities.ActivityGiphy"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.foursquare.pilgrim.PilgrimProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.tinder.purchase.job.ReportBillingTimeoutService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.tinder.places.onboarding.PlacesOnboardingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.leanplum.LeanplumLocalPushListenerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.tinder.passport.activities.ActivityPassport"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.onboarding.activity.CountdownActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.spotify.activity.SpotifyPickTopArtistActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.facebook.accountkit.internal.AccountKitInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r19, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void onCreate(android.os.Bundle)>"
+      id: 54
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.toppicks.notifications.TopPicksNotificationDispatcherService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.tinder.places.job.SubmitVisitJob"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.evernote.android.job.gcm.PlatformGcmService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+}
+components {
+  name: "com.tinder.profile.activities.ProfileInstagramAuthActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.tinder.pushnotifications.TinderGcmListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.ReceiverPilgrimLocationClientFire"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r8.<android.content.Context: void sendBroadcast(android.content.Intent)>(r10)"
+      class_name: "com.google.android.gms.gcm.b"
+      method: "<com.google.android.gms.gcm.b: void a(java.lang.String,java.lang.Class)>"
+      id: 16
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r14)"
+      class_name: "com.google.android.gms.gcm.b"
+      method: "<com.google.android.gms.gcm.b: void a(com.google.android.gms.gcm.Task)>"
+      id: 17
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.crashlytics.android.CrashlyticsInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.tinder.activities.FullscreenVideoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.settings.feed.activity.FeedSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void d()>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/services/GCMRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void J()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "@2131821014"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.CustomTabActivity: void startActivityForResult(android.content.Intent,int)>(r9, 2)"
+      class_name: "com.facebook.CustomTabActivity"
+      method: "<com.facebook.CustomTabActivity: void onCreate(android.os.Bundle)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*).action_customTabRedirect"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/facebook/CustomTabMainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.settingsemail.email.activity.EmailSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.profile.activities.CurrentUserProfileActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.tinder.activities.SchoolActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.activities.LoginActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void startActivity(android.content.Intent)>($r7)"
+      class_name: "com.tinder.chat.view.ChatToolbar"
+      method: "<com.tinder.chat.view.ChatToolbar: void a(com.tinder.domain.match.model.Match,android.view.View)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.settings.activity.SettingsActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.tinder.settings.activity.SettingsActivity"
+      method: "<com.tinder.settings.activity.SettingsActivity: void ae()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/settings/activity/ShowMeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.c"
+      method: "<com.facebook.ads.internal.a.c: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.tinder.settings.SettingsNotificationItemView$2"
+      method: "<com.tinder.settings.SettingsNotificationItemView$2: void onClick(android.view.View)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.tinder.settings.SettingsNotificationItemView$1"
+      method: "<com.tinder.settings.SettingsNotificationItemView$1: void onClick(android.view.View)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r7.<android.content.Context: void startActivity(android.content.Intent)>(r9)"
+      class_name: "com.tinder.apprating.a.a"
+      method: "<com.tinder.apprating.a.a: void k()>"
+      id: 14
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r17.<android.content.Context: void startActivity(android.content.Intent)>($r8)"
+      class_name: "com.tinder.chat.view.EmptyChatViewContainer$a"
+      method: "<com.tinder.chat.view.EmptyChatViewContainer$a: void onClick(android.view.View)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.tinder.services.ProcessingPhotosTaskService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+}
+components {
+  name: "com.tinder.activities.ActivityVerification"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.activities.ActivityBanned"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.spotify.sdk.android.authentication.LoginActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.messageads.activity.AdMessageChatActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"
+    }
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.PilgrimLocationClientFireService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r8.<android.app.PendingIntent: void send()>()"
+      class_name: "com.foursquare.pilgrim.v"
+      method: "<com.foursquare.pilgrim.v: void a(android.content.Context,boolean)>"
+      id: 7
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/foursquare/pilgrim/ReceiverPilgrimBootFire"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.app.PendingIntent: void send()>()"
+      class_name: "com.foursquare.pilgrim.v"
+      method: "<com.foursquare.pilgrim.v: void b(android.content.Context,boolean)>"
+      id: 11
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/foursquare/pilgrim/ReceiverPilgrimBootFire"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.tinderplus.activities.ActivityTPlusControl"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tinder.settings.activity.ExitSurveyActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void d()>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/services/GCMRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tinder.base.d: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tinder.base.d"
+      method: "<com.tinder.base.d: void J()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tinder/activities/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.tinder.spotify.activity.SpotifyTrackSearchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.foursquare.pilgrim.AppUpdateReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MY_PACKAGE_REPLACED"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.app.PendingIntent: void send()>()"
+      class_name: "com.foursquare.pilgrim.v"
+      method: "<com.foursquare.pilgrim.v: void b(android.content.Context,boolean)>"
+      id: 11
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/foursquare/pilgrim/ReceiverPilgrimBootFire"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tinder"
+      }
+    }
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.PilgrimBootService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r1.<android.content.Context: void sendBroadcast(android.content.Intent)>($r2)"
+      class_name: "com.firebase.jobdispatcher.f"
+      method: "<com.firebase.jobdispatcher.f: int a()>"
+      id: 3
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r8.<android.content.Context: void sendBroadcast(android.content.Intent)>(r10)"
+      class_name: "com.google.android.gms.gcm.b"
+      method: "<com.google.android.gms.gcm.b: void a(java.lang.String,java.lang.Class)>"
+      id: 16
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r14)"
+      class_name: "com.google.android.gms.gcm.b"
+      method: "<com.google.android.gms.gcm.b: void a(com.google.android.gms.gcm.Task)>"
+      id: 17
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.foursquare.internal.network.d$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.ai"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.c$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.PilgrimBootReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.internal.ax"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "android.support.v7.app.AppCompatDelegateImplV14$AutoNightModeManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.gms.gcm.GcmReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.evernote.android.job.v14.PlatformAlarmReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.ReceiverPilgrimActivityRecognitionFire"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.ReceiverPilgrimLocationClientFire"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.bumptech.glide.d.e$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.action.HDMI_AUDIO_PLUG"
+    }
+  }
+  registration_instruction {
+    statement: "r2 = virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r0)"
+    class_name: "com.foursquare.internal.util.c"
+    method: "<com.foursquare.internal.util.c: boolean b(android.content.Context)>"
+    id: 3
+  }
+}
+components {
+  name: "com.evernote.android.job.JobBootReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.appsflyer.MultipleInstallBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.evernote.android.job.c$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.gms.iid.p"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.accountkit.ui.LoginFlowBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.internal.c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.accountkit.UpdateFlowBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.accountkit.g$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.ReceiverPilgrimBootFire"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.accountkit.ui.AccountKitActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "android.support.v4.content.f"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.foursquare.pilgrim.AppUpdateReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "a.a.a.a.f"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.ads.internal.adapters.v"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.SCAN_RESULTS"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r3)"
+    class_name: "com.foursquare.internal.network.d"
+    method: "<com.foursquare.internal.network.d: void <init>(android.content.Context)>"
+    id: 11
+  }
+}
+analysis_start: 1536550088
+analysis_end: 1536550646

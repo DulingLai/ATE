@@ -1,0 +1,1654 @@
+name: "com.airmiles"
+version: 843
+permissions {
+  name: "com.airmiles.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.FLASHLIGHT"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "com.airmiles.permission.C2D_MESSAGE"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.CAMERA"
+used_permissions: "android.permission.BLUETOOTH"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.airmiles.modules.offers.ui.activity.OfferDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.welcome.ui.activity.MainLauncherActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.airmiles.modules.welcome.ui.activity.MainLauncherActivity: void startActivity(android.content.Intent)>(r9)"
+      class_name: "com.airmiles.modules.welcome.ui.activity.MainLauncherActivity"
+      method: "<com.airmiles.modules.welcome.ui.activity.MainLauncherActivity: void onCreate(android.os.Bundle)>"
+      id: 32
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/airmiles/modules/home/ui/activity/NavigationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/airmiles/modules/account/ui/activity/SignInActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/airmiles/modules/welcome/ui/activity/OnboardingNewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/airmiles/modules/welcome/ui/activity/OnBoardingProvinceActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.messaging.service.AirmilesMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.airmiles.modules.home.ui.activity.NavigationActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.airmiles.modules.home.ui.activity.NavigationActivity"
+      method: "<com.airmiles.modules.home.ui.activity.NavigationActivity: void b(android.content.Context)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.settings.APPLICATION_DETAILS_SETTINGS"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.airmiles.modules.home.ui.activity.NavigationActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.airmiles.modules.home.ui.activity.NavigationActivity"
+      method: "<com.airmiles.modules.home.ui.activity.NavigationActivity: void onCreate(android.os.Bundle)>"
+      id: 18
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/airmiles/modules/account/ui/activity/FlipScreenCardActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.account.ui.activity.DigitalCardInfoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.airmiles"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r49 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.n"
+      method: "<com.google.firebase.iid.n: int a(android.content.Context,android.content.Intent)>"
+      id: 93
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.offers.ui.activity.BarcodeInfoDialogActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.widget.provider.BalanceInfoWidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.account.ui.activity.ScanCardActivity"
+  kind: ACTIVITY
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.zxing.client.android.SCAN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.widget.provider.BarcodeWidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.location.ui.activity.SelectProvinceActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.welcome.ui.activity.ForceUpdateActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.rover.Rover$GeofenceTransitionService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "io.rover.Rover$RoverFirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.tagmanager.TagManagerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "com.airmiles"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "tagmanager.c.com.airmiles"
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.partners.ui.activity.PartnerDetailsActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "mobile-app"
+    }
+    attributes {
+      kind: PATH
+      value: "/partner"
+    }
+    attributes {
+      kind: SCHEME
+      value: "airmiles"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.airmiles.modules.account.ui.activity.FlipScreenCardActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.account.ui.activity.FaqActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.account.ui.activity.DigitalLoyaltyCardActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.airmiles.modules.partners.ui.activity.PartnersActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.rover.MessageInteractionService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.app.PendingIntent: void send()>()"
+      class_name: "io.rover.MessageInteractionService"
+      method: "<io.rover.MessageInteractionService: void onHandleIntent(android.content.Intent)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.app.PendingIntent: void send()>()"
+      class_name: "io.rover.MessageInteractionService"
+      method: "<io.rover.MessageInteractionService: void onHandleIntent(android.content.Intent)>"
+      id: 22
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.app.PendingIntent: void send()>()"
+      class_name: "io.rover.MessageInteractionService"
+      method: "<io.rover.MessageInteractionService: void onHandleIntent(android.content.Intent)>"
+      id: 22
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.welcome.ui.activity.LocationFetchingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.rover.RemoteScreenActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.welcome.ui.activity.OnBoardingProvinceActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.welcome.ui.activity.SplashActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "airmiles"
+    }
+    attributes {
+      kind: HOST
+      value: "android-app"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.airmiles.modules.welcome.ui.activity.SplashActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.airmiles.modules.welcome.ui.activity.SplashActivity"
+      method: "<com.airmiles.modules.welcome.ui.activity.SplashActivity: void b()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/airmiles/modules/welcome/ui/activity/MainLauncherActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.airmiles"
+      }
+    }
+  }
+}
+components {
+  name: "io.rover.Rover$RoverFirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.airmiles.modules.messaging.ui.activity.InboxActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.components.ComponentDiscoveryService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "io.rover.ExperienceActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.account.ui.activity.LicenseAgreementsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.icemobile.lib.android.fras.barcodescanner.ui.CaptureActivity"
+  kind: ACTIVITY
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.zxing.client.android.SCAN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.airmiles.modules.partners.ui.activity.PartnerInfoCardActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airmiles.modules.account.ui.activity.SignInActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.airmiles.modules.welcome.ui.activity.OnboardingNewActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.rover.Rover$NearbyMessageService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.icemobile.lib.android.fras.barcodescanner.ui.EncodeActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.rover.Rover$LocationUpdateService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, r2, i0)"
+      class_name: "com.google.android.gms.common.b.a"
+      method: "<com.google.android.gms.common.b.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int,boolean)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.internal.e"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.icemobile.lib.android.fras.barcodescanner.c$b"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "android.support.v4.a.e"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "android.appwidget.AppWidgetProvider"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.internal.c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.airmiles.modules.widget.provider.BalanceInfoWidgetProvider"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.airmiles.modules.widget.provider.BarcodeWidgetProvider"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.gms.internal.measurement.ed"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.firebase.iid.r"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "android.support.v7.app.h$b$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.icemobile.lib.android.fras.barcodescanner.c"
+    method: "<com.icemobile.lib.android.fras.barcodescanner.c: void c()>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.firebase.a$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(r1, $r5)"
+    class_name: "com.google.firebase.a$c"
+    method: "<com.google.firebase.a$c: void b(android.content.Context)>"
+    id: 11
+  }
+}
+analysis_start: 1538572767
+analysis_end: 1538572888

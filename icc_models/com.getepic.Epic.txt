@@ -1,0 +1,633 @@
+name: "com.getepic.Epic"
+version: 95
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.MODIFY_AUDIO_SETTINGS"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "com.android.vending.CHECK_LICENSE"
+components {
+  name: "com.getepic.Epic.data.EpicContentProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.amazon.device.iap.ResponseReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.amazon.inapp.purchasing.NOTIFY"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.internal.zzth"
+      method: "<com.google.android.gms.internal.zzth: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 22
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.gms.analytics.AnalyticsService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.getepic.Epic"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r8)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 43
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.shareasale.android.tracking.CustomReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r8)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 43
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+      method: "<com.google.android.gms.analytics.CampaignTrackingReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 29
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/gms/analytics/CampaignTrackingService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.getepic.Epic"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r8)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 43
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.getepic.Epic.activities.MainActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r1.<com.getepic.Epic.activities.MainActivity: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.getepic.Epic.views.scenes.main.contentViews.profileContentView.subviews.ProfileHeaderLargeParentView"
+      method: "<com.getepic.Epic.views.scenes.main.contentViews.profileContentView.subviews.ProfileHeaderLargeParentView: void c()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kochava.android.tracker.ReferralCapture"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r8)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 43
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.a.a.c.k$11"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzte"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.a.a.c.k$10"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.amazon.device.iap.ResponseReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "android.support.v7.d.m$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "android.support.v4.g.a.c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.google.android.exoplayer.audio.AudioCapabilitiesReceiver$HdmiAudioPlugBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzaaz"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "android.support.v7.app.j$b$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.facebook.internal.BoltsMeasurementEventListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "com.bumptech.glide.d.e$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "android.support.v7.d.o$e$b"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r14.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r17, r23)"
+    class_name: "com.a.a.c.k"
+    method: "<com.a.a.c.k: void <init>(java.lang.Thread$UncaughtExceptionHandler,com.a.a.c.h,com.a.a.c.g,b.a.a.a.a.b.o,com.a.a.c.y,com.a.a.c.f)>"
+    id: 44
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r4 = virtualinvoke $r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r1)"
+    class_name: "com.google.android.gms.common.util.zzk"
+    method: "<com.google.android.gms.common.util.zzk: float zzbe(android.content.Context)>"
+    id: 15
+  }
+}
+analysis_start: 1538646487
+analysis_end: 1538646526

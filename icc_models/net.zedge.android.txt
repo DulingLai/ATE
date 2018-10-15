@@ -1,0 +1,1995 @@
+name: "net.zedge.android"
+version: 54201904
+permissions {
+  name: "net.zedge.android.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.READ_CONTACTS"
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "android.permission.AUTHENTICATE_ACCOUNTS"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "net.zedge.android.permission.C2D_MESSAGE"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.USE_CREDENTIALS"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.WRITE_CONTACTS"
+used_permissions: "android.permission.SET_WALLPAPER"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "android.permission.WRITE_SETTINGS"
+used_permissions: "android.permission.MANAGE_ACCOUNTS"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "com.android.launcher.permission.INSTALL_SHORTCUT"
+used_permissions: "com.google.android.providers.gsf.permission.READ_GSERVICES"
+components {
+  name: "com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.inmobi.share.id"
+    }
+  }
+}
+components {
+  name: "io.presage.receiver.NetworkChangeReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.WIFI_STATE_CHANGED"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "io.presage.receiver.NetworkChangeReceiver.ONDESTROY"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "io.presage.Presage"
+      method: "<io.presage.Presage: void a(android.content.Intent)>"
+      id: 3
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r15, r1, 1)"
+      class_name: "io.presage.goto.BenimaruNikaido"
+      method: "<io.presage.goto.BenimaruNikaido: io.presage.goto.BenimaruNikaido$KyoKusanagi a(android.content.Context)>"
+      id: 14
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r27.<android.content.Context: void sendBroadcast(android.content.Intent)>($r26)"
+      class_name: "io.presage.Presage"
+      method: "<io.presage.Presage: void talkToService(android.os.Bundle)>"
+      id: 78
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "io.presage.receiver.action.UPDATE_PROFIG"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r14.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r6)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 58
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r22.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r25)"
+      class_name: "com.google.android.gms.internal.zzaou"
+      method: "<com.google.android.gms.internal.zzaou: void a(android.content.Context,android.content.Intent)>"
+      id: 21
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.gms.analytics.AnalyticsService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "net.zedge.android"
+      }
+    }
+  }
+}
+components {
+  name: "net.zedge.android.service.AuthenticatorService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.accounts.AccountAuthenticator"
+    }
+  }
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "net.zedge.android"
+    }
+  }
+}
+components {
+  name: "net.zedge.android.receiver.AutoUpdateReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "net.zedge.android.authenticator.AccountManagerReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.accounts.LOGIN_ACCOUNTS_CHANGED"
+      value: "net.zedge.android.ACTION_LOGGED_OUT"
+      value: "net.zedge.android.ACTION_LOGGED_IN"
+    }
+  }
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "io.presage.receiver.AlarmReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "io.presage.Presage"
+      method: "<io.presage.Presage: void a(android.content.Intent)>"
+      id: 3
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r15, r1, 1)"
+      class_name: "io.presage.goto.BenimaruNikaido"
+      method: "<io.presage.goto.BenimaruNikaido: io.presage.goto.BenimaruNikaido$KyoKusanagi a(android.content.Context)>"
+      id: 14
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r27.<android.content.Context: void sendBroadcast(android.content.Intent)>($r26)"
+      class_name: "io.presage.Presage"
+      method: "<io.presage.Presage: void talkToService(android.os.Bundle)>"
+      id: 78
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "io.presage.receiver.action.UPDATE_PROFIG"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "net.zedge.android.sparrow.actionchooser.ActionChooserActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mopub.mobileads.RewardedMraidActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r4.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.mopub.common.util.Intents"
+      method: "<com.mopub.common.util.Intents: void startActivity(android.content.Context,android.content.Intent)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.SENDTO"
+      }
+    }
+  }
+}
+components {
+  name: "net.zedge.android.service.MigrateListsV2JobService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.appwidget.game.HoneycombAndUpGameWidgetService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_REMOTEVIEWS"
+}
+components {
+  name: "net.zedge.android.receiver.WallpaperServiceReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "net.zedge.android.activity.RedirectActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "net.zedge.android.intent.action.FOLLOW_SHORTCUT"
+    }
+  }
+}
+components {
+  name: "net.zedge.android.appwidget.app.WallpaperChangerProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "net.zedge.android.ACTION_UPDATE_WALLPAPER"
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.receiver.DeviceStorageReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.DEVICE_STORAGE_OK"
+      value: "android.intent.action.DEVICE_STORAGE_LOW"
+    }
+  }
+}
+components {
+  name: "com.appboy.AppboyGcmReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "net.zedge.android"
+    }
+  }
+}
+components {
+  name: "com.squareup.leakcanary.internal.HeapAnalyzerService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r8.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r10)"
+      class_name: "com.squareup.leakcanary.AbstractAnalysisResultService"
+      method: "<com.squareup.leakcanary.AbstractAnalysisResultService: void sendResultToListener(android.content.Context,java.lang.String,com.squareup.leakcanary.HeapDump,com.squareup.leakcanary.AnalysisResult)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "net.zedge.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mopub.common.privacy.ConsentDialogActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.appboy.services.AppboyDataSyncService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.inmobi.rendering.InMobiAdActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.inmobi.rendering.InMobiAdActivity: void startActivityForResult(android.content.Intent,int)>($r8, i16)"
+      class_name: "com.inmobi.rendering.InMobiAdActivity"
+      method: "<com.inmobi.rendering.InMobiAdActivity: void onCreate(android.os.Bundle)>"
+      id: 322
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "net.zedge.android.activity.AuthenticatorActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.service.AppInstallTrackerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitTransparentSoftwareActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.squareup.leakcanary.internal.RequestStoragePermissionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.activity.FileAttacherActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PICK"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.OPENABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "image/*"
+    }
+    attributes {
+      kind: TYPE
+      value: "audio/*"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SET_WALLPAPER"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.RINGTONE_PICKER"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.GET_CONTENT"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.OPENABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "image/*"
+    }
+    attributes {
+      kind: TYPE
+      value: "audio/*"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.HTC_RINGTONE_PICKER"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.facebook.ads.AudienceNetworkActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r4.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.mopub.common.util.Intents"
+      method: "<com.mopub.common.util.Intents: void startActivity(android.content.Context,android.content.Intent)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.SENDTO"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.service.AppInstallTrackerServiceReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+    }
+    attributes {
+      kind: SCHEME
+      value: "package"
+    }
+  }
+}
+components {
+  name: "android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r20, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void onCreate(android.os.Bundle)>"
+      id: 34
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.auth.GOOGLE_SIGN_IN"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.squareup.leakcanary.internal.DisplayLeakActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.squareup.leakcanary.internal.DisplayLeakActivity: void startActivity(android.content.Intent)>($r9)"
+      class_name: "com.squareup.leakcanary.internal.DisplayLeakActivity"
+      method: "<com.squareup.leakcanary.internal.DisplayLeakActivity: void shareHeapDump()>"
+      id: 13
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.squareup.leakcanary.internal.DisplayLeakActivity: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.squareup.leakcanary.internal.DisplayLeakActivity"
+      method: "<com.squareup.leakcanary.internal.DisplayLeakActivity: void shareLeak()>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+}
+components {
+  name: "com.firebase.jobdispatcher.GooglePlayReceiver"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r14.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r6)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 58
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.mopub.mobileads.MoPubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r4.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.mopub.common.util.Intents"
+      method: "<com.mopub.common.util.Intents: void startActivity(android.content.Context,android.content.Intent)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.SENDTO"
+      }
+    }
+  }
+}
+components {
+  name: "net.zedge.android.service.AutoUpdateWallpaperService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "net.zedge.android.service.RecoverDownloadsV2JobService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.crashlytics.android.CrashlyticsInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "net.zedge.android.receiver.ShortcutBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.launcher.action.INSTALL_SHORTCUT"
+      value: "com.android.launcher.action.UNINSTALL_SHORTCUT"
+    }
+  }
+}
+components {
+  name: "net.zedge.android.sparrow.SparrowConfigActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_CONFIGURE"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "net.zedge.android.provider.ZedgeSearchSuggestionsProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "io.presage.provider.PresageProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "net.zedge.android.currency.RetryInAppPurchaseJob"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitTransparentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.sparrow.SparrowService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.facebook.ads.InterstitialAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.appwidget.game.HoneycombAndUpWidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "net.zedge.android.ACTION_UPDATE_WIDGET"
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.appboy.ui.AppboyWebViewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.appboy.ui.AppboyWebViewActivity: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.appboy.ui.AppboyWebViewActivity$2"
+      method: "<com.appboy.ui.AppboyWebViewActivity$2: void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+}
+components {
+  name: "com.squareup.leakcanary.DisplayLeakService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "net.zedge.android.activity.ControllerActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEARCH"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "zedge"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "www.zedge.net"
+    }
+    attributes {
+      kind: PATH
+      value: "/wallpaper/(.*)"
+    }
+    attributes {
+      kind: HOST
+      value: "www.zedge.net"
+    }
+    attributes {
+      kind: PATH
+      value: "/ringtone/(.*)"
+    }
+    attributes {
+      kind: HOST
+      value: "www.zedge.net"
+    }
+    attributes {
+      kind: PATH
+      value: "/story/(.*)"
+    }
+    attributes {
+      kind: HOST
+      value: "www.zedge.net"
+    }
+    attributes {
+      kind: PATH
+      value: "/premium/(.*)"
+    }
+  }
+}
+components {
+  name: "com.mopub.common.MoPubBrowser"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.presage.PresageService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "io.presage.PresageService.PIVOT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r15, r1, 1)"
+      class_name: "io.presage.goto.BenimaruNikaido"
+      method: "<io.presage.goto.BenimaruNikaido: io.presage.goto.BenimaruNikaido$KyoKusanagi a(android.content.Context)>"
+      id: 14
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.android.billingclient.api.ProxyBillingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitSoftwareActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.sparrow.SparrowProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "net.zedge.android.receiver.ZedgeAppBoyBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "net.zedge.android.intent.APPBOY_PUSH_RECEIVED"
+      value: "net.zedge.android.intent.APPBOY_NOTIFICATION_OPENED"
+    }
+  }
+}
+components {
+  name: "io.presage.activities.PresageActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "io.presage.intent.action.LAUNCH_WEBVIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.mopub.mobileads.MraidVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r4.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.mopub.common.util.Intents"
+      method: "<com.mopub.common.util.Intents: void startActivity(android.content.Context,android.content.Intent)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.SENDTO"
+      }
+    }
+  }
+}
+components {
+  name: "net.zedge.android.receiver.InstallTrackingReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.appinvite.PreviewActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.appinvite.ACTION_PREVIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.appboy.ui.actions.UriAction"
+      method: "<com.appboy.ui.actions.UriAction: void openUriWithActionView(android.content.Context,android.net.Uri,android.os.Bundle)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.appboy.ui.actions.NewsfeedAction"
+      method: "<com.appboy.ui.actions.NewsfeedAction: void execute(android.content.Context)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/appboy/ui/activities/AppboyFeedActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "net.zedge.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r10.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.appboy.ui.actions.UriAction"
+      method: "<com.appboy.ui.actions.UriAction: void openUriWithWebView(android.content.Context,android.net.Uri,android.os.Bundle)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/appboy/ui/AppboyWebViewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "net.zedge.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.appboy.ui.activities.AppboyFeedActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.zedge.android.appwidget.app.AppWidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "net.zedge.android.ACTION_START_APP"
+      value: "net.zedge.android.ACTION_UPDATE_WP"
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "net.zedge.android.activity.ManageAccountActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "net.zedge.android.Main"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+}
+components {
+  name: "com.mopub.mobileads.MraidActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r4.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.mopub.common.util.Intents"
+      method: "<com.mopub.common.util.Intents: void startActivity(android.content.Context,android.content.Intent)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.SENDTO"
+      }
+    }
+  }
+}
+components {
+  name: "net.zedge.android.service.RecoverDownloadsIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.firebase.perf.provider.FirebasePerfProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.receiver.NetworkChangeReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.receiver.RequestReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "android.support.v4.content.WakefulBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.receiver.AlarmReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.internal.zzby"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.moat.analytics.mobile.inm.j$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.moat.analytics.mobile.inm.j$3"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.facebook.internal.BoltsMeasurementEventListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r5 = virtualinvoke $r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r2)"
+    class_name: "com.google.android.gms.common.util.zzj"
+    method: "<com.google.android.gms.common.util.zzj: int a(android.content.Context)>"
+    id: 7
+  }
+}
+components {
+  name: "com.squareup.picasso.Dispatcher$NetworkBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.inmobi.signals.b.c$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.mopub.mobileads.EventForwardingBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.receiver.UpdateProfigReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.appboy.AppboyGcmReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.mopub.mobileads.BaseBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.inmobi.rendering.mraid.MraidMediaProcessor$HeadphonesPluggedChangeReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.receiver.InstallReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.PresageService$3"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.google.firebase.FirebaseApp$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(r1, $r5)"
+    class_name: "com.google.firebase.FirebaseApp$c"
+    method: "<com.google.firebase.FirebaseApp$c: void a(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.case.BenimaruNikaido$3"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.mopub.mraid.MraidController$OrientationBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.CONFIGURATION_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "io.presage.receiver.SyncReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.inmobi.commons.core.utilities.g$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+components {
+  name: "com.inmobi.rendering.mraid.MraidMediaProcessor$RingerModeChangeReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<io.presage.PresageService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r1, r5)"
+    class_name: "io.presage.PresageService"
+    method: "<io.presage.PresageService: void g()>"
+    id: 4
+  }
+}
+analysis_start: 1536555127
+analysis_end: 1536555370

@@ -1,0 +1,2228 @@
+name: "com.isysway.free.alquran"
+version: 40
+permissions {
+  name: "com.isysway.free.alquran.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.FLASHLIGHT"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "com.isysway.free.alquran.permission.C2D_MESSAGE"
+used_permissions: "android.permission.STORAGE"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.READ_PHONE_STATE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.isysway.free.alquran.AddEditAlarmActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void R()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void Q()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void O()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void S()>"
+      id: 25
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void P()>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void N()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "afzkl.development.ColorPickerView.activity.ColorPickerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.isysway.free.alquran.TafsirPrefsActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.isysway.free.business.AlarmReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+      value: "android.intent.action.TIME_SET"
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.AdsReportActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.isysway.free.alquran.AlarmStartupActiviy"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.isysway.free.presentation.p"
+      method: "<com.isysway.free.presentation.p: void a(android.content.Context,int,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.isysway.free.presentation.p"
+      method: "<com.isysway.free.presentation.p: void b(android.content.Context,int,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.DownloadTafsirActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.isysway.free.alquran"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.GetTafserOperationActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.isysway.free.alquran.AlQuranNewActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivityForResult(android.content.Intent,int)>($r17, 7)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 35
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivityForResult(android.content.Intent,int)>($r22, 7)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 41
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/AlquranAlarmsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivityForResult(android.content.Intent,int)>(r33, 7)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/PrefsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivityForResult(android.content.Intent,int)>($r24, 7)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/SearchActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: void a(int,int,int,int)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivityForResult(android.content.Intent,int)>($r6, 7)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 88
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/AdsReportActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivityForResult(android.content.Intent,int)>($r26, 7)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/BookmarksActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivity(android.content.Intent)>(r39)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 80
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlQuranNewActivity: void startActivity(android.content.Intent)>(r37)"
+      class_name: "com.isysway.free.alquran.AlQuranNewActivity"
+      method: "<com.isysway.free.alquran.AlQuranNewActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 54
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void G()>"
+      id: 25
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.isysway.free.presentation.p"
+      method: "<com.isysway.free.presentation.p: void a(android.content.Context,int,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void R()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void E()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void Q()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void F()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void O()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void D()>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void C()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void S()>"
+      id: 25
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.isysway.free.presentation.p"
+      method: "<com.isysway.free.presentation.p: void b(android.content.Context,int,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.isysway.free.business.l"
+      method: "<com.isysway.free.business.l: void a(int,int)>"
+      id: 21
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void P()>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>(r17)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void onBackPressed()>"
+      id: 44
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/AlQuranNewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void N()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>(r18)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void onActivityResult(int,int,android.content.Intent)>"
+      id: 44
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.isysway.free.business.l"
+      method: "<com.isysway.free.business.l: void b(int,int)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void B()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 64
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r25.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 43
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.PrefsActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.isysway.free.alquran.AlquranAlarmsActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.AlquranAlarmsActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.AlquranAlarmsActivity"
+      method: "<com.isysway.free.alquran.AlquranAlarmsActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/AddEditAlarmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "afzkl.development.ColorPickerView.activity.Main"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.SearchResultsActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.SearchResultsActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.isysway.free.alquran.SearchResultsActivity"
+      method: "<com.isysway.free.alquran.SearchResultsActivity: void b(int[])>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.SearchResultsActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.isysway.free.alquran.SearchResultsActivity"
+      method: "<com.isysway.free.alquran.SearchResultsActivity: void a(int[])>"
+      id: 27
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.isysway.free.business.NotificationBroadcast"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.isysway.free.alquran.delete"
+      value: "com.isysway.free.alquran.pause"
+      value: "com.isysway.free.alquran.next"
+      value: "com.isysway.free.alquran.previous"
+      value: "com.isysway.free.alquran.play"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.isysway.free.alquran.BookmarksActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.BookmarksActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.isysway.free.alquran.BookmarksActivity"
+      method: "<com.isysway.free.alquran.BookmarksActivity: void a(com.isysway.free.b.b)>"
+      id: 21
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.BookmarksActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.isysway.free.alquran.BookmarksActivity"
+      method: "<com.isysway.free.alquran.BookmarksActivity: void b(com.isysway.free.b.b)>"
+      id: 18
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.DownloadAudiosActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void G()>"
+      id: 25
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.isysway.free.presentation.p"
+      method: "<com.isysway.free.presentation.p: void a(android.content.Context,int,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>(r18)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void onActivityResult(int,int,android.content.Intent)>"
+      id: 44
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void R()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void E()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivityForResult(android.content.Intent,int)>($r2, 123)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 55
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TafsirPrefsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void Q()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r4)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void F()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r4)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void D()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity$12"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity$12: void onClick(android.content.DialogInterface,int)>"
+      id: 25
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>(r17)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void onBackPressed()>"
+      id: 44
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/AlQuranNewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void F()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void O()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void D()>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r4)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void E()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void C()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void I()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/PrefsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void S()>"
+      id: 25
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.isysway.free.presentation.p"
+      method: "<com.isysway.free.presentation.p: void b(android.content.Context,int,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.isysway.free.business.l"
+      method: "<com.isysway.free.business.l: void a(int,int)>"
+      id: 21
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void P()>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity$12"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity$12: void onClick(android.content.DialogInterface,int)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void N()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.isysway.free.business.l"
+      method: "<com.isysway.free.business.l: void b(int,int)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/GenaricQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.TahfizQuranDisplayActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.isysway.free.alquran.TahfizQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.TahfizQuranDisplayActivity: void B()>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/isysway/free/alquran/TahfizQuranDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.isysway.free.alquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.isysway.free.alquran.GenaricQuranDisplayActivity: void startActivity(android.content.Intent)>($r4)"
+      class_name: "com.isysway.free.alquran.GenaricQuranDisplayActivity"
+      method: "<com.isysway.free.alquran.GenaricQuranDisplayActivity: void G()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+}
+components {
+  name: "com.isysway.free.alquran.SearchActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.isysway.free.business.AlarmReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "android.support.v7.app.i$b$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzatz"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.isysway.free.business.s$4"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzaaz"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "android.support.v4.c.l"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.isysway.free.business.NotificationBroadcast"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.a$b"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+analysis_start: 1538658726
+analysis_end: 1538658776

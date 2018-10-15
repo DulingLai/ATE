@@ -1,0 +1,289 @@
+name: "com.bendandinkmachine.bend.ink.machine.game.agliftips"
+version: 5
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+components {
+  name: "com.bendandinkmachine.bend.ink.machine.game.agliftips.GalleryDashboard"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.bendandinkmachine.bend.ink.machine.game.agliftips.ImagesActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void startActivity(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.internal.zzgg"
+      method: "<com.google.android.gms.internal.zzgg: void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r7.<com.bendandinkmachine.bend.ink.machine.game.agliftips.ImagesActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.bendandinkmachine.bend.ink.machine.game.agliftips.ImagesActivity$3"
+      method: "<com.bendandinkmachine.bend.ink.machine.game.agliftips.ImagesActivity$3: void onClick(android.view.View)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r9.<com.bendandinkmachine.bend.ink.machine.game.agliftips.ImagesActivity: void startActivity(android.content.Intent)>($r10)"
+      class_name: "com.bendandinkmachine.bend.ink.machine.game.agliftips.ImagesActivity$2"
+      method: "<com.bendandinkmachine.bend.ink.machine.game.agliftips.ImagesActivity$2: void onClick(android.view.View)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+}
+components {
+  name: "com.bendandinkmachine.bend.ink.machine.game.agliftips.AboutActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.bendandinkmachine.bend.ink.machine.game.agliftips.SplashScreen"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<com.bendandinkmachine.bend.ink.machine.game.agliftips.SplashScreen: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.bendandinkmachine.bend.ink.machine.game.agliftips.SplashScreen$1"
+      method: "<com.bendandinkmachine.bend.ink.machine.game.agliftips.SplashScreen$1: void run()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/bendandinkmachine/bend/ink/machine/game/agliftips/GalleryDashboard"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.bendandinkmachine.bend.ink.machine.game.agliftips"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void startActivity(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.internal.zzgg"
+      method: "<com.google.android.gms.internal.zzgg: void onDownloadStart(java.lang.String,java.lang.String,java.lang.String,java.lang.String,long)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r36)"
+      class_name: "com.google.android.gms.ads.internal.overlay.zza"
+      method: "<com.google.android.gms.ads.internal.overlay.zza: boolean zza(android.content.Context,com.google.android.gms.ads.internal.overlay.AdLauncherIntentInfoParcel,com.google.android.gms.ads.internal.overlay.zzi)>"
+      id: 61
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.tagmanager.zzbl"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r4, r1)"
+    class_name: "com.google.android.gms.internal.zzw"
+    method: "<com.google.android.gms.internal.zzw: void zzbh()>"
+    id: 16
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r4, r1)"
+    class_name: "com.google.android.gms.internal.zzw"
+    method: "<com.google.android.gms.internal.zzw: void zzbh()>"
+    id: 16
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.zzg$zzb"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r4, r1)"
+    class_name: "com.google.android.gms.internal.zzw"
+    method: "<com.google.android.gms.internal.zzw: void zzbh()>"
+    id: 16
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r4, r1)"
+    class_name: "com.google.android.gms.internal.zzw"
+    method: "<com.google.android.gms.internal.zzw: void zzbh()>"
+    id: 16
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.internal.zzaf"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r4, r1)"
+    class_name: "com.google.android.gms.internal.zzw"
+    method: "<com.google.android.gms.internal.zzw: void zzbh()>"
+    id: 16
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzw$7"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r4, r1)"
+    class_name: "com.google.android.gms.internal.zzw"
+    method: "<com.google.android.gms.internal.zzw: void zzbh()>"
+    id: 16
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzfl$zza"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r4, r1)"
+    class_name: "com.google.android.gms.internal.zzw"
+    method: "<com.google.android.gms.internal.zzw: void zzbh()>"
+    id: 16
+  }
+}
+analysis_start: 1538641155
+analysis_end: 1538641163

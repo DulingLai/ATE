@@ -1,0 +1,4152 @@
+name: "com.kobobooks.android"
+version: 21739
+permissions {
+  name: "com.kobobooks.android.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "com.kobobooks.android.permission.C2D_MESSAGE"
+used_permissions: "android.permission.AUTHENTICATE_ACCOUNTS"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.USE_CREDENTIALS"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "android.permission.READ_PHONE_STATE"
+used_permissions: "android.permission.MANAGE_ACCOUNTS"
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.popup.LEPopupFullScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.lookup.FullScreenBookSearchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.widget.CurrentlyReadingSmallWidgetConfigurationActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_CONFIGURE"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.tasteprofile.TasteProfileOverview"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.TASTE_PROFILE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.debug.screens.TasteProfileDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.FrictionlessReadingDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.StorageDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.FullscreenLEActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.lookup.BookSearchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.reading.epub3.EPub3Viewer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.providers.external.TileDataContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.debug.screens.OverDriveDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.storagemgmt.StorageManagement"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.SimpleBrowserActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.aquafadas.dp.reader.gallery.GalleryActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.reading.epub3.textselection.AddNoteActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.widget.CurrentlyReading1x1WidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.widget.CurrentlyReading4x1WidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.debug.screens.AnnotationsDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.reviews.MyReviewActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.dp.reader.services.rendering.PdfRendererService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.aquafadas.dp.reader.services.rendering.PdfRendererService"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.reading.common.EndOfPreviewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.debug.screens.TasteProfile2014DebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.receivers.PreviewBookReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.ACTION_PREVIEW_BOOK"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.tasteprofile.TasteProfileBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobo.TASTE_PROFILE_SETUP_ACTION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.screens.SearchController"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEARCH"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.reviews.ThankYouActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.tasteprofile2014.TasteProfileLandingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.tasteprofile.TasteProfileActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.OFFER_WIDGET"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.debug.screens.PriceDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.widget.RecommendationsWidgetService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_REMOTEVIEWS"
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.imagescollection.LEImagesCollectionFullScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.widget.StoreWidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LAUNCH_SPOTLIGHT_ACTION"
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+      value: "com.kobobooks.android.STORE_WIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.debug.screens.RecommendationsDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.LoggingDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.search.LiveSearchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.DebugOptionsPage"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.kobobooks.android.providers.external.LibraryContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.debug.screens.DictionaryDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.tasteprofile2014.TasteProfileSearchResultsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.zip.UnzipActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.reviews.WriteReviewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.wallpaper.awards.AwardsLiveWallpaperPrefActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.kobobooks.android.providers.external.BookDataContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.reading.preview.downloading.page.PreviewDownloadingPage"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.webview.LEWebViewFullScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.SubscriptionsDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.ReviewDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.providers.external.LookupContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.debug.screens.DownloadDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.search.suggestions.SearchSuggestionsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.crash.internal.service.FirebaseCrashSenderService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.social.CommentsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.providers.external.ShelfDataContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.screens.LongMigration"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.video.LEVideoFullScreenActitvity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.draw.SimpleDrawActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.receivers.LoginDataReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.ACTION_FACEBOOK_LOGIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.ACTION_LOGIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.screens.BlueFTEActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.reading.comics.ComicsViewer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.settings.preferencesettings.SettingsPrefsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.reading.zave.ZAveViewer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.ftux.FTEActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.reviews.ReviewsListActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.social.signin.SocialSignInActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.web.WebStoreSlideOut"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.OneStoreResponseOverrideDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.ImpersonationDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.itemdetails.ItemDetailsBookActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.fontdownload.FontDownloadScreen"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.tasteprofile2014.TasteProfileQuestionsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.widget.LibraryWidgetConfigurationActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_CONFIGURE"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.screens.MainNavActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.providers.external.KoboContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.koboflow.ContextMenuBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.ContextMenuItemClicked"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.widget.WidgetUpdateService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.relatedreading.RelatedReadsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.FontDownloadDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.providers.external.BookContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.providers.external.CoverImageContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.nativestore.NativeStoreTabActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.map.LEMapFullScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.authenticator.AuthenticatorActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.views.VideoPlayerActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.koboflow.TileClickBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.TileContextMenuOpenedAction"
+      value: "com.kobobooks.android.TileContextMenuItemSelectedAction"
+      value: "com.kobobooks.android.TileOpenedAction"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.widget.PhoneStoreWidgetConfigurationActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_CONFIGURE"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.widget.RecommendationsWidgetConfigurationActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_CONFIGURE"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.kobobooks.android"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r3 = virtualinvoke r2.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+      method: "<com.google.firebase.iid.FirebaseInstanceIdInternalReceiver: int zzj(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.measurement.UPLOAD"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzh"
+      method: "<com.google.android.gms.common.stats.zzh: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r18)"
+      class_name: "com.google.android.gms.measurement.internal.zzu"
+      method: "<com.google.android.gms.measurement.internal.zzu: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 25
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.popup.LEPopupActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.authenticator.AuthenticationService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.accounts.AccountAuthenticator"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.reading.fixedlayout.media.SMILFLEPubViewer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.itemdetails.ReadMoreActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.screens.collection.selection.CollectionSelectionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.itemdetails.ItemDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.social.PageCommentsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.tasks.CancelTaskActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.reading.epub3.ReadingExperienceFullScreenFTEActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "r3 = virtualinvoke r2.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+      method: "<com.google.firebase.iid.FirebaseInstanceIdInternalReceiver: int zzj(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.widget.RecommendationsWidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+      value: "com.kobobooks.android.RecommendationsChangedAction"
+      value: "com.kobobooks.android.RECOMMENDATIONS_WIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.crash.internal.service.FirebaseCrashReceiverService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.providers.DebugDbTableListActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.sync.SyncService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.providers.receivers.ReadingModeReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "kobo.intent.action.READING_MODE_ACTIVATED"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.tasteprofile2014.TasteProfileSearchConfirmationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.tasks.TasksManagerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.library.sync.LibrarySyncService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.StartLibrarySyncService"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.wallpaper.awards.AwardsLiveWallpaperService"
+  kind: SERVICE
+  exported: true
+  permission: "android.permission.BIND_WALLPAPER"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.service.wallpaper.WallpaperService"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.library.ShelfFragmentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzh"
+      method: "<com.google.android.gms.common.stats.zzh: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.kobobooks.android.debug.screens.ReadingLifeDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.KoboFlowDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.rssfeeds.ui.RSSFeedsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.ReadingExperienceDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.screens.FileContentsDisplayActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.reading.fixedlayout.FLEPubViewer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.image.LEImageFullScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.koboflow.DownloadClickBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.DownloadableItemClicked"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r14)"
+      class_name: "com.kobobooks.android.koboflow.DownloadClickBroadcastReceiver"
+      method: "<com.kobobooks.android.koboflow.DownloadClickBroadcastReceiver: void handleItemClicked(android.content.Context,android.content.Intent)>"
+      id: 50
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.kobobooks.android.LaunchShowDialog"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r7)"
+      class_name: "com.kobobooks.android.helpers.NavigationHelper"
+      method: "<com.kobobooks.android.helpers.NavigationHelper: void goToInformationPage(android.content.Context,java.lang.String,boolean,com.kobobooks.android.content.ContentType,java.lang.String,com.kobobooks.android.analytics.AnalyticsConstants$Origin)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r9)"
+      class_name: "com.kobobooks.android.koboflow.DownloadClickBroadcastReceiver"
+      method: "<com.kobobooks.android.koboflow.DownloadClickBroadcastReceiver: void showDialog(android.content.Context,java.lang.String,int)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.kobobooks.android.LaunchShowDialog"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.screens.Login"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.rssfeeds.ui.RSSFeedItemActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.dp.reader.layoutelements.map.LEMapFullScreenAmazonActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>($r1)"
+      class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+      method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzbx(android.content.Context)>"
+      id: 6
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/firebase/iid/FirebaseInstanceIdInternalReceiver"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.zzf"
+      method: "<com.google.firebase.iid.zzf: void zzb(android.content.Intent,java.lang.String)>"
+      id: 64
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void sendBroadcast(android.content.Intent)>($r2)"
+      class_name: "com.google.firebase.iid.FirebaseInstanceId"
+      method: "<com.google.firebase.iid.FirebaseInstanceId: void zza(android.content.Context,com.google.firebase.iid.zzg)>"
+      id: 7
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/firebase/iid/FirebaseInstanceIdInternalReceiver"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r25.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.zzf"
+      method: "<com.google.firebase.iid.zzf: void zzb(android.content.Intent,java.lang.String)>"
+      id: 43
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void sendBroadcast(android.content.Intent)>($r5)"
+      class_name: "com.google.firebase.iid.FirebaseInstanceId"
+      method: "<com.google.firebase.iid.FirebaseInstanceId: void zzaW(android.content.Context)>"
+      id: 7
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/firebase/iid/FirebaseInstanceIdInternalReceiver"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.CustomTabActivity: void startActivityForResult(android.content.Intent,int)>(r9, 2)"
+      class_name: "com.facebook.CustomTabActivity"
+      method: "<com.facebook.CustomTabActivity: void onCreate(android.os.Bundle)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*).action_customTabRedirect"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/facebook/CustomTabMainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.kobobooks.android.screens.AppLoading"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchDownloadAll"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "kobo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchCurrentRead"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchTasteProfileQuestions"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchKoboSettings"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchReviewsList"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.PostSetupAction"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchStatsPage"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchImportContent"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchMarkAsClosed"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchRead"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchPurchase"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchLibrary"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchRateReview"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchOdmAction"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchWebStore"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchWebInfoPageAction"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchSearchResults"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchStack"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchLibraryInformationPage"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "com.kobobooks.android"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchShowDialog"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEARCH"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchRecommendationsView"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchRemoveBook"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchMerchList"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "strikead"
+    }
+    attributes {
+      kind: SCHEME
+      value: "kobo.android"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "store.kobobooks.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "store.kobobooks.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "store.kobobooks.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "kobo"
+    }
+    attributes {
+      kind: HOST
+      value: "kobo.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "kobo.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "kobo.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "kobo"
+    }
+    attributes {
+      kind: HOST
+      value: "www.kobo.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "www.kobo.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "www.kobo.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "kobo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchAwardPopup"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchKoboNewsItemAction"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchFacebookLogin"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchCommentsAction"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchRemoveMultipleBooks"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchStats"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: SCHEME
+      value: "content"
+    }
+    attributes {
+      kind: PATH
+      value: "com.kobobooks.android(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LaunchPauseAll"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: void launchNextActivity()>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.kobo.launcher.OpenHomePage"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/MainNavActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r152)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 296
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/social/CommentsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<com.kobobooks.android.screens.AppLoading: void startActivityForResult(android.content.Intent,int)>($r6, 0)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: void launchNextActivity()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/LongMigration"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r147)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 221
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/nativestore/NativeStoreTabActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>($r62)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 287
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/sideloading/screens/SideLoadingPage"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivityForResult(android.content.Intent,int)>(r155, 1001)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 336
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/ExternalActionActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r137)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 87
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/MainNavActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r7.<android.content.Context: void startActivity(android.content.Intent)>(r16)"
+      class_name: "com.kobobooks.android.readinglife.synching.SocialRequestHelper"
+      method: "<com.kobobooks.android.readinglife.synching.SocialRequestHelper: void lambda$performAuthenticateUserRequest$184(com.kobobooks.android.content.User)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/ShowDialogActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r156)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 345
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/ExternalActionActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivityForResult(android.content.Intent,int)>(r160, 1002)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 379
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/ExternalActionActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>($r79)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 212
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.kobobooks.android.helpers.NavigationHelper"
+      method: "<com.kobobooks.android.helpers.NavigationHelper: void goToSearchResults(android.content.Context,java.lang.String,com.kobobooks.android.web.URIFactory$QueryFilter,boolean)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.SEARCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/SearchController"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r141)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 136
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/readinglife/StatsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r159)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 370
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/web/WebStoreSlideOut"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r151)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 265
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/ShowDialogActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r129)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 117
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r153)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 305
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/ShowDialogActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r157)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 354
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/screens/ExternalActionActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r158)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 362
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/settings/preferencesettings/SettingsPrefsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>($r124)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r128.<com.kobobooks.android.screens.AppLoading: void startActivity(android.content.Intent)>(r136)"
+      class_name: "com.kobobooks.android.screens.AppLoading"
+      method: "<com.kobobooks.android.screens.AppLoading: boolean handleSpecialLaunch()>"
+      id: 73
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/kobobooks/android/authenticator/AuthenticatorActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r7)"
+      class_name: "com.kobobooks.android.helpers.NavigationHelper"
+      method: "<com.kobobooks.android.helpers.NavigationHelper: void goToInformationPage(android.content.Context,java.lang.String,boolean,com.kobobooks.android.content.ContentType,java.lang.String,com.kobobooks.android.analytics.AnalyticsConstants$Origin)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.lookup.LookupWebActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.screens.CustomizeCustomShelfActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.INSERT_OR_EDIT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.koboflow.TileDataBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.LibrarySyncFinishedAction"
+      value: "com.kobobooks.android.BookAddedToLibrary"
+      value: "com.kobobooks.android.LOADED_USER_PROFILE"
+      value: "com.kobobooks.android.KoboNewsSyncedAction"
+      value: "com.kobobooks.android.helpers.LocalDataHelper.ClearLocalData"
+      value: "com.kobobooks.android.RecommendationsChangedAction"
+      value: "com.kobobooks.android.UpdateStatTile"
+      value: "com.kobobooks.android.volumesImportedAction"
+      value: "com.kobobooks.android.AwardEarnedAction"
+      value: "com.kobobooks.android.ReviewDeletedAction"
+      value: "com.kobobooks.android.ReviewPostedAction"
+      value: "com.kobobooks.android.ACTION_READER_LOGOUT"
+      value: "com.kobobooks.android.BookOpened"
+      value: "com.kobobooks.android.BookReading"
+      value: "com.kobobooks.android.help.crowdcare.CROWDCARE_NOTIFICATIONS_CHANGED"
+      value: "com.kobobooks.android.LocaleChangedAction"
+      value: "com.kobobooks.android.commentDeleted"
+      value: "com.kobobooks.android.currentReadChangedAction"
+      value: "com.kobobooks.android.ACTION_READER_LOGIN"
+      value: "com.kobobooks.android.UserRatingChanged"
+      value: "com.kobobooks.android.PRICES_UPDATED_ACTION"
+      value: "com.kobobooks.android.TasteProfileQuestionsAction"
+      value: "com.kobobooks.android.providers.SaxLiveContentProvider.volumeRemovedFromLibraryAction"
+      value: "com.kobobooks.android.reading.data.ChapterSocialReadingData.socialDataUpdated"
+      value: "com.kobobooks.android.repliesDeleted"
+      value: "com.kobobooks.android.BookProgressChanged"
+      value: "com.kobobooks.android.BookClosed"
+      value: "com.kobobooks.android.social.facebook.FacebookHelper.loginSuccessful"
+      value: "com.kobobooks.android.NumAnnotationsChanged"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.btb.BeyondBookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r12.<android.content.Context: void startActivity(android.content.Intent)>($r13)"
+      class_name: "com.aquafadas.dp.reader.engine.ReaderView$11"
+      method: "<com.aquafadas.dp.reader.engine.ReaderView$11: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void startActivityForResult(android.content.Intent,int)>(r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity"
+      method: "<com.aquafadas.dp.reader.gallery.detail.GalleryDetailActivity: void onFullscreenButtonPressed()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r13, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/fullscreen/LEImageListFullScreenActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r6)"
+      class_name: "com.kobobooks.android.btb.BeyondBookActivity"
+      method: "<com.kobobooks.android.btb.BeyondBookActivity: void updatePageCommentsIndicator()>"
+      id: 8
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity"
+      method: "<com.aquafadas.dp.reader.gallery.fullscreen.LEImageListFullScreenActivity: void onDetailButtonPressed()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.aquafadas.dp.reader.gallery.GalleryActivity: void startActivityForResult(android.content.Intent,int)>(r14, 1)"
+      class_name: "com.aquafadas.dp.reader.gallery.GalleryActivity$1"
+      method: "<com.aquafadas.dp.reader.gallery.GalleryActivity$1: void onAnimationEnd(android.view.animation.Animation)>"
+      id: 23
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/aquafadas/dp/reader/gallery/detail/GalleryDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.widget.LibraryWidgetService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_REMOTEVIEWS"
+}
+components {
+  name: "com.kobobooks.android.reading.epub3.photoquote.CreatePhotoQuoteActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.WidgetDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.readinglife.StatsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.appanalyzerseed.ReferrerService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r25.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r22)"
+      class_name: "com.appanalyzerseed.ReferrerSender"
+      method: "<com.appanalyzerseed.ReferrerSender: void onAppBoot()>"
+      id: 27
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.APP_BOOTED"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r11)"
+      class_name: "com.appanalyzerseed.BillingSender"
+      method: "<com.appanalyzerseed.BillingSender: void run()>"
+      id: 19
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.NONE"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.appanalyzerseed.ReferrerSender"
+      method: "<com.appanalyzerseed.ReferrerSender: void onSendComplete()>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.SEND_COMPLETED"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.appanalyzerseed.BillingSender"
+      method: "<com.appanalyzerseed.BillingSender: void onSendFail()>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.SEND_BILLING_FAILED"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.appanalyzerseed.BillingSender"
+      method: "<com.appanalyzerseed.BillingSender: void onSendComplete()>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.SEND_BILLING_COMPLETED"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r11)"
+      class_name: "com.appanalyzerseed.ReferrerSender"
+      method: "<com.appanalyzerseed.ReferrerSender: void run()>"
+      id: 19
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.NONE"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.appanalyzerseed.ReferrerSender"
+      method: "<com.appanalyzerseed.ReferrerSender: void onSendFail()>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.SEND_FAILED"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r15.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r13)"
+      class_name: "com.appanalyzerseed.BillingSender"
+      method: "<com.appanalyzerseed.BillingSender: void onAppBoot()>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appanalyzerseed.action.APP_BILLING_BOOTED"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/appanalyzerseed/ReferrerService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.kobobooks.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.screens.ExternalActionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.lookup.LookupActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.screens.PileActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aquafadas.dp.reader.gui.browsebar.matriceview.MatriceViewActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.View"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.screens.ShowDialogActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.kobobooks.android.ACTIVATION_OFFER"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.aquafadas.zip.UnzipService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.RSSFeedsDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.reading.epub3.ImageViewer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.search.SearchResultActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.receivers.KoboInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.kobobooks.android.dictionary.DictionaryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.sideloading.screens.SideLoadingPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.debug.screens.NewLibraryDebugOptionsPage"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kobobooks.android.widget.StoreWidgetConfigurationActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_CONFIGURE"
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.kobobooks.android.koboflow.DownloadClickBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.kobobooks.android.providers.receivers.LocaleChangedReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.bumptech.glide.manager.DefaultConnectivityMonitor$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.kobo.readerlibrary.util.DownloadListenerManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.facebook.AccessTokenTracker$CurrentAccessTokenBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.kobobooks.android.providers.receivers.ConnectivityReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "android.support.v4.content.WakefulBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "android.support.v7.app.AppCompatDelegateImplV14$AutoNightModeManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.internal.zzag"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.internal.zzr"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.kobobooks.android.receivers.ShelfSyncReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.facebook.internal.BoltsMeasurementEventListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r4 = virtualinvoke $r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r1)"
+    class_name: "com.google.android.gms.common.util.zzj"
+    method: "<com.google.android.gms.common.util.zzj: float zzaE(android.content.Context)>"
+    id: 15
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzol"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.kobobooks.android.btb.BeyondBookActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "NULL-CONSTANT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void zzd(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+analysis_start: 1536517404
+analysis_end: 1536518372

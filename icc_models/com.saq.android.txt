@@ -1,0 +1,1839 @@
+name: "com.saq.android"
+version: 398
+permissions {
+  name: "com.saq.android.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "com.saq.android.permission.C2D_MESSAGE"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.CAMERA"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.saq.android.common.activity.GenericTextActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r14)"
+      class_name: "com.google.android.gms.internal.bx"
+      method: "<com.google.android.gms.internal.bx: void a(android.content.Context,android.content.Intent)>"
+      id: 21
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.gms.analytics.AnalyticsService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.e"
+      method: "<com.google.android.gms.common.stats.e: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 60
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.saq.android.favorites.CreateFavoriteListActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.saq.android"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r49 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.y"
+      method: "<com.google.firebase.iid.y: int a(android.content.Context,android.content.Intent)>"
+      id: 93
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.saq.android.checkout.PaymentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.search.criterias.SearchCriteriaCountriesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.productdetails.ProductImageActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.inspire.InspirePointDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "tagmanager.c.com.saq.android"
+    }
+  }
+}
+components {
+  name: "com.saq.android.account.BillingAddressActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.shippingaddress.EditShippingAddressActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.productdetails.ProductDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void x()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivityForResult(android.content.Intent,int)>($r5, 0)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void r_()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/saq/android/shoppingcart/ShoppingCartActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.purchasehistory.PurchaseHistoryActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void x()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.main.MainActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "@2131623991"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "@2131623989"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "@2131623990"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.main.MainActivity: void startActivityForResult(android.content.Intent,int)>($r5, 0)"
+      class_name: "com.saq.android.main.MainActivity"
+      method: "<com.saq.android.main.MainActivity: void a()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/saq/android/favorites/FavoriteListsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r52.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r55)"
+      class_name: "com.saq.android.d.a"
+      method: "<com.saq.android.d.a: com.saq.a.e.c.q a(java.lang.String,com.saq.android.common.view.ToolbarView)>"
+      id: 102
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/saq/android/inspire/ManageInspireCardActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r33.<com.saq.android.common.activity.BaseActivity: void startActivityForResult(android.content.Intent,int)>($r36, 123)"
+      class_name: "com.saq.android.d.a"
+      method: "<com.saq.android.d.a: com.saq.a.e.c.q a(java.lang.String,com.saq.android.common.view.ToolbarView)>"
+      id: 64
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/saq/android/login/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.mirego.coffeeshop.util.IntentUtil"
+      method: "<com.mirego.coffeeshop.util.IntentUtil: void sendBrowserIntent(android.content.Context,java.lang.String)>"
+      id: 5
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void x()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r27.<com.saq.android.common.activity.BaseActivity: void startActivityForResult(android.content.Intent,int)>($r30, 0)"
+      class_name: "com.saq.android.d.a"
+      method: "<com.saq.android.d.a: com.saq.a.e.c.q a(java.lang.String,com.saq.android.common.view.ToolbarView)>"
+      id: 54
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/saq/android/moreinfo/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r17.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r22)"
+      class_name: "com.saq.android.d.a"
+      method: "<com.saq.android.d.a: com.saq.a.e.c.q a(java.lang.String,com.saq.android.common.view.ToolbarView)>"
+      id: 38
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.saq.android.favorites.FavoriteListsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void x()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.search.filters.FiltersActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.login.ForgotPasswordActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.moreinfo.HiddenConfigActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.inspire.ManageInspireCardActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void x()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+}
+components {
+  name: "com.journeyapps.barcodescanner.CaptureActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.checkout.CheckoutSummaryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.saq.android.fcm.SaqFirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.saq.android.shoppingcart.LegalNotesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.search.criterias.SearchCriteriaCategoriesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.checkout.ChooseHomeDeliveryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.shippingaddress.ShippingAddressesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r19, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void onCreate(android.os.Bundle)>"
+      id: 54
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.e"
+      method: "<com.google.android.gms.common.stats.e: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 60
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.saq.android.purchaseprofile.PurchaseProfileSegmentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.shoppingcart.ShoppingCartActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void x()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.purchaseprofile.PurchaseProfileActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.productdetails.ProductPairingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.tagmanager.TagManagerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.saq.android.favorites.EditFavoriteCommentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.saq.android.moreinfo.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.splash.SplashActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.splash.SplashActivity: void startActivity(android.content.Intent)>(r11)"
+      class_name: "com.saq.android.splash.SplashActivity"
+      method: "<com.saq.android.splash.SplashActivity: void onCreate(android.os.Bundle)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/saq/android/main/MainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.saq.android.account.ProfileActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.checkout.PaymentConfirmationActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.saq.android.common.activity.BaseActivity: void startActivityForResult(android.content.Intent,int)>($r5, 0)"
+      class_name: "com.saq.android.common.activity.BaseActivity"
+      method: "<com.saq.android.common.activity.BaseActivity: void r_()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/saq/android/shoppingcart/ShoppingCartActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.saq.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.checkout.ChooseStoreDeliveryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.scan.ScanInspireCardActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.inspire.InspireCardActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.storelocator.StoreLocatorStandaloneActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.login.LoginActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.saq.android.account.CreateAccountActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.saq.android.myoffers.OfferDetailActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.branch.referral.InstallListener"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.saq.android.fcm.SaqFirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.saq.android.scan.ScanProductActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mirego.scratch.core.a.a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.zxing.b.a.e$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.firebase.iid.c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.internal.aw"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.android.gms.internal.ik"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "android.support.v4.content.WakefulBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.saq.android.b.k"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "android.support.v7.app.AppCompatDelegateImplV14$AutoNightModeManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "io.branch.referral.InstallListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.bumptech.glide.d.e$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.firebase.a$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.google.android.gms.internal.br"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r4 = virtualinvoke $r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r1)"
+    class_name: "com.google.android.gms.common.util.h"
+    method: "<com.google.android.gms.common.util.h: float b(android.content.Context)>"
+    id: 15
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.google.zxing.b.a.e"
+    method: "<com.google.zxing.b.a.e: void e()>"
+    id: 7
+  }
+}
+analysis_start: 1536549412
+analysis_end: 1536549795

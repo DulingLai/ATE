@@ -1,0 +1,2195 @@
+name: "com.google.android.apps.books"
+version: 31215
+permissions {
+  name: "com.google.android.apps.books.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "android.permission.READ_SYNC_SETTINGS"
+used_permissions: "android.permission.GET_PACKAGE_SIZE"
+used_permissions: "com.google.android.apps.books.permission.C2D_MESSAGE"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.WRITE_SYNC_SETTINGS"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.USE_CREDENTIALS"
+used_permissions: "android.permission.SUBSCRIBED_FEEDS_READ"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.SUBSCRIBED_FEEDS_WRITE"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "android.permission.MANAGE_ACCOUNTS"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "com.google.android.providers.gsf.permission.READ_GSERVICES"
+components {
+  name: "com.google.android.apps.books.app.TableOfContentsActivityLight"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.gcm.LogFlushTaskService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void schedule(com.google.android.gms.gcm.Task)>"
+      id: 12
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.UploadsActivityAliasPdf"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "*"
+    }
+    attributes {
+      kind: TYPE
+      value: "*/*"
+    }
+    attributes {
+      kind: PATH
+      value: "/.*\\.pdf"
+    }
+    attributes {
+      kind: SCHEME
+      value: "file"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "application/pdf"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.UploadsActivityAlias: void startActivity(android.content.Intent)>(r18)"
+      class_name: "com.google.android.apps.books.app.UploadsActivityAlias"
+      method: "<com.google.android.apps.books.app.UploadsActivityAlias: void startUploadAndFinishActivity(android.net.Uri)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.LAUNCHER"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/app/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.collection.CollectionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.onboard.BooksOnboardHostActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "play.google.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/books/onboarding"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.app.BooksActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.BooksActivity: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.google.android.apps.books.app.BooksActivity"
+      method: "<com.google.android.apps.books.app.BooksActivity: void onCreate(android.os.Bundle)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.gcm.NotificationFetchTaskService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void schedule(com.google.android.gms.gcm.Task)>"
+      id: 12
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.gcm.CloudNotificationIntentService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.iid.Rpc"
+      method: "<com.google.android.gms.iid.Rpc: void sendRequest(android.content.Intent,java.lang.String)>"
+      id: 85
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r29.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r48)"
+      class_name: "com.google.android.gms.iid.Rpc"
+      method: "<com.google.android.gms.iid.Rpc: void sendRequest(android.content.Intent,java.lang.String)>"
+      id: 67
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void schedule(com.google.android.gms.gcm.Task)>"
+      id: 12
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.google.android.apps.books.gcm.CloudNotificationUtil"
+      method: "<com.google.android.apps.books.gcm.CloudNotificationUtil: void onNotificationClicked(android.content.Context,com.google.android.apps.books.gcm.NotificationDetails)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r7)"
+      class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+      method: "<com.google.android.gms.iid.InstanceIDListenerService: void zza(android.content.Context,com.google.android.gms.iid.zzc)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.gcm.CloudNotificationIntentService: void startActivity(android.content.Intent)>($r11)"
+      class_name: "com.google.android.apps.books.gcm.CloudNotificationIntentService"
+      method: "<com.google.android.apps.books.gcm.CloudNotificationIntentService: void onHandleIntent(android.content.Intent)>"
+      id: 95
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.gcm.GcmReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r3.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.gcm.GcmReceiver"
+      method: "<com.google.android.gms.gcm.GcmReceiver: void doStartService(android.content.Context,android.content.Intent)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "android.support.v4.media.session.MediaButtonReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MEDIA_BUTTON"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.FullScreenVideoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.app.OffersActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.OffersActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.google.android.apps.books.app.OffersActivity"
+      method: "<com.google.android.apps.books.app.OffersActivity: void onNewIntent(android.content.Intent)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.service.BooksUserContentService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.play.IUserContentService.BIND"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.details.BookDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.gcm.CloudNotificationRoutingActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.gcm.CloudNotificationRoutingActivity: android.content.ComponentName startService(android.content.Intent)>($r4)"
+      class_name: "com.google.android.apps.books.gcm.CloudNotificationRoutingActivity"
+      method: "<com.google.android.apps.books.gcm.CloudNotificationRoutingActivity: void onCreate(android.os.Bundle)>"
+      id: 38
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.books.CLICK_GCM_GROUP_NOTIFICATION"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/gcm/CloudNotificationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.gcm.CloudNotificationRoutingActivity: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.google.android.apps.books.gcm.CloudNotificationRoutingActivity"
+      method: "<com.google.android.apps.books.gcm.CloudNotificationRoutingActivity: void onCreate(android.os.Bundle)>"
+      id: 41
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.books.SETTINGS_GCM_GROUP_NOTIFICATION"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/gcm/CloudNotificationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.AppSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, $r3, i0)"
+      class_name: "com.google.android.ublib.utils.OneShotServiceClient"
+      method: "<com.google.android.ublib.utils.OneShotServiceClient: void invokeService(android.content.Context,android.content.Intent,int,com.google.android.ublib.utils.OneShotServiceClient$Delegate)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.contentfilters.IContentFiltersService.BIND"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.AppSettingsActivity: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.google.android.apps.books.app.AppSettingsActivity"
+      method: "<com.google.android.apps.books.app.AppSettingsActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/app/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.HomeActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "play.google.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/books"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "play.google.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/books/"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "play.google.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/books/home/onboarding"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "play.google.com"
+    }
+    attributes {
+      kind: PATH
+      value: "@2131362537"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "play.google.com"
+    }
+    attributes {
+      kind: PATH
+      value: "@2131362537"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<com.google.android.apps.books.app.HomeActivity: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.google.android.apps.books.app.HomeActivity"
+      method: "<com.google.android.apps.books.app.HomeActivity: void onNewIntent(android.content.Intent)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    intents {
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, $r3, i0)"
+      class_name: "com.google.android.ublib.utils.OneShotServiceClient"
+      method: "<com.google.android.ublib.utils.OneShotServiceClient: void invokeService(android.content.Context,android.content.Intent,int,com.google.android.ublib.utils.OneShotServiceClient$Delegate)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.contentfilters.IContentFiltersService.BIND"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.HomeActivity: void startActivityForResult(android.content.Intent,int)>(r20, 4)"
+      class_name: "com.google.android.apps.books.app.HomeActivity"
+      method: "<com.google.android.apps.books.app.HomeActivity: void onCreate(android.os.Bundle)>"
+      id: 29
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/onboard/BooksOnboardHostActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 33
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r1.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r3, r4, i1)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.BaseBooksActivity: void startActivity(android.content.Intent)>(r22)"
+      class_name: "com.google.android.apps.books.app.BaseBooksActivity"
+      method: "<com.google.android.apps.books.app.BaseBooksActivity: void onActivityResult(int,int,android.content.Intent)>"
+      id: 29
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.gcm.FBRemoteConfigFetchTaskService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void schedule(com.google.android.gms.gcm.Task)>"
+      id: 12
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r8.<android.content.Context: void sendBroadcast(android.content.Intent)>(r3)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void zza(java.lang.String,android.content.ComponentName)>"
+      id: 13
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.gcm.BooksGcmListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void schedule(com.google.android.gms.gcm.Task)>"
+      id: 12
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.series.SeriesActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, $r3, i0)"
+      class_name: "com.google.android.ublib.utils.OneShotServiceClient"
+      method: "<com.google.android.ublib.utils.OneShotServiceClient: void invokeService(android.content.Context,android.content.Intent,int,com.google.android.ublib.utils.OneShotServiceClient$Delegate)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.contentfilters.IContentFiltersService.BIND"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.service.SyncService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.content.SyncAdapter"
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.BooksAlarmBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r5, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void zzj(android.content.Intent)>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.auth.GOOGLE_SIGN_IN"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.LicensesWebViewActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.google.android.apps.books.tts.background.AudioService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MEDIA_BUTTON"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.google.android.apps.books.app.BooksApplication: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.google.android.apps.books.tts.background.AudioService"
+      method: "<com.google.android.apps.books.tts.background.AudioService: void openPrimaryBook()>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.NotificationBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.android.gms.tagmanager.TagManagerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.gcm.GcmRegistrationIntentService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.iid.Rpc"
+      method: "<com.google.android.gms.iid.Rpc: void sendRequest(android.content.Intent,java.lang.String)>"
+      id: 85
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r29.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r48)"
+      class_name: "com.google.android.gms.iid.Rpc"
+      method: "<com.google.android.gms.iid.Rpc: void sendRequest(android.content.Intent,java.lang.String)>"
+      id: 67
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 33
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void schedule(com.google.android.gms.gcm.Task)>"
+      id: 12
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r1.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r3, r4, i1)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r7)"
+      class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+      method: "<com.google.android.gms.iid.InstanceIDListenerService: void zza(android.content.Context,com.google.android.gms.iid.zzc)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.appwidget.BooksAppWidgetProvider"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.TableOfContentsActivityDark"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.explore.ArticleActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.provider.BooksProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 33
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r1.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r3, r4, i1)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.AccountsReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.accounts.LOGIN_ACCOUNTS_CHANGED"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.appdatasearch.util.SuggestionsProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 33
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r1.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r3, r4, i1)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.WebViewTestActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.gcm.BooksInstanceIDService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.iid.InstanceID"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.ComponentName startService(android.content.Intent)>(r8)"
+      class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+      method: "<com.google.android.gms.iid.InstanceIDListenerService: int onStartCommand(android.content.Intent,int,int)>"
+      id: 17
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.gcm.BooksInstanceIDService: android.content.ComponentName startService(android.content.Intent)>($r1)"
+      class_name: "com.google.android.apps.books.gcm.BooksInstanceIDService"
+      method: "<com.google.android.apps.books.gcm.BooksInstanceIDService: void onTokenRefresh()>"
+      id: 2
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.books.GCM_REGISTER"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/gcm/GcmRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+      method: "<com.google.android.gms.iid.InstanceIDListenerService: void zzdj(android.content.Context)>"
+      id: 7
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r7)"
+      class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+      method: "<com.google.android.gms.iid.InstanceIDListenerService: void zza(android.content.Context,com.google.android.gms.iid.zzc)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.ReadingActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "googlebooks"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEARCH"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.apps.books.intent.action.READ"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "com.google.android.apps.books"
+    }
+    attributes {
+      kind: PATH
+      value: "/volumes/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "gsa"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "play.google.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/books/reader(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 33
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r1.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r3, r4, i1)"
+      class_name: "com.google.android.gms.common.stats.zzb"
+      method: "<com.google.android.gms.common.stats.zzb: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.ReadingActivity: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.google.android.apps.books.app.ReadingActivity"
+      method: "<com.google.android.apps.books.app.ReadingActivity: void closeBook(boolean)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/app/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.BaseBooksActivity: void startActivity(android.content.Intent)>(r22)"
+      class_name: "com.google.android.apps.books.app.BaseBooksActivity"
+      method: "<com.google.android.apps.books.app.BaseBooksActivity: void onActivityResult(int,int,android.content.Intent)>"
+      id: 29
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.ReadingActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.google.android.apps.books.app.ReadingActivity"
+      method: "<com.google.android.apps.books.app.ReadingActivity: void onNewIntent(android.content.Intent)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.appwidget.BooksAppWidgetService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_REMOTEVIEWS"
+}
+components {
+  name: "com.google.android.apps.books.provider.BooksProvider$PublicProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.google.android.apps.books.explore.YouTubeVideoActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "com.google.android.gms.gcm.GcmNetworkManager"
+      method: "<com.google.android.gms.gcm.GcmNetworkManager: void schedule(com.google.android.gms.gcm.Task)>"
+      id: 12
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.explore.YouTubeVideoActivity: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.google.android.apps.books.explore.YouTubeVideoActivity"
+      method: "<com.google.android.apps.books.explore.YouTubeVideoActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.UploadsActivityAlias"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "*"
+    }
+    attributes {
+      kind: TYPE
+      value: "*/*"
+    }
+    attributes {
+      kind: PATH
+      value: "/.*\\.epub"
+    }
+    attributes {
+      kind: SCHEME
+      value: "file"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "application/epub+zip"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.apps.books.app.UploadsActivityAlias: void startActivity(android.content.Intent)>(r18)"
+      class_name: "com.google.android.apps.books.app.UploadsActivityAlias"
+      method: "<com.google.android.apps.books.app.UploadsActivityAlias: void startUploadAndFinishActivity(android.net.Uri)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.LAUNCHER"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/android/apps/books/app/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.books"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.CopyVersionActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.google.android.apps.books.app.RecommendUninstallActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<com.google.android.apps.books.app.RecommendUninstallActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.google.android.apps.books.app.RecommendUninstallActivity$1"
+      method: "<com.google.android.apps.books.app.RecommendUninstallActivity$1: void onClick(android.content.DialogInterface,int)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.TestingOptionsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.books.app.BooksAlarmBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "android.support.v4.content.WakefulBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "android.support.v7.app.AppCompatDelegateImplV14$AutoNightModeManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.NotificationBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.gcm.GcmReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "android.support.v4.media.session.MediaButtonReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.libraries.performance.primes.ServiceFlags$GServicesBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.internal.zzr"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.appwidget.BooksAppWidgetProvider"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.internal.zzaf"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.tts.background.AudioService$HeadphoneBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.HEADSET_PLUG"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.appwidget.BooksRVFactory$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.PhoneskyFilterHelper$4"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.finsky.action.CONTENT_FILTERS_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r2, $r3)"
+    class_name: "com.google.android.apps.books.app.PhoneskyFilterHelper"
+    method: "<com.google.android.apps.books.app.PhoneskyFilterHelper: void init(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.AccountsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "android.appwidget.AppWidgetProvider"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.tts.background.AudioService$BecomingNoisyReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.BooksCardsFragment$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.play.search.PlaySearchVoiceController"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.libraries.performance.primes.MemoryLeakMetricService$ScreenOnOffReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.internal.zzrt"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.gms.iid.InstanceIDListenerService$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+components {
+  name: "com.google.android.apps.books.app.ReaderFragment$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.RECEIVE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.apps.books"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.google.android.gms.iid.InstanceIDListenerService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r3, r1, \"com.google.android.c2dm.permission.RECEIVE\", null)"
+    class_name: "com.google.android.gms.iid.InstanceIDListenerService"
+    method: "<com.google.android.gms.iid.InstanceIDListenerService: void onCreate()>"
+    id: 6
+  }
+}
+analysis_start: 1538646554
+analysis_end: 1538646748

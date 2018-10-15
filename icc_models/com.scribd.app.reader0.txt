@@ -1,0 +1,886 @@
+name: "com.scribd.app.reader0"
+version: 140
+permissions {
+  name: "com.scribd.app.reader0.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "android.permission.AUTHENTICATE_ACCOUNTS"
+used_permissions: "android.permission.SYSTEM_ALERT_WINDOW"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.WRITE_SYNC_SETTINGS"
+used_permissions: "android.permission.BROADCAST_STICKY"
+used_permissions: "com.scribd.app.reader0.permission.C2D_MESSAGE"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.USE_CREDENTIALS"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.WRITE_SETTINGS"
+used_permissions: "android.permission.MANAGE_ACCOUNTS"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.scribd.app.update.BroadcastDialogActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.audiobooks.RemoteControlReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+      value: "android.intent.action.MEDIA_BUTTON"
+    }
+  }
+}
+components {
+  name: "com.scribd.app.payment.UpdatePaymentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.search.SearchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.scribd.app.support.SupportActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.rating_playstore.RatingDialogFragmentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.viewer.NoteActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.install.InstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.gcm.GcmReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.scribd.app.reader0"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r3.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.gcm.GcmReceiver"
+      method: "<com.google.android.gms.gcm.GcmReceiver: void c(android.content.Context,android.content.Intent)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+  }
+}
+components {
+  name: "com.scribd.app.account.ZendeskMyTicketsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.viewer.DocumentViewActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.cancel.CancelSubscriptionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.impactradius.InstallReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.scribd.app.personalization.PersonalizationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.dataviewer.DataViewerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zopim.android.sdk.api.ZopimChatApi$ChatTimeoutReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: 1000
+    }
+    attributes {
+      kind: ACTION
+      value: "chat.action.TIMEOUT"
+    }
+  }
+}
+components {
+  name: "com.scribd.app.viewer.ZoomableImageViewer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.audiobooks.AudiobookNotificationService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.scribd.app.account.UnpauseSubscriptionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.appsflyer.MultipleInstallBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.appsflyer.f"
+      method: "<com.appsflyer.f: void a(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 28
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appsflyer.MonitorBroadcast"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.appsflyer.nightvision"
+      }
+    }
+  }
+}
+components {
+  name: "com.scribd.app.appintro.AppIntroActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.dataviewer.PrefsViewerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.viewer.EndOfReadingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.ratings_reviews.RatingAndReviewActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.share.ShareActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.download.DownloadService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.scribd.app.features.DevFeaturesCategoryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.ui.MainMenuActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: SCHEME
+      value: "iscribd"
+    }
+    attributes {
+      kind: HOST
+      value: "*.scribd.com"
+    }
+    attributes {
+      kind: HOST
+      value: "scribd.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/doc/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/book/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/read/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/listen/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/audiobook/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/books(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/audiobooks(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/presentation(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/document(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/article(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/mobile/doc/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/mobile/book/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/mobile/audiobook/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/mobile/document/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/mobile/presentation/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/mobile/article/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/author/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/user/(.*)"
+    }
+  }
+}
+components {
+  name: "com.scribd.app.trial.WelcomeSubscriberActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.xtralogic.android.logcollector.lib.LogContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.scribd.app.notifications.GcmTokenRefreshService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.scribd.app.notifications.ScribdGcmListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.scribd.app.configuration.ConfigurationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.intro.FeatureIntroActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.account.ResumeSubscriptionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.ui.fragments.GenericInfoAlertDialogFragmentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.account.ZendeskSupportActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.audiobooks.AudioPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.account.LoggedOutAlertActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.h"
+      method: "<com.google.android.gms.common.stats.h: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+      method: "<com.google.android.gms.analytics.CampaignTrackingReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 34
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/gms/analytics/CampaignTrackingService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+  }
+}
+components {
+  name: "com.scribd.app.referrals.ReferralsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.share.CopyToClipboardActivity"
+  kind: ACTIVITY
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.scribd.app.reader0.COPY"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "text/plain"
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.support.ViewArticleActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.requests.ViewRequestActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.util.SingleFragmentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r5, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void a(android.content.Intent)>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.auth.GOOGLE_SIGN_IN"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.scribd.app.payment.RedeemTitleActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.viewer.dictionary.DictionaryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.belvedere.BelvedereFileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.scribd.dataviewer.DirectoryViewerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.features.DevFeaturesCategoryListActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.download.FileMigrationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.scranalytics.ScranalyticsService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.scribd.app.account.AccountFlowActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "@2131297764"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.CustomTabActivity: void startActivityForResult(android.content.Intent,int)>(r9, 2)"
+      class_name: "com.facebook.CustomTabActivity"
+      method: "<com.facebook.CustomTabActivity: void onCreate(android.os.Bundle)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*).action_customTabRedirect"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/facebook/CustomTabMainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.scribd.app.reader0"
+      }
+    }
+  }
+}
+components {
+  name: "com.scribd.app.payment.LastPageUpsellActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.ui.SplashScreen"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+}
+components {
+  name: "com.scribd.app.payment.GalaxyGiftsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.account.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zopim.android.sdk.prechat.ZopimChatActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.components.ComponentsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.update.DownloadReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.DOWNLOAD_COMPLETE"
+      value: "android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"
+    }
+  }
+}
+components {
+  name: "com.scribd.app.ui.GridPaginationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.bookpage.BookPageActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.articles.ArticleReaderActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.xtralogic.android.logcollector.lib.SendLogActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.account.HelpCenterActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zopim.android.sdk.api.ChatService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.scribd.app.modules.ModulesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.ui.BugReportActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.auth.AuthenticationService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.accounts.AccountAuthenticator"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.h"
+      method: "<com.google.android.gms.common.stats.h: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.scribd.app.audiobooks.AudioPlayerBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.scribd.ACTION_BOOKMARK"
+      value: "com.scribd.ACTION_PAUSE"
+      value: "com.scribd.ACTION_CLOSE"
+      value: "com.scribd.ACTION_SKIP_BACKWARD"
+      value: "com.scribd.ACTION_PLAY"
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.feedback.ui.ContactZendeskActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.scribd.app.notifications.ScribdInstanceIDListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.iid.InstanceID"
+    }
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r4 = virtualinvoke $r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r1)"
+    class_name: "com.google.android.gms.common.util.f"
+    method: "<com.google.android.gms.common.util.f: float b(android.content.Context)>"
+    id: 15
+  }
+}
+analysis_start: 1536549820
+analysis_end: 1536549842

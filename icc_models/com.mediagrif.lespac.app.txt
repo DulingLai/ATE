@@ -1,0 +1,1810 @@
+name: "com.mediagrif.lespac.app"
+version: 123
+permissions {
+  name: "com.mediagrif.lespac.app.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.REORDER_TASKS"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "com.mediagrif.lespac.app.permission.C2D_MESSAGE"
+components {
+  name: "com.mediagrif.lespac.ui.activity.ResetPasswordActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.util.gcm.LpcInstanceIDListenerService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService"
+      method: "<com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService: void a(android.content.Context)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/util/gcm/LPCGcmRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r14.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r8)"
+      class_name: "com.google.android.gms.common.stats.e"
+      method: "<com.google.android.gms.common.stats.e: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 58
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r14)"
+      class_name: "com.google.android.gms.internal.rg"
+      method: "<com.google.android.gms.internal.rg: void a(android.content.Context,android.content.Intent)>"
+      id: 21
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.gms.analytics.AnalyticsService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.MessageContactActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.FiltersActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<com.mediagrif.lespac.ui.activity.FiltersActivity: void startActivityForResult(android.content.Intent,int)>(r2, 27548)"
+      class_name: "com.mediagrif.lespac.ui.activity.FiltersActivity$11"
+      method: "<com.mediagrif.lespac.ui.activity.FiltersActivity$11: void onClick(android.view.View)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/ui/activity/SearchLocationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.util.gcm.LPCGcmUnregistrationIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r14.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r8)"
+      class_name: "com.google.android.gms.common.stats.e"
+      method: "<com.google.android.gms.common.stats.e: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 58
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.firebase.jobdispatcher.GooglePlayReceiver"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z1 = virtualinvoke $r10.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>($r11, r19, 1)"
+      class_name: "com.firebase.jobdispatcher.d"
+      method: "<com.firebase.jobdispatcher.d: void a(com.firebase.jobdispatcher.p)>"
+      id: 34
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.mediagrif.lespac.app"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r40 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.z"
+      method: "<com.google.firebase.iid.z: int a(android.content.Context,android.content.Intent)>"
+      id: 97
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.PostAnAdCategoryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.AboutActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r7)"
+      class_name: "com.mediagrif.lespac.util.d.d"
+      method: "<com.mediagrif.lespac.util.d.d: void a(android.content.Context,java.lang.String)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.FullScreenImageActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.MainActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.mediagrif.lespac.ui.activity.MainActivity: void startActivity(android.content.Intent)>(r22)"
+      class_name: "com.mediagrif.lespac.ui.activity.MainActivity"
+      method: "<com.mediagrif.lespac.ui.activity.MainActivity: void onCreate(android.os.Bundle)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/ui/activity/MainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.mediagrif.lespac.core.realtimechat.a"
+      method: "<com.mediagrif.lespac.core.realtimechat.a: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/core/realtimechat/RealTimeChatPollService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.mediagrif.lespac.core.realtimechat.a"
+      method: "<com.mediagrif.lespac.core.realtimechat.a: void c(android.content.Context)>"
+      id: 3
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/core/realtimechat/RealTimeChatPollService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService"
+      method: "<com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService: void a(android.content.Context)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/util/gcm/LPCGcmRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.crashlytics.android.CrashlyticsInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService"
+      method: "<com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService: void a(android.content.Context)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/util/gcm/LPCGcmRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.PostAnAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.ChatConversationDetailActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.mediagrif.lespac.core.realtimechat.a"
+      method: "<com.mediagrif.lespac.core.realtimechat.a: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/core/realtimechat/RealTimeChatPollService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.mediagrif.lespac.core.realtimechat.a"
+      method: "<com.mediagrif.lespac.core.realtimechat.a: void c(android.content.Context)>"
+      id: 3
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/core/realtimechat/RealTimeChatPollService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.mediagrif.lespac.ui.activity.ChatConversationDetailActivity: void startActivityForResult(android.content.Intent,int)>($r10, 342)"
+      class_name: "com.mediagrif.lespac.ui.activity.ChatConversationDetailActivity$1"
+      method: "<com.mediagrif.lespac.ui.activity.ChatConversationDetailActivity$1: void onClick(android.view.View)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/ui/activity/AdDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.SearchLocationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mediagrif.android.base.MDFSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "net.openid.appauth.RedirectUriReceiverActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "com.mediagrif.lespac.app"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<net.openid.appauth.RedirectUriReceiverActivity: void startActivity(android.content.Intent)>($r4)"
+      class_name: "net.openid.appauth.RedirectUriReceiverActivity"
+      method: "<net.openid.appauth.RedirectUriReceiverActivity: void onCreate(android.os.Bundle)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "net/openid/appauth/AuthorizationManagementActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.util.gcm.LpcGcmIntentService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService"
+      method: "<com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService: void a(android.content.Context)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/util/gcm/LPCGcmRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.ProfileEditActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.AdDetailActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r2)"
+      class_name: "com.mediagrif.lespac.core.realtimechat.a"
+      method: "<com.mediagrif.lespac.core.realtimechat.a: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/core/realtimechat/RealTimeChatPollService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.SplashScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "specialinvoke r0.<android.support.v7.app.c: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.mediagrif.lespac.ui.activity.SplashScreenActivity"
+      method: "<com.mediagrif.lespac.ui.activity.SplashScreenActivity: void startActivity(android.content.Intent)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/ui/activity/MainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/ui/activity/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService"
+      method: "<com.mediagrif.lespac.util.gcm.LPCGcmRegistrationIntentService: void a(android.content.Context)>"
+      id: 9
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mediagrif/lespac/util/gcm/LPCGcmRegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mediagrif.lespac.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.mediagrif.lespac.core.realtimechat.RealTimeChatPollService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "net.openid.appauth.AuthorizationManagementActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r10.<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent)>(r8, 0, r0)"
+      class_name: "net.openid.appauth.AuthorizationManagementActivity"
+      method: "<net.openid.appauth.AuthorizationManagementActivity: void a()>"
+      id: 14
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r10.<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent)>(r8, 0, r0)"
+      class_name: "net.openid.appauth.AuthorizationManagementActivity"
+      method: "<net.openid.appauth.AuthorizationManagementActivity: void a()>"
+      id: 14
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r10.<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent)>(r8, 0, r0)"
+      class_name: "net.openid.appauth.AuthorizationManagementActivity"
+      method: "<net.openid.appauth.AuthorizationManagementActivity: void a()>"
+      id: 14
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<net.openid.appauth.AuthorizationManagementActivity: void startActivity(android.content.Intent)>($r3)"
+      class_name: "net.openid.appauth.AuthorizationManagementActivity"
+      method: "<net.openid.appauth.AuthorizationManagementActivity: void onResume()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent)>(r9, 0, r0)"
+      class_name: "net.openid.appauth.AuthorizationManagementActivity"
+      method: "<net.openid.appauth.AuthorizationManagementActivity: void b()>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent)>(r9, 0, r0)"
+      class_name: "net.openid.appauth.AuthorizationManagementActivity"
+      method: "<net.openid.appauth.AuthorizationManagementActivity: void b()>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.app.PendingIntent: void send(android.content.Context,int,android.content.Intent)>(r9, 0, r0)"
+      class_name: "net.openid.appauth.AuthorizationManagementActivity"
+      method: "<net.openid.appauth.AuthorizationManagementActivity: void b()>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.RegisterActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.LoginActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.internal.at"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "android.support.v7.app.i$b$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.MainActivity$4"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.MainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.MainActivity$3"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.MainActivity$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.android.gms.internal.xc"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.crashlytics.android.c.q$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.crashlytics.android.c.q$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.android.gms.internal.qz"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.facebook.internal.BoltsMeasurementEventListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.c.f$3"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.firebase.a$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(r1, $r5)"
+    class_name: "com.google.firebase.a$c"
+    method: "<com.google.firebase.a$c: void b(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r4 = virtualinvoke $r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r1)"
+    class_name: "com.google.android.gms.common.util.h"
+    method: "<com.google.android.gms.common.util.h: float b(android.content.Context)>"
+    id: 15
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.c.e$10"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.android.gms.c.by"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.google.firebase.iid.c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "com.mediagrif.lespac.ui.activity.AdDetailActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+components {
+  name: "android.support.v4.content.e"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r7, $r6)"
+    class_name: "com.crashlytics.android.c.q"
+    method: "<com.crashlytics.android.c.q: void <init>(android.content.Context)>"
+    id: 21
+  }
+}
+analysis_start: 1535498617
+analysis_end: 1535498849

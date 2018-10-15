@@ -1,0 +1,1084 @@
+name: "com.dictionary"
+version: 187
+permissions {
+  name: "com.dictionary.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "com.dictionary.permission.C2D_MESSAGE"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.dictionary.util.CustomGcmListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.sessionm.api.ConnectionReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+}
+components {
+  name: "com.dictionary.activity.ClickActionHandlerActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "clickAction"
+    }
+    attributes {
+      kind: PATH
+      value: "/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "com.dictionary"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzg"
+      method: "<com.google.android.gms.common.stats.zzg: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.internal.zztb"
+      method: "<com.google.android.gms.internal.zztb: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 22
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.gms.analytics.AnalyticsService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.dictionary"
+    }
+  }
+}
+components {
+  name: "com.dictionary.Splash"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r7.<com.dictionary.Splash: void startActivity(android.content.Intent)>($r8)"
+      class_name: "com.dictionary.Splash$1"
+      method: "<com.dictionary.Splash$1: void run()>"
+      id: 11
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/WordOfTheDayDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<com.dictionary.Splash: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.dictionary.Splash$1"
+      method: "<com.dictionary.Splash$1: void run()>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/activity/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+}
+components {
+  name: "com.dictionary.util.CustomReferralReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+      method: "<com.google.android.gms.analytics.CampaignTrackingReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 29
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/gms/analytics/CampaignTrackingService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzg"
+      method: "<com.google.android.gms.common.stats.zzg: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.MMIntentWrapperActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.WordOfTheDayArchivesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.gcm.GcmReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.dictionary"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r3.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.gcm.GcmReceiver"
+      method: "<com.google.android.gms.gcm.GcmReceiver: void doStartService(android.content.Context,android.content.Intent)>"
+      id: 16
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+}
+components {
+  name: "com.dictionary.WordOfTheDayDetailActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.widget.VoiceHandler"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r4)"
+      class_name: "com.dictionary.SerpTabbedActivity"
+      method: "<com.dictionary.SerpTabbedActivity: void openSerp(android.content.Context,com.dictionary.SerpTabbedActivity$SerpOptions)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/SerpTabbedActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.dictionary.widget.VoiceHandler: void startActivityForResult(android.content.Intent,int)>(r15, $i1)"
+      class_name: "com.dictionary.widget.VoiceHandler"
+      method: "<com.dictionary.widget.VoiceHandler: void launchVoiceActivityIfPresent()>"
+      id: 21
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.speech.action.RECOGNIZE_SPEECH"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.SlideShowDetailActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sessionm.ui.SessionMVideoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.MMActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sessionm.net.http.DownloadService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.dictionary.TrendsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.BlogDetailActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.IAP_Detail"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.amazon.device.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.dictionary.BlogActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sessionm.ui.SessionMActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "@2131165389"
+    }
+    attributes {
+      kind: SCHEME
+      value: "@2131165390"
+    }
+  }
+}
+components {
+  name: "com.dictionary.SlideShowActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.quantcast.measurement.service.AboutQuantcastScreen"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.FavoritesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.util.OnUpgrade"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+    attributes {
+      kind: PATH
+      value: "com.dictionary"
+    }
+    attributes {
+      kind: SCHEME
+      value: "package"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.dictionary"
+    }
+  }
+}
+components {
+  name: "com.dictionary.AddOnsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.WordWidget"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.dictionary.action.APPWIDGET_UPDATE"
+      value: "android.appwidget.action.APPWIDGET_UPDATE"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r4)"
+      class_name: "com.dictionary.WordWidget"
+      method: "<com.dictionary.WordWidget: void onUpdate(android.content.Context,android.appwidget.AppWidgetManager,int[])>"
+      id: 7
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/widget/UpdateService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.ads.AudienceNetworkActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.android.MMActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.RecentsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.activity.QuizActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.PushSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r5, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void zzj(android.content.Intent)>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.auth.GOOGLE_SIGN_IN"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzg"
+      method: "<com.google.android.gms.common.stats.zzg: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.dictionary.activity.TranslateActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mopub.mobileads.MoPubActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.airbnb.deeplinkdispatch.DeepLinkActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "www.dictionary.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "translate.reference.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "www.thesaurus.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.airbnb.deeplinkdispatch.DeepLinkActivity: void startActivity(android.content.Intent)>(r64)"
+      class_name: "com.airbnb.deeplinkdispatch.DeepLinkActivity"
+      method: "<com.airbnb.deeplinkdispatch.DeepLinkActivity: void onCreate(android.os.Bundle)>"
+      id: 97
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.dictionary.db.OfflineDBDownloadReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.DOWNLOAD_COMPLETE"
+    }
+  }
+}
+components {
+  name: "com.dictionary.widget.UpdateService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "net.hockeyapp.android.UpdateActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.ads.InterstitialAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.localytics.android.InstanceIDListenerService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.iid.InstanceID"
+    }
+  }
+}
+components {
+  name: "com.mopub.common.MoPubBrowser"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<com.dictionary.activity.SearchActivity: void startActivityForResult(android.content.Intent,int)>(r10, $i0)"
+      class_name: "com.dictionary.activity.SearchActivity$3"
+      method: "<com.dictionary.activity.SearchActivity$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.speech.action.RECOGNIZE_SPEECH"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r10.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, $r9, 1)"
+      class_name: "com.dictionary.billing.IabHelper"
+      method: "<com.dictionary.billing.IabHelper: void startSetup(com.dictionary.billing.IabHelper$OnIabSetupFinishedListener)>"
+      id: 23
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r2.<android.support.v4.app.FragmentActivity: void startActivity(android.content.Intent)>($r0)"
+      class_name: "com.dictionary.fragment.SettingsFragment"
+      method: "<com.dictionary.fragment.SettingsFragment: void openPushNotifications()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/PushSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void startActivity(android.content.Intent)>(r4)"
+      class_name: "com.google.android.gms.dynamic.zza$5"
+      method: "<com.google.android.gms.dynamic.zza$5: void onClick(android.view.View)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r15)"
+      class_name: "com.dictionary.util.ClickActionManager"
+      method: "<com.dictionary.util.ClickActionManager: void handle(android.content.Context,com.dictionary.util.ClickActionManager$ClickActionParams)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/BlogDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r7.<android.support.v4.app.FragmentActivity: void startActivity(android.content.Intent)>(r9)"
+      class_name: "com.dictionary.fragment.quiz.QuizComingSoonFragment$1"
+      method: "<com.dictionary.fragment.quiz.QuizComingSoonFragment$1: void onClick(android.view.View)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r4)"
+      class_name: "com.dictionary.SerpTabbedActivity"
+      method: "<com.dictionary.SerpTabbedActivity: void openSerp(android.content.Context,com.dictionary.SerpTabbedActivity$SerpOptions)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/SerpTabbedActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r9)"
+      class_name: "com.dictionary.util.ClickActionManager"
+      method: "<com.dictionary.util.ClickActionManager: void handle(android.content.Context,com.dictionary.util.ClickActionManager$ClickActionParams)>"
+      id: 33
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/dictionary/SlideShowDetailActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.dictionary"
+      }
+    }
+  }
+}
+components {
+  name: "com.dictionary.activity.SearchActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<com.dictionary.activity.SearchActivity: void startActivityForResult(android.content.Intent,int)>(r10, $i0)"
+      class_name: "com.dictionary.activity.SearchActivity$3"
+      method: "<com.dictionary.activity.SearchActivity$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.speech.action.RECOGNIZE_SPEECH"
+      }
+    }
+  }
+}
+components {
+  name: "com.dictionary.activity.BackDoorConfig"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.localytics.android.PushTrackingActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.quantcast.measurement.service.QCReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.dictionary.activity.HomeActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.About"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mopub.mobileads.MraidVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zzg"
+      method: "<com.google.android.gms.common.stats.zzg: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.millennialmedia.android.VideoPlayer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mopub.mobileads.MraidActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.dictionary.SerpTabbedActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PROCESS_TEXT"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "text/plain"
+    }
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r5 = virtualinvoke $r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r2)"
+    class_name: "com.google.android.gms.common.util.zzj"
+    method: "<com.google.android.gms.common.util.zzj: int zzaM(android.content.Context)>"
+    id: 8
+  }
+}
+analysis_start: 1538641588
+analysis_end: 1538641677

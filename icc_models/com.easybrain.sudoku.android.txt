@@ -1,0 +1,5343 @@
+name: "com.easybrain.sudoku.android"
+version: 13000
+permissions {
+  name: "com.easybrain.sudoku.android.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "com.easybrain.sudoku.android.permission.C2D_MESSAGE"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.READ_PHONE_STATE"
+components {
+  name: "com.yandex.metrica.MetricaService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.yandex.metrica.IMetricaService"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "metrica"
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.whatsnew.WhatsNewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.splash.SplashActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.dc.DcGamePlayActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context,java.lang.String)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.flurry.android.marketing.messaging.notification.NotificationClickedReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.flurry.android.marketing.messaging.notification.NotificationClickedReceiver"
+      method: "<com.flurry.android.marketing.messaging.notification.NotificationClickedReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    intents {
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.INFO"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.LAUNCHER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.mopub.mobileads.RewardedMraidActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.nend.android.internal.ui.activities.fullboard.NendAdFullBoardActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.flurry.android.marketing.messaging.FCM.FlurryMessageListenerService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.flurry.android.marketing.messaging.notification.NotificationCancelledReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.dc.DcGamePlayActivityPhone"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.adcolony.sdk.AdColonyAdViewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.howtoplay.HowToPlayActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.youwin.YouWinActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.evernote.android.job.JobRescheduleService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.amazon.device.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mopub.common.privacy.ConsentDialogActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.easybrain.sudoku.gui.statistics.StatisticsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.ironsource.sdk.controller.ControllerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.ads.AudienceNetworkActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.requests.ViewRequestActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.flurry.android.FlurryFullscreenTakeoverActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+}
+components {
+  name: "com.fyber.inneractive.sdk.video.IAVideoKit"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.fyber.inneractive.sdk.intent.action.REGISTER_KIT"
+    }
+  }
+}
+components {
+  name: "com.fyber.inneractive.sdk.nativead.IANativeKit"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.fyber.inneractive.sdk.intent.action.REGISTER_KIT"
+    }
+  }
+}
+components {
+  name: "com.smaato.soma.interstitial.InterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.easybrain.sudoku.sdk.fcmclient.MyFirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.gameplay.GamePlayActivityPhone"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitTransparentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.nend.android.internal.ui.activities.video.NendAdRewardedVideoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.ironsource.sdk.controller.OpenUrlActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.evernote.android.job.v14.PlatformAlarmService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.evernote.android.job.v21.PlatformJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.evernote.android.job.v21.b"
+      method: "<com.evernote.android.job.v21.b: boolean b(android.content.Context,com.evernote.android.job.l)>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/evernote/android/job/v14/PlatformAlarmServiceExact"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.android.billingclient.api.ProxyBillingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitSoftwareActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.ironsource.sdk.controller.InterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.deeplinking.ZendeskDeepLinkingBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.zendesk.sdk.deeplinking"
+    }
+  }
+}
+components {
+  name: "com.mopub.mobileads.MraidVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.easybrain.sudoku.gui.notification.BootCompletedReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+}
+components {
+  name: "com.evernote.android.job.v14.PlatformAlarmServiceExact"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.zendesk.sdk.feedback.ui.ContactZendeskActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.adcolony.sdk.AdColonyInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.notification.ClickNotificationReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void g(android.content.Context)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/splash/SplashActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/splash/SplashActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.applovin.adview.AppLovinInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.easybrain.sudoku.android"
+    }
+  }
+}
+components {
+  name: "com.yandex.mobile.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.yandex.metrica.ConfigurationService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.yandex.metrica.configuration.ACTION_START"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.MMIntentWrapperActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.task.reporting.PlacementReportingService"
+  kind: SERVICE
+  exported: true
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.gameplay.GamePlayActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.evernote.android.job.v14.PlatformAlarmReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.evernote.android.job.v14.RUN_JOB"
+      value: "net.vrallev.android.job.v14.RUN_JOB"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r12 = virtualinvoke r10.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r11)"
+      class_name: "com.evernote.android.job.o"
+      method: "<com.evernote.android.job.o: android.content.ComponentName a(android.content.Context,android.content.Intent)>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/evernote/android/job/v14/PlatformAlarmServiceExact"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.web.WebPageActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.fyber.inneractive.sdk.mraid.IAMraidKit"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.fyber.inneractive.sdk.intent.action.REGISTER_KIT"
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.requests.RequestActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.fyber.inneractive.sdk.activities.InneractiveRichMediaVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.easybrain.sudoku.gui.notification.ShowNotificationReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.smaato.soma.ExpandedBannerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.evernote.android.job.JobBootReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+      value: "com.htc.intent.action.QUICKBOOT_POWERON"
+      value: "android.intent.action.QUICKBOOT_POWERON"
+      value: "android.intent.action.MY_PACKAGE_REPLACED"
+    }
+  }
+}
+components {
+  name: "com.millennialmedia.internal.MMActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "jp.maio.sdk.android.AdFullscreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "jp.maio.sdk.android"
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.sdk.fcmclient.MyFirebaseInstanceIDService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.power.BatteryStateBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_OKAY"
+      value: "android.intent.action.BATTERY_LOW"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.fyber.inneractive.sdk.activities.InneractiveFullscreenAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.utils.MediaContentProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.yandex.metrica.MetricaEventHandler"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.millennialmedia.internal.task.geoipcheck.GeoIpCheckRequestService"
+  kind: SERVICE
+  exported: true
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitTransparentSoftwareActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.easybrain.sudoku.gui.dc.DcActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.dc.DcActivityPhone"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.support.ViewArticleActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.youappi.ai.sdk.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.yandex.metrica.ConfigurationJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "net.nend.android.internal.ui.activities.video.NendAdInterstitialVideoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.evernote.android.job.gcm.PlatformGcmService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.support.SupportActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.belvedere.BelvedereFileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.mopub.mobileads.MoPubActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.flurry.android.marketing.messaging.FCM.FlurryInstanceIDListenerService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.vungle.warren.ui.VungleActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.crashlytics.android.CrashlyticsInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.flurry.android.FlurryBrowserActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.millennialmedia.internal.VolumeChangeService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.easybrain.sudoku.gui.gameover.GameOverActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.easybrain.sudoku.gui.themes.ThemeChooserDialog"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.mopub.common.MoPubBrowser"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.easybrain.sudoku.gui.settings.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z3 = virtualinvoke $r19.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r26, $r18, 1)"
+      class_name: "com.android.billingclient.api.c"
+      method: "<com.android.billingclient.api.c: void a(com.android.billingclient.api.d)>"
+      id: 59
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean,boolean,boolean)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.NEW_GAME"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameplay/GamePlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,boolean)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/howtoplay/HowToPlayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com.facebook.ads.InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.c"
+      method: "<com.facebook.internal.c: com.facebook.internal.c d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.dc.DcTutorialActivity"
+      method: "<com.easybrain.sudoku.gui.dc.DcTutorialActivity: void b()>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void d(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/statistics/StatisticsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void b(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/settings/SettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.flurry.sdk.gh"
+      method: "<com.flurry.sdk.gh: void h()>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void c(android.content.Context)>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.easybrain.sudoku.action.DC_CALENDAR"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/dc/DcActivityPhone"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.e"
+      method: "<com.facebook.ads.internal.a.e: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.c.d.j,boolean,java.lang.String,int,int,int)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/gameover/GameOverActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.easybrain.sudoku.gui.c.d"
+      method: "<com.easybrain.sudoku.gui.c.d: void a(android.content.Context,com.easybrain.sudoku.gui.web.a)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/easybrain/sudoku/gui/web/WebPageActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.easybrain.sudoku.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.q.c.g"
+      method: "<com.facebook.ads.internal.q.c.g: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, $r2)"
+      class_name: "com.flurry.sdk.ey"
+      method: "<com.flurry.sdk.ey: boolean a(android.content.Context,android.content.Intent,android.app.ActivityOptions)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.millennialmedia.internal.task.handshake.HandshakeRequestService"
+  kind: SERVICE
+  exported: true
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "net.nend.android.internal.ui.activities.interstitial.NendAdInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.fyber.inneractive.sdk.activities.InneractiveInternalBrowserActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r9.<com.fyber.inneractive.sdk.activities.InneractiveInternalBrowserActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.fyber.inneractive.sdk.activities.InneractiveInternalBrowserActivity"
+      method: "<com.fyber.inneractive.sdk.activities.InneractiveInternalBrowserActivity: boolean c(java.lang.String)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.mopub.mobileads.MraidActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.flurry.android.FlurryTileAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.flurry.sdk.jn"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(r0, $r2)"
+    class_name: "com.flurry.sdk.jn"
+    method: "<com.flurry.sdk.jn: void c()>"
+    id: 12
+  }
+}
+components {
+  name: "com.android.billingclient.api.a$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.billing.PURCHASES_UPDATED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r1)"
+    class_name: "com.android.billingclient.api.a"
+    method: "<com.android.billingclient.api.a: void a()>"
+    id: 5
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r6 = virtualinvoke r5.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r0)"
+    class_name: "com.facebook.ads.internal.g.a"
+    method: "<com.facebook.ads.internal.g.a: void d(android.content.Context)>"
+    id: 3
+  }
+}
+analysis_start: 1538641760
+analysis_end: 1538642671

@@ -1,0 +1,401 @@
+name: "com.discord"
+version: 693
+permissions {
+  name: "com.discord.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.RECORD_AUDIO"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.CAPTURE_VIDEO_OUTPUT"
+used_permissions: "android.permission.BROADCAST_STICKY"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+used_permissions: "com.discord.permission.C2D_MESSAGE"
+used_permissions: "android.permission.MODIFY_AUDIO_SETTINGS"
+used_permissions: "android.permission.CAMERA"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "android.permission.BLUETOOTH"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.discord.utilities.voice.VoiceEngineForegroundService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.discord.utilities.fcm.NotificationClient$NotificationActions"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.discord.intent.action.MARK_AS_READ"
+      value: "com.discord.intent.action.DIRECT_REPLY"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.discord.utilities.fcm.NotificationClient$NotificationDelete"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.discord.NOTIFICATION_DELETED"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.discord"
+    }
+  }
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.discord.utilities.fcm.NotificationClient$FCMMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.crashlytics.android.CrashlyticsInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.yalantis.ucrop.UCropActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.discord.utilities.receiver.CampaignReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.discord.app.AppActivity$IncomingShare"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEND"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "text/*"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEND_MULTIPLE"
+      value: "android.intent.action.SEND"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.OPENABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "*/*"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.components.ComponentDiscoveryService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.discord.utilities.fcm.NotificationClient$FCMInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.discord.app.AppActivity$Main"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "app"
+    }
+    attributes {
+      kind: PATH
+      value: "/.*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "discord"
+    }
+    attributes {
+      kind: HOST
+      value: "discord.gg"
+    }
+    attributes {
+      kind: PATH
+      value: "/.*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "discord.gg"
+    }
+    attributes {
+      kind: PATH
+      value: "/.*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "discordapp.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/invite/.*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "discordapp.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/invite/.*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "discordapp.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/channels/.*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "discordapp.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/channels/.*"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.appinvite.PreviewActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.appinvite.ACTION_PREVIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.discord.utilities.io.NetworkUtils$NetworkDownloadReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.DOWNLOAD_COMPLETE"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.discord.app.AppActivity"
+  kind: ACTIVITY
+  exported: false
+}
+analysis_start: 1538641702
+analysis_end: 1538641705

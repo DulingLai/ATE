@@ -1,0 +1,1248 @@
+name: "com.quran.labs.androidquran"
+version: 2751
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+components {
+  name: "com.quran.labs.androidquran.ui.QuranActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<com.quran.labs.androidquran.ui.QuranActivity: void startActivity(android.content.Intent)>($r9)"
+      class_name: "com.quran.labs.androidquran.ui.QuranActivity"
+      method: "<com.quran.labs.androidquran.ui.QuranActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/HelpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.QuranActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.quran.labs.androidquran.ui.QuranActivity"
+      method: "<com.quran.labs.androidquran.ui.QuranActivity: void onResume()>"
+      id: 11
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "<INTENT>"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<com.quran.labs.androidquran.ui.QuranActivity: void startActivity(android.content.Intent)>(r15)"
+      class_name: "com.quran.labs.androidquran.ui.QuranActivity"
+      method: "<com.quran.labs.androidquran.ui.QuranActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 40
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<com.quran.labs.androidquran.ui.QuranActivity: void startActivity(android.content.Intent)>($r10)"
+      class_name: "com.quran.labs.androidquran.ui.QuranActivity"
+      method: "<com.quran.labs.androidquran.ui.QuranActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/QuranPreferenceActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<com.quran.labs.androidquran.ui.QuranActivity: void startActivity(android.content.Intent)>($r8)"
+      class_name: "com.quran.labs.androidquran.ui.QuranActivity"
+      method: "<com.quran.labs.androidquran.ui.QuranActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 18
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/AboutUsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.service.util.DefaultDownloadReceiver"
+      method: "<com.quran.labs.androidquran.service.util.DefaultDownloadReceiver: void c(com.quran.labs.androidquran.service.util.DefaultDownloadReceiver)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.CANCEL_DOWNLOADS"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.QuranActivity: android.content.ComponentName startService(android.content.Intent)>($r4)"
+      class_name: "com.quran.labs.androidquran.ui.QuranActivity"
+      method: "<com.quran.labs.androidquran.ui.QuranActivity: void onResume()>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.REWIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.PLAYBACK"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.STOP"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.SKIP"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.CONNECT"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.PAUSE"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.QuranPreferenceActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.QuranImportActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "*"
+    }
+    attributes {
+      kind: TYPE
+      value: "*/*"
+    }
+    attributes {
+      kind: PATH
+      value: ".*\\.backup"
+    }
+    attributes {
+      kind: SCHEME
+      value: "file"
+    }
+    attributes {
+      kind: HOST
+      value: "*"
+    }
+    attributes {
+      kind: TYPE
+      value: "*/*"
+    }
+    attributes {
+      kind: PATH
+      value: ".*\\..*\\.backup"
+    }
+    attributes {
+      kind: SCHEME
+      value: "file"
+    }
+    attributes {
+      kind: HOST
+      value: "*"
+    }
+    attributes {
+      kind: TYPE
+      value: "*/*"
+    }
+    attributes {
+      kind: PATH
+      value: ".*\\..*\\..*\\.backup"
+    }
+    attributes {
+      kind: SCHEME
+      value: "file"
+    }
+    attributes {
+      kind: HOST
+      value: "*"
+    }
+    attributes {
+      kind: TYPE
+      value: "*/*"
+    }
+    attributes {
+      kind: PATH
+      value: ".*\\..*\\..*\\..*\\.backup"
+    }
+    attributes {
+      kind: SCHEME
+      value: "file"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEND"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "application/json"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.service.util.DefaultDownloadReceiver"
+      method: "<com.quran.labs.androidquran.service.util.DefaultDownloadReceiver: void c(com.quran.labs.androidquran.service.util.DefaultDownloadReceiver)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.CANCEL_DOWNLOADS"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.ShortcutsActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ShortcutsActivity: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.quran.labs.androidquran.ShortcutsActivity"
+      method: "<com.quran.labs.androidquran.ShortcutsActivity: void onCreate(android.os.Bundle)>"
+      id: 18
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/ui/QuranActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/ui/QuranActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/ui/QuranActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.SearchActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEARCH"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.SearchActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.SearchActivity"
+      method: "<com.quran.labs.androidquran.SearchActivity: void a(int,int)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/ui/PagerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.QuranForwarderActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "quran"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.QuranForwarderActivity: void startActivity(android.content.Intent)>(r12)"
+      class_name: "com.quran.labs.androidquran.QuranForwarderActivity"
+      method: "<com.quran.labs.androidquran.QuranForwarderActivity: void onCreate(android.os.Bundle)>"
+      id: 29
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/ui/PagerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.QuranAdvancedPreferenceActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.TranslationManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r34)"
+      class_name: "com.quran.labs.androidquran.ui.TranslationManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.TranslationManagerActivity: void a(com.quran.labs.androidquran.ui.TranslationManagerActivity,com.quran.labs.androidquran.dao.translation.TranslationRowData)>"
+      id: 63
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.service.util.DefaultDownloadReceiver"
+      method: "<com.quran.labs.androidquran.service.util.DefaultDownloadReceiver: void c(com.quran.labs.androidquran.service.util.DefaultDownloadReceiver)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.CANCEL_DOWNLOADS"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.service.AudioService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MEDIA_BUTTON"
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.service.QuranDownloadService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.quran.labs.androidquran.HelpActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.ui.TranslationManagerActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.TranslationManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r34)"
+      class_name: "com.quran.labs.androidquran.ui.TranslationManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.TranslationManagerActivity: void a(com.quran.labs.androidquran.ui.TranslationManagerActivity,com.quran.labs.androidquran.dao.translation.TranslationRowData)>"
+      id: 63
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.service.util.DefaultDownloadReceiver"
+      method: "<com.quran.labs.androidquran.service.util.DefaultDownloadReceiver: void c(com.quran.labs.androidquran.service.util.DefaultDownloadReceiver)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.CANCEL_DOWNLOADS"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "android.support.v4.media.session.MediaButtonReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MEDIA_BUTTON"
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.QuranDataActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.QuranDataActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.QuranDataActivity"
+      method: "<com.quran.labs.androidquran.QuranDataActivity: void b()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/ui/QuranActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.service.util.DefaultDownloadReceiver"
+      method: "<com.quran.labs.androidquran.service.util.DefaultDownloadReceiver: void c(com.quran.labs.androidquran.service.util.DefaultDownloadReceiver)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.CANCEL_DOWNLOADS"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.data.QuranDataProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.quran.labs.androidquran.ui.PagerActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<com.quran.labs.androidquran.ui.PagerActivity: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.quran.labs.androidquran.ui.PagerActivity"
+      method: "<com.quran.labs.androidquran.ui.PagerActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 59
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/QuranPreferenceActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<com.quran.labs.androidquran.ui.PagerActivity: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.quran.labs.androidquran.ui.PagerActivity"
+      method: "<com.quran.labs.androidquran.ui.PagerActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 64
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/HelpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.TranslationManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r34)"
+      class_name: "com.quran.labs.androidquran.ui.TranslationManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.TranslationManagerActivity: void a(com.quran.labs.androidquran.ui.TranslationManagerActivity,com.quran.labs.androidquran.dao.translation.TranslationRowData)>"
+      id: 63
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.quran.labs.androidquran.service.util.DefaultDownloadReceiver"
+      method: "<com.quran.labs.androidquran.service.util.DefaultDownloadReceiver: void c(com.quran.labs.androidquran.service.util.DefaultDownloadReceiver)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.CANCEL_DOWNLOADS"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.PagerActivity: android.content.ComponentName startService(android.content.Intent)>($r20)"
+      class_name: "com.quran.labs.androidquran.ui.PagerActivity"
+      method: "<com.quran.labs.androidquran.ui.PagerActivity: void onResume()>"
+      id: 38
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.REWIND"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.PLAYBACK"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.STOP"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.SKIP"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.CONNECT"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.action.PAUSE"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/AudioService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.PagerActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.quran.labs.androidquran.ui.PagerActivity"
+      method: "<com.quran.labs.androidquran.ui.PagerActivity: void i()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/ui/TranslationManagerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.AboutUsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.quran.labs.androidquran.ui.AudioManagerActivity: android.content.ComponentName startService(android.content.Intent)>(r16)"
+      class_name: "com.quran.labs.androidquran.ui.AudioManagerActivity"
+      method: "<com.quran.labs.androidquran.ui.AudioManagerActivity: void a(com.quran.labs.androidquran.ui.AudioManagerActivity,android.support.v7.rr)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.quran.labs.androidquran.DOWNLOAD_URL"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/quran/labs/androidquran/service/QuranDownloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.quran.labs.androidquran"
+      }
+    }
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.ui.PagerActivity$7"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r19.<com.quran.labs.androidquran.service.AudioService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.quran.labs.androidquran.service.AudioService"
+    method: "<com.quran.labs.androidquran.service.AudioService: void onCreate()>"
+    id: 25
+  }
+}
+components {
+  name: "android.support.v4.media.session.MediaButtonReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r19.<com.quran.labs.androidquran.service.AudioService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.quran.labs.androidquran.service.AudioService"
+    method: "<com.quran.labs.androidquran.service.AudioService: void onCreate()>"
+    id: 25
+  }
+}
+components {
+  name: "android.support.v7.ka$b$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r19.<com.quran.labs.androidquran.service.AudioService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.quran.labs.androidquran.service.AudioService"
+    method: "<com.quran.labs.androidquran.service.AudioService: void onCreate()>"
+    id: 25
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.service.util.DefaultDownloadReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r19.<com.quran.labs.androidquran.service.AudioService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.quran.labs.androidquran.service.AudioService"
+    method: "<com.quran.labs.androidquran.service.AudioService: void onCreate()>"
+    id: 25
+  }
+}
+components {
+  name: "android.support.v7.pv$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r19.<com.quran.labs.androidquran.service.AudioService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.quran.labs.androidquran.service.AudioService"
+    method: "<com.quran.labs.androidquran.service.AudioService: void onCreate()>"
+    id: 25
+  }
+}
+components {
+  name: "android.support.v7.pv$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r19.<com.quran.labs.androidquran.service.AudioService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.quran.labs.androidquran.service.AudioService"
+    method: "<com.quran.labs.androidquran.service.AudioService: void onCreate()>"
+    id: 25
+  }
+}
+components {
+  name: "com.quran.labs.androidquran.service.AudioService$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.AUDIO_BECOMING_NOISY"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r19.<com.quran.labs.androidquran.service.AudioService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.quran.labs.androidquran.service.AudioService"
+    method: "<com.quran.labs.androidquran.service.AudioService: void onCreate()>"
+    id: 25
+  }
+}
+analysis_start: 1538700967
+analysis_end: 1538700990

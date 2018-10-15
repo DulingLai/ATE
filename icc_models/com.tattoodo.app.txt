@@ -1,0 +1,1013 @@
+name: "com.tattoodo.app"
+version: 236
+permissions {
+  name: "com.tattoodo.app.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "com.sonyericsson.home.permission.BROADCAST_BADGE"
+used_permissions: "com.htc.launcher.permission.READ_SETTINGS"
+used_permissions: "com.huawei.android.launcher.permission.WRITE_SETTINGS"
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "me.everything.badger.permission.BADGE_COUNT_READ"
+used_permissions: "com.sec.android.provider.badge.permission.WRITE"
+used_permissions: "com.sec.android.provider.badge.permission.READ"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "com.anddoes.launcher.permission.UPDATE_COUNT"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "com.oppo.launcher.permission.WRITE_SETTINGS"
+used_permissions: "android.permission.READ_APP_BADGE"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "com.tattoodo.app.permission.C2D_MESSAGE"
+used_permissions: "com.huawei.android.launcher.permission.CHANGE_BADGE"
+used_permissions: "com.majeur.launcher.permission.UPDATE_BADGE"
+used_permissions: "com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"
+used_permissions: "com.htc.launcher.permission.UPDATE_SHORTCUT"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.USE_CREDENTIALS"
+used_permissions: "com.huawei.android.launcher.permission.READ_SETTINGS"
+used_permissions: "android.permission.CAMERA"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "me.everything.badger.permission.BADGE_COUNT_WRITE"
+used_permissions: "com.oppo.launcher.permission.READ_SETTINGS"
+components {
+  name: "com.tattoodo.app.fragment.pin.SelectBoardActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.communication.conversation.consultation.ConsultationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.editUser.EditUserActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r14)"
+      class_name: "com.google.android.gms.internal.zzatk"
+      method: "<com.google.android.gms.internal.zzatk: void a(android.content.Context,android.content.Intent)>"
+      id: 21
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.gms.analytics.AnalyticsService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 60
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.tattoodo.app.fragment.claimShop.ClaimShopActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.fullscreenimage.ImageFullScreenActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.tattoodo.app"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r49 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.zzz"
+      method: "<com.google.firebase.iid.zzz: int a(android.content.Context,android.content.Intent)>"
+      id: 93
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.tattoodo.app.MainActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEND"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: TYPE
+      value: "image/*"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tattoodo.app.MainActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tattoodo.app.MainActivity"
+      method: "<com.tattoodo.app.MainActivity: void a(java.lang.Class)>"
+      id: 21
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tattoodo/app/fragment/onboarding/OnboardingActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.createpost.postinfo.selectartist.SelectArtistActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.tattoodo.app.fragment.shop.shopadmin.ShopAdminActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.shop.ShopArtistsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.createShop.CreateShopLeadActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.skills.SkillsPickerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.tattoodo.app.ui.createpost.CreatePostActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.onboarding.WelcomeActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.video.fullscreen.FullScreenVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.navigation.NavigationActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.tattoodo.app.ui.createpost.CreatePostActivity"
+      method: "<com.tattoodo.app.ui.createpost.CreatePostActivity: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tattoodo/app/ui/createpost/CreatePostActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.tattoodo.app.navigation.NavigationActivity: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.tattoodo.app.navigation.NavigationActivity"
+      method: "<com.tattoodo.app.navigation.NavigationActivity: void a(com.tattoodo.app.deeplink.DeepLinkTarget)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tattoodo/app/fragment/reviewShop/ReviewShopActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.tattoodo.app.util.notifications.PushNotificationService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.tattoodo.app.fragment.onboarding.WebDocumentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.createpost.EditPostActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.createpost.postinfo.selectuser.SelectUserActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.booking.ShopBookingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.util.notifications.CampaignTrackingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.twitter.sdk.android.core.identity.OAuthActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r19, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void onCreate(android.os.Bundle)>"
+      id: 54
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.zze"
+      method: "<com.google.android.gms.common.stats.zze: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 60
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.jakewharton.processphoenix.ProcessPhoenix"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.jakewharton.processphoenix.ProcessPhoenix: void startActivity(android.content.Intent)>($r4)"
+      class_name: "com.jakewharton.processphoenix.ProcessPhoenix"
+      method: "<com.jakewharton.processphoenix.ProcessPhoenix: void onCreate(android.os.Bundle)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.tattoodo.app.fragment.reviewShop.ReviewShopActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.suggestions.FollowSuggestedUsersActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.createpost.postinfo.selectshop.SelectShopActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.ui.createpost.ImagePickerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.crashlytics.android.CrashlyticsInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: boolean c(android.content.Intent)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.tattoodo.app.data.net.auth.SocialAuthTokenActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "@2131624030"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.CustomTabActivity: void startActivityForResult(android.content.Intent,int)>(r9, 2)"
+      class_name: "com.facebook.CustomTabActivity"
+      method: "<com.facebook.CustomTabActivity: void onCreate(android.os.Bundle)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*).action_customTabRedirect"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/facebook/CustomTabMainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.tattoodo.app.ui.getintouch.ShopGetInTouchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.deeplink.DeepLinkActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "tattoodo"
+    }
+    attributes {
+      kind: HOST
+      value: "s"
+    }
+    attributes {
+      kind: HOST
+      value: "u"
+    }
+    attributes {
+      kind: HOST
+      value: "a"
+    }
+    attributes {
+      kind: HOST
+      value: "p"
+    }
+    attributes {
+      kind: HOST
+      value: "home"
+    }
+    attributes {
+      kind: HOST
+      value: "destination"
+    }
+    attributes {
+      kind: HOST
+      value: "review"
+    }
+    attributes {
+      kind: HOST
+      value: "conversation"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "www.tattoodo.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: PATH
+      value: "/s"
+    }
+    attributes {
+      kind: PATH
+      value: "/s/"
+    }
+    attributes {
+      kind: PATH
+      value: "/a/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/p/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/users/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/studios/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/artists/(.*)"
+    }
+    attributes {
+      kind: PATH
+      value: "/destinations/(.*)"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.tattoodo.app.MainActivity"
+      method: "<com.tattoodo.app.MainActivity: void a(android.content.Context)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/tattoodo/app/MainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.tattoodo.app"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.notifications.internal.activity.CardActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.notifications.internal.activity.CardActivity: void startActivity(android.content.Intent)>($r6)"
+      class_name: "com.facebook.notifications.internal.activity.CardActivity"
+      method: "<com.facebook.notifications.internal.activity.CardActivity: void a(com.facebook.notifications.internal.view.ActionButton$Type,android.net.Uri)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.tattoodo.app.fragment.settings.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.onboarding.OnboardingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.util.notifications.PushNotificationInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.tattoodo.app.ui.profile.ProfileActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.editShop.EditShopActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.tattoodo.app.ui.communication.conversation.ConversationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tattoodo.app.fragment.workplaces.WorkplacesActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.FirebaseApp$zzc"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(r1, $r5)"
+    class_name: "com.google.firebase.FirebaseApp$zzc"
+    method: "<com.google.firebase.FirebaseApp$zzc: void b(android.content.Context)>"
+    id: 11
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r5 = virtualinvoke $r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r2)"
+    class_name: "com.google.android.gms.common.util.zzk"
+    method: "<com.google.android.gms.common.util.zzk: int a(android.content.Context)>"
+    id: 7
+  }
+}
+analysis_start: 1536549972
+analysis_end: 1536550064

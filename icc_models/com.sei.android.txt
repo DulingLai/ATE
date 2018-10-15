@@ -1,0 +1,1307 @@
+name: "com.sei.android"
+version: 106
+permissions {
+  name: "com.sei.android.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.BLUETOOTH_ADMIN"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.RECORD_AUDIO"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "com.sei.android.permission.C2D_MESSAGE"
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.CAMERA"
+used_permissions: "android.permission.BLUETOOTH"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.sei.android.controllers.activity.ReacceptLegalTermsActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.receivers.DynamicOverlayDownloadReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.sei.android.OVERLAY_DOWNLOADED_BROADCAST_ACTION"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.sei.android"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "android.support.v4.content.FileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.extrareality.history.HistoryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.swirl.ContentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.PolicyActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.gcm.GcmReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.sei.android"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r23 = virtualinvoke r21.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.android.gms.gcm.GcmReceiver"
+      method: "<com.google.android.gms.gcm.GcmReceiver: void doStartService(android.content.Context,android.content.Intent)>"
+      id: 73
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.iid.InstanceID"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.StoreDetailActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.extrareality.SnapshotShareActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.extrareality.SnapshotShareActivity: void startActivityForResult(android.content.Intent,int)>(r24, 3)"
+      class_name: "com.extrareality.SnapshotShareActivity"
+      method: "<com.extrareality.SnapshotShareActivity: void startSave()>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/extrareality/PermissionsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.extrareality.SnapshotShareActivity: void startActivity(android.content.Intent)>($r19)"
+      class_name: "com.extrareality.SnapshotShareActivity"
+      method: "<com.extrareality.SnapshotShareActivity: void doShare()>"
+      id: 38
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.extrareality.GifShareActivity: void startActivity(android.content.Intent)>($r14)"
+      class_name: "com.extrareality.GifShareActivity"
+      method: "<com.extrareality.GifShareActivity: void uploadComplete()>"
+      id: 20
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.HowItWorksActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.DynamicOverlayActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.PreferencesActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.services.GCMRegistrationIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.sei.android.services.GCMIDListenerIntentService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.iid.InstanceID"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.AccountSuspendedActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.StoreLocatorActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.ResetPasswordActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.journeyapps.barcodescanner.CaptureActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.extrareality.PermissionsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.CustomBarCodeScanActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.extrareality.AndroidSceneGraph.HowToUseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.extrareality.AndroidSceneGraph.SceneGraphActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.StoreListActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.ForceUpgradeActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.extrareality.GifShareActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.extrareality.SnapshotShareActivity: void startActivityForResult(android.content.Intent,int)>(r24, 3)"
+      class_name: "com.extrareality.SnapshotShareActivity"
+      method: "<com.extrareality.SnapshotShareActivity: void startSave()>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/extrareality/PermissionsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.extrareality.GifShareActivity: void startActivityForResult(android.content.Intent,int)>(r11, 1000)"
+      class_name: "com.extrareality.GifShareActivity"
+      method: "<com.extrareality.GifShareActivity: void onCreate(android.os.Bundle)>"
+      id: 28
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/extrareality/PermissionsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.extrareality.SnapshotShareActivity: void startActivity(android.content.Intent)>($r19)"
+      class_name: "com.extrareality.SnapshotShareActivity"
+      method: "<com.extrareality.SnapshotShareActivity: void doShare()>"
+      id: 38
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.extrareality.GifShareActivity: void startActivity(android.content.Intent)>($r14)"
+      class_name: "com.extrareality.GifShareActivity"
+      method: "<com.extrareality.GifShareActivity: void uploadComplete()>"
+      id: 20
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+}
+components {
+  name: "com.sei.android.services.GCMListenerIntentService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.FeedbackActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.swirl.Swirl$DeviceChanged"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.STATE_CHANGE"
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+}
+components {
+  name: "com.extrareality.VideoDisplay"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void startActivityForResult(android.content.Intent,int)>(r22, 40962)"
+      class_name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+      method: "<com.google.android.gms.auth.api.signin.internal.SignInHubActivity: void onCreate(android.os.Bundle)>"
+      id: 43
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.auth.GOOGLE_SIGN_IN"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.sei.android.receivers.ShowAppReviewPromptReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.sei.android.SHOW_APP_REVIEW_PROMPT_REQUEST_ACTION"
+    }
+  }
+}
+components {
+  name: "com.sei.android.services.DynamicOverlayIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.swirl.Swirl$LocationChanged"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+}
+components {
+  name: "com.kochava.android.tracker.ReferralCapture"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "@2131296530"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.CustomTabActivity: void startActivityForResult(android.content.Intent,int)>(r12, 2)"
+      class_name: "com.facebook.CustomTabActivity"
+      method: "<com.facebook.CustomTabActivity: void onCreate(android.os.Bundle)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*).action_customTabRedirect"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/facebook/CustomTabMainActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.sei.android"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.sei.android.receivers.ShowDynamicOverlayReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.sei.android.SHOW_DYNAMIC_OVERLAY_REQUEST_ACTION"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.SignUpActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.PostFacebookLoginActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.SignInActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.WelcomeActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.FacebookMergeActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.DashboardActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.SplashActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/home/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/home/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/home/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/rewards-catalog/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/rewards-catalog/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/rewards-catalog/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/promotions/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/promotions/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/promotions/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/coupons/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/coupons/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/coupons/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/my-rewards/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/my-rewards/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/my-rewards/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/my-account/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/my-account/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/my-account/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/store-finder/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/store-finder/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/store-finder/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/age-verify/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/age-verify/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/age-verify/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/favorite-stores/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/favorite-stores/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/favorite-stores/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/bonus-offers/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/bonus-offers/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/bonus-offers/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/ar-scene/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/ar-scene/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/ar-scene/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "dl"
+    }
+    attributes {
+      kind: PATH
+      value: "/verification/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "sei"
+    }
+    attributes {
+      kind: HOST
+      value: "www.7-eleven.com"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/verification/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "7-eleven.ca"
+    }
+    attributes {
+      kind: PATH
+      value: "/dl/verification/(.*)"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+  }
+}
+components {
+  name: "com.swirl.Swirl$Service"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.ProfileActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.sei.android.controllers.activity.AddCardActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.swirl.Swirl$Receiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.extrareality.SaveToDevice"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.sei.android.controllers.activity.AgeVerificationActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+analysis_start: 1536549870
+analysis_end: 1536549889

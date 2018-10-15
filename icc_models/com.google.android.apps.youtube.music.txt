@@ -1,0 +1,1250 @@
+name: "com.google.android.apps.youtube.music"
+version: 23556330
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "android.permission.BLUETOOTH_ADMIN"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.SYSTEM_ALERT_WINDOW"
+used_permissions: "android.permission.NFC"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.CHANGE_WIFI_STATE"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.USE_CREDENTIALS"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.CHANGE_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.BLUETOOTH"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "android.permission.WRITE_SETTINGS"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "android.permission.MANAGE_ACCOUNTS"
+used_permissions: "com.google.android.gms.permission.ACTIVITY_RECOGNITION"
+used_permissions: "com.google.android.providers.gsf.permission.READ_GSERVICES"
+components {
+  name: "com.google.android.libraries.social.licenses.LicenseMenuActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r5, r4, 1)"
+      class_name: "akm"
+      method: "<akm: void d()>"
+      id: 8
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.media.MediaRouteProviderService"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.smartremote.MdxSmartRemoteActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.background.passive.PassiveSignInController$PassiveSignInBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r55)"
+      class_name: "com.google.android.libraries.youtube.mdx.background.passive.PassiveSignInController$PassiveSignInBroadcastReceiver"
+      method: "<com.google.android.libraries.youtube.mdx.background.passive.PassiveSignInController$PassiveSignInBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 111
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.apps.youtube.app.application.Shell$HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.youtube"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.notification.NotificationService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.common.backgroundtask.firebase.FirebaseJobDispatcherService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "ayh"
+      method: "<ayh: int a(java.lang.String)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r39.<android.content.Context: void sendBroadcast(android.content.Intent)>(r40)"
+      class_name: "ayh"
+      method: "<ayh: int a(ays)>"
+      id: 70
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.background.MdxBackgroundPlaybackBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "specialinvoke r0.<qq: void startActivityForResult(android.content.Intent,int)>(r1, i0)"
+      class_name: "np"
+      method: "<np: void startActivityForResult(android.content.Intent,int)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "<INTENT>"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.youtube.music"
+      }
+    }
+  }
+}
+components {
+  name: "com.firebase.jobdispatcher.GooglePlayReceiver"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "z0 = virtualinvoke r16.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r0, r15, 1)"
+      class_name: "ayb"
+      method: "<ayb: boolean a(ayw,azd)>"
+      id: 9
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r39.<android.content.Context: void sendBroadcast(android.content.Intent)>(r40)"
+      class_name: "ayh"
+      method: "<ayh: int a(ays)>"
+      id: 70
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.notification.ContinueWatchingOnTvNotificationBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.player.PlayerUiModule$LegacyMediaButtonIntentReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MEDIA_BUTTON"
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.notification.NotificationProcessingJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.background.MdxBackgroundScanBootReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.common.gcore.gcoreclient.gcm.impl.GcmTaskServiceDelegator"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.gcm.ACTION_TASK_READY"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.cast.framework.ReconnectionService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r5, r4, 1)"
+      class_name: "akm"
+      method: "<akm: void d()>"
+      id: 8
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.media.MediaRouteProviderService"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.notification.NotificationProcessingService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.mediaroute.RemotePlaybackControlsService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.youtube.music.settings.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.offline.developer.DebugOfflineResyncActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.youtube.music.activities.MusicActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.youtube.music.action.unlimited"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+      value: "android.nfc.action.NDEF_DISCOVERED"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+    attributes {
+      kind: HOST
+      value: "music.youtube.com"
+    }
+    attributes {
+      kind: HOST
+      value: "www.music.youtube.com"
+    }
+    attributes {
+      kind: HOST
+      value: "m.music.youtube.com"
+    }
+    attributes {
+      kind: HOST
+      value: "music.youtu.be"
+    }
+    attributes {
+      kind: HOST
+      value: "music.youtube"
+    }
+    attributes {
+      kind: PATH
+      value: ".*"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "vnd.youtube.music"
+    }
+    attributes {
+      kind: SCHEME
+      value: "vnd.youtube.music.launch"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+      value: "android.intent.action.MUSIC_PLAYER"
+      value: "com.google.android.youtube.music.action.shortcut"
+      value: "com.google.android.youtube.music.action.navigate"
+      value: "com.google.android.youtube.music.action.play"
+      value: "android.intent.action.SEARCH"
+      value: "android.media.action.MEDIA_PLAY_FROM_SEARCH"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.APP_MUSIC"
+      value: "android.intent.category.DEFAULT"
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r6.<android.content.Context: void startActivity(android.content.Intent)>($r2)"
+      class_name: "bcn"
+      method: "<bcn: void onClick(android.content.DialogInterface,int)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.youtube.music.notifications.GcmBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.android.youtube.music"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r45.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r53)"
+      class_name: "com.google.android.apps.youtube.music.notifications.GcmBroadcastReceiver"
+      method: "<com.google.android.apps.youtube.music.notifications.GcmBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 102
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/libraries/youtube/notification/NotificationProcessingService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.youtube.music"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.social.licenses.LicenseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.player.background.service.BackgroundPlayerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.cast.framework.media.MediaIntentReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r5, r4, 1)"
+      class_name: "akm"
+      method: "<akm: void d()>"
+      id: 8
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.media.MediaRouteProviderService"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.notification.LocalNotificationsBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r35.<android.content.Context: void sendBroadcast(android.content.Intent)>(r40)"
+      class_name: "com.google.android.libraries.youtube.mdx.notification.LocalNotificationsBroadcastReceiver"
+      method: "<com.google.android.libraries.youtube.mdx.notification.LocalNotificationsBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 67
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/libraries/youtube/mdx/background/MdxBackgroundPlaybackBroadcastReceiver"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.apps.youtube.music"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.background.MdxBackgroundScanJobService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.firebase.jobdispatcher.ACTION_EXECUTE"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r2)"
+      class_name: "ayh"
+      method: "<ayh: int a(java.lang.String)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r39.<android.content.Context: void sendBroadcast(android.content.Intent)>(r40)"
+      class_name: "ayh"
+      method: "<ayh: int a(ays)>"
+      id: 70
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.gcm.ACTION_SCHEDULE"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.youtube.music.settings.developer.DebugOnlineAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.apps.youtube.music.settings.BrowserActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.account.AccountsChangedReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.accounts.LOGIN_ACCOUNTS_CHANGED"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.cast.framework.media.MediaNotificationService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "z1 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r5, r4, 1)"
+      class_name: "akm"
+      method: "<akm: void d()>"
+      id: 8
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.media.MediaRouteProviderService"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.apps.youtube.music.mediabrowser.MusicBrowserService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.browse.MediaBrowserService"
+    }
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.offline.transfer.service.OfflineTransferService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.smartpairing.PairWithTvActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.background.passive.PassiveSignInController$PassiveSignInBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "gro"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.gms.cast.framework.media.MediaIntentReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.notification.LocalNotificationsBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "qia"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+      value: "android.intent.action.ACTION_POWER_CONNECTED"
+      value: "android.intent.action.ACTION_POWER_DISCONNECTED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "aku"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.background.MdxBackgroundPlaybackBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "ehp"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "gfk"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.notification.ContinueWatchingOnTvNotificationBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.player.PlayerUiModule$LegacyMediaButtonIntentReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.mdx.background.MdxBackgroundScanBootReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "afz"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "qps"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.libraries.youtube.account.AccountsChangedReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "qip"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MEDIA_UNMOUNTED"
+      value: "android.intent.action.MEDIA_MOUNTED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r12, r40)"
+    class_name: "qic"
+    method: "<qic: void <init>(android.content.Context,qhy,java.lang.String,qhz)>"
+    id: 32
+  }
+}
+components {
+  name: "qir"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+components {
+  name: "com.google.android.apps.youtube.music.notifications.GcmBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  permission: "<NULL>"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_CHANGED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.TIMEZONE_CHANGED"
+      value: "android.intent.action.TIME_SET"
+      value: "android.intent.action.TIME_TICK"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r18.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter,java.lang.String,android.os.Handler)>($r17, r25, null, $r16)"
+    class_name: "aji"
+    method: "<aji: aji a(android.content.Context)>"
+    id: 33
+  }
+}
+analysis_start: 1538658481
+analysis_end: 1538658691

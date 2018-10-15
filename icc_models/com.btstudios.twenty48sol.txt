@@ -1,0 +1,1776 @@
+name: "com.btstudios.twenty48sol"
+version: 6
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.ACCESS_COARSE_UPDATES"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+components {
+  name: "io.presage.receiver.NetworkChangeReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.wifi.WIFI_STATE_CHANGED"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "io.presage.receiver.NetworkChangeReceiver.ONDESTROY"
+    }
+  }
+}
+components {
+  name: "com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.inmobi.share.id"
+    }
+  }
+}
+components {
+  name: "com.vungle.publisher.FlexViewAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.hyprmx.android.sdk.activity.HyprMXOfferViewerActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.c"
+      method: "<com.facebook.ads.internal.a.c: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r23)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 43
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.al"
+      method: "<com.chartboost.sdk.impl.al: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r20)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.am"
+      method: "<com.chartboost.sdk.impl.am: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r11)"
+      class_name: "com.hyprmx.android.sdk.activity.HyprMXMraidViewController"
+      method: "<com.hyprmx.android.sdk.activity.HyprMXMraidViewController: void b(java.lang.String)>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MEDIA_SCANNER_SCAN_FILE"
+      }
+    }
+  }
+}
+components {
+  name: "com.vungle.publisher.VideoFullScreenAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.unity.FBUnityJoinGameGroupActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.tapjoy.mraid.view.Browser"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.jirbo.adcolony.AdColonyBrowser"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.applovin.adview.AppLovinInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.unity.FBUnityLoginActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.millennialmedia.internal.MMIntentWrapperActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.jirbo.adcolony.AdColonyFullscreen"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.presage.receiver.AlarmReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.task.reporting.PlacementReportingService"
+  kind: SERVICE
+  exported: true
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.tenjin.android.TenjinReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.mopub.mobileads.RewardedMraidActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.apptracker.android.track.AppTrackerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.applovin.adview.AppLovinConfirmationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.MMActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.adcolony.sdk.AdColonyAdViewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r23)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 43
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.al"
+      method: "<com.chartboost.sdk.impl.al: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r20)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.am"
+      method: "<com.chartboost.sdk.impl.am: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+}
+components {
+  name: "com.jirbo.adcolony.AdColonyOverlay"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.unity.FBUnityDeepLinkingActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.unity.FBUnityAppLinkBaseActivity: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.facebook.unity.FBUnityAppLinkBaseActivity"
+      method: "<com.facebook.unity.FBUnityAppLinkBaseActivity: void onCreate(android.os.Bundle)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+}
+components {
+  name: "com.tapjoy.TJAdUnitActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.iqzone.activities.InterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.fractionalmedia.sdk.InterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookContentProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.millennialmedia.internal.utils.MediaContentProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.inmobi.rendering.InMobiAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.ironsource.sdk.controller.ControllerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.task.geoipcheck.GeoIpCheckRequestService"
+  kind: SERVICE
+  exported: true
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitTransparentSoftwareActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.btstudios.twenty48sol.UnityPlayerActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LEANBACK_LAUNCHER"
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+}
+components {
+  name: "com.unity.purchasing.googleplay.VRPurchaseActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.vr.vrcore.ACTION_NONE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.google.intent.category.DAYDREAM"
+    }
+  }
+}
+components {
+  name: "com.facebook.ads.AudienceNetworkActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r23)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 43
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.al"
+      method: "<com.chartboost.sdk.impl.al: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r20)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.am"
+      method: "<com.chartboost.sdk.impl.am: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.al"
+      method: "<com.chartboost.sdk.impl.al: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.am"
+      method: "<com.chartboost.sdk.impl.am: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+}
+components {
+  name: "com.millennialmedia.android.MMActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.apptracker.android.module.AppModuleActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mobvista.msdk.interstitial.view.MVInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.unity3d.ads.android.view.UnityAdsFullscreenActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.unity.FBUnityGameRequestActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.mopub.mobileads.MoPubActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.vungle.publisher.MraidFullScreenAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tapjoy.InstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.facebook.unity.FBUnityAppLinkActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.unity.FBUnityAppLinkBaseActivity: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.facebook.unity.FBUnityAppLinkBaseActivity"
+      method: "<com.facebook.unity.FBUnityAppLinkBaseActivity: void onCreate(android.os.Bundle)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+}
+components {
+  name: "io.presage.provider.PresageProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitTransparentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.ironsource.sdk.controller.OpenUrlActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.hyprmx.android.sdk.videoplayer.HyprMXVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.ads.InterstitialAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.VolumeChangeService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.facebook.unity.FBUnityCreateGameGroupActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.mopub.common.MoPubBrowser"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 14
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri)>"
+      id: 4
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r2.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.a.c"
+      method: "<com.facebook.ads.internal.a.c: boolean f()>"
+      id: 10
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void a(android.content.Context,android.net.Uri)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r23)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 43
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.al"
+      method: "<com.chartboost.sdk.impl.al: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r3)"
+      class_name: "com.facebook.ads.internal.k.ak"
+      method: "<com.facebook.ads.internal.k.ak: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 19
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.btstudios.twenty48sol"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r20)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.am"
+      method: "<com.chartboost.sdk.impl.am: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r11)"
+      class_name: "com.hyprmx.android.sdk.activity.HyprMXMraidViewController"
+      method: "<com.hyprmx.android.sdk.activity.HyprMXMraidViewController: void b(java.lang.String)>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MEDIA_SCANNER_SCAN_FILE"
+      }
+    }
+  }
+}
+components {
+  name: "io.presage.PresageService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "io.presage.PresageService.PIVOT"
+    }
+  }
+}
+components {
+  name: "com.facebook.unity.AppInviteDialogActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.unity3d.ads.adunit.AdUnitSoftwareActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.unity.FBUnityDialogsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.ironsource.sdk.controller.InterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.unity.purchasing.googleplay.PurchaseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.hyprmx.android.sdk.activity.HyprMXRequiredInformationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tapjoy.TJContentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "io.presage.activities.PresageActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "io.presage.intent.action.LAUNCH_WEBVIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+}
+components {
+  name: "com.mopub.mobileads.MraidVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.internal.task.handshake.HandshakeRequestService"
+  kind: SERVICE
+  exported: true
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.chartboost.sdk.CBImpressionActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r23)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 43
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.al"
+      method: "<com.chartboost.sdk.impl.al: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r20)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.am"
+      method: "<com.chartboost.sdk.impl.am: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+}
+components {
+  name: "com.mobvista.msdk.reward.player.MVRewardVideoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.tapjoy.mraid.view.ActionHandler"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.millennialmedia.android.VideoPlayer"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.hyprmx.android.sdk.activity.HyprMXNoOffersActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mopub.mobileads.MraidActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.adcolony.sdk.AdColonyInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r2, r3, i0)"
+      class_name: "com.google.android.gms.common.stats.zza"
+      method: "<com.google.android.gms.common.stats.zza: boolean zza(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 15
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.PERSISTENT_START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r23)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 43
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.al"
+      method: "<com.chartboost.sdk.impl.al: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r19.<android.content.Context: void startActivity(android.content.Intent)>(r20)"
+      class_name: "com.chartboost.sdk.impl.ae"
+      method: "<com.chartboost.sdk.impl.ae: void a(com.chartboost.sdk.Model.c,java.lang.String,android.content.Context,com.chartboost.sdk.impl.ad)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void sendBroadcast(android.content.Intent)>(r21)"
+      class_name: "com.chartboost.sdk.impl.am"
+      method: "<com.chartboost.sdk.impl.am: void g()>"
+      id: 10
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.music.musicservicecommand"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "com.fractionalmedia.sdk.AdRequest$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "android.support.v7.app.AppCompatDelegateImplV14$AutoNightModeManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.internal.zzbx"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.internal.BoltsMeasurementEventListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "com.chartboost.sdk.impl.ac$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r3 = virtualinvoke r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r0)"
+    class_name: "com.adcolony.sdk.n"
+    method: "<com.adcolony.sdk.n: double a(android.content.Context)>"
+    id: 6
+  }
+}
+components {
+  name: "com.facebook.ads.internal.adapters.v"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  missing: 0
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.app.Activity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r3, $r2)"
+    class_name: "com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController"
+    method: "<com.hyprmx.android.sdk.activity.HyprMXOfferWebViewController: void b()>"
+    id: 11
+  }
+}
+analysis_start: 1538641425
+analysis_end: 1538641498

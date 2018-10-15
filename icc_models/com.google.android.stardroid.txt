@@ -1,0 +1,314 @@
+name: "com.google.android.stardroid"
+version: 1480
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.WRITE_SETTINGS"
+components {
+  name: "com.google.android.stardroid.activities.DynamicStarMapActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SEARCH"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.DEFAULT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.stardroid.activities.DynamicStarMapActivity: void startActivity(android.content.Intent)>(r41)"
+      class_name: "com.google.android.stardroid.activities.DynamicStarMapActivity"
+      method: "<com.google.android.stardroid.activities.DynamicStarMapActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 99
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/CompassCalibrationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r9.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.google.android.stardroid.util.SensorAccuracyMonitor"
+      method: "<com.google.android.stardroid.util.SensorAccuracyMonitor: void onAccuracyChanged(android.hardware.Sensor,int)>"
+      id: 33
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/CompassCalibrationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.stardroid.activities.DynamicStarMapActivity: void startActivity(android.content.Intent)>($r27)"
+      class_name: "com.google.android.stardroid.activities.DynamicStarMapActivity"
+      method: "<com.google.android.stardroid.activities.DynamicStarMapActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 82
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/ImageGalleryActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.stardroid.activities.DynamicStarMapActivity: void startActivity(android.content.Intent)>($r12)"
+      class_name: "com.google.android.stardroid.activities.DynamicStarMapActivity"
+      method: "<com.google.android.stardroid.activities.DynamicStarMapActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 107
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/DiagnosticActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.stardroid.activities.DynamicStarMapActivity: void startActivity(android.content.Intent)>($r30)"
+      class_name: "com.google.android.stardroid.activities.DynamicStarMapActivity"
+      method: "<com.google.android.stardroid.activities.DynamicStarMapActivity: boolean onOptionsItemSelected(android.view.MenuItem)>"
+      id: 24
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/EditSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.measurement.UPLOAD"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r6)"
+      class_name: "com.google.android.gms.common.stats.zzi"
+      method: "<com.google.android.gms.common.stats.zzi: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 38
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r13.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r17)"
+      class_name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+      method: "<com.google.android.gms.measurement.AppMeasurementReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 20
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.measurement.UPLOAD"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/android/gms/measurement/AppMeasurementService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.stardroid.activities.ImageGalleryActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.stardroid.activities.ImageGalleryActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.google.android.stardroid.activities.ImageGalleryActivity"
+      method: "<com.google.android.stardroid.activities.ImageGalleryActivity: void showImage(int)>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/ImageDisplayActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r6)"
+      class_name: "com.google.android.gms.common.stats.zzi"
+      method: "<com.google.android.gms.common.stats.zzi: void zza(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 38
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.stardroid.activities.SplashScreenActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.stardroid.activities.SplashScreenActivity: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.google.android.stardroid.activities.SplashScreenActivity"
+      method: "<com.google.android.stardroid.activities.SplashScreenActivity: void launchSkyMap()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/DynamicStarMapActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementContentProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.stardroid.search.SearchTermsProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.stardroid.activities.ImageDisplayActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.google.android.stardroid.activities.ImageDisplayActivity: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.google.android.stardroid.activities.ImageDisplayActivity"
+      method: "<com.google.android.stardroid.activities.ImageDisplayActivity: void doSearch(android.view.View)>"
+      id: 27
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.SEARCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/google/android/stardroid/activities/DynamicStarMapActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.stardroid"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.stardroid.activities.DiagnosticActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.stardroid.activities.CompassCalibrationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.stardroid.activities.EditSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r5 = virtualinvoke $r1.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r2)"
+    class_name: "com.google.android.gms.internal.zzmv"
+    method: "<com.google.android.gms.internal.zzmv: int zzax(android.content.Context)>"
+    id: 8
+  }
+}
+analysis_start: 1538658698
+analysis_end: 1538658710

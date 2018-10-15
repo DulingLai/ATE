@@ -1,0 +1,2712 @@
+name: "com.olg.utility"
+version: 37
+permissions {
+  name: "com.olg.utility.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "com.olg.utility.permission.C2D_MESSAGE"
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.CAMERA"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+components {
+  name: "com.olg.utility.modules.home.views.HomeActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.olg.common.e.h"
+      method: "<com.olg.common.e.h: void d(android.content.Context)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.LAUNCHER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r9)"
+      class_name: "com.olg.common.e.h"
+      method: "<com.olg.common.e.h: void c(android.content.Context)>"
+      id: 24
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r16)"
+      class_name: "com.olg.common.e.h"
+      method: "<com.olg.common.e.h: void c(android.content.Context)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.data.location.GeocodeService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "net.hockeyapp.android.PaintActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "net.hockeyapp.android.ExpiryInfoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.utility.modules.home.views.HitMissDetailActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z1 = virtualinvoke r1.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r3, r4, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 10
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "r10 = virtualinvoke r9.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.utility.modules.scanhistory.views.ScanHistoryActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.modules.location.views.LocationFilterActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.modules.playsmart.views.PlaySmartActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 73
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.iid.TOKEN_REQUEST"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.olg.utility.modules.common.views.push.TokenRefreshService: android.content.ComponentName startService(android.content.Intent)>($r1)"
+      class_name: "com.olg.utility.modules.common.views.push.TokenRefreshService"
+      method: "<com.olg.utility.modules.common.views.push.TokenRefreshService: void a()>"
+      id: 4
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/common/views/push/RegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r25.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 67
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.iid.TOKEN_REQUEST"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r10 = virtualinvoke r9.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r26.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 44
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.iid.TOKEN_REQUEST"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.utility.modules.home.views.GameActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.olg.utility.modules.coupons.views.CouponDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.modules.common.views.GenericWebviewActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.modules.games.views.GameDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.utility.modules.common.views.push.TokenRefreshService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 73
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.iid.TOKEN_REQUEST"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.olg.utility.modules.common.views.push.TokenRefreshService: android.content.ComponentName startService(android.content.Intent)>($r1)"
+      class_name: "com.olg.utility.modules.common.views.push.TokenRefreshService"
+      method: "<com.olg.utility.modules.common.views.push.TokenRefreshService: void a()>"
+      id: 4
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/common/views/push/RegistrationIntentService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r25.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 67
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.iid.TOKEN_REQUEST"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r10 = virtualinvoke r9.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r26.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 44
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.iid.TOKEN_REQUEST"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "net.hockeyapp.android.UpdateActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z1 = virtualinvoke r1.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r3, r4, i0)"
+      class_name: "com.google.android.gms.common.stats.a"
+      method: "<com.google.android.gms.common.stats.a: boolean a(android.content.Context,java.lang.String,android.content.Intent,android.content.ServiceConnection,int)>"
+      id: 10
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "r10 = virtualinvoke r9.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.utility.modules.scanhistory.views.ScanHistoryFiltersActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.modules.account.views.AccountSettingsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.utility.modules.coupons.views.CouponUseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.modules.account.views.AccountActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.b"
+      method: "<com.facebook.internal.b: com.facebook.internal.b d(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.modules.account.views.LoginActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.utility.UnityPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.modules.account.views.SignUpActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.modules.settings.views.SettingsActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.olg.common.e.h"
+      method: "<com.olg.common.e.h: void d(android.content.Context)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.LAUNCHER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.utility.modules.coupons.views.CouponsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.olg.utility.modules.launch.views.LaunchActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+}
+components {
+  name: "com.olg.utility.modules.common.views.push.RegistrationIntentService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "r10 = virtualinvoke r9.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.modules.location.views.LocationActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent,android.os.Bundle)>(r0, r2)"
+      class_name: "com.olg.common.d.a"
+      method: "<com.olg.common.d.a: void a(android.content.Intent,android.content.Context,android.os.Bundle,android.os.Bundle,int,com.olg.common.d.b$a)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/settings/views/FeedbackActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/home/views/HomeActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/location/views/LocationFilterActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/scanner/views/ScannerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/common/views/GenericWebviewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/AccountSettingsActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/modules/account/views/SignUpActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/olg/utility/modules/scanhistory/views/ScanHistoryFiltersActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "net.hockeyapp.android.LoginActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<net.hockeyapp.android.LoginActivity: void startActivity(android.content.Intent)>(r7)"
+      class_name: "net.hockeyapp.android.LoginActivity"
+      method: "<net.hockeyapp.android.LoginActivity: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.common.reminders.AlarmReceiver"
+  kind: RECEIVER
+  exported: true
+}
+components {
+  name: "com.olg.modules.settings.views.FeedbackActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.olg.common.e.h"
+      method: "<com.olg.common.e.h: void d(android.content.Context)>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.MAIN"
+      }
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.LAUNCHER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+}
+components {
+  name: "net.hockeyapp.android.FeedbackActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<net.hockeyapp.android.FeedbackActivity: void startActivityForResult(android.content.Intent,int)>(r11, 3)"
+      class_name: "net.hockeyapp.android.FeedbackActivity"
+      method: "<net.hockeyapp.android.FeedbackActivity: void onActivityResult(int,int,android.content.Intent)>"
+      id: 22
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "net/hockeyapp/android/PaintActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.olg.utility"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<net.hockeyapp.android.FeedbackActivity: void startActivityForResult(android.content.Intent,int)>($r4, 1)"
+      class_name: "net.hockeyapp.android.FeedbackActivity"
+      method: "<net.hockeyapp.android.FeedbackActivity: boolean a(int)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<net.hockeyapp.android.FeedbackActivity: void startActivityForResult(android.content.Intent,int)>($r8, 2)"
+      class_name: "net.hockeyapp.android.FeedbackActivity"
+      method: "<net.hockeyapp.android.FeedbackActivity: boolean a(int)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+}
+components {
+  name: "com.olg.common.reminders.BootReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+  }
+}
+components {
+  name: "com.olg.modules.scanner.views.ScannerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.CustomTabMainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "android.support.v7.app.k$b$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.android.gms.iid.e$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "android.support.v4.c.l"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.facebook.internal.c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.firebase.iid.f$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.facebook.e$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.b.a.i$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.AIRPLANE_MODE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "android.intent.action.AIRPLANE_MODE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(r0, r1)"
+    class_name: "com.b.a.i$c"
+    method: "<com.b.a.i$c: void a()>"
+    id: 10
+  }
+}
+components {
+  name: "com.google.android.gms.e.x"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.android.gms.e.hm"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.olg.common.reminders.AlarmReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.android.gms.e.df"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.DEVICE_STORAGE_LOW"
+    }
+  }
+  registration_instruction {
+    statement: "$r25 = virtualinvoke r0.<com.olg.modules.scanner.views.ScannerActivity: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r24)"
+    class_name: "com.olg.modules.scanner.views.ScannerActivity"
+    method: "<com.olg.modules.scanner.views.ScannerActivity: void u()>"
+    id: 22
+  }
+}
+components {
+  name: "com.google.android.gms.b.a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.google.firebase.a$b"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+components {
+  name: "com.olg.common.reminders.BootReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.olg.utility"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r3.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r5, $r4)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService$a"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService$a: void a(android.content.Context,int)>"
+    id: 14
+  }
+}
+analysis_start: 1536547538
+analysis_end: 1536547688

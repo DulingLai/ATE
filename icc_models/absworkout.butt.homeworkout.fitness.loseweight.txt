@@ -1,0 +1,4692 @@
+name: "absworkout.butt.homeworkout.fitness.loseweight"
+version: 21
+permissions {
+  name: "absworkout.butt.homeworkout.fitness.loseweight.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.PACKAGE_USAGE_STATS"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "android.permission.SYSTEM_ALERT_WINDOW"
+used_permissions: "android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+used_permissions: "android.permission.RECEIVE_BOOT_COMPLETED"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "absworkout.butt.homeworkout.fitness.loseweight.permission.C2D_MESSAGE"
+used_permissions: "android.permission.KILL_BACKGROUND_PROCESSES"
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.GET_TASKS"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "android.permission.BLUETOOTH"
+used_permissions: "android.permission.READ_EXTERNAL_STORAGE"
+used_permissions: "android.permission.READ_PHONE_STATE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "com.android.launcher.permission.INSTALL_SHORTCUT"
+components {
+  name: "com.cs.bd.notification.main.core.HandleNotificaionClickActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.cs.bd.ad.h5.H5AdActivity"
+      method: "<com.cs.bd.ad.h5.H5AdActivity: boolean a(android.content.Context,java.lang.String)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/ad/h5/H5AdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r74)"
+      class_name: "com.cs.bd.ad.url.c"
+      method: "<com.cs.bd.ad.url.c: boolean a(android.content.Context,com.cs.bd.ad.http.bean.ParamsBean,java.lang.String,int,int,int,java.lang.String,java.lang.String,int,boolean,boolean,boolean,java.lang.String,boolean)>"
+      id: 108
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/ad/url/AdUrlPreParseLoadingActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.cs.bd.utils.GoogleMarketUtils"
+      method: "<com.cs.bd.utils.GoogleMarketUtils: void openGP(android.content.Context,java.lang.String)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.cs.bd.utils.GoogleMarketUtils"
+      method: "<com.cs.bd.utils.GoogleMarketUtils: void showFloatWindow(android.content.Context)>"
+      id: 13
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "AdService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.cs.bd.utils.GoogleMarketUtils"
+      method: "<com.cs.bd.utils.GoogleMarketUtils: boolean gotoBrowser(android.content.Context,java.lang.String)>"
+      id: 49
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r2)"
+      class_name: "com.cs.bd.ad.intelligent.api.a"
+      method: "<com.cs.bd.ad.intelligent.api.a: void a(android.content.Context,java.lang.String,java.lang.String[])>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "IntelligentPreloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "com.cs.bd.dyload.pl.chargelocker.cell.ChargeBatteryProxyActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.cpcphone.abtestcenter.statics.SchedulerStaticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.ActionDetailActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.aerserv.sdk.controller.command.LaunchBrowserCommand"
+      method: "<com.aerserv.sdk.controller.command.LaunchBrowserCommand: void execute()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "absworkout.butt.homeworkout.fitness.loseweight"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.cs.bd.ad.h5.H5AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aerserv.sdk.view.ASVpaidInterstitalActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aerserv.sdk.view.ASVastInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.aerserv.sdk.controller.command.LaunchBrowserCommand"
+      method: "<com.aerserv.sdk.controller.command.LaunchBrowserCommand: void execute()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.DataCollectionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.ActionListActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.engine.service.DataService"
+  kind: SERVICE
+  exported: true
+}
+components {
+  name: "com.cs.bd.notification.main.ad.mopub.base.common.MoPubBrowser"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.ad.HomeKeyAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.appsflyer.MultipleInstallBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void sendBroadcast(android.content.Intent)>(r4)"
+      class_name: "com.appsflyer.AppsFlyerLib"
+      method: "<com.appsflyer.AppsFlyerLib: void \313\212(android.content.Context,java.lang.String,java.lang.String,java.lang.String)>"
+      id: 19
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.appsflyer.MonitorBroadcast"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.appsflyer.nightvision"
+      }
+    }
+  }
+}
+components {
+  name: "com.cs.bd.notification.main.ad.mopub.base.mobileads.MraidVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.facebook.ads.internal.util.g"
+      method: "<com.facebook.ads.internal.util.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 18
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.util.g"
+      method: "<com.facebook.ads.internal.util.g: void a(android.content.Context,android.net.Uri)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.facebook.ads.internal.util.g"
+      method: "<com.facebook.ads.internal.util.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.aerserv.sdk.controller.command.LaunchBrowserCommand"
+      method: "<com.aerserv.sdk.controller.command.LaunchBrowserCommand: void execute()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.facebook.ads.internal.view.i"
+      method: "<com.facebook.ads.internal.view.i: void k()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.facebook.ads.internal.view.i"
+      method: "<com.facebook.ads.internal.view.i: void k()>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "com.cs.bd.fwad.api.FwadServiceProxy"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.components.ComponentDiscoveryService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.adcolony.sdk.AdColonyAdViewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.engine.receiver.StatisticReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.upload.statistics.8.hour"
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.ad.FullScreenAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.PrivacyActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.TrainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.cs.bd.receiver.AppBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "android.intent.action.PACKAGE_REMOVED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+    attributes {
+      kind: SCHEME
+      value: "package"
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.TrainingCampActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.cs.bd.receiver.BootBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BOOT_COMPLETED"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.ad.LoadAdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.cs.bd.commerce.util.io.MultiprocessSharedPreferences"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void sendBroadcast(android.content.Intent)>(r3)"
+      class_name: "com.cs.bd.commerce.util.io.MultiprocessSharedPreferences"
+      method: "<com.cs.bd.commerce.util.io.MultiprocessSharedPreferences: void notifyListeners(java.lang.String,java.util.ArrayList)>"
+      id: 16
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.ReminderActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.aerserv.sdk.controller.command.LaunchBrowserCommand"
+      method: "<com.aerserv.sdk.controller.command.LaunchBrowserCommand: void execute()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.cs.bd.buychannel.GaTrackerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.ReminderGuideActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.engine.daemon.Service2$InnerService2"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.cs.bd.service.IntelligentPreloadService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.cs.bd.service.AdService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.cs.bd.daemon.BootCompleteReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: 99999
+    }
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.NEW_OUTGOING_CALL"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MEDIA_UNMOUNTED"
+      value: "android.intent.action.MEDIA_MOUNTED"
+    }
+    attributes {
+      kind: SCHEME
+      value: "file"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.bluetooth.adapter.action.STATE_CHANGED"
+      value: "android.net.wifi.WIFI_STATE_CHANGED"
+      value: "android.intent.action.QUICKBOOT_POWERON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_RESTARTED"
+      value: "android.intent.action.PACKAGE_REPLACED"
+    }
+    attributes {
+      kind: SCHEME
+      value: "package"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: 999
+    }
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.BOOT_COMPLETED"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "android.intent.action.WALLPAPER_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: 99999
+    }
+    attributes {
+      kind: ACTION
+      value: "android.provider.Telephony.SECRET_CODE"
+    }
+    attributes {
+      kind: SCHEME
+      value: "android_secret_code"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.daemon.b.e"
+      method: "<com.cs.bd.daemon.b.e: void a(android.content.Context,android.content.Intent)>"
+      id: 5
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.ads.AudienceNetworkActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.facebook.ads.internal.util.g"
+      method: "<com.facebook.ads.internal.util.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 18
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.facebook.ads.internal.util.g"
+      method: "<com.facebook.ads.internal.util.g: void a(android.content.Context,android.net.Uri)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CATEGORY
+        value: "android.intent.category.BROWSABLE"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.facebook.ads.internal.util.g"
+      method: "<com.facebook.ads.internal.util.g: void b(android.content.Context,android.net.Uri,java.lang.String)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.aerserv.sdk.controller.command.LaunchBrowserCommand"
+      method: "<com.aerserv.sdk.controller.command.LaunchBrowserCommand: void execute()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.facebook.ads.internal.view.i"
+      method: "<com.facebook.ads.internal.view.i: void k()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/AudienceNetworkActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.facebook.ads.internal.view.i"
+      method: "<com.facebook.ads.internal.view.i: void k()>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/ads/InterstitialAdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.CourseDescriptionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+}
+components {
+  name: "com.cs.bd.buychannel.MPSharedPreferences"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void sendBroadcast(android.content.Intent)>(r3)"
+      class_name: "com.cs.bd.buychannel.MPSharedPreferences"
+      method: "<com.cs.bd.buychannel.MPSharedPreferences: void a(java.lang.String,java.util.ArrayList)>"
+      id: 16
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.MainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.cs.bd.ad.url.AdUrlPreParseLoadingActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.cs.bd.utils.GoogleMarketUtils"
+      method: "<com.cs.bd.utils.GoogleMarketUtils: void openGP(android.content.Context,java.lang.String)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.cs.bd.utils.GoogleMarketUtils"
+      method: "<com.cs.bd.utils.GoogleMarketUtils: void showFloatWindow(android.content.Context)>"
+      id: 13
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "AdService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.cs.bd.utils.GoogleMarketUtils"
+      method: "<com.cs.bd.utils.GoogleMarketUtils: boolean gotoBrowser(android.content.Context,java.lang.String)>"
+      id: 49
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r7.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r2)"
+      class_name: "com.cs.bd.ad.intelligent.api.a"
+      method: "<com.cs.bd.ad.intelligent.api.a: void a(android.content.Context,java.lang.String,java.lang.String[])>"
+      id: 12
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "IntelligentPreloadService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.keep.fit.activity.AboutActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.engine.receiver.NotificationReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.notification.click"
+    }
+  }
+}
+components {
+  name: "com.liulishuo.filedownloader.services.FileDownloadService$SeparateProcessService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mopub.mobileads.MoPubActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.aerserv.sdk.view.ASWebviewInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.cs.bd.daemon.JobSchedulerService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.daemon.b.e"
+      method: "<com.cs.bd.daemon.b.e: void a(android.content.Context,android.content.Intent)>"
+      id: 5
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.activity.StartActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+}
+components {
+  name: "com.crashlytics.android.CrashlyticsInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.keep.fit.engine.service.EmptyService$InnerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.cs.bd.dyload.pl.chargelocker.cell.ChargeLockerProxyService"
+  kind: SERVICE
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.mopub.common.MoPubBrowser"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.TrainResultActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.engine.service.DataService$InnerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.monet.bidder.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.cs.bd.dyload.core.proxy.activity.StandarProxyActivity"
+  kind: ACTIVITY
+  exported: true
+}
+components {
+  name: "com.mopub.mobileads.MraidVideoPlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.LearnMoreActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.CourseDetailActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r11.<android.content.Context: void startActivity(android.content.Intent)>(r13)"
+      class_name: "com.facebook.ads.internal.view.a.a$3"
+      method: "<com.facebook.ads.internal.view.a.a$3: void onClick(android.view.View)>"
+      id: 20
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.aerserv.sdk.controller.command.LaunchBrowserCommand"
+      method: "<com.aerserv.sdk.controller.command.LaunchBrowserCommand: void execute()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.keep.fit.engine.daemon.Service2"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.keep.fit.engine.service.EmptyService"
+  kind: SERVICE
+  exported: true
+}
+components {
+  name: "com.keep.fit.engine.daemon.Receiver2"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.SettingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.engine.daemon.Receiver1"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.liulishuo.filedownloader.services.FileDownloadService$SharedMainProcessService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.cs.statistic.StaticDataContentProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.keep.fit.activity.FeedBackActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementJobService"
+  kind: SERVICE
+  exported: false
+  permission: "android.permission.BIND_JOB_SERVICE"
+}
+components {
+  name: "com.mopub.mobileads.MraidActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.keep.fit.activity.TrainPauseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.adcolony.sdk.AdColonyInterstitialActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+}
+components {
+  name: "com.aerserv.sdk.view.AerServFullScreenAdActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r4.<android.content.Context: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.aerserv.sdk.controller.command.LaunchBrowserCommand"
+      method: "<com.aerserv.sdk.controller.command.LaunchBrowserCommand: void execute()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.cs.bd.notification.main.core.NotificationSdkService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r6)"
+      class_name: "com.cs.bd.notification.b.b.a"
+      method: "<com.cs.bd.notification.b.b.a: boolean a(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "rescheduleNextNotification"
+      }
+      attributes {
+        kind: CLASS
+        value: "com/cs/bd/notification/main/core/NotificationSdkService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "absworkout.butt.homeworkout.fitness.loseweight"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r15.<android.content.Context: void sendBroadcast(android.content.Intent)>(r1)"
+      class_name: "com.cs.statistic.StatisticsManager$10"
+      method: "<com.cs.statistic.StatisticsManager$10: void invoke()>"
+      id: 22
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.broadcast.uploaddata"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r3.<android.content.Context: void sendBroadcast(android.content.Intent)>(r0)"
+      class_name: "com.cs.bd.ad.url.e"
+      method: "<com.cs.bd.ad.url.e: boolean a(android.content.Context,android.content.Intent)>"
+      id: 9
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.INSTALL_REFERRER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "(.*)"
+      }
+    }
+  }
+}
+components {
+  name: "com.cs.bd.daemon.BootCompleteReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.commerce.util.observer.NetStateObserver$NetStateReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.utils.NetStateMonitor$NetBrocastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.statistic.StatisticsManager$13"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.bumptech.glide.c.e$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.gdpr.core.a$5"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.notification.main.exposure.ScreenStatusBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.facebook.ads.internal.DisplayAdController$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.mopub.utils.e$b"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.utils.AdTimer$AMReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.notification.main.core.HandleNotificationClickBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.cs.bd.notification.action.HANDLE_NOTIFICATION_CLEAR"
+      value: "com.cs.bd.notification.action.HANDLE_NOTIFICATION_CLICK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.media.action.HDMI_AUDIO_PLUG"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r3 = virtualinvoke r2.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, $r0)"
+    class_name: "com.adcolony.sdk.l"
+    method: "<com.adcolony.sdk.l: double a(android.content.Context)>"
+    id: 6
+  }
+}
+components {
+  name: "com.cs.bd.notification.main.ad.mopub.base.mobileads.BaseBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.receiver.NetWorkDynamicBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.notification.main.a$3"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.buychannel.buyChannel.d.c$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.gdpr.core.util.BaseReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.statistic.scheduler.SchedulerManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.notification.main.core.NotificationSdkService$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.appsflyer.MultipleInstallBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.ad.manager.c$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.facebook.ads.internal.adapters.aa"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.gdpr.core.util.NetworkReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.buychannel.MPSharedPreferences$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.internal.GooglePlayServicesUpdatedReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.mopub.mopubstate.CsMopubView$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "android.support.v7.app.e$b$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.receiver.AppBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.keep.fit.engine.daemon.Receiver2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.mopub.e.a$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.commerce.util.CustomAlarm$TaskReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.commerce.action.alarm.AD_SDK"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.commerce.action.alarm.buychannelsdk"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.commerce.action.alarm.CsAdSdk"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.keep.fit.engine.daemon.Receiver1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.mopub.mopubstate.CsMopubView$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.receiver.BootBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.commerce.util.io.MultiprocessSharedPreferences$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.buychannel.GaTrackerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.facebook.ads.internal.adapters.s"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.cs.bd.daemon.b.a$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.facebook.ads.NativeAd$b"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action_long_hour_request"
+      value: "android.intent.action.USER_PRESENT"
+      value: "android.intent.action.SCREEN_OFF"
+      value: "absworkout.butt.homeworkout.fitness.loseweight.action.reminder.alarm"
+      value: "android.intent.action.SCREEN_ON"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.PACKAGE_ADDED"
+      value: "com.android.broadcast.uploaddata"
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "com.cs.statistic.ACTION_UPLOAD_DATA"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.broadcast.ctrlinfo"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.action.broadreceiver.scheduler.manager"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "(.*)"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.SCREEN_OFF"
+      value: "android.intent.action.USER_PRESENT"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r50.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r49, r55)"
+    class_name: "com.cs.statistic.StatisticsManager"
+    method: "<com.cs.statistic.StatisticsManager: void <init>(android.content.Context)>"
+    id: 154
+  }
+}
+analysis_start: 1538542022
+analysis_end: 1538542220

@@ -1,0 +1,894 @@
+name: "com.mcdonalds.superapp"
+version: 171
+permissions {
+  name: "com.mcdonalds.superapp.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+permissions {
+  name: "com.mcdonalds.superapp.permission.MAPS_RECEIVE"
+  level: SIGNATURE
+}
+used_permissions: "android.permission.GET_ACCOUNTS"
+used_permissions: "com.mcdonalds.superapp.permission.MAPS_RECEIVE"
+used_permissions: "android.permission.AUTHENTICATE_ACCOUNTS"
+used_permissions: "android.permission.ACCESS_GPS"
+used_permissions: "android.permission.SYSTEM_ALERT_WINDOW"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+used_permissions: "android.permission.ACCESS_FINE_LOCATION"
+used_permissions: "android.permission.ACCESS_LOCATION"
+used_permissions: "android.permission.ACCESS_COARSE_LOCATION"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "android.permission.ACCESS_WIFI_STATE"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "android.permission.MANAGE_ACCOUNTS"
+used_permissions: "com.google.android.providers.gsf.permission.READ_GSERVICES"
+used_permissions: "com.mcdonalds.superapp.permission.C2D_MESSAGE"
+used_permissions: "android.permission.VIBRATE"
+used_permissions: "com.android.alarm.permission.SET_ALARM"
+used_permissions: "android.permission.READ_SYNC_STATS"
+used_permissions: "android.permission.WRITE_SYNC_SETTINGS"
+used_permissions: "android.permission.CHANGE_WIFI_STATE"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.USE_CREDENTIALS"
+used_permissions: "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+used_permissions: "android.permission.CAMERA"
+used_permissions: "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"
+used_permissions: "android.permission.READ_PHONE_STATE"
+components {
+  name: "com.mcdonalds.order.activity.OrderDetailActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.tutorial.activity.TutorialPagerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.account.activity.ForgotPasswordActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.restaurant.activity.RestaurantDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderReceiptActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderCurbsideConfirmActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderSentHelpCenterActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.app.nutrition.service.DisclaimerService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.RevocationBoundService"
+  kind: SERVICE
+  exported: true
+  permission: "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+}
+components {
+  name: "com.mcdonalds.restaurant.activity.RestaurantSearchActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.home.activity.HomeActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.SocialRegExtraDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.tutorial.activity.TutorialExistingUserActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderFulfillmentDeliverySettingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.internal.FacebookInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderDeliveryConfirmActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.LoginFinalStepActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.geofence.service.OfferGeofenceService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mcdonalds.nutrition.activity.NutritionLandingActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.amap.api.location.APSService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderActionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.apptentive.android.sdk.ApptentiveViewActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.apptentive.android.sdk.ApptentiveViewActivity: void startActivity(android.content.Intent)>($r5)"
+      class_name: "com.apptentive.android.sdk.ApptentiveViewActivity"
+      method: "<com.apptentive.android.sdk.ApptentiveViewActivity: void startLauncherActivityIfRoot()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r15.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.apptentive.android.sdk.module.engagement.EngagementModule"
+      method: "<com.apptentive.android.sdk.module.engagement.EngagementModule: void launchInteraction(android.content.Context,com.apptentive.android.sdk.module.engagement.interaction.model.Interaction)>"
+      id: 30
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/apptentive/android/sdk/ApptentiveViewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mcdonalds.superapp"
+      }
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.sdk.services.data.sync.SyncService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.content.SyncAdapter"
+    }
+  }
+}
+components {
+  name: "com.apptentive.android.sdk.debug.LogBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void sendBroadcast(android.content.Intent)>($r4)"
+      class_name: "com.apptentive.android.sdk.debug.LogBroadcastReceiver"
+      method: "<com.apptentive.android.sdk.debug.LogBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 8
+    }
+    kind: RECEIVER
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: void startActivity(android.content.Intent)>($r22)"
+      class_name: "com.apptentive.android.sdk.debug.LogBroadcastReceiver"
+      method: "<com.apptentive.android.sdk.debug.LogBroadcastReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 69
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.CHOOSER"
+      }
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.about.activity.AboutActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.account.activity.DCSNewPasswordActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.home.service.MomentsContentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.common.activity.SplashActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r8.<android.support.v4.app.FragmentActivity: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.apptentive.android.sdk.module.engagement.interaction.fragment.AboutFragment$3"
+      method: "<com.apptentive.android.sdk.module.engagement.interaction.fragment.AboutFragment$3: void onClick(android.view.View)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r8.<android.support.v4.app.FragmentActivity: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.apptentive.android.sdk.module.engagement.interaction.fragment.AboutFragment$2"
+      method: "<com.apptentive.android.sdk.module.engagement.interaction.fragment.AboutFragment$2: void onClick(android.view.View)>"
+      id: 15
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.mcdonalds.mcdcoreapp.common.activity.BaseActivity: void startActivityForResult(android.content.Intent,int)>(r1, i0)"
+      class_name: "com.mcdonalds.mcdcoreapp.common.activity.BaseActivity"
+      method: "<com.mcdonalds.mcdcoreapp.common.activity.BaseActivity: void launchActivityWithAnimation(android.content.Intent,int)>"
+      id: 13
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r15.<android.content.Context: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.apptentive.android.sdk.module.engagement.EngagementModule"
+      method: "<com.apptentive.android.sdk.module.engagement.EngagementModule: void launchInteraction(android.content.Context,com.apptentive.android.sdk.module.engagement.interaction.model.Interaction)>"
+      id: 30
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/apptentive/android/sdk/ApptentiveViewActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mcdonalds.superapp"
+      }
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.common.services.LocationReceiver"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mcdonalds.restaurant.activity.OrderSentMapActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.app.account.AuthenticatorService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.accounts.AccountAuthenticator"
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.restaurant.activity.MockLocationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.nutrition.activity.OrderProductNutritionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.LoginRegistrationTabActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.TemporaryPasswordActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.common.activity.DeepLinkRouter"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+      value: "android.intent.category.VIEW"
+    }
+    attributes {
+      kind: HOST
+      value: "www.mcdonalds.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "http"
+    }
+    attributes {
+      kind: HOST
+      value: "www.mcdonalds.com"
+    }
+    attributes {
+      kind: SCHEME
+      value: "https"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+      value: "android.intent.category.VIEW"
+    }
+    attributes {
+      kind: SCHEME
+      value: "mcdmobileapp"
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.account.activity.AddAddressEAActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.RegistrationActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.NewPasswordActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.common.activity.FeedbackActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.payments.ui.activity.PaymentsWebviewActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.offer.monopoly.MonopolyActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.geofence.service.GeofenceTransitionIntentService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mcdonalds.payments.ui.activity.PaymentSelectorActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderPODSelectionActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.twitter.sdk.android.core.identity.OAuthActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.push.GcmBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.mcdonalds.app"
+    }
+  }
+}
+components {
+  name: "com.twitter.sdk.android.tweetcomposer.TweetUploadService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.twitter.sdk.android.tweetcomposer.ComposerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderProductDetailsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.sdk.services.RonaldService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r1, $r7, 1)"
+      class_name: "com.mcdonalds.sdk.McDonalds"
+      method: "<com.mcdonalds.sdk.McDonalds: void initializeService(android.content.Intent)>"
+      id: 11
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mcdonalds/sdk/services/RonaldService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mcdonalds.superapp"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r7.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r8)"
+      class_name: "com.mcdonalds.sdk.services.RonaldService"
+      method: "<com.mcdonalds.sdk.services.RonaldService: com.mcdonalds.sdk.services.RonaldServiceConnection getServiceConnection(android.content.Context,android.content.Intent)>"
+      id: 14
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/mcdonalds/sdk/services/RonaldService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.mcdonalds.superapp"
+      }
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderNeedHelpActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderPostCheckOutActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderSentActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.app.activities.RDIConfigActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.twitter.sdk.android.tweetui.PlayerActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.offer.activity.DealTermsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.twitter.sdk.android.tweetui.GalleryActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.apptentive.android.sdk.debug.ApptentiveAttachmentFileProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.mcdonalds.app.common.LocaleChangeReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.mcdonalds.app.action.LOCALE_CHANGED"
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.offer.activity.DealsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.common.activity.PlaceHolderActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.kochava.base.ReferralReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.mcdonalds.account.activity.TermsAndConditionsActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.push.GcmIntentService"
+  kind: SERVICE
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+  }
+}
+components {
+  name: "com.baidu.android.pushservice.PushInfoProvider"
+  kind: PROVIDER
+  exported: true
+  permission: ""
+}
+components {
+  name: "com.mcdonalds.order.activity.OrderCheckInActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.SavedAddressActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.common.services.McDAlarmCallbackService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.mcdonalds.mcdcoreapp.common.activity.CvvActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.account.activity.AccountActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.mcdonalds.sdk.services.data.provider.ContentProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "android.support.v7.app.AppCompatDelegateImplV14$AutoNightModeManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.facebook.CustomTabMainActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.apptentive.android.sdk.debug.LogBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "android.support.v4.media.session.MediaButtonReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.ensighten.ax$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.ensighten.utils.BatteryInfoManager"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.bumptech.glide.manager.DefaultConnectivityMonitor$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.facebook.internal.BoltsMeasurementEventListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke r0.<com.mcdonalds.sdk.services.RonaldService: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, r1)"
+    class_name: "com.mcdonalds.sdk.services.RonaldService"
+    method: "<com.mcdonalds.sdk.services.RonaldService: void onCreate()>"
+    id: 31
+  }
+}
+analysis_start: 1536547226
+analysis_end: 1536547254

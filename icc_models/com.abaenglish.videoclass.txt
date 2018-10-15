@@ -1,0 +1,4728 @@
+name: "com.abaenglish.videoclass"
+version: 134
+permissions {
+  name: "com.abaenglish.videoclass.permission.C2D_MESSAGE"
+  level: SIGNATURE
+}
+used_permissions: "com.abaenglish.videoclass.permission.C2D_MESSAGE"
+used_permissions: "android.permission.INTERNET"
+used_permissions: "android.permission.ACCESS_NETWORK_STATE"
+used_permissions: "android.permission.WAKE_LOCK"
+used_permissions: "com.android.vending.BILLING"
+used_permissions: "android.permission.BLUETOOTH"
+used_permissions: "android.permission.RECORD_AUDIO"
+used_permissions: "com.google.android.c2dm.permission.RECEIVE"
+used_permissions: "android.permission.WRITE_EXTERNAL_STORAGE"
+components {
+  name: "com.abaenglish.videoclass.presentation.plan.PlansActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.g"
+      method: "<com.google.android.gms.common.stats.g: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.internal.yh"
+      method: "<com.google.android.gms.internal.yh: void a(android.content.Context,android.content.Intent)>"
+      id: 22
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.analytics.ANALYTICS_DISPATCH"
+      }
+      attributes {
+        kind: CLASS
+        value: "com.google.android.gms.analytics.AnalyticsService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.unit.DetailUnitActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a$3"
+      method: "<com.abaenglish.videoclass.presentation.base.a$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.settings.APPLICATION_DETAILS_SETTINGS"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.profile.ChangePasswordActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.profile.PerfilChangePasswordActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.plan.InitialPlansActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.abaenglish.videoclass"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: RECEIVER
+  exported: false
+}
+components {
+  name: "com.abaenglish.videoclass.helpdesk.InbentaActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.profile.ProfileChangePasswordActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.mixpanel.android.mpmetrics.InstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.assessment.CourseFinishedActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.requests.RequestActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.videoclass.PlayerActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.ads.AdActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: RECEIVER
+  exported: false
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.register.RegisterActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.adjust.sdk.AdjustReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.facebook.FacebookActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.abaenglish.shepherd.plugin.plugins.ShepherdAppVersioningPlugin$AppVersioningActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.power.BatteryStateBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_OKAY"
+      value: "android.intent.action.BATTERY_LOW"
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementService"
+  kind: SERVICE
+  exported: false
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.assessment.result.AssessmentResultActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.SplashActivity"
+  kind: ACTIVITY
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: HOST
+      value: "openApp"
+    }
+    attributes {
+      kind: SCHEME
+      value: "abavideoclass"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.VIEW"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.BROWSABLE"
+      value: "android.intent.category.DEFAULT"
+    }
+    attributes {
+      kind: SCHEME
+      value: "campusapp"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.MAIN"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "android.intent.category.LAUNCHER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.exercise.ABAExercisesActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.common.api.GoogleApiActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.g"
+      method: "<com.google.android.gms.common.stats.g: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r15)"
+      class_name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+      method: "<com.google.android.gms.analytics.CampaignTrackingReceiver: void onReceive(android.content.Context,android.content.Intent)>"
+      id: 29
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/google/android/gms/analytics/CampaignTrackingService"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.requests.ViewRequestActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.support.ViewArticleActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void b()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/EvaluationExerciseActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity: void startActivityForResult(android.content.Intent,int)>(r1, 52342)"
+      class_name: "com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity: void a(android.content.Intent)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/InterpretaDialogActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.zendesk.sdk.rating.impl.RateMyAppStoreButton$1"
+      method: "<com.zendesk.sdk.rating.impl.RateMyAppStoreButton$1: void onClick(android.view.View)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.zendesk.sdk.support.SupportActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.zendesk.sdk.support.SupportActivity"
+      method: "<com.zendesk.sdk.support.SupportActivity: void showContactActivity()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/zendesk/sdk/feedback/ui/ContactZendeskActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent,android.os.Bundle)>(r29, $r8)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 24
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r6, r3, 1)"
+      class_name: "com.abaenglish.videoclass.domain.content.i"
+      method: "<com.abaenglish.videoclass.domain.content.i: void a(android.content.Context,com.abaenglish.videoclass.domain.content.b$a)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.register.RegisterActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1111)"
+      class_name: "com.abaenglish.videoclass.presentation.register.RegisterActivity"
+      method: "<com.abaenglish.videoclass.presentation.register.RegisterActivity: void y()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/login/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent)>(r29)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 72
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r32.<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity: void startActivityForResult(android.content.Intent,int)>(r49, 100)"
+      class_name: "com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5"
+      method: "<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5: void onClick(android.view.View)>"
+      id: 68
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/PlayerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.zendesk.sdk.support.ViewArticleActivity: void startActivity(android.content.Intent)>(r12)"
+      class_name: "com.zendesk.sdk.support.ViewArticleActivity"
+      method: "<com.zendesk.sdk.support.ViewArticleActivity: void onItemClick(android.widget.AdapterView,android.view.View,int,long)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.abaenglish.shepherd.activities.ShepherdActivity: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener"
+      method: "<com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener: void onClick(android.view.View)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdConfigurationController"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void I()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/plan/InitialPlansActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a$3"
+      method: "<com.abaenglish.videoclass.presentation.base.a$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.settings.APPLICATION_DETAILS_SETTINGS"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void a(com.abaenglish.videoclass.data.persistence.ABAEvaluation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/result/AssessmentResultActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<com.mixpanel.android.surveys.SurveyActivity: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.mixpanel.android.surveys.SurveyActivity$1"
+      method: "<com.mixpanel.android.surveys.SurveyActivity$1: void onClick(android.view.View)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.abaenglish.shepherd.activities.ShepherdActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.abaenglish.shepherd.activities.ShepherdActivity: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener"
+      method: "<com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener: void onClick(android.view.View)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdConfigurationController"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.ForceUpdateActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.level.SelectLevelAcivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.g"
+      method: "<com.google.android.gms.common.stats.g: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.zendesk.sdk.support.SupportActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void b()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/EvaluationExerciseActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity: void startActivityForResult(android.content.Intent,int)>(r1, 52342)"
+      class_name: "com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity: void a(android.content.Intent)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/InterpretaDialogActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.zendesk.sdk.rating.impl.RateMyAppStoreButton$1"
+      method: "<com.zendesk.sdk.rating.impl.RateMyAppStoreButton$1: void onClick(android.view.View)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.zendesk.sdk.support.SupportActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.zendesk.sdk.support.SupportActivity"
+      method: "<com.zendesk.sdk.support.SupportActivity: void showContactActivity()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/zendesk/sdk/feedback/ui/ContactZendeskActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent,android.os.Bundle)>(r29, $r8)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 24
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r6, r3, 1)"
+      class_name: "com.abaenglish.videoclass.domain.content.i"
+      method: "<com.abaenglish.videoclass.domain.content.i: void a(android.content.Context,com.abaenglish.videoclass.domain.content.b$a)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.register.RegisterActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1111)"
+      class_name: "com.abaenglish.videoclass.presentation.register.RegisterActivity"
+      method: "<com.abaenglish.videoclass.presentation.register.RegisterActivity: void y()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/login/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent)>(r29)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 72
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r32.<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity: void startActivityForResult(android.content.Intent,int)>(r49, 100)"
+      class_name: "com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5"
+      method: "<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5: void onClick(android.view.View)>"
+      id: 68
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/PlayerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.zendesk.sdk.support.ViewArticleActivity: void startActivity(android.content.Intent)>(r12)"
+      class_name: "com.zendesk.sdk.support.ViewArticleActivity"
+      method: "<com.zendesk.sdk.support.ViewArticleActivity: void onItemClick(android.widget.AdapterView,android.view.View,int,long)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.abaenglish.shepherd.activities.ShepherdActivity: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener"
+      method: "<com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener: void onClick(android.view.View)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdConfigurationController"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void I()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/plan/InitialPlansActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a$3"
+      method: "<com.abaenglish.videoclass.presentation.base.a$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.settings.APPLICATION_DETAILS_SETTINGS"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void a(com.abaenglish.videoclass.data.persistence.ABAEvaluation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/result/AssessmentResultActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<com.mixpanel.android.surveys.SurveyActivity: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.mixpanel.android.surveys.SurveyActivity$1"
+      method: "<com.mixpanel.android.surveys.SurveyActivity$1: void onClick(android.view.View)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.shell.MenuActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void b()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/EvaluationExerciseActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity: void startActivityForResult(android.content.Intent,int)>(r1, 52342)"
+      class_name: "com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.interpret.ABAInterpretationActivity: void a(android.content.Intent)>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/InterpretaDialogActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r12.<android.content.Context: void startActivity(android.content.Intent)>(r0)"
+      class_name: "com.zendesk.sdk.rating.impl.RateMyAppStoreButton$1"
+      method: "<com.zendesk.sdk.rating.impl.RateMyAppStoreButton$1: void onClick(android.view.View)>"
+      id: 16
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.zendesk.sdk.support.SupportActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.zendesk.sdk.support.SupportActivity"
+      method: "<com.zendesk.sdk.support.SupportActivity: void showContactActivity()>"
+      id: 5
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/zendesk/sdk/feedback/ui/ContactZendeskActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent,android.os.Bundle)>(r29, $r8)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 24
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r6, r3, 1)"
+      class_name: "com.abaenglish.videoclass.domain.content.i"
+      method: "<com.abaenglish.videoclass.domain.content.i: void a(android.content.Context,com.abaenglish.videoclass.domain.content.b$a)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.android.vending.billing.InAppBillingService.BIND"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.android.vending"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.register.RegisterActivity: void startActivityForResult(android.content.Intent,int)>($r1, 1111)"
+      class_name: "com.abaenglish.videoclass.presentation.register.RegisterActivity"
+      method: "<com.abaenglish.videoclass.presentation.register.RegisterActivity: void y()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/login/LoginActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent)>(r29)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 72
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r32.<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity: void startActivityForResult(android.content.Intent,int)>(r49, 100)"
+      class_name: "com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5"
+      method: "<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5: void onClick(android.view.View)>"
+      id: 68
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/PlayerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.zendesk.sdk.support.ViewArticleActivity: void startActivity(android.content.Intent)>(r12)"
+      class_name: "com.zendesk.sdk.support.ViewArticleActivity"
+      method: "<com.zendesk.sdk.support.ViewArticleActivity: void onItemClick(android.widget.AdapterView,android.view.View,int,long)>"
+      id: 17
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.intent.action.VIEW"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r5.<com.abaenglish.shepherd.activities.ShepherdActivity: void startActivity(android.content.Intent)>(r7)"
+      class_name: "com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener"
+      method: "<com.abaenglish.shepherd.activities.ShepherdActivity$ConfigurationOnClickListener: void onClick(android.view.View)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdConfigurationController"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void I()>"
+      id: 3
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/plan/InitialPlansActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a$3"
+      method: "<com.abaenglish.videoclass.presentation.base.a$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.settings.APPLICATION_DETAILS_SETTINGS"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void a(com.abaenglish.videoclass.data.persistence.ABAEvaluation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/result/AssessmentResultActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<com.mixpanel.android.surveys.SurveyActivity: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.mixpanel.android.surveys.SurveyActivity$1"
+      method: "<com.mixpanel.android.surveys.SurveyActivity$1: void onClick(android.view.View)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.abaMoment.ABAMomentStartActivity_"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.abaMoment.ABAMomentActivity_"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.belvedere.BelvedereFileProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.login.LoginActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.INSTANCE_ID_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r25.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 43
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: void d(android.content.Intent)>"
+      id: 5
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: void d(android.content.Intent)>"
+      id: 5
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: void d(android.content.Intent)>"
+      id: 5
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 64
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void startActivity(android.content.Intent)>(r1)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.ABAEvaluationActivity: void b()>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/EvaluationExerciseActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.firebase.messaging.FirebaseMessagingService"
+  kind: SERVICE
+  exported: true
+  intent_filters {
+    attributes {
+      kind: PRIORITY
+      int_value: -500
+    }
+    attributes {
+      kind: ACTION
+      value: "com.google.firebase.MESSAGING_EVENT"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "r4 = virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.g"
+      method: "<com.google.firebase.iid.g: int b(android.content.Context,android.content.Intent)>"
+      id: 10
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.INSTANCE_ID_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.firebase.MESSAGING_EVENT"
+      }
+      attributes {
+        kind: CLASS
+        value: "NULL-CONSTANT"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "(.*)"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r25.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 43
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: void d(android.content.Intent)>"
+      id: 5
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: void d(android.content.Intent)>"
+      id: 5
+    }
+    kind: RECEIVER
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r5.<android.app.PendingIntent: void send()>()"
+      class_name: "com.google.firebase.messaging.FirebaseMessagingService"
+      method: "<com.google.firebase.messaging.FirebaseMessagingService: void d(android.content.Intent)>"
+      id: 5
+    }
+    kind: SERVICE
+    missing: 0
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r23.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>(r1)"
+      class_name: "com.google.firebase.iid.f"
+      method: "<com.google.firebase.iid.f: void a(android.content.Intent,java.lang.String)>"
+      id: 64
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.c2dm.intent.REGISTER"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "NULL-CONSTANT"
+      }
+    }
+  }
+}
+components {
+  name: "com.facebook.CustomTabActivity"
+  kind: ACTIVITY
+  exported: true
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.facebook.CustomTabActivity: void startActivity(android.content.Intent)>(r6)"
+      class_name: "com.facebook.CustomTabActivity"
+      method: "<com.facebook.CustomTabActivity: void onCreate(android.os.Bundle)>"
+      id: 9
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/facebook/FacebookActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "android.permission.INSTALL_PACKAGES"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.android.vending.INSTALL_REFERRER"
+    }
+  }
+}
+components {
+  name: "com.google.firebase.provider.FirebaseInitProvider"
+  kind: PROVIDER
+  exported: false
+  permission: ""
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.speak.ABASpeakActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.write.ABAWriteActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r32.<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity: void startActivityForResult(android.content.Intent,int)>(r49, 100)"
+      class_name: "com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5"
+      method: "<com.abaenglish.videoclass.presentation.section.videoclass.ABAFilmActivity$5: void onClick(android.view.View)>"
+      id: 68
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/PlayerActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a$3"
+      method: "<com.abaenglish.videoclass.presentation.base.a$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.settings.APPLICATION_DETAILS_SETTINGS"
+      }
+    }
+  }
+}
+components {
+  name: "com.mixpanel.android.surveys.SurveyActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r11.<com.mixpanel.android.surveys.SurveyActivity: void startActivity(android.content.Intent)>(r10)"
+      class_name: "com.mixpanel.android.surveys.SurveyActivity$1"
+      method: "<com.mixpanel.android.surveys.SurveyActivity$1: void onClick(android.view.View)>"
+      id: 11
+    }
+    kind: ACTIVITY
+    missing: 0
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent,android.os.Bundle)>(r29, $r8)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 24
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void startActivity(android.content.Intent)>(r29)"
+      class_name: "com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation"
+      method: "<com.abaenglish.videoclass.presentation.unit.variation.DetailUnitActivityVariation: void a(com.abaenglish.videoclass.presentation.unit.variation.a$a)>"
+      id: 72
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/write/ABAWriteActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/interpret/ABAInterpretationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/ABAEvaluationActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/vocabulary/ABAVocabularyActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/exercise/ABAExercisesActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/videoclass/ABAFilmActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/speak/ABASpeakActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke $r6.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>(r8)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a$3"
+      method: "<com.abaenglish.videoclass.presentation.base.a$3: void onClick(android.view.View)>"
+      id: 10
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: ACTION
+        value: "android.settings.APPLICATION_DETAILS_SETTINGS"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity"
+      method: "<com.abaenglish.videoclass.presentation.section.assessment.EvaluationExerciseActivity: void a(com.abaenglish.videoclass.data.persistence.ABAEvaluation)>"
+      id: 12
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/section/assessment/result/AssessmentResultActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.analytics.helpers.GcmBroadcastReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.abaenglish.videoclass"
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.profile.LegalInfoActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.deeplinking.ZendeskDeepLinkingBroadcastReceiver"
+  kind: RECEIVER
+  exported: false
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.zendesk.sdk.deeplinking"
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r1.<android.content.Context: void startActivity(android.content.Intent)>(r2)"
+      class_name: "com.zendesk.sdk.deeplinking.targets.DeepLinkingTarget"
+      method: "<com.zendesk.sdk.deeplinking.targets.DeepLinkingTarget: void fireFallBackActivity(android.content.Context,android.content.Intent)>"
+      id: 6
+    }
+    kind: ACTIVITY
+    intents {
+    }
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.interpret.InterpretaDialogActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingService"
+  kind: SERVICE
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<android.content.Context: android.content.ComponentName startService(android.content.Intent)>($r7)"
+      class_name: "com.google.android.gms.common.stats.g"
+      method: "<com.google.android.gms.common.stats.g: void a(android.content.Context,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String,int,java.util.List,long)>"
+      id: 44
+    }
+    kind: SERVICE
+    missing: 0
+  }
+}
+components {
+  name: "com.abaenglish.mixpanel.CustomMixpanelGCMReceiver"
+  kind: RECEIVER
+  exported: true
+  permission: "com.google.android.c2dm.permission.SEND"
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "com.google.android.c2dm.intent.REGISTRATION"
+      value: "com.google.android.c2dm.intent.RECEIVE"
+    }
+    attributes {
+      kind: CATEGORY
+      value: "com.abaenglish.videoclass"
+    }
+  }
+}
+components {
+  name: "com.abaenglish.shepherd.activities.ShepherdConfigurationController"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.zendesk.sdk.feedback.ui.ContactZendeskActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.tutorial.TutorialActivity"
+  kind: ACTIVITY
+  exported: false
+}
+components {
+  name: "com.abaenglish.videoclass.presentation.section.vocabulary.ABAVocabularyActivity"
+  kind: ACTIVITY
+  exported: false
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r3)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void m()>"
+      id: 7
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/presentation/tutorial/TutorialActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r1)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: void n()>"
+      id: 2
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/videoclass/ForceUpdateActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "virtualinvoke r0.<com.abaenglish.videoclass.presentation.base.a: void startActivity(android.content.Intent)>($r2)"
+      class_name: "com.abaenglish.videoclass.presentation.base.a"
+      method: "<com.abaenglish.videoclass.presentation.base.a: boolean onKeyDown(int,android.view.KeyEvent)>"
+      id: 8
+    }
+    kind: ACTIVITY
+    intents {
+      attributes {
+        kind: CLASS
+        value: "com/abaenglish/shepherd/activities/ShepherdActivity"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.abaenglish.videoclass"
+      }
+    }
+  }
+  exit_points {
+    instruction {
+      statement: "$z0 = virtualinvoke r0.<android.content.Context: boolean bindService(android.content.Intent,android.content.ServiceConnection,int)>(r8, r1, 1)"
+      class_name: "com.facebook.internal.AttributionIdentifiers"
+      method: "<com.facebook.internal.AttributionIdentifiers: com.facebook.internal.AttributionIdentifiers getAndroidIdViaService(android.content.Context)>"
+      id: 6
+    }
+    kind: SERVICE
+    intents {
+      attributes {
+        kind: ACTION
+        value: "com.google.android.gms.ads.identifier.service.START"
+      }
+      attributes {
+        kind: PACKAGE
+        value: "com.google.android.gms"
+      }
+    }
+  }
+}
+components {
+  name: "com.mixpanel.android.mpmetrics.l$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.AnalyticsReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.zendesk.sdk.ui.NetworkAwareActionbarActivity$a"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.analytics.CampaignTrackingReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.squareup.picasso.i$c"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+      value: "android.intent.action.AIRPLANE_MODE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.AIRPLANE_MODE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdService$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.facebook.AccessTokenTracker$CurrentAccessTokenBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "android.support.v4.content.WakefulBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.mixpanel.android.mpmetrics.g"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "android.support.v7.app.AppCompatDelegateImplV14$AutoNightModeManager$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "android.support.v4.media.session.MediaButtonReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.mixpanel.android.mpmetrics.InstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.facebook.internal.BoltsMeasurementEventListener"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "null_type"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.BATTERY_CHANGED"
+    }
+  }
+  registration_instruction {
+    statement: "r26 = virtualinvoke $r4.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>(null, r25)"
+    class_name: "com.zendesk.sdk.power.PowerConfig"
+    method: "<com.zendesk.sdk.power.PowerConfig: void <init>(android.content.Context)>"
+    id: 9
+  }
+}
+components {
+  name: "com.google.firebase.a$b"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.intent.action.USER_UNLOCKED"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.internal.q"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.adjust.sdk.AdjustReferrerReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.abaenglish.videoclass.analytics.helpers.GcmBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.internal.di"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.zendesk.sdk.deeplinking.ZendeskDeepLinkingBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.facebook.ProfileTracker$ProfileBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.internal.yd"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.zendesk.sdk.power.BatteryStateBroadcastReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.abaenglish.mixpanel.CustomMixpanelGCMReceiver"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.google.android.gms.iid.b$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$1"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+components {
+  name: "com.crashlytics.android.core.DevicePowerStateListener$2"
+  kind: DYNAMIC_RECEIVER
+  exported: true
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  intent_filters {
+    attributes {
+      kind: ACTION
+      value: "android.net.conn.CONNECTIVITY_CHANGE"
+    }
+  }
+  registration_instruction {
+    statement: "virtualinvoke $r9.<android.content.Context: android.content.Intent registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)>($r11, $r10)"
+    class_name: "com.google.firebase.iid.FirebaseInstanceIdService"
+    method: "<com.google.firebase.iid.FirebaseInstanceIdService: void a(android.content.Intent,java.lang.String)>"
+    id: 35
+  }
+}
+analysis_start: 1538542329
+analysis_end: 1538543931
