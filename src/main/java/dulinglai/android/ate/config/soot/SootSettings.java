@@ -1,6 +1,6 @@
 package dulinglai.android.ate.config.soot;
 
-import dulinglai.android.ate.config.AteConfig;
+import dulinglai.android.ate.config.AteConfiguration;
 import dulinglai.android.ate.utils.androidUtils.LibraryClassPatcher;
 import org.pmw.tinylog.Logger;
 import soot.G;
@@ -16,7 +16,7 @@ import java.util.Collections;
 public class SootSettings {
     private static final String TAG = "SOOT";
 
-    public static void initializeSoot(AteConfig config){
+    public static void initializeSoot(AteConfiguration config){
         Logger.info("[{}] Initializing Soot...",TAG);
 
         final String androidJar = config.getAnalysisFileConfig().getAndroidPlatformDir();
@@ -51,7 +51,7 @@ public class SootSettings {
 
         soot.Main.v().autoSetOptions();
         // Configure the callgraph algorithm
-        SootHelper.setSootCallgraphAlgorithm(config.getCallgraphAlgorithm());
+        SootHelper.setSootCallgraphAlgorithm(config.getCallbackConfig().getCallgraphAlgorithm());
 
         // phase options (used in IC3)
         Options.v().setPhaseOption("cd.spark", "on");

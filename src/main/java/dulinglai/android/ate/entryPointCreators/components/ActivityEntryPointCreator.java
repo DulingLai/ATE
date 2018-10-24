@@ -1,7 +1,7 @@
 package dulinglai.android.ate.entryPointCreators.components;
 
 import dulinglai.android.ate.entryPointCreators.SimulatedCodeElementTag;
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import dulinglai.android.ate.utils.androidUtils.LibraryClassPatcher;
 import heros.TwoElementSet;
 import soot.*;
@@ -81,9 +81,9 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
 
         // 1. onCreate:
         {
-            searchAndBuildMethod(ComponentConstants.ACTIVITY_ONCREATE, component, thisLocal);
+            searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONCREATE, component, thisLocal);
             for (SootClass callbackClass : this.activityLifecycleCallbacks.keySet()) {
-                searchAndBuildMethod(ComponentConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYCREATED,
+                searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYCREATED,
                         callbackClass, localVarsForClasses.get(callbackClass), currentClassSet);
             }
         }
@@ -108,7 +108,7 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
                 TwoElementSet<SootClass> classAndFragment = new TwoElementSet<SootClass>(component, scFragment);
                 Stmt afterOnAttachFragment = Jimple.v().newNopStmt();
                 createIfStmt(afterOnAttachFragment);
-                searchAndBuildMethod(ComponentConstants.ACTIVITY_ONATTACHFRAGMENT, component, thisLocal,
+                searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONATTACHFRAGMENT, component, thisLocal,
                         classAndFragment);
                 body.getUnits().add(afterOnAttachFragment);
 
@@ -125,9 +125,9 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
         // 2. onStart:
         Stmt onStartStmt;
         {
-            onStartStmt = searchAndBuildMethod(ComponentConstants.ACTIVITY_ONSTART, component, thisLocal);
+            onStartStmt = searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONSTART, component, thisLocal);
             for (SootClass callbackClass : this.activityLifecycleCallbacks.keySet()) {
-                Stmt s = searchAndBuildMethod(ComponentConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYSTARTED,
+                Stmt s = searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYSTARTED,
                         callbackClass, localVarsForClasses.get(callbackClass), currentClassSet);
                 if (onStartStmt == null)
                     onStartStmt = s;
@@ -145,23 +145,23 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
         {
             Stmt afterOnRestore = Jimple.v().newNopStmt();
             createIfStmt(afterOnRestore);
-            searchAndBuildMethod(ComponentConstants.ACTIVITY_ONRESTOREINSTANCESTATE, component, thisLocal,
+            searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONRESTOREINSTANCESTATE, component, thisLocal,
                     currentClassSet);
             body.getUnits().add(afterOnRestore);
         }
-        searchAndBuildMethod(ComponentConstants.ACTIVITY_ONPOSTCREATE, component, thisLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONPOSTCREATE, component, thisLocal);
 
         // 3. onResume:
         Stmt onResumeStmt = Jimple.v().newNopStmt();
         body.getUnits().add(onResumeStmt);
         {
-            searchAndBuildMethod(ComponentConstants.ACTIVITY_ONRESUME, component, thisLocal);
+            searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONRESUME, component, thisLocal);
             for (SootClass callbackClass : this.activityLifecycleCallbacks.keySet()) {
-                searchAndBuildMethod(ComponentConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYRESUMED,
+                searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYRESUMED,
                         callbackClass, localVarsForClasses.get(callbackClass), currentClassSet);
             }
         }
-        searchAndBuildMethod(ComponentConstants.ACTIVITY_ONPOSTRESUME, component, thisLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONPOSTRESUME, component, thisLocal);
 
         // Scan for other entryPoints of this class:
         if (this.callbacks != null && !this.callbacks.isEmpty()) {
@@ -178,15 +178,15 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
         }
 
         // 4. onPause:
-        searchAndBuildMethod(ComponentConstants.ACTIVITY_ONPAUSE, component, thisLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONPAUSE, component, thisLocal);
         for (SootClass callbackClass : this.activityLifecycleCallbacks.keySet()) {
-            searchAndBuildMethod(ComponentConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYPAUSED, callbackClass,
+            searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYPAUSED, callbackClass,
                     localVarsForClasses.get(callbackClass), currentClassSet);
         }
-        searchAndBuildMethod(ComponentConstants.ACTIVITY_ONCREATEDESCRIPTION, component, thisLocal);
-        searchAndBuildMethod(ComponentConstants.ACTIVITY_ONSAVEINSTANCESTATE, component, thisLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONCREATEDESCRIPTION, component, thisLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONSAVEINSTANCESTATE, component, thisLocal);
         for (SootClass callbackClass : this.activityLifecycleCallbacks.keySet()) {
-            searchAndBuildMethod(ComponentConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYSAVEINSTANCESTATE,
+            searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYSAVEINSTANCESTATE,
                     callbackClass, localVarsForClasses.get(callbackClass), currentClassSet);
         }
 
@@ -196,11 +196,11 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
         // createIfStmt(onCreateStmt); // no, the process gets killed in between
 
         // 5. onStop:
-        Stmt onStop = searchAndBuildMethod(ComponentConstants.ACTIVITY_ONSTOP, component, thisLocal);
+        Stmt onStop = searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONSTOP, component, thisLocal);
         boolean hasAppOnStop = false;
         for (SootClass callbackClass : this.activityLifecycleCallbacks.keySet()) {
             Stmt onActStoppedStmt = searchAndBuildMethod(
-                    ComponentConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYSTOPPED, callbackClass,
+                    ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYSTOPPED, callbackClass,
                     localVarsForClasses.get(callbackClass), currentClassSet);
             hasAppOnStop |= onActStoppedStmt != null;
         }
@@ -214,15 +214,15 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
         // createIfStmt(onCreateStmt); // no, the process gets killed in between
 
         // 6. onRestart:
-        searchAndBuildMethod(ComponentConstants.ACTIVITY_ONRESTART, component, thisLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONRESTART, component, thisLocal);
         createIfStmt(onStartStmt); // jump to onStart(), fall through to
         // onDestroy()
 
         // 7. onDestroy
         body.getUnits().add(stopToDestroyStmt);
-        searchAndBuildMethod(ComponentConstants.ACTIVITY_ONDESTROY, component, thisLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITY_ONDESTROY, component, thisLocal);
         for (SootClass callbackClass : this.activityLifecycleCallbacks.keySet()) {
-            searchAndBuildMethod(ComponentConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYDESTROYED,
+            searchAndBuildMethod(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACK_ONACTIVITYDESTROYED,
                     callbackClass, localVarsForClasses.get(callbackClass), currentClassSet);
         }
     }
@@ -238,65 +238,65 @@ public class ActivityEntryPointCreator extends AbstractComponentEntryPointCreato
         createIfStmt(endFragmentStmt);
 
         // 1. onAttach:
-        Stmt onAttachStmt = searchAndBuildMethod(ComponentConstants.FRAGMENT_ONATTACH, currentClass, classLocal,
+        Stmt onAttachStmt = searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONATTACH, currentClass, classLocal,
                 Collections.singleton(activity));
         if (onAttachStmt == null)
             body.getUnits().add(onAttachStmt = Jimple.v().newNopStmt());
 
         // 2. onCreate:
-        Stmt onCreateStmt = searchAndBuildMethod(ComponentConstants.FRAGMENT_ONCREATE, currentClass,
+        Stmt onCreateStmt = searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONCREATE, currentClass,
                 classLocal);
         if (onCreateStmt == null)
             body.getUnits().add(onCreateStmt = Jimple.v().newNopStmt());
 
         // 3. onCreateView:
-        Stmt onCreateViewStmt = searchAndBuildMethod(ComponentConstants.FRAGMENT_ONCREATEVIEW, currentClass,
+        Stmt onCreateViewStmt = searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONCREATEVIEW, currentClass,
                 classLocal);
         if (onCreateViewStmt == null)
             body.getUnits().add(onCreateViewStmt = Jimple.v().newNopStmt());
 
-        Stmt onViewCreatedStmt = searchAndBuildMethod(ComponentConstants.FRAGMENT_ONVIEWCREATED, currentClass,
+        Stmt onViewCreatedStmt = searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONVIEWCREATED, currentClass,
                 classLocal);
         if (onViewCreatedStmt == null)
             body.getUnits().add(onViewCreatedStmt = Jimple.v().newNopStmt());
 
         // 0. onActivityCreated:
-        Stmt onActCreatedStmt = searchAndBuildMethod(ComponentConstants.FRAGMENT_ONACTIVITYCREATED,
+        Stmt onActCreatedStmt = searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONACTIVITYCREATED,
                 currentClass, classLocal);
         if (onActCreatedStmt == null)
             body.getUnits().add(onActCreatedStmt = Jimple.v().newNopStmt());
 
         // 4. onStart:
-        Stmt onStartStmt = searchAndBuildMethod(ComponentConstants.FRAGMENT_ONSTART, currentClass, classLocal);
+        Stmt onStartStmt = searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONSTART, currentClass, classLocal);
         if (onStartStmt == null)
             body.getUnits().add(onStartStmt = Jimple.v().newNopStmt());
 
         // 5. onResume:
         Stmt onResumeStmt = Jimple.v().newNopStmt();
         body.getUnits().add(onResumeStmt);
-        searchAndBuildMethod(ComponentConstants.FRAGMENT_ONRESUME, currentClass, classLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONRESUME, currentClass, classLocal);
 
         // 6. onPause:
-        searchAndBuildMethod(ComponentConstants.FRAGMENT_ONPAUSE, currentClass, classLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONPAUSE, currentClass, classLocal);
         createIfStmt(onResumeStmt);
 
         // 7. onSaveInstanceState:
-        searchAndBuildMethod(ComponentConstants.FRAGMENT_ONSAVEINSTANCESTATE, currentClass, classLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONSAVEINSTANCESTATE, currentClass, classLocal);
 
         // 8. onStop:
-        searchAndBuildMethod(ComponentConstants.FRAGMENT_ONSTOP, currentClass, classLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONSTOP, currentClass, classLocal);
         createIfStmt(onCreateViewStmt);
         createIfStmt(onStartStmt);
 
         // 9. onDestroyView:
-        searchAndBuildMethod(ComponentConstants.FRAGMENT_ONDESTROYVIEW, currentClass, classLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONDESTROYVIEW, currentClass, classLocal);
         createIfStmt(onCreateViewStmt);
 
         // 10. onDestroy:
-        searchAndBuildMethod(ComponentConstants.FRAGMENT_ONDESTROY, currentClass, classLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONDESTROY, currentClass, classLocal);
 
         // 11. onDetach:
-        searchAndBuildMethod(ComponentConstants.FRAGMENT_ONDETACH, currentClass, classLocal);
+        searchAndBuildMethod(ComponentLifecycleConstants.FRAGMENT_ONDETACH, currentClass, classLocal);
         createIfStmt(onAttachStmt);
 
         body.getUnits().add(Jimple.v().newAssignStmt(classLocal, NullConstant.v()));

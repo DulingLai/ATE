@@ -1,6 +1,6 @@
 package dulinglai.android.ate.analyzers.filters;
 
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
@@ -42,7 +42,7 @@ public class AlienFragmentFilter extends AbstractCallbackFilter {
 
 	@Override
 	public void reset() {
-		this.fragmentClass = Scene.v().getSootClassUnsafe(ComponentConstants.FRAGMENTCLASS);
+		this.fragmentClass = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.FRAGMENTCLASS);
 	}
 
 }

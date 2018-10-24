@@ -14,6 +14,7 @@ public class ActivityNode extends AbstractComponentNode {
     private Set<Integer> resourceId = new HashSet<>();
     private List<String> intentFilters_action;
     private List<String> intentFilters_category;
+    private String alias = null;
     private String parent;
     private boolean containLogin = false;
 
@@ -67,6 +68,14 @@ public class ActivityNode extends AbstractComponentNode {
 
     public void setContainLogin(boolean containLogin) {
         this.containLogin = containLogin;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String target) {
+        alias = target;
     }
 
     @Override

@@ -5,10 +5,9 @@ import dulinglai.android.ate.analyzers.filters.AlienFragmentFilter;
 import dulinglai.android.ate.analyzers.filters.AlienHostComponentFilter;
 import dulinglai.android.ate.analyzers.filters.ApplicationCallbackFilter;
 import dulinglai.android.ate.analyzers.filters.UnreachableConstructorFilter;
-import dulinglai.android.ate.config.AteConfig;
+import dulinglai.android.ate.config.AteConfiguration;
 import dulinglai.android.ate.config.soot.SootSettings;
 import dulinglai.android.ate.entryPointCreators.AndroidEntryPointCreator;
-import dulinglai.android.ate.entryPointCreators.components.ComponentEntryPointCollection;
 import dulinglai.android.ate.graphBuilder.ComponentTransitionGraph;
 import dulinglai.android.ate.graphBuilder.TransitionEdge;
 import dulinglai.android.ate.graphBuilder.componentNodes.*;
@@ -18,10 +17,6 @@ import dulinglai.android.ate.graphBuilder.widgetNodes.EditWidgetNode;
 import dulinglai.android.ate.iccparser.Ic3Provider;
 import dulinglai.android.ate.iccparser.IccInstrumenter;
 import dulinglai.android.ate.iccparser.IccLink;
-import dulinglai.android.ate.iccparser.IccResults;
-import dulinglai.android.ate.infoflow.IInPlaceInfoflow;
-import dulinglai.android.ate.infoflow.InPlaceInfoflow;
-import dulinglai.android.ate.memory.AndroidMemoryManager;
 import dulinglai.android.ate.memory.IMemoryBoundedSolver;
 import dulinglai.android.ate.memory.MemoryWatcher;
 import dulinglai.android.ate.memory.TimeoutWatcher;
@@ -40,21 +35,6 @@ import org.pmw.tinylog.Logger;
 import org.xmlpull.v1.XmlPullParserException;
 import soot.*;
 
-import soot.jimple.infoflow.cfg.BiDirICFGFactory;
-import soot.jimple.infoflow.data.Abstraction;
-import soot.jimple.infoflow.data.FlowDroidMemoryManager;
-import soot.jimple.infoflow.handlers.PostAnalysisHandler;
-import soot.jimple.infoflow.handlers.TaintPropagationHandler;
-import soot.jimple.infoflow.ipc.IIPCManager;
-import soot.jimple.infoflow.methodSummary.data.provider.LazySummaryProvider;
-import soot.jimple.infoflow.methodSummary.taintWrappers.SummaryTaintWrapper;
-import soot.jimple.infoflow.results.InfoflowResults;
-import soot.jimple.infoflow.solver.cfg.IInfoflowCFG;
-import soot.jimple.infoflow.solver.memory.IMemoryManager;
-import soot.jimple.infoflow.solver.memory.IMemoryManagerFactory;
-import soot.jimple.infoflow.taintWrappers.EasyTaintWrapper;
-import soot.jimple.infoflow.taintWrappers.ITaintPropagationWrapper;
-import soot.jimple.infoflow.taintWrappers.ITaintWrapperDataFlowAnalysis;
 import soot.util.HashMultiMap;
 import soot.util.MultiMap;
 
@@ -66,14 +46,15 @@ import java.util.*;
 
 //import static dulinglai.android.alode.graphBuilder.graphUtils.resolveExecutionPath;
 
-public class SetupApplication implements ITaintWrapperDataFlowAnalysis {
+public class SetupApplication {
     // Logging tags
     private static final String RESOURCE_PARSER = "ResourceParser";
+    private static final String CALLBACK_ANALYZER = "CallbackAnalyzer";
     private static final String CLASS_ANALYZER = "JimpleAnalyzer";
     private static final String ICC_PARSER = "IccParser";
     private static final String GRAPH_BUILDER = "GraphBuilder";
 
-    private AteConfig config;
+    private AteConfiguration config;
     private final boolean forceAndroidJar;
 
     // Resources
@@ -99,56 +80,153 @@ public class SetupApplication implements ITaintWrapperDataFlowAnalysis {
     private MultiMap<SootClass, AbstractWidgetNode> ownershipEdgesClasses = new HashMultiMap<>();
     private MultiMap<ActivityNode, AbstractWidgetNode> ownershipEdges = new HashMultiMap<>();
 
-    // Login detection
-    private MultiMap<SootClass, String> potentialLoginMap = new HashMultiMap<>();
-    private Set<ActivityNode> potentialLoginActivity = new HashSet<>();
-    private MultiMap<ActivityNode, AbstractWidgetNode> potentialPasswordWidget = new HashMultiMap<>();
-    private MultiMap<ActivityNode, AbstractWidgetNode> potentialUsernameWidget = new HashMultiMap<>();
-
-    // Infoflow
-    private ITaintPropagationWrapper taintWrapper;
-    private TaintPropagationHandler taintPropagationHandler = null;
-    private TaintPropagationHandler backwardsPropagationHandler = null;
+//    // Login detection
+//    private MultiMap<SootClass, String> potentialLoginMap = new HashMultiMap<>();
+//    private Set<ActivityNode> potentialLoginActivity = new HashSet<>();
+//    private MultiMap<ActivityNode, AbstractWidgetNode> potentialPasswordWidget = new HashMultiMap<>();
+//    private MultiMap<ActivityNode, AbstractWidgetNode> potentialUsernameWidget = new HashMultiMap<>();
 
     // Component transition graph
-    private BiDirICFGFactory cfgFactory = null;
     private IccInstrumenter iccInstrumenter = null;
-    private IIPCManager ipcManager;
     private Map<TransitionEdge, AbstractWidgetNode> widgetEdgeMap;
     private ComponentTransitionGraph componentTransitionGraph;
 
-    SetupApplication(AteConfig config, IIPCManager ipcManager) {
+    public SetupApplication(AteConfiguration config) {
         // Setup analysis config
         this.config = config;
-        this.ipcManager = ipcManager;
 
         String platformDir = config.getAnalysisFileConfig().getAndroidPlatformDir();
         if (platformDir == null || platformDir.isEmpty())
             throw new RuntimeException("Android platform directory not specified");
         this.forceAndroidJar = SootSettings.isForceAndroidJar(platformDir);
+    }
 
+    /**
+     * Initialize the setting for Soot
+     * @param config The configuration
+     */
+    public void initializeSoot(AteConfiguration config) {
         // Setup Soot for analysis
         SootSettings.initializeSoot(config);
     }
 
-    void runAnalysis() {
+    /**
+     * Parse the string resources ("en" only) and other resource ids of the resource packages
+     */
+    private void parseResources() {
+        final String targetApk = config.getAnalysisFileConfig().getTargetAPKFile();
+
+        // Parse Resources - collect resource ids
+        Logger.info("[{}] Parsing ARSC files for resources mapping ...", RESOURCE_PARSER);
+        long beforeARSC = System.nanoTime();
+
+        try {
+            // initialize the resource packages for resource value provider
+            Map<Integer, String> stringResource = new HashMap<>();
+            Map<Integer, String> resourceId = new HashMap<>();
+            Map<String, Integer> layoutResource = new HashMap<>();
+
+            ARSCFileParser resources = new ARSCFileParser();
+            resources.parse(targetApk);
+
+            List<ARSCFileParser.ResPackage> resPackages = resources.getPackages();
+            // Collect the resource mappings
+            for (ARSCFileParser.ResPackage resPackage : resPackages) {
+                for (ARSCFileParser.ResType resType : resPackage.getDeclaredTypes()) {
+                    switch (resType.getTypeName()) {
+                        case "string":
+                            // only keep English Strings
+                            for (ARSCFileParser.ResConfig string : resType.getConfigurations()) {
+                                if (string.getConfig().getLanguage().equals("\u0000\u0000")) {
+                                    for (ARSCFileParser.AbstractResource resource : string.getResources()) {
+                                        if (resource instanceof ARSCFileParser.StringResource) {
+                                            stringResource.put(resource.getResourceID(), ((ARSCFileParser.StringResource) resource).getValue());
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        case "id":
+                            for (ARSCFileParser.ResConfig resIdConfig : resType.getConfigurations()) {
+                                for (ARSCFileParser.AbstractResource resource : resIdConfig.getResources()) {
+                                    resourceId.put(resource.getResourceID(), resource.getResourceName());
+                                }
+                            }
+                            break;
+                        case "layout":
+                            for (ARSCFileParser.ResConfig resLayoutConfig : resType.getConfigurations()) {
+                                for (ARSCFileParser.AbstractResource resource : resLayoutConfig.getResources()) {
+                                    layoutResource.put(resource.getResourceName(), resource.getResourceID());
+                                }
+                            }
+                            break;
+                    }
+                }
+            }
+            // Setup a resource value provider
+            resourceValueProvider = new ResourceValueProvider(stringResource, resourceId, layoutResource);
+            Logger.info("[{}] DONE - Resource parsing took " + (System.nanoTime() - beforeARSC) / 1E9 + " seconds.", RESOURCE_PARSER);
+        }  catch (IOException e) {
+            Logger.error("[{}] ERROR - Unable to parse app resources... Please make sure the APK is valid!", RESOURCE_PARSER);
+        }
+    }
+
+    /**
+     * Parse the apk manifest file for entry point classes and component nodes
+     * @param targetApk The target apk file to parse
+     */
+    public void collectComponentNodes(String targetApk) {
+        Logger.info("[{}] Collecting components from manifest ...", RESOURCE_PARSER);
+        try {
+            this.manifest = new ProcessManifest(targetApk);
+//        Set<String> entryPointString = manifest.getLaunchableActivities();
+            Set<String> entryPointString = manifest.getEntryPointClasses();
+            this.entrypoints = new HashSet<>(entryPointString.size());
+            for (String className : entryPointString) {
+                SootClass sc = Scene.v().getSootClassUnsafe(className);
+                if (sc != null)
+                    this.entrypoints.add(sc);
+            }
+        } catch (IOException|XmlPullParserException e) {
+            Logger.error("[{}] ERROR - Failed to parse the manifest: {}", RESOURCE_PARSER, e.getMessage());
+        }
+
+        // Print the manifest details
+        Integer numActivities = manifest.getNumActivity();
+        Integer numServices = manifest.getNumService();
+        Integer numProviders = manifest.getNumProvider();
+        Integer numReceivers = manifest.getNumReceiver();
+        Integer totalNumComp = numActivities + numServices + numProviders + numReceivers;
+        Logger.info("[{}] DONE - Collected {} components:", RESOURCE_PARSER, totalNumComp);
+        Logger.info("                   {} activities; {} services; {} content providers; {} broadcast receivers",
+                numActivities, numServices, numProviders, numReceivers);
+    }
+
+    /**
+     * On-demand activity transition analysis
+     */
+    public void analyzeTransition() {
+        final String apkPath = config.getAnalysisFileConfig().getTargetAPKFile();
+
+
+    }
+
+    /**
+     * Perform the whole analysis
+     */
+    public void runAnalysis() {
         final String apkPath = config.getAnalysisFileConfig().getTargetAPKFile();
         // Parse resources files
-        try {
-            parseResources();
-        } catch (IOException e) {
-            Logger.error("[Error] Unable to parse app resources!");
-        }
+        parseResources();
 
         /*
          Step 1. Collect component nodes
           */
-        Logger.info("[{}] Collecting components from manifest ...", RESOURCE_PARSER);
-        try {
-            collectComponentNodes(apkPath);
-        } catch (IOException|XmlPullParserException e) {
-            Logger.error("[ERROR] Failed to parse the manifest!");
-        }
+
+        /*
+        Step 2. Collect callbacks
+         */
+        Logger.info("[{}] Collecting callbacks...", CALLBACK_ANALYZER);
 
         /*
         Step 2. Load IC3 data
@@ -185,9 +263,9 @@ public class SetupApplication implements ITaintWrapperDataFlowAnalysis {
         /*
         Step 5. Analyze the class files
          */
-        Logger.info("[{}] Analyzing the class files ...", CLASS_ANALYZER);
-        processJimpleClasses(null, layoutFileParser, iccUnitsForWidgetAnalysis);
-        Logger.info("[{}] ... End analyzing the class files ...", CLASS_ANALYZER);
+//        Logger.info("[{}] Analyzing the class files ...", CLASS_ANALYZER);
+//        processJimpleClasses(null, layoutFileParser, iccUnitsForWidgetAnalysis);
+//        Logger.info("[{}] ... End analyzing the class files ...", CLASS_ANALYZER);
 
         /*
         Step 6. Combine the XML-based widgets with the programmatically set widgets and properties
@@ -320,100 +398,28 @@ public class SetupApplication implements ITaintWrapperDataFlowAnalysis {
         return getComponentsToAnalyze(component);
     }
 
-    /**
-     * Parse the string resources ("en" only) and other resource ids of the resource packages
-     */
-    private void parseResources() throws IOException {
-        final String targetApk = config.getAnalysisFileConfig().getTargetAPKFile();
-
-        // Parse Resources - collect resource ids
-        Logger.info("[{}] Parsing ARSC files for resources mapping ...", RESOURCE_PARSER);
-        long beforeARSC = System.nanoTime();
-
-        Map<Integer, String> stringResource = new HashMap<>();
-        Map<Integer, String> resourceId = new HashMap<>();
-        Map<String, Integer> layoutResource = new HashMap<>();
-        ARSCFileParser resources = new ARSCFileParser();
-        resources.parse(targetApk);
-
-        List<ARSCFileParser.ResPackage> resPackages = resources.getPackages();
-        // Collect the resource mappings
-        for (ARSCFileParser.ResPackage resPackage : resPackages) {
-            for (ARSCFileParser.ResType resType : resPackage.getDeclaredTypes()) {
-                switch (resType.getTypeName()) {
-                    case "string":
-                        // only keep English Strings
-                        for (ARSCFileParser.ResConfig string : resType.getConfigurations()) {
-                            if (string.getConfig().getLanguage().equals("\u0000\u0000")) {
-                                for (ARSCFileParser.AbstractResource resource : string.getResources()) {
-                                    if (resource instanceof ARSCFileParser.StringResource) {
-                                        stringResource.put(resource.getResourceID(), ((ARSCFileParser.StringResource) resource).getValue());
-                                    }
-                                }
-                            }
-                        }
-                        break;
-                    case "id":
-                        for (ARSCFileParser.ResConfig resIdConfig : resType.getConfigurations()) {
-                            for (ARSCFileParser.AbstractResource resource : resIdConfig.getResources()) {
-                                resourceId.put(resource.getResourceID(), resource.getResourceName());
-                            }
-                        }
-                        break;
-                    case "layout":
-                        for (ARSCFileParser.ResConfig resLayoutConfig : resType.getConfigurations()) {
-                            for (ARSCFileParser.AbstractResource resource : resLayoutConfig.getResources()) {
-                                layoutResource.put(resource.getResourceName(), resource.getResourceID());
-                            }
-                        }
-                        break;
-                }
-            }
-        }
-        // Setup a resource value provider
-        resourceValueProvider = new ResourceValueProvider(stringResource, resourceId, layoutResource);
-        Logger.info("[{}] DONE: Resource parsing took " + (System.nanoTime() - beforeARSC) / 1E9 + " seconds.", RESOURCE_PARSER);
-    }
-
-    /**
-     * Parse the apk manifest file for entry point classes and component nodes
-     * @param targetApk The target apk file to parse
-     * @throws IOException When the apk is not found
-     */
-    private void collectComponentNodes(String targetApk) throws IOException, XmlPullParserException {
-        this.manifest = new ProcessManifest(targetApk);
-//        Set<String> entryPointString = manifest.getLaunchableActivities();
-        Set<String> entryPointString = manifest.getEntryPointClasses();
-        this.entrypoints = new HashSet<>(entryPointString.size());
-        for (String className : entryPointString){
-            SootClass sc = Scene.v().getSootClassUnsafe(className);
-            if (sc != null)
-                this.entrypoints.add(sc);
-        }
-    }
-
-    /**
-     * Collects the widgets from Jimple files
-     * @param entryPointClasses The entry activity to start analysis
-     * @param layoutFileParser The layout file parser
-     */
-    private void processJimpleClasses(Set<SootClass> entryPointClasses, LayoutFileParser layoutFileParser,
-                                      List<IccIdentifier> iccUnitsForWidgetAnalysis) {
-        try {
-            switch (config.getCallbackConfig().getCallbackAnalyzer()) {
-                case Fast:
-                    processJimpleClassesFast(layoutFileParser, entryPointClasses, iccUnitsForWidgetAnalysis);
-                    break;
-                case Default:
-                    processJimpleClassesDefault(layoutFileParser, entryPointClasses, iccUnitsForWidgetAnalysis);
-                    break;
-                default:
-                    throw new RuntimeException("Unknown callback analyzer");
-            }
-        } catch (IOException ex) {
-            ex.getMessage();
-        }
-    }
+//    /**
+//     * Collects the widgets from Jimple files
+//     * @param entryPointClasses The entry activity to start analysis
+//     * @param layoutFileParser The layout file parser
+//     */
+//    private void processJimpleClasses(Set<SootClass> entryPointClasses, LayoutFileParser layoutFileParser,
+//                                      List<IccIdentifier> iccUnitsForWidgetAnalysis) {
+//        try {
+//            switch (config.getCallbackConfig().getCallbackAnalyzer()) {
+//                case Fast:
+//                    processJimpleClassesFast(layoutFileParser, entryPointClasses, iccUnitsForWidgetAnalysis);
+//                    break;
+//                case Default:
+//                    processJimpleClassesDefault(layoutFileParser, entryPointClasses, iccUnitsForWidgetAnalysis);
+//                    break;
+//                default:
+//                    throw new RuntimeException("Unknown callback analyzer");
+//            }
+//        } catch (IOException ex) {
+//            ex.getMessage();
+//        }
+//    }
 
     private void combineClassAndXMLData(MultiMap<String, AndroidLayoutControl> userControls) {
         // Add resource IDs for activity nodes
@@ -689,118 +695,118 @@ public class SetupApplication implements ITaintWrapperDataFlowAnalysis {
      * @throws IOException
      *             Thrown if a required configuration cannot be read
      */
-    private void processJimpleClassesFast(LayoutFileParser layoutFileParser,
-                                          Set<SootClass> entryPointClasses,
-                                          List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
-        // Construct initial callgraph
-        resetCallgraph();
-        createMainMethod(null);
-        constructCallgraphInternal();
+//    private void processJimpleClassesFast(LayoutFileParser layoutFileParser,
+//                                          Set<SootClass> entryPointClasses,
+//                                          List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
+//        // Construct initial callgraph
+//        resetCallgraph();
+//        createMainMethod(null);
+//        constructCallgraphInternal();
+//
+//        // Collect the callback interfaces implemented in the app's source code
+//        AbstractJimpleAnalyzer jimpleAnalyzer = new FastJimpleAnalyzer(entryPointClasses,
+//                manifest.getAllActivityClasses(), layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
+//        jimpleAnalyzer.analyzeJimpleClasses();
+//
+//        // Get the layout class maps
+//        this.layoutClasses = jimpleAnalyzer.getLayoutClasses();
+//        this.baseactivityMapping = jimpleAnalyzer.getBaseActivityMapping();
+//
+//        // Collect the results
+//        this.callbackMethods.putAll(jimpleAnalyzer.getCallbackMethods());
+//        this.entrypoints.addAll(jimpleAnalyzer.getDynamicManifestComponents());
+//
+//        // Collect XML-based callback methods
+//        collectXmlBasedCallbackMethods(layoutFileParser, jimpleAnalyzer);
+//
+//        // Reconstruct the final callgraph and ICFG
+//        resetCallgraph();
+//        createMainMethod(null);
+//        constructCallgraphInternal();
+//        jimpleAnalyzer.constructIcfg();
+//
+//        // Collect Java widget properties
+//        jimpleAnalyzer.findWidgetsMappings();
+////        IInPlaceInfoflow infoflow = createInfoflow();
+//        widgetEdgeMap = jimpleAnalyzer.resolveIccMethodToWidget();
+//
+//        // Get the nodes set collected from Jimple files
+//        this.editWidgetNodeList = jimpleAnalyzer.getEditTextWidgetList();
+//        this.clickWidgetNodeList = jimpleAnalyzer.getClickWidgetNodeList();
+//        this.ownershipEdgesClasses = jimpleAnalyzer.getOwnershipEdges();
+//        this.potentialLoginMap = jimpleAnalyzer.getPotentialLoginMap();
+//    }
 
-        // Collect the callback interfaces implemented in the app's source code
-        AbstractJimpleAnalyzer jimpleAnalyzer = new FastJimpleAnalyzer(entryPointClasses,
-                manifest.getAllActivityClasses(), layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
-        jimpleAnalyzer.analyzeJimpleClasses();
+//    /**
+//     * Instantiates and configures the data flow engine
+//     *
+//     * @return A properly configured instance of the {@link soot.jimple.infoflow.Infoflow} class
+//     */
+//    private IInPlaceInfoflow createInfoflow() {
+//        // Some sanity checks
+//        if (entryPointCreator == null)
+//            throw new RuntimeException("No entry point available");
+//        if (entryPointCreator.getComponentToEntryPointInfo() == null)
+//            throw new RuntimeException("No information about component entry points available");
+//
+//        // Get the component lifecycle methods
+//        Collection<SootMethod> lifecycleMethods = Collections.emptySet();
+//        if (entryPointCreator != null) {
+//            ComponentEntryPointCollection entryPoints = entryPointCreator.getComponentToEntryPointInfo();
+//            if (entryPoints != null)
+//                lifecycleMethods = entryPoints.getLifecycleMethods();
+//        }
+//
+//        // Initialize and configure the data flow tracker
+//        IInPlaceInfoflow info = createInfoflowInternal(lifecycleMethods);
+//        if (ipcManager != null)
+//            info.setIPCManager(ipcManager);
+//        info.setConfig(config);
+//        info.setTaintWrapper(taintWrapper);
+//        info.setTaintPropagationHandler(taintPropagationHandler);
+//        info.setBackwardsPropagationHandler(backwardsPropagationHandler);
+//
+//        // We use a specialized memory manager that knows about Android
+//        info.setMemoryManagerFactory(new IMemoryManagerFactory() {
+//
+//            @Override
+//            public IMemoryManager<Abstraction, Unit> getMemoryManager(boolean tracingEnabled,
+//                                                                      FlowDroidMemoryManager.PathDataErasureMode erasePathData) {
+//                return new AndroidMemoryManager(tracingEnabled, erasePathData, entrypoints);
+//            }
+//
+//        });
+//        info.setMemoryManagerFactory(null);
+//
+//        // Inject additional post-processors
+//        info.setPostProcessors(Collections.singleton(new PostAnalysisHandler() {
+//
+//            @Override
+//            public InfoflowResults onResultsAvailable(InfoflowResults results, IInfoflowCFG cfg) {
+//                // Purify the ICC results if requested
+//                final AteConfig.IccConfiguration iccConfig = config.getIccConfig();
+//                if (iccConfig.isIccResultsPurifyEnabled())
+//                    results = IccResults.clean(cfg, results);
+//
+//                return results;
+//            }
+//
+//        }));
+//
+//        return info;
+//    }
 
-        // Get the layout class maps
-        this.layoutClasses = jimpleAnalyzer.getLayoutClasses();
-        this.baseactivityMapping = jimpleAnalyzer.getBaseActivityMapping();
-
-        // Collect the results
-        this.callbackMethods.putAll(jimpleAnalyzer.getCallbackMethods());
-        this.entrypoints.addAll(jimpleAnalyzer.getDynamicManifestComponents());
-
-        // Collect XML-based callback methods
-        collectXmlBasedCallbackMethods(layoutFileParser, jimpleAnalyzer);
-
-        // Reconstruct the final callgraph and ICFG
-        resetCallgraph();
-        createMainMethod(null);
-        constructCallgraphInternal();
-        jimpleAnalyzer.constructIcfg();
-
-        // Collect Java widget properties
-        jimpleAnalyzer.findWidgetsMappings();
-//        IInPlaceInfoflow infoflow = createInfoflow();
-        widgetEdgeMap = jimpleAnalyzer.resolveIccMethodToWidget();
-
-        // Get the nodes set collected from Jimple files
-        this.editWidgetNodeList = jimpleAnalyzer.getEditTextWidgetList();
-        this.clickWidgetNodeList = jimpleAnalyzer.getClickWidgetNodeList();
-        this.ownershipEdgesClasses = jimpleAnalyzer.getOwnershipEdges();
-        this.potentialLoginMap = jimpleAnalyzer.getPotentialLoginMap();
-    }
-
-    /**
-     * Instantiates and configures the data flow engine
-     *
-     * @return A properly configured instance of the {@link soot.jimple.infoflow.Infoflow} class
-     */
-    private IInPlaceInfoflow createInfoflow() {
-        // Some sanity checks
-        if (entryPointCreator == null)
-            throw new RuntimeException("No entry point available");
-        if (entryPointCreator.getComponentToEntryPointInfo() == null)
-            throw new RuntimeException("No information about component entry points available");
-
-        // Get the component lifecycle methods
-        Collection<SootMethod> lifecycleMethods = Collections.emptySet();
-        if (entryPointCreator != null) {
-            ComponentEntryPointCollection entryPoints = entryPointCreator.getComponentToEntryPointInfo();
-            if (entryPoints != null)
-                lifecycleMethods = entryPoints.getLifecycleMethods();
-        }
-
-        // Initialize and configure the data flow tracker
-        IInPlaceInfoflow info = createInfoflowInternal(lifecycleMethods);
-        if (ipcManager != null)
-            info.setIPCManager(ipcManager);
-        info.setConfig(config);
-        info.setTaintWrapper(taintWrapper);
-        info.setTaintPropagationHandler(taintPropagationHandler);
-        info.setBackwardsPropagationHandler(backwardsPropagationHandler);
-
-        // We use a specialized memory manager that knows about Android
-        info.setMemoryManagerFactory(new IMemoryManagerFactory() {
-
-            @Override
-            public IMemoryManager<Abstraction, Unit> getMemoryManager(boolean tracingEnabled,
-                                                                      FlowDroidMemoryManager.PathDataErasureMode erasePathData) {
-                return new AndroidMemoryManager(tracingEnabled, erasePathData, entrypoints);
-            }
-
-        });
-        info.setMemoryManagerFactory(null);
-
-        // Inject additional post-processors
-        info.setPostProcessors(Collections.singleton(new PostAnalysisHandler() {
-
-            @Override
-            public InfoflowResults onResultsAvailable(InfoflowResults results, IInfoflowCFG cfg) {
-                // Purify the ICC results if requested
-                final AteConfig.IccConfiguration iccConfig = config.getIccConfig();
-                if (iccConfig.isIccResultsPurifyEnabled())
-                    results = IccResults.clean(cfg, results);
-
-                return results;
-            }
-
-        }));
-
-        return info;
-    }
-
-    /**
-     * Creates the data flow engine on which to run the analysis. Derived classes
-     * can override this method to use other data flow engines.
-     *
-     * @param lifecycleMethods The set of Android lifecycle methods to consider
-     * @return The data flow engine
-     */
-    protected IInPlaceInfoflow createInfoflowInternal(Collection<SootMethod> lifecycleMethods) {
-        final String androidJar = config.getAnalysisFileConfig().getAndroidPlatformDir();
-        return new InPlaceInfoflow(androidJar, forceAndroidJar, cfgFactory, lifecycleMethods);
-    }
+//    /**
+//     * Creates the data flow engine on which to run the analysis. Derived classes
+//     * can override this method to use other data flow engines.
+//     *
+//     * @param lifecycleMethods The set of Android lifecycle methods to consider
+//     * @return The data flow engine
+//     */
+//    protected IInPlaceInfoflow createInfoflowInternal(Collection<SootMethod> lifecycleMethods) {
+//        final String androidJar = config.getAnalysisFileConfig().getAndroidPlatformDir();
+//        return new InPlaceInfoflow(androidJar, forceAndroidJar, cfgFactory, lifecycleMethods);
+//    }
 
 
     /**
@@ -1083,7 +1089,7 @@ public class SetupApplication implements ITaintWrapperDataFlowAnalysis {
      *             Thrown if a required configuration cannot be read
      */
     private void processJimpleClassesDefault(LayoutFileParser layoutFileParser, Set<SootClass> entryPointClasses,
-                                             MultiMap<SootClass,Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis) throws IOException {
+                                             List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
         // cleanup the callgraph
         resetCallgraph();
 
@@ -1254,14 +1260,21 @@ public class SetupApplication implements ITaintWrapperDataFlowAnalysis {
             Logger.info("Callback analysis completed...");
     }
 
-
-    @Override
-    public void setTaintWrapper(ITaintPropagationWrapper taintWrapper) {
-        this.taintWrapper = taintWrapper;
+    /**
+     * Gets the manifest file
+     * @return
+     */
+    public ProcessManifest getManifest() {
+        return manifest;
     }
 
-    @Override
-    public ITaintPropagationWrapper getTaintWrapper() {
-        return null;
-    }
+//    @Override
+//    public void setTaintWrapper(ITaintPropagationWrapper taintWrapper) {
+//        this.taintWrapper = taintWrapper;
+//    }
+//
+//    @Override
+//    public ITaintPropagationWrapper getTaintWrapper() {
+//        return null;
+//    }
 }

@@ -18,7 +18,7 @@ import soot.tagkit.Tag;
 
 /**
  * Class for parsing Android binary XML files using the AXMLPrinter2 library
- *
+ * 
  * @author Steven Arzt
  */
 public class AXML20Parser extends AbstractBinaryXMLFileParser {
@@ -179,7 +179,7 @@ public class AXML20Parser extends AbstractBinaryXMLFileParser {
 
 		/**
 		 * Parses the given Android complex value
-		 *
+		 * 
 		 * @param complexValue
 		 *            The numeric complex value to parse
 		 * @return A data object that contains the information from the complex value
@@ -204,29 +204,29 @@ public class AXML20Parser extends AbstractBinaryXMLFileParser {
 		/**
 		 * Parses the given numeric complex unit into one of the well-known enum
 		 * constants
-		 *
+		 * 
 		 * @param unitVal
 		 *            The numeric complex unit
 		 * @return One of the well-known constants for complex units
 		 */
 		private AXmlComplexValue.Unit parseComplexUnit(int unitVal) {
 			switch (unitVal) {
-				// Not all cases are listed here, because some of them have the same numeric
-				// value
-				case AXmlConstants.COMPLEX_UNIT_DIP:
-					return AXmlComplexValue.Unit.DIP;
-				case AXmlConstants.COMPLEX_UNIT_IN:
-					return AXmlComplexValue.Unit.IN;
-				case AXmlConstants.COMPLEX_UNIT_MM:
-					return AXmlComplexValue.Unit.MM;
-				case AXmlConstants.COMPLEX_UNIT_PT:
-					return AXmlComplexValue.Unit.PT;
-				case AXmlConstants.COMPLEX_UNIT_PX:
-					return AXmlComplexValue.Unit.PX;
-				case AXmlConstants.COMPLEX_UNIT_SP:
-					return AXmlComplexValue.Unit.SP;
-				default:
-					throw new RuntimeException(String.format("Unknown complex unit %d", unitVal));
+			// Not all cases are listed here, because some of them have the same numeric
+			// value
+			case AXmlConstants.COMPLEX_UNIT_DIP:
+				return AXmlComplexValue.Unit.DIP;
+			case AXmlConstants.COMPLEX_UNIT_IN:
+				return AXmlComplexValue.Unit.IN;
+			case AXmlConstants.COMPLEX_UNIT_MM:
+				return AXmlComplexValue.Unit.MM;
+			case AXmlConstants.COMPLEX_UNIT_PT:
+				return AXmlComplexValue.Unit.PT;
+			case AXmlConstants.COMPLEX_UNIT_PX:
+				return AXmlComplexValue.Unit.PX;
+			case AXmlConstants.COMPLEX_UNIT_SP:
+				return AXmlComplexValue.Unit.SP;
+			default:
+				throw new RuntimeException(String.format("Unknown complex unit %d", unitVal));
 			}
 		}
 

@@ -16,6 +16,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import dulinglai.android.ate.data.soot.SootMethodAndClass;
+import dulinglai.android.ate.utils.sootUtils.SootMethodRepresentationParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,9 +36,6 @@ import soot.jimple.IfStmt;
 import soot.jimple.IntConstant;
 import soot.jimple.Jimple;
 import soot.jimple.NopStmt;
-
-import soot.jimple.infoflow.data.SootMethodAndClass;
-import soot.jimple.infoflow.util.SootMethodRepresentationParser;
 import soot.jimple.toolkits.scalar.NopEliminator;
 
 /**

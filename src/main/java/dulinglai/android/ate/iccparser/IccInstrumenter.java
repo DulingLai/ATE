@@ -13,16 +13,11 @@ import soot.*;
 import soot.javaToJimple.LocalGenerator;
 import soot.jimple.Jimple;
 import soot.jimple.Stmt;
-import soot.jimple.infoflow.handlers.PreAnalysisHandler;
-import soot.jimple.toolkits.scalar.ConditionalBranchFolder;
-import soot.jimple.toolkits.scalar.DeadAssignmentEliminator;
-import soot.jimple.toolkits.scalar.UnreachableCodeEliminator;
-import soot.toolkits.scalar.UnusedLocalEliminator;
 import soot.util.Chain;
 import soot.util.HashMultiMap;
 import soot.util.MultiMap;
 
-public class IccInstrumenter implements PreAnalysisHandler {
+public class IccInstrumenter {
 
     protected final String iccModel;
     protected final SootClass dummyMainClass;
@@ -44,7 +39,6 @@ public class IccInstrumenter implements PreAnalysisHandler {
         smMessengerSend = Scene.v().grabMethod("<android.os.Messenger: void send(android.os.Message)>");
     }
 
-    @Override
     public void onBeforeCallgraphConstruction() {
         Logger.info("[IccTA] Launching IccTA Transformer...");
 
@@ -143,7 +137,6 @@ public class IccInstrumenter implements PreAnalysisHandler {
 
     }
 
-    @Override
     public void onAfterCallgraphConstruction() {
         //
     }

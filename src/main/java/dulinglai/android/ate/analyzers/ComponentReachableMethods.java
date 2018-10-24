@@ -27,7 +27,7 @@ import java.util.Set;
 public class ComponentReachableMethods {
 
 	private final SootClass originalComponent;
-	private final Set<MethodOrMethodContext> set = new HashSet<MethodOrMethodContext>();
+	private final Set<MethodOrMethodContext> set = new HashSet<>();
 	private final ChunkedQueue<MethodOrMethodContext> reachables = new ChunkedQueue<MethodOrMethodContext>();
 	private final QueueReader<MethodOrMethodContext> allReachables = reachables.reader();
 	private QueueReader<MethodOrMethodContext> unprocessedMethods;
@@ -79,11 +79,6 @@ public class ComponentReachableMethods {
 							InstanceInvokeExpr iinv = (InstanceInvokeExpr) e.srcStmt().getInvokeExpr();
 							if (iinv.getBase() == e.src().getActiveBody().getThisLocal()) {
 
-								// If our parent class P has an abstract
-								// method foo() and the lifecycle
-								// class L overrides foo(), make sure that
-								// all calls to P.foo() in the
-								// context of L only go to L.foo().
 								SootClass calleeClass = refMethod.getDeclaringClass();
 								if (Scene.v().getFastHierarchy().isSubclass(originalComponent, calleeClass)) {
 									SootClass targetClass = e.getTgt().method().getDeclaringClass();
@@ -92,20 +87,15 @@ public class ComponentReachableMethods {
 								}
 							}
 
-							// We do not expect callback registrations in
-							// any
-							// calls to system classes
+							// We do not expect callback registrations in any calls to system classes
                             return !SystemClassHandler.isClassInSystemPackage(refMethod.getDeclaringClass().getName());
 						}
 					} else {
-						//TODO check if we do need to filter thread
 						// Check for thread call edges
 						if (e.kind() == Kind.THREAD || e.kind() == Kind.EXECUTOR)
 							return false;
 
-						// Some apps have a custom layer for managing
-						// threads,
-						// so we need a more generic model
+						// Some apps have a custom layer for managing threads, so we need a more generic model
 						if (e.tgt().getName().equals("run"))
                             return !Scene.v().getFastHierarchy().canStoreType(e.tgt().getDeclaringClass().getType(),
                                     RefType.v("java.lang.Runnable"));

@@ -5,14 +5,14 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.pmw.tinylog.Logger;
-import org.xmlpull.v1.XmlPullParserException;
-
-import dulinglai.android.ate.resources.axml.res.AXmlResourceParser;
 import dulinglai.android.ate.resources.axml.AXmlAttribute;
 import dulinglai.android.ate.resources.axml.AXmlNamespace;
 import dulinglai.android.ate.resources.axml.AXmlNode;
 import dulinglai.android.ate.resources.axml.AXmlTypes;
+import dulinglai.android.ate.resources.axml.res.AXmlResourceParser;
+import org.pmw.tinylog.Logger;
+import org.xmlpull.v1.XmlPullParserException;
+
 
 /**
  * Class for parsing Android binary XML files using the AXMLPrinter2 library

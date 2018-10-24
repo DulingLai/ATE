@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
+import dulinglai.android.ate.data.soot.SootMethodAndClass;
+import dulinglai.android.ate.utils.sootUtils.SootMethodRepresentationParser;
 import soot.Body;
 import soot.Local;
 import soot.Scene;
@@ -12,8 +14,6 @@ import soot.SootField;
 import soot.SootMethod;
 import soot.javaToJimple.LocalGenerator;
 import soot.jimple.Jimple;
-import soot.jimple.infoflow.data.SootMethodAndClass;
-import soot.jimple.infoflow.util.SootMethodRepresentationParser;
 
 /**
  * Simple entry point creator that builds a sequential list of method

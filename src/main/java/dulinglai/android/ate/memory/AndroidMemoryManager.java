@@ -5,8 +5,6 @@ import java.util.Set;
 import soot.RefType;
 import soot.SootClass;
 import soot.Type;
-import soot.jimple.infoflow.data.Abstraction;
-import soot.jimple.infoflow.data.FlowDroidMemoryManager;
 
 /**
  * Specialized implementation of the memory manager interface for Android
@@ -32,40 +30,6 @@ public class AndroidMemoryManager extends FlowDroidMemoryManager {
                                 Set<SootClass> components) {
         super(tracingEnabled, erasePathData);
         this.components = components;
-    }
-
-    @Override
-    public Abstraction handleMemoryObject(Abstraction obj) {
-        // We use the optimizations already present in FlowDroid
-        obj = super.handleMemoryObject(obj);
-
-        // If a complete component is tainted, it does make any sense to pursue
-        // this taint further
-        if (obj != null && obj.getAccessPath().getTaintSubFields()) {
-            // Check for c.*
-            if (obj.getAccessPath().isLocal()) {
-                Type tp = obj.getAccessPath().getPlainValue().getType();
-                Type runtimeType = obj.getAccessPath().getBaseType();
-                if (isComponentType(tp) || isComponentType(runtimeType)
-                        || isFilteredSystemType(tp) || isFilteredSystemType(runtimeType)) {
-                    componentFilterApplied = true;
-                    return null;
-                }
-            }
-
-            // Check for c.d.e.*
-            if (obj.getAccessPath().isInstanceFieldRef()) {
-                Type tp = obj.getAccessPath().getLastField().getType();
-                Type runtimeType = obj.getAccessPath().getLastFieldType();
-                if (isComponentType(tp) || isComponentType(runtimeType)
-                        || isFilteredSystemType(tp) || isFilteredSystemType(runtimeType)) {
-                    componentFilterApplied = true;
-                    return null;
-                }
-            }
-        }
-
-        return obj;
     }
 
     /**

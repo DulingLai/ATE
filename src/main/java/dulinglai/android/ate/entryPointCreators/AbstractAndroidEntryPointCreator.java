@@ -1,6 +1,6 @@
 package dulinglai.android.ate.entryPointCreators;
 
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import dulinglai.android.ate.utils.androidUtils.ClassUtils;
 import dulinglai.android.ate.utils.androidUtils.SystemClassHandler;
 import soot.Local;
@@ -43,7 +43,7 @@ public abstract class AbstractAndroidEntryPointCreator extends BaseEntryPointCre
 
         // If the method is in one of the predefined Android classes, it cannot
         // contain custom code, so we do not need to call it
-        if (ComponentConstants.isLifecycleClass(method.getDeclaringClass().getName()))
+        if (ComponentLifecycleConstants.isLifecycleClass(method.getDeclaringClass().getName()))
             return null;
 
         // If this method is part of the Android framework, we don't need to
@@ -60,7 +60,7 @@ public abstract class AbstractAndroidEntryPointCreator extends BaseEntryPointCre
 
     protected boolean createPlainMethodCall(Local classLocal, SootMethod currentMethod) {
         // Do not create calls to lifecycle methods which we handle explicitly
-        if (ComponentConstants.getServiceLifecycleMethods().contains(currentMethod.getSubSignature()))
+        if (ComponentLifecycleConstants.getServiceLifecycleMethods().contains(currentMethod.getSubSignature()))
             return false;
 
         NopStmt beforeStmt = Jimple.v().newNopStmt();

@@ -17,6 +17,30 @@ public class IccIdentifier {
         this.clazz = clazz;
     }
 
+    /**
+     * Gets the ICC statement
+     * @return The ICC statement (e.g. startActivity)
+     */
+    public Unit getStmt() {
+        return stmt;
+    }
+
+    /**
+     * Gets the ICC method that encapsulate the statement
+     * @return The ICC method
+     */
+    public SootMethod getMethod() {
+        return method;
+    }
+
+    /**
+     * Gets the class of the ICC statement
+     * @return The class of the ICC statement
+     */
+    public SootClass getClazz() {
+        return clazz;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(stmt, method, clazz);

@@ -10,16 +10,16 @@
  ******************************************************************************/
 package dulinglai.android.ate.entryPointCreators;
 
+import dulinglai.android.ate.data.soot.SootMethodAndClass;
 import dulinglai.android.ate.entryPointCreators.components.*;
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import dulinglai.android.ate.resources.manifest.ProcessManifest;
 import dulinglai.android.ate.utils.androidUtils.ClassUtils.ComponentType;
 import dulinglai.android.ate.utils.androidUtils.LibraryClassPatcher;
 import dulinglai.android.ate.utils.androidUtils.SystemClassHandler;
+import dulinglai.android.ate.utils.sootUtils.SootMethodRepresentationParser;
 import soot.*;
 import soot.jimple.*;
-import soot.jimple.infoflow.data.SootMethodAndClass;
-import soot.jimple.infoflow.util.SootMethodRepresentationParser;
 import soot.jimple.toolkits.scalar.NopEliminator;
 import soot.options.Options;
 import soot.util.HashMultiMap;
@@ -103,7 +103,7 @@ public class AndroidEntryPointCreator extends AbstractAndroidEntryPointCreator i
 					// Conditionally call the onCreate method
 					NopStmt thenStmt = Jimple.v().newNopStmt();
 					createIfStmt(thenStmt);
-					searchAndBuildMethod(ComponentConstants.CONTENTPROVIDER_ONCREATE, currentClass, localVal);
+					searchAndBuildMethod(ComponentLifecycleConstants.CONTENTPROVIDER_ONCREATE, currentClass, localVal);
 					body.getUnits().add(thenStmt);
 					hasContentProviders = true;
 				}
@@ -159,7 +159,7 @@ public class AndroidEntryPointCreator extends AbstractAndroidEntryPointCreator i
 				}
 
 				// Call the onCreate() method
-				searchAndBuildMethod(ComponentConstants.APPLICATION_ONCREATE, applicationClass,
+				searchAndBuildMethod(ComponentLifecycleConstants.APPLICATION_ONCREATE, applicationClass,
 						applicationLocal);
 
 				//////////////
@@ -253,7 +253,7 @@ public class AndroidEntryPointCreator extends AbstractAndroidEntryPointCreator i
 
 		// Add a call to application.onTerminate()
 		if (applicationLocal != null)
-			searchAndBuildMethod(ComponentConstants.APPLICATION_ONTERMINATE, applicationClass,
+			searchAndBuildMethod(ComponentLifecycleConstants.APPLICATION_ONTERMINATE, applicationClass,
 					applicationLocal);
 
 		body.getUnits().add(Jimple.v().newReturnVoidStmt());
@@ -295,7 +295,7 @@ public class AndroidEntryPointCreator extends AbstractAndroidEntryPointCreator i
 
 		// Look into the application class' callbacks
 		SootClass scActCallbacks = Scene.v()
-				.getSootClassUnsafe(ComponentConstants.ACTIVITYLIFECYCLECALLBACKSINTERFACE);
+				.getSootClassUnsafe(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACKSINTERFACE);
 		Collection<SootMethod> callbacks = callbackFunctions.get(applicationClass);
 		if (callbacks != null) {
 			for (SootMethod smCallback : callbacks) {
@@ -383,13 +383,13 @@ public class AndroidEntryPointCreator extends AbstractAndroidEntryPointCreator i
 				// inserted
 				// at their respective positions
 				if (sc == applicationClass
-						&& ComponentConstants.getApplicationLifecycleMethods().contains(subSig))
+						&& ComponentLifecycleConstants.getApplicationLifecycleMethods().contains(subSig))
 					continue;
 
 				// If this is an activity lifecycle method, we skip it as well
 				// TODO: can be removed once we filter it in general
 				if (activityLifecycleCallbacks.containsKey(sc))
-					if (ComponentConstants.getActivityLifecycleCallbackMethods().contains(subSig))
+					if (ComponentLifecycleConstants.getActivityLifecycleCallbackMethods().contains(subSig))
 						continue;
 
 				// If we found no implementation or if the implementation we found is in a

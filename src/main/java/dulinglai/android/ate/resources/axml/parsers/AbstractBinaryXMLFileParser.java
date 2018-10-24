@@ -1,12 +1,13 @@
 package dulinglai.android.ate.resources.axml.parsers;
 
+import dulinglai.android.ate.resources.axml.AXmlDocument;
+import dulinglai.android.ate.resources.axml.AXmlNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import dulinglai.android.ate.resources.axml.AXmlDocument;
-import dulinglai.android.ate.resources.axml.AXmlNode;
 
 /**
  * Abstract base class for all binary XML file parsers

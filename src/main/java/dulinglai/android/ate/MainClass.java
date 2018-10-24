@@ -1,18 +1,11 @@
 package dulinglai.android.ate;
 
-import dulinglai.android.ate.config.AteConfig;
+import dulinglai.android.ate.config.AteConfiguration;
 import dulinglai.android.ate.utils.FileUtils;
 import org.apache.commons.cli.*;
 import org.pmw.tinylog.Configurator;
 import org.pmw.tinylog.Level;
 import org.pmw.tinylog.Logger;
-import soot.jimple.infoflow.methodSummary.data.provider.LazySummaryProvider;
-import soot.jimple.infoflow.methodSummary.taintWrappers.SummaryTaintWrapper;
-import soot.jimple.infoflow.taintWrappers.EasyTaintWrapper;
-import soot.jimple.infoflow.taintWrappers.ITaintPropagationWrapper;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class MainClass {
 
@@ -37,7 +30,7 @@ public class MainClass {
     private static final String HELP_CONFIG = "h";
     private static final String VERSION_CONFIG = "v";
 
-    private MainClass(){
+    public MainClass(){
         setupCmdOptions();
     }
 
@@ -78,17 +71,20 @@ public class MainClass {
     }
 
     /**
-     * Parse the command line arguments.
-     *
-     * @param args the command line arguments passed from main().
+     * Parse the command line options
+     * @param args The command line arguments
+     * @return The configuration for ATE
      */
-    private void run(String[] args) {
+    public AteConfiguration parseCommandLineArgs(String[] args) {
         // Initial check for the number of arguments
         final HelpFormatter formatter = new HelpFormatter();
         if (args.length == 0) {
             formatter.printHelp("ate [OPTIONS]", options, true);
-            return;
+            System.exit(1);
         }
+
+        // instance of the config obj
+        AteConfiguration config = new AteConfiguration();
 
         // parse the command line options
         CommandLineParser parser = new DefaultParser();
@@ -98,46 +94,45 @@ public class MainClass {
             // display the help message if option is specified
             if (cmd.hasOption("h") || cmd.hasOption("help")) {
                 formatter.printHelp("ate [OPTIONS]", options, true);
-                return;
+                System.exit(1);
             }
 
             // display version info and exit
-            if (cmd.hasOption(VERSION_CONFIG) || cmd.hasOption("version")){
+            if (cmd.hasOption(VERSION_CONFIG) || cmd.hasOption("version")) {
                 System.out.println("ate " + getClass().getPackage().getImplementationVersion());
-                return;
+                System.exit(1);
             }
-
-            // instance of the config obj
-            AteConfig config = new AteConfig();
 
             // parse the options to configs
             parseOptions(cmd, config);
-
-            // print the options for debugging
-            Logger.debug("Input APK path: "+config.getAnalysisFileConfig().getTargetAPKFile());
-            Logger.debug("ICC model: "+config.getIccConfig().getIccModel());
-            Logger.debug("Output path: "+config.getAnalysisFileConfig().getOutputFile());
-            Logger.debug("Android SDK path: "+config.getAnalysisFileConfig().getAndroidPlatformDir());
-
-            // Setup application for analysis
-            SetupApplication app = new SetupApplication(config, null);
-
-            // initialize the taint wrapper
-            ITaintPropagationWrapper taintWrapper = initializeTaintWrapper();
-            app.setTaintWrapper(taintWrapper);
-
-            // run the analysis
-            app.runAnalysis();
-            System.exit(0);
-        } catch (ParseException|IOException|URISyntaxException e) {
+        } catch (ParseException e) {
             // print the error message
             Logger.error(e.getMessage());
             formatter.printHelp("ate", options, true);
             System.exit(1);
         }
+
+        return config;
     }
 
-    private void parseOptions(CommandLine cmd, AteConfig config) {
+    /**
+     * Parse the command line arguments.
+     *
+     * @param args the command line arguments passed from main().
+     */
+    private void run(String[] args) {
+        // Initialize the command line options
+        AteConfiguration config = parseCommandLineArgs(args);
+
+        // Setup application for analysis
+        SetupApplication app = new SetupApplication(config);
+
+        // run the analysis
+        app.runAnalysis();
+        System.exit(0);
+    }
+
+    private void parseOptions(CommandLine cmd, AteConfiguration config) {
 //        // Set the project path configuration variables in the config obj
 //        config.setProjectPath(System.getProperty("user.dir"));
 
@@ -218,18 +213,5 @@ public class MainClass {
             config.getAnalysisFileConfig().setAndroidPlatformDir(sdkPath + "/platforms/android-" + targetApiLevel + "/android.jar");
         }
 
-    }
-
-    /**
-     * Initializes the taint wrapper based on the command-line parameters
-     *
-     * @return The taint wrapper to use for the data flow analysis, or null in case
-     *         no taint wrapper shall be used
-     */
-    private ITaintPropagationWrapper initializeTaintWrapper() throws IOException, URISyntaxException {
-        // We use StubDroid, but with the summaries from inside the JAR
-        SummaryTaintWrapper summaryWrapper = new SummaryTaintWrapper(new LazySummaryProvider("summariesManual"));
-        summaryWrapper.setFallbackTaintWrapper(new EasyTaintWrapper());
-        return summaryWrapper;
     }
 }

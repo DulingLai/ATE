@@ -1,9 +1,9 @@
 package dulinglai.android.ate.utils.androidUtils;
 
+import dulinglai.android.ate.data.soot.EssentialMethodTag;
 import soot.*;
 import soot.javaToJimple.LocalGenerator;
 import soot.jimple.*;
-import soot.jimple.infoflow.cfg.FlowDroidEssentialMethodTag;
 
 import java.util.Collections;
 
@@ -194,7 +194,7 @@ public class LibraryClassPatcher {
         RefType tpMessage = RefType.v("android.os.Message");
         sm.getDeclaringClass().setLibraryClass();
         sm.setPhantom(false);
-        sm.addTag(new FlowDroidEssentialMethodTag());
+        sm.addTag(new EssentialMethodTag());
 
         // Create a body for the method
         JimpleBody body = Jimple.v().newBody(sm);
@@ -255,7 +255,7 @@ public class LibraryClassPatcher {
         if (smRun == null || (smRun.hasActiveBody() && !isStubImplementation(smRun.getActiveBody())))
             return;
         smRun.setPhantom(false);
-        smRun.addTag(new FlowDroidEssentialMethodTag());
+        smRun.addTag(new EssentialMethodTag());
 
         Body b = Jimple.v().newBody(smRun);
         smRun.setActiveBody(b);
@@ -316,12 +316,12 @@ public class LibraryClassPatcher {
         SootMethod smRun = sc.getMethodUnsafe("void run()");
         if (smRun == null || (smRun.hasActiveBody() && !isStubImplementation(smRun.getActiveBody())))
             return;
-        smRun.addTag(new FlowDroidEssentialMethodTag());
+        smRun.addTag(new EssentialMethodTag());
 
         SootMethod smCons = sc.getMethodUnsafe("void <init>(java.lang.Runnable)");
         if (smCons == null || (smCons.hasActiveBody() && !isStubImplementation(smCons.getActiveBody())))
             return;
-        smCons.addTag(new FlowDroidEssentialMethodTag());
+        smCons.addTag(new EssentialMethodTag());
 
         SootClass runnable = Scene.v().getSootClassUnsafe("java.lang.Runnable");
         if (runnable == null || runnable.resolvingLevel() < SootClass.SIGNATURES)
@@ -438,37 +438,37 @@ public class LibraryClassPatcher {
 
         if (smPost != null && (!smPost.hasActiveBody() || isStubImplementation(smPost.getActiveBody()))) {
             patchHandlerPostBody(smPost, runnable);
-            smPost.addTag(new FlowDroidEssentialMethodTag());
+            smPost.addTag(new EssentialMethodTag());
         }
 
         if (smPostAtFrontOfQueue != null && (!smPostAtFrontOfQueue.hasActiveBody()
                 || isStubImplementation(smPostAtFrontOfQueue.getActiveBody()))) {
             patchHandlerPostBody(smPostAtFrontOfQueue, runnable);
-            smPostAtFrontOfQueue.addTag(new FlowDroidEssentialMethodTag());
+            smPostAtFrontOfQueue.addTag(new EssentialMethodTag());
         }
 
         if (smPostAtTime != null
                 && (!smPostAtTime.hasActiveBody() || isStubImplementation(smPostAtTime.getActiveBody()))) {
             patchHandlerPostBody(smPostAtTime, runnable);
-            smPostAtTime.addTag(new FlowDroidEssentialMethodTag());
+            smPostAtTime.addTag(new EssentialMethodTag());
         }
 
         if (smPostAtTimeWithToken != null && (!smPostAtTimeWithToken.hasActiveBody()
                 || isStubImplementation(smPostAtTimeWithToken.getActiveBody()))) {
             patchHandlerPostBody(smPostAtTimeWithToken, runnable);
-            smPostAtTimeWithToken.addTag(new FlowDroidEssentialMethodTag());
+            smPostAtTimeWithToken.addTag(new EssentialMethodTag());
         }
 
         if (smPostDelayed != null
                 && (!smPostDelayed.hasActiveBody() || isStubImplementation(smPostDelayed.getActiveBody()))) {
             patchHandlerPostBody(smPostDelayed, runnable);
-            smPostDelayed.addTag(new FlowDroidEssentialMethodTag());
+            smPostDelayed.addTag(new EssentialMethodTag());
         }
 
         if (smDispatchMessage != null
                 && (!smDispatchMessage.hasActiveBody() || isStubImplementation(smDispatchMessage.getActiveBody()))) {
             patchHandlerDispatchBody(smDispatchMessage);
-            smDispatchMessage.addTag(new FlowDroidEssentialMethodTag());
+            smDispatchMessage.addTag(new EssentialMethodTag());
         }
     }
 
@@ -572,38 +572,38 @@ public class LibraryClassPatcher {
         SootMethod smSchedule1 = sc.getMethodUnsafe("void schedule(java.util.TimerTask,long)");
         if (smSchedule1 != null && !smSchedule1.hasActiveBody()) {
             patchTimerScheduleMethod(smSchedule1);
-            smSchedule1.addTag(new FlowDroidEssentialMethodTag());
+            smSchedule1.addTag(new EssentialMethodTag());
         }
 
         SootMethod smSchedule2 = sc.getMethodUnsafe("void schedule(java.util.TimerTask,java.util.Date)");
         if (smSchedule2 != null && !smSchedule2.hasActiveBody()) {
             patchTimerScheduleMethod(smSchedule2);
-            smSchedule2.addTag(new FlowDroidEssentialMethodTag());
+            smSchedule2.addTag(new EssentialMethodTag());
         }
 
         SootMethod smSchedule3 = sc.getMethodUnsafe("void schedule(java.util.TimerTask,java.util.Date,long)");
         if (smSchedule3 != null && !smSchedule3.hasActiveBody()) {
             patchTimerScheduleMethod(smSchedule3);
-            smSchedule3.addTag(new FlowDroidEssentialMethodTag());
+            smSchedule3.addTag(new EssentialMethodTag());
         }
 
         SootMethod smSchedule4 = sc.getMethodUnsafe("void schedule(java.util.TimerTask,long,long)");
         if (smSchedule4 != null && !smSchedule4.hasActiveBody()) {
             patchTimerScheduleMethod(smSchedule4);
-            smSchedule4.addTag(new FlowDroidEssentialMethodTag());
+            smSchedule4.addTag(new EssentialMethodTag());
         }
 
         SootMethod smSchedule5 = sc
                 .getMethodUnsafe("void scheduleAtFixedRate(java.util.TimerTask,java.util.Date,long)");
         if (smSchedule5 != null && !smSchedule5.hasActiveBody()) {
             patchTimerScheduleMethod(smSchedule5);
-            smSchedule5.addTag(new FlowDroidEssentialMethodTag());
+            smSchedule5.addTag(new EssentialMethodTag());
         }
 
         SootMethod smSchedule6 = sc.getMethodUnsafe("void scheduleAtFixedRate(java.util.TimerTask,long,long)");
         if (smSchedule6 != null && !smSchedule6.hasActiveBody()) {
             patchTimerScheduleMethod(smSchedule6);
-            smSchedule6.addTag(new FlowDroidEssentialMethodTag());
+            smSchedule6.addTag(new EssentialMethodTag());
         }
     }
 

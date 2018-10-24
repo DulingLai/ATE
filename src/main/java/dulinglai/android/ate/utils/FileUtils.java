@@ -1,6 +1,6 @@
 package dulinglai.android.ate.utils;
 
-import dulinglai.android.ate.config.AteConfig;
+import dulinglai.android.ate.config.AteConfiguration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.pmw.tinylog.Logger;
@@ -48,7 +48,7 @@ public class FileUtils {
         file.delete();
     }
 
-    public static void loadConfigFile(String configFilePath, AteConfig config){
+    public static void loadConfigFile(String configFilePath, AteConfiguration config){
         // load properties from the config file
         try {
             PropertiesConfiguration configProp = new PropertiesConfiguration(configFilePath);

@@ -1,6 +1,6 @@
 package dulinglai.android.ate.analyzers.filters;
 
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import soot.*;
 
 import java.util.Set;
@@ -105,8 +105,8 @@ public class AlienHostComponentFilter extends AbstractCallbackFilter {
 
 	@Override
 	public void reset() {
-		this.activityClass = Scene.v().getSootClassUnsafe(ComponentConstants.ACTIVITYCLASS);
-		this.fragmentClass = Scene.v().getSootClassUnsafe(ComponentConstants.FRAGMENTCLASS);
+		this.activityClass = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.ACTIVITYCLASS);
+		this.fragmentClass = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.FRAGMENTCLASS);
 	}
 
 	@Override

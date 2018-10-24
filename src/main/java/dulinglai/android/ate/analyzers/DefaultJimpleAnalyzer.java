@@ -2,15 +2,14 @@ package dulinglai.android.ate.analyzers;
 
 import dulinglai.android.ate.analyzers.CallbackDefinition.CallbackType;
 import dulinglai.android.ate.analyzers.filters.ICallbackFilter;
-import dulinglai.android.ate.graphBuilder.TransitionEdge;
 import dulinglai.android.ate.memory.IMemoryBoundedSolver;
 import dulinglai.android.ate.memory.ISolverTerminationReason;
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.propagationAnalysis.intents.IccIdentifier;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import dulinglai.android.ate.resources.resources.LayoutFileParser;
 import dulinglai.android.ate.data.values.ResourceValueProvider;
 import dulinglai.android.ate.utils.androidUtils.ClassUtils;
 import dulinglai.android.ate.utils.androidUtils.SystemClassHandler;
-import heros.solver.Pair;
 import org.pmw.tinylog.Logger;
 import soot.*;
 import soot.jimple.InvokeExpr;
@@ -33,30 +32,34 @@ import java.util.*;
  */
 public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMemoryBoundedSolver {
 
-    private MultiMap<SootClass, SootMethod> callbackWorklist = null;
+    private static final String TAG = "TransitionAnalyzer";
+
+    private MultiMap<SootClass, SootMethod> callbackWorklist;
+    private MultiMap<SootClass, SootMethod> transitionWorklist;
     private ClassUtils entryPointUtils = new ClassUtils();
+
+    private Set<String> transitionMethods;
+
     private Set<IMemoryBoundedSolverStatusNotification> notificationListeners = new HashSet<>();
     private ISolverTerminationReason isKilled = null;
     private final Integer maxCallbacksPerComponent = 100;
 
-    //TODO remove result writer
-
     public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> activityList,
                                  LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
-                                 MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis) throws IOException {
+                                 List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
         super(entryPointClasses, activityList, layoutFileParser,
                 resourceValueProvider, iccUnitsForWidgetAnalysis);
     }
 
     public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, String callbackFile, Set<String> activityList,
                                  LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
-                                 MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis) throws IOException {
+                                 List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
         super(entryPointClasses, callbackFile, activityList, layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
     }
 
     public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> androidCallbacks, Set<String> activityList,
                                  LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
-                                 MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis) {
+                                 List<IccIdentifier> iccUnitsForWidgetAnalysis) {
         super(entryPointClasses, androidCallbacks, activityList,
                 layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
     }
@@ -78,9 +81,10 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
 
                 // Do we have to start from scratch or do we have a worklist to
                 // process?
-                if (callbackWorklist == null) {
-                    Logger.info("Collecting callbacks in DEFAULT mode...");
+                if (callbackWorklist == null && transitionWorklist == null) {
+                    Logger.info("[{}] Analyzing component transition methods...", TAG);
                     callbackWorklist = new HashMultiMap<>();
+                    transitionWorklist = new HashMultiMap<>();
 
                     // Find the mappings between classes and layouts
                     findClassLayoutMappings();
@@ -92,8 +96,7 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
                         if (isKilled != null)
                             break;
 
-                        List<MethodOrMethodContext> methods = new ArrayList<MethodOrMethodContext>(
-                                getLifecycleMethods(sc));
+                        List<MethodOrMethodContext> methods = new ArrayList<>(getLifecycleMethods(sc));
 
                         // Check for callbacks registered in the code
                         analyzeRechableMethods(sc, methods);
@@ -154,23 +157,23 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
     private Collection<? extends MethodOrMethodContext> getLifecycleMethods(SootClass sc) {
         switch (entryPointUtils.getComponentType(sc)) {
             case Activity:
-                return getLifecycleMethods(sc, ComponentConstants.getActivityLifecycleMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getActivityLifecycleMethods());
             case Service:
-                return getLifecycleMethods(sc, ComponentConstants.getServiceLifecycleMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getServiceLifecycleMethods());
             case Application:
-                return getLifecycleMethods(sc, ComponentConstants.getApplicationLifecycleMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getApplicationLifecycleMethods());
             case BroadcastReceiver:
-                return getLifecycleMethods(sc, ComponentConstants.getBroadcastLifecycleMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getBroadcastLifecycleMethods());
             case Fragment:
-                return getLifecycleMethods(sc, ComponentConstants.getFragmentLifecycleMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getFragmentLifecycleMethods());
             case ContentProvider:
-                return getLifecycleMethods(sc, ComponentConstants.getContentproviderLifecycleMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getContentproviderLifecycleMethods());
             case GCMBaseIntentService:
-                return getLifecycleMethods(sc, ComponentConstants.getGCMIntentServiceMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getGCMIntentServiceMethods());
             case GCMListenerService:
-                return getLifecycleMethods(sc, ComponentConstants.getGCMListenerServiceMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getGCMListenerServiceMethods());
             case ServiceConnection:
-                return getLifecycleMethods(sc, ComponentConstants.getServiceConnectionMethods());
+                return getLifecycleMethods(sc, ComponentLifecycleConstants.getServiceConnectionMethods());
             case Plain:
                 return Collections.emptySet();
         }
@@ -222,8 +225,14 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
                 filter.setReachableMethods(rm);
 
             SootMethod method = reachableMethods.next().method();
+
+            // callbacks
             analyzeMethodForCallbackRegistrations(lifecycleElement, method);
             analyzeMethodForDynamicBroadcastReceiver(method);
+
+            // component transitions
+            analyzeMethodForComponentTransition(lifecycleElement, method);
+
             analyzeMethodForServiceConnection(method);
             analyzeMethodForFragmentTransaction(lifecycleElement, method);
         }

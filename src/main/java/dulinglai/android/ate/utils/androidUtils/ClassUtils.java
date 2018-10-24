@@ -1,7 +1,7 @@
 package dulinglai.android.ate.utils.androidUtils;
 
 import dulinglai.android.ate.iccparser.IccLink;
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
@@ -27,7 +27,6 @@ public class ClassUtils {
     private SootClass osClassGCMBaseIntentService;
     private SootClass osClassGCMListenerService;
     private SootClass osInterfaceServiceConnection;
-    private SootClass osClickListener;
 
     private Set<Object> grey;
     private List<SootClass> predActivityClasses;
@@ -46,19 +45,19 @@ public class ClassUtils {
      */
     public ClassUtils() {
         // Get some commonly used OS classes
-        osClassApplication = Scene.v().getSootClassUnsafe(ComponentConstants.APPLICATIONCLASS);
-        osClassActivity = Scene.v().getSootClassUnsafe(ComponentConstants.ACTIVITYCLASS);
-        osClassService = Scene.v().getSootClassUnsafe(ComponentConstants.SERVICECLASS);
-        osClassFragment = Scene.v().getSootClassUnsafe(ComponentConstants.FRAGMENTCLASS);
-        osClassSupportFragment = Scene.v().getSootClassUnsafe(ComponentConstants.SUPPORTFRAGMENTCLASS);
-        osClassBroadcastReceiver = Scene.v().getSootClassUnsafe(ComponentConstants.BROADCASTRECEIVERCLASS);
-        osClassContentProvider = Scene.v().getSootClassUnsafe(ComponentConstants.CONTENTPROVIDERCLASS);
+        osClassApplication = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.APPLICATIONCLASS);
+        osClassActivity = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.ACTIVITYCLASS);
+        osClassService = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.SERVICECLASS);
+        osClassFragment = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.FRAGMENTCLASS);
+        osClassSupportFragment = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.SUPPORTFRAGMENTCLASS);
+        osClassBroadcastReceiver = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.BROADCASTRECEIVERCLASS);
+        osClassContentProvider = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.CONTENTPROVIDERCLASS);
         osClassGCMBaseIntentService = Scene.v()
-                .getSootClassUnsafe(ComponentConstants.GCMBASEINTENTSERVICECLASS);
-        osClassGCMListenerService = Scene.v().getSootClassUnsafe(ComponentConstants.GCMLISTENERSERVICECLASS);
+                .getSootClassUnsafe(ComponentLifecycleConstants.GCMBASEINTENTSERVICECLASS);
+        osClassGCMListenerService = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.GCMLISTENERSERVICECLASS);
         osInterfaceServiceConnection = Scene.v()
-                .getSootClassUnsafe(ComponentConstants.SERVICECONNECTIONINTERFACE);
-        osClickListener = Scene.v().getSootClassUnsafe(ComponentConstants.CLICKLISTENER);
+                .getSootClassUnsafe(ComponentLifecycleConstants.SERVICECONNECTIONINTERFACE);
+//        osClickListener = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.CLICKLISTENER);
     }
 
     /**
@@ -113,9 +112,9 @@ public class ClassUtils {
         else if (osInterfaceServiceConnection != null && Scene.v().getOrMakeFastHierarchy()
                 .canStoreType(currentClass.getType(), osInterfaceServiceConnection.getType()))
             ctype = ComponentType.ServiceConnection;
-		else if (osClickListener != null
-                && Scene.v().getOrMakeFastHierarchy().canStoreType(currentClass.getType(), osClickListener.getType()))
-            ctype = ComponentType.ClickListener;
+//		else if (osClickListener != null
+//                && Scene.v().getOrMakeFastHierarchy().canStoreType(currentClass.getType(), osClickListener.getType()))
+//            ctype = ComponentType.ClickListener;
         componentTypeCache.put(currentClass, ctype);
         return ctype;
     }
@@ -146,28 +145,28 @@ public class ClassUtils {
         String subsignature = method.getSubSignature();
 
         if (componentType == ComponentType.Activity
-                && ComponentConstants.getActivityLifecycleMethods().contains(subsignature))
+                && ComponentLifecycleConstants.getActivityLifecycleMethods().contains(subsignature))
             return true;
         if (componentType == ComponentType.Service
-                && ComponentConstants.getServiceLifecycleMethods().contains(subsignature))
+                && ComponentLifecycleConstants.getServiceLifecycleMethods().contains(subsignature))
             return true;
         if (componentType == ComponentType.Fragment
-                && ComponentConstants.getFragmentLifecycleMethods().contains(subsignature))
+                && ComponentLifecycleConstants.getFragmentLifecycleMethods().contains(subsignature))
             return true;
         if (componentType == ComponentType.BroadcastReceiver
-                && ComponentConstants.getBroadcastLifecycleMethods().contains(subsignature))
+                && ComponentLifecycleConstants.getBroadcastLifecycleMethods().contains(subsignature))
             return true;
         if (componentType == ComponentType.ContentProvider
-                && ComponentConstants.getContentproviderLifecycleMethods().contains(subsignature))
+                && ComponentLifecycleConstants.getContentproviderLifecycleMethods().contains(subsignature))
             return true;
         if (componentType == ComponentType.GCMBaseIntentService
-                && ComponentConstants.getGCMIntentServiceMethods().contains(subsignature))
+                && ComponentLifecycleConstants.getGCMIntentServiceMethods().contains(subsignature))
             return true;
         if (componentType == ComponentType.GCMListenerService
-                && ComponentConstants.getGCMListenerServiceMethods().contains(subsignature))
+                && ComponentLifecycleConstants.getGCMListenerServiceMethods().contains(subsignature))
             return true;
         return componentType == ComponentType.ServiceConnection
-                && ComponentConstants.getServiceConnectionMethods().contains(subsignature);
+                && ComponentLifecycleConstants.getServiceConnectionMethods().contains(subsignature);
 
     }
 

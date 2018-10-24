@@ -4,6 +4,7 @@ import dulinglai.android.ate.propagationAnalysis.arguments.Argument;
 import dulinglai.android.ate.propagationAnalysis.parser.ExtendedSignature;
 import dulinglai.android.ate.propagationAnalysis.parser.ParseException;
 import dulinglai.android.ate.propagationAnalysis.parser.PropagationParser;
+import org.pmw.tinylog.Logger;
 import soot.*;
 import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.InterfaceInvokeExpr;
@@ -65,15 +66,35 @@ public class Model implements Serializable {
      */
     public static void loadModel(String modelPaths) throws FileNotFoundException, ParseException {
         String[] modelPathsParts = modelPaths.split(File.pathSeparator);
-
+        if (instance == null) {
+            instance = new Model();
+        }
         for (String modelPath : modelPathsParts) {
-            File file = new File(modelPath);
-            if (file.isDirectory()) {
-                loadModelFromDirectory(modelPath);
+            // if the model is a resource file
+            if (modelPath.startsWith("/")) {
+                loadModelFromResourceFile(modelPath);
             } else {
-                loadModelFromFile(modelPath);
+                File file = new File(modelPath);
+                if (file.isDirectory()) {
+                    loadModelFromDirectory(modelPath);
+                } else {
+                    loadModelFromFile(modelPath);
+                }
             }
         }
+        instance.endInitialization();
+    }
+
+    /**
+     * Loads the model from resource files
+     *
+     * @param modelDir The path to a resource directory containing COAL model files.
+     * @throws FileNotFoundException if something goes wrong with the file operations.
+     * @throws ParseException if something goes wrong with the parsing process.
+     */
+    private static void loadModelFromResourceFile(String modelDir) throws FileNotFoundException,
+            ParseException {
+        PropagationParser.parseModelFromResource(instance, modelDir);
     }
 
     /**
@@ -88,12 +109,7 @@ public class Model implements Serializable {
      */
     public static void loadModelFromDirectory(String modelDir) throws FileNotFoundException,
             ParseException {
-        if (instance == null) {
-            instance = new Model();
-        }
-
         PropagationParser.parseModelFromDirectory(instance, modelDir);
-        instance.endInitialization();
     }
 
     /**
@@ -106,10 +122,6 @@ public class Model implements Serializable {
      */
     public static void loadModelFromFile(String modelFilePath) throws FileNotFoundException,
             ParseException {
-        if (instance == null) {
-            instance = new Model();
-        }
-
         PropagationParser.parseModelFromFile(instance, new File(modelFilePath));
     }
 

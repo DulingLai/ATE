@@ -1,14 +1,12 @@
 package dulinglai.android.ate.data.android;
 
-import soot.jimple.infoflow.sourcesSinks.definitions.ISourceSinkCategory;
-
 /**
  * A category definition for a source or sink method
  * 
  * @author Steven Arzt
  *
  */
-public class CategoryDefinition implements ISourceSinkCategory {
+public class CategoryDefinition {
 
 	public static enum CATEGORY {
 		// all categories
@@ -180,7 +178,6 @@ public class CategoryDefinition implements ISourceSinkCategory {
 	 * 
 	 * @return The category description as a string
 	 */
-	@Override
 	public String getHumanReadableDescription() {
 		if (customCategory != null && !customCategory.isEmpty()) {
 			// Prefer the description text over the id
@@ -276,7 +273,6 @@ public class CategoryDefinition implements ISourceSinkCategory {
 		return new CategoryDefinition(systemCategory, customCategory);
 	}
 
-	@Override
 	public String getID() {
 		if (systemCategory == CATEGORY.NO_CATEGORY)
 			return customCategory;

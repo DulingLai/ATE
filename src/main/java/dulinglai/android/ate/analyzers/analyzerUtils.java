@@ -1,13 +1,13 @@
 package dulinglai.android.ate.analyzers;
 
 import dulinglai.android.ate.graphBuilder.widgetNodes.ClickWidgetNode;
+import dulinglai.android.ate.utils.sootUtils.SootMethodRepresentationParser;
 import heros.solver.Pair;
 import soot.*;
 import soot.jimple.AssignStmt;
 import soot.jimple.CastExpr;
 import soot.jimple.InvokeExpr;
 import soot.jimple.Stmt;
-import soot.jimple.infoflow.util.SootMethodRepresentationParser;
 import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.scalar.SimpleLocalDefs;
 import soot.toolkits.scalar.SimpleLocalUses;

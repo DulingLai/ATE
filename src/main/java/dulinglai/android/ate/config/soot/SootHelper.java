@@ -1,8 +1,8 @@
 package dulinglai.android.ate.config.soot;
 
+import dulinglai.android.ate.config.AteConfiguration;
 import soot.Scene;
 import soot.SootClass;
-import soot.jimple.infoflow.InfoflowConfiguration;
 import soot.options.Options;
 
 import java.util.LinkedList;
@@ -24,7 +24,7 @@ class SootHelper {
         Options.v().set_no_bodies_for_excluded(true);
     }
 
-    static void setSootCallgraphAlgorithm (InfoflowConfiguration.CallgraphAlgorithm cg_algo) {
+    static void setSootCallgraphAlgorithm (AteConfiguration.CallgraphAlgorithm cg_algo) {
         switch (cg_algo) {
             case AutomaticSelection:
             case SPARK:

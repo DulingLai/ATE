@@ -6,13 +6,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import dulinglai.android.ate.resources.axml.parsers.AXML20Parser;
+import dulinglai.android.ate.resources.axml.parsers.IBinaryXMLFileParser;
 import pxb.android.axml.AxmlWriter;
 import pxb.android.axml.NodeVisitor;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootField;
-import dulinglai.android.ate.resources.axml.parsers.AXML20Parser;
-import dulinglai.android.ate.resources.axml.parsers.IBinaryXMLFileParser;
 import soot.tagkit.IntegerConstantValueTag;
 import soot.tagkit.Tag;
 

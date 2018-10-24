@@ -10,7 +10,8 @@ import dulinglai.android.ate.graphBuilder.widgetNodes.ClickWidgetNode;
 import dulinglai.android.ate.graphBuilder.widgetNodes.EditWidgetNode;
 import dulinglai.android.ate.propagationAnalysis.intents.IccIdentifier;
 import dulinglai.android.ate.resources.androidConstants.AndroidSootClassConstants;
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentTransitionConstants;
 import dulinglai.android.ate.resources.resources.LayoutFileParser;
 import dulinglai.android.ate.resources.resources.controls.AndroidLayoutControl;
 import dulinglai.android.ate.resources.resources.controls.EditTextControl;
@@ -20,11 +21,11 @@ import dulinglai.android.ate.data.values.ResourceValueProvider;
 import dulinglai.android.ate.data.values.SimpleConstantValueProvider;
 import dulinglai.android.ate.utils.androidUtils.SystemClassHandler;
 import dulinglai.android.ate.utils.sootUtils.ResourceUtils;
+import dulinglai.android.ate.utils.sootUtils.SootMethodRepresentationParser;
 import heros.solver.Pair;
 import org.pmw.tinylog.Logger;
 import soot.*;
 import soot.jimple.*;
-import soot.jimple.infoflow.util.SootMethodRepresentationParser;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.toolkits.graph.BriefUnitGraph;
 import soot.toolkits.graph.UnitGraph;
@@ -47,12 +48,12 @@ public abstract class AbstractJimpleAnalyzer {
     protected final SootClass scContext = Scene.v().getSootClassUnsafe("android.content.Context");
 
     protected final SootClass scBroadcastReceiver = Scene.v()
-            .getSootClassUnsafe(ComponentConstants.BROADCASTRECEIVERCLASS);
+            .getSootClassUnsafe(ComponentLifecycleConstants.BROADCASTRECEIVERCLASS);
     protected final SootClass scServiceConnection = Scene.v()
-            .getSootClassUnsafe(ComponentConstants.SERVICECONNECTIONINTERFACE);
+            .getSootClassUnsafe(ComponentLifecycleConstants.SERVICECONNECTIONINTERFACE);
 
     protected final SootClass scFragmentTransaction = Scene.v().getSootClassUnsafe("android.app.FragmentTransaction");
-    protected final SootClass scFragment = Scene.v().getSootClassUnsafe(ComponentConstants.FRAGMENTCLASS);
+    protected final SootClass scFragment = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.FRAGMENTCLASS);
 
     protected final SootClass scSupportFragmentTransaction = Scene.v()
             .getSootClassUnsafe("android.support.v4.app.FragmentTransaction");
@@ -187,7 +188,7 @@ public abstract class AbstractJimpleAnalyzer {
      * @param method
      *            The method in which to look for callbacks
      */
-    protected void analyzeMethodForCallbackRegistrations(SootClass lifecycleElement, SootMethod method) {
+     void analyzeMethodForCallbackRegistrations(SootClass lifecycleElement, SootMethod method) {
         // Do not analyze system classes
         if (SystemClassHandler.isClassInSystemPackage(method.getDeclaringClass().getName()))
             return;
@@ -238,8 +239,7 @@ public abstract class AbstractJimpleAnalyzer {
                                     callbackClasses.add(targetClass);
                             }
 
-                            // If we don't have pointsTo information, we take
-                            // the type of the local
+                            // If we don't have pointsTo information, we take the type of the local
                             if (possibleTypes.isEmpty()) {
                                 Type argType = arg.getType();
                                 RefType baseType;
@@ -265,6 +265,27 @@ public abstract class AbstractJimpleAnalyzer {
         // Analyze all found callback classes
         for (SootClass callbackClass : callbackClasses)
             analyzeClassInterfaceCallbacks(callbackClass, callbackClass, lifecycleElement);
+    }
+
+
+    void analyzeMethodForComponentTransition(SootClass lifecycleElement, SootMethod method) {
+        // Do not analyze system classes
+        if (SystemClassHandler.isClassInSystemPackage(method.getDeclaringClass().getName()))
+            return;
+        if (!method.isConcrete())
+            return;
+
+        // Iterate over all statement and find ICC methods
+        for (Unit u : method.retrieveActiveBody().getUnits()) {
+            Stmt stmt = (Stmt) u;
+            if (stmt.containsInvokeExpr()) {
+                InvokeExpr inv = stmt.getInvokeExpr();
+
+                if (ComponentTransitionConstants.getIccMethodsList().contains(inv.getMethod().getSignature())){
+                    Logger.debug("here");
+                }
+            }
+        }
     }
 
     /**
@@ -1093,16 +1114,15 @@ public abstract class AbstractJimpleAnalyzer {
 
         // Resolving the ICC methods to callback methods to click listeners
         for (SootClass sc : Scene.v().getApplicationClasses()) {
-            if (iccUnitsForWidgetAnalysis.containsKey(sc)) {
-                // load the callback methods
-                Set<SootMethod> callbackMethodSet = new HashSet<>();
-                for (CallbackDefinition callbackDefinition : uicallbacks.get(sc)){
-                    callbackMethodSet.add(callbackDefinition.getTargetMethod());
-                }
+            for (IccIdentifier iccUnit : iccUnitsForWidgetAnalysis) {
+                if (iccUnit.getClazz().equals(sc)) {
+                    // load the callback methods
+                    Set<SootMethod> callbackMethodSet = new HashSet<>();
+                    for (CallbackDefinition callbackDefinition : uicallbacks.get(sc)){
+                        callbackMethodSet.add(callbackDefinition.getTargetMethod());
+                    }
 
-                for (Pair<TransitionEdge, SootMethod> iccPair : iccUnitsForWidgetAnalysis.get(sc)) {
-                    TransitionEdge edge = iccPair.getO1();
-                    SootMethod iccMethod = iccPair.getO2();
+                    SootMethod iccMethod = iccUnit.getMethod();
                     for (SootMethod sm : sc.getMethods()) {
                         if (sm.equals(iccMethod)) {
                             // We iterate the call graph (DFS) from ICC method until we have reached one of the callback methods
@@ -1111,17 +1131,19 @@ public abstract class AbstractJimpleAnalyzer {
                             while (!unvisitedNodes.isEmpty()) {
                                 SootMethod callee = unvisitedNodes.poll();
                                 if (callbackMethodSet.contains(callee)) {
-                                     AbstractWidgetNode widget = findWidgetWithListener(callee.getDeclaringClass());
-                                     if (widget!=null)
-                                         widgetEdgemap.put(edge, widget);
+                                    AbstractWidgetNode widget = findWidgetWithListener(callee.getDeclaringClass());
+                                    if (widget!=null) {
+//                                        widgetEdgemap.put(edge, widget);
+                                    }
                                 } else {
                                     Collection<Unit> callers = icfg.getCallersOf(callee);
                                     for (Unit caller : callers) {
                                         SootMethod callerMethod = icfg.getMethodOf(caller);
                                         if (callbackMethodSet.contains(callerMethod)) {
                                             AbstractWidgetNode widget = findWidgetWithListener(callerMethod.getDeclaringClass());
-                                            if (widget!=null)
-                                                widgetEdgemap.put(edge, widget);
+                                            if (widget!=null) {
+//                                                widgetEdgemap.put(edge, widget);
+                                            }
                                         } else unvisitedNodes.add(callerMethod);
                                     }
                                 }

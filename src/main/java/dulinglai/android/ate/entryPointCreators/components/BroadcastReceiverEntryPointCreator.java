@@ -1,6 +1,6 @@
 package dulinglai.android.ate.entryPointCreators.components;
 
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import soot.SootClass;
 import soot.jimple.Jimple;
 import soot.jimple.NopStmt;
@@ -20,7 +20,7 @@ public class BroadcastReceiverEntryPointCreator extends AbstractComponentEntryPo
 
 	@Override
 	protected void generateComponentLifecycle() {
-		Stmt onReceiveStmt = searchAndBuildMethod(ComponentConstants.BROADCAST_ONRECEIVE, component, thisLocal);
+		Stmt onReceiveStmt = searchAndBuildMethod(ComponentLifecycleConstants.BROADCAST_ONRECEIVE, component, thisLocal);
 
 		// methods
 		NopStmt startWhileStmt = Jimple.v().newNopStmt();

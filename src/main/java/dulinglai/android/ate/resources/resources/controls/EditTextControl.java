@@ -1,9 +1,11 @@
 package dulinglai.android.ate.resources.resources.controls;
 
 import dulinglai.android.ate.resources.axml.AXmlAttribute;
+import dulinglai.android.ate.resources.axml.flags.InputType;
 import pxb.android.axml.AxmlVisitor;
 import soot.SootClass;
 
+import java.util.Collection;
 import java.util.Map;
 
 /**
@@ -14,17 +16,11 @@ import java.util.Map;
  */
 public class EditTextControl extends AndroidLayoutControl {
 
-    private final static int TYPE_CLASS_TEXT = 0x00000001;
-    private final static int TYPE_CLASS_NUMBER = 0x00000002;
-    private final static int TYPE_NUMBER_VARIATION_PASSWORD = 0x00000010;
-    private final static int TYPE_TEXT_VARIATION_PASSWORD = 0x00000080;
-    private final static int TYPE_TEXT_VARIATION_VISIBLE_PASSWORD = 0x00000090;
-    private final static int TYPE_TEXT_VARIATION_WEB_PASSWORD = 0x000000e0;
-
     private int inputType;
     private boolean isPassword;
     private String contentDescription;
     private String hint;
+    private Collection<Integer> inputTypeFlags;
 
     EditTextControl(SootClass viewClass) {
         super(viewClass);
@@ -46,6 +42,21 @@ public class EditTextControl extends AndroidLayoutControl {
      */
     void setInputType(int inputType) {
         this.inputType = inputType;
+        this.inputTypeFlags = InputType.getFlags(inputType);
+    }
+
+    /**
+     * Returns true if the input satiesfies all specified types
+     * @see InputType
+     * @param type the types to check
+     */
+    public boolean satisfiesInputType(int... type) {
+        if (inputTypeFlags == null)
+            return false;
+        for (int i : type)
+            if (!inputTypeFlags.contains(i))
+                return false;
+        return true;
     }
 
     /**
@@ -66,6 +77,22 @@ public class EditTextControl extends AndroidLayoutControl {
         return text;
     }
 
+    /**
+     * Gets the content description associated with this edit control
+     * @return The content description
+     */
+    public String getContentDescription() {
+        return contentDescription;
+    }
+
+    /**
+     * Gets the hint associated with this edit control
+     * @return The hint
+     */
+    public String getHint() {
+        return hint;
+    }
+
     @Override
     protected void handleAttribute(AXmlAttribute<?> attribute, boolean loadOptionalData) {
         final String attrName = attribute.getName().trim();
@@ -77,7 +104,7 @@ public class EditTextControl extends AndroidLayoutControl {
                 id = (Integer) attribute.getValue();
         }
         else if (attrName.equals("inputType") && type == AxmlVisitor.TYPE_INT_HEX) {
-            inputType = (Integer) attribute.getValue();
+            setInputType((Integer) attribute.getValue());
         }
         else if (attrName.equals("password")) {
             if (type == AxmlVisitor.TYPE_INT_HEX)
@@ -111,19 +138,19 @@ public class EditTextControl extends AndroidLayoutControl {
             super.handleAttribute(attribute, loadOptionalData);
     }
 
-    @Override
     public boolean isSensitive() {
         if (isPassword)
             return true;
 
-        if ((inputType & TYPE_CLASS_NUMBER) == TYPE_CLASS_NUMBER)
-            return ((inputType & TYPE_NUMBER_VARIATION_PASSWORD) == TYPE_NUMBER_VARIATION_PASSWORD);
+        if (satisfiesInputType(InputType.numberPassword))
+            return true;
+        if (satisfiesInputType(InputType.textVisiblePassword))
+            return true;
+        if (satisfiesInputType(InputType.textWebPassword))
+            return true;
+        if (satisfiesInputType(InputType.textPassword))
+            return true;
 
-        if ((inputType & TYPE_CLASS_TEXT) == TYPE_CLASS_TEXT) {
-            return ((inputType & TYPE_TEXT_VARIATION_PASSWORD) == TYPE_TEXT_VARIATION_PASSWORD)
-                    || ((inputType & TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) == TYPE_TEXT_VARIATION_VISIBLE_PASSWORD)
-                    || ((inputType & TYPE_TEXT_VARIATION_WEB_PASSWORD) == TYPE_TEXT_VARIATION_WEB_PASSWORD);
-        }
         return false;
     }
 
@@ -153,13 +180,5 @@ public class EditTextControl extends AndroidLayoutControl {
         if (text == null) {
             return other.text == null;
         } else return text.equals(other.text);
-    }
-
-    public String getContentDescription() {
-        return contentDescription;
-    }
-
-    public String getHint() {
-        return hint;
     }
 }

@@ -1,6 +1,6 @@
 package dulinglai.android.ate.analyzers.filters;
 
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
@@ -81,10 +81,10 @@ public class ApplicationCallbackFilter extends AbstractCallbackFilter {
 	@Override
 	public void reset() {
 		this.activityLifecycleCallbacks = Scene.v()
-				.getSootClassUnsafe(ComponentConstants.ACTIVITYLIFECYCLECALLBACKSINTERFACE);
+				.getSootClassUnsafe(ComponentLifecycleConstants.ACTIVITYLIFECYCLECALLBACKSINTERFACE);
 		this.provideAssistDataListener = Scene.v()
 				.getSootClassUnsafe("android.app.Application$OnProvideAssistDataListener");
-		this.componentCallbacks = Scene.v().getSootClassUnsafe(ComponentConstants.COMPONENTCALLBACKSINTERFACE);
+		this.componentCallbacks = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.COMPONENTCALLBACKSINTERFACE);
 	}
 
 	@Override
@@ -94,9 +94,9 @@ public class ApplicationCallbackFilter extends AbstractCallbackFilter {
 		if (component.getName().equals(applicationClass))
 			return true;
 		String subSig = callback.getSubSignature();
-		return !ComponentConstants.getActivityLifecycleCallbackMethods().contains(subSig)
-				&& !ComponentConstants.getComponentCallbackMethods().contains(subSig)
-				&& !ComponentConstants.getComponentCallback2Methods().contains(subSig);
+		return !ComponentLifecycleConstants.getActivityLifecycleCallbackMethods().contains(subSig)
+				&& !ComponentLifecycleConstants.getComponentCallbackMethods().contains(subSig)
+				&& !ComponentLifecycleConstants.getComponentCallback2Methods().contains(subSig);
 	}
 
 }

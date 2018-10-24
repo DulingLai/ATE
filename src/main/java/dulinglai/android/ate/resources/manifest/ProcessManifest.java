@@ -12,10 +12,7 @@ import dulinglai.android.ate.utils.androidUtils.SystemClassHandler;
 import org.xmlpull.v1.XmlPullParserException;
 import pxb.android.axml.AxmlVisitor;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -33,9 +30,9 @@ import static dulinglai.android.ate.graphBuilder.NodeUtils.isValidComponentName;
  * "http://developer.android.com/guide/topics/manifest/manifest-intro.html">App
  * Manifest</a>
  */
-public class ProcessManifest {
+public class ProcessManifest implements Closeable {
 
-    public String packageName;
+    private String packageName;
 
     /**
      * Enumeration containing the various component types supported in Android
@@ -62,6 +59,7 @@ public class ProcessManifest {
     private List<AXmlNode> providerNodes = null;
     private List<AXmlNode> serviceNodes = null;
     private List<AXmlNode> activityNodes = null;
+    private List<AXmlNode> aliasActivities = null;
     private List<AXmlNode> receiverNodes = null;
 
     private Set<String> launchableActivities = new HashSet<>();
@@ -76,6 +74,7 @@ public class ProcessManifest {
      *
      * @param apkPath file path to an APK.
      * @throws IOException            if an I/O error occurs.
+     * @throws XmlPullParserException can occur due to a malformed manifest.
      */
     public ProcessManifest(String apkPath) throws IOException, XmlPullParserException {
         this(new File(apkPath));
@@ -86,6 +85,7 @@ public class ProcessManifest {
      *
      * @param apkFile the AppManifest within the given APK will be parsed.
      * @throws IOException if an I/O error occurs.
+     * @throws XmlPullParserException can occur due to a malformed manifest.
      * @see {@link ProcessManifest#ProcessManifest(InputStream)}
      */
     public ProcessManifest(File apkFile) throws IOException, XmlPullParserException {
@@ -94,11 +94,16 @@ public class ProcessManifest {
                     String.format("The given APK file %s does not exist", apkFile.getCanonicalPath()));
 
         this.apk = new ApkHandler(apkFile);
-        try (InputStream is = this.apk.getInputStream("AndroidManifest.xml")) {
+        InputStream is = null;
+        try {
+            is = this.apk.getInputStream("AndroidManifest.xml");
             if (is == null)
                 throw new FileNotFoundException(
                         String.format("The file %s does not contain an Android Manifest", apkFile.getAbsolutePath()));
             this.handle(is);
+        }finally {
+            if (is != null)
+                is.close();
         }
     }
 
@@ -145,11 +150,20 @@ public class ProcessManifest {
         this.providerNodes = this.axml.getNodesWithTag("provider");
         this.serviceNodes = this.axml.getNodesWithTag("service");
         this.activityNodes = this.axml.getNodesWithTag("activity");
+        this.aliasActivities = this.axml.getNodesWithTag("activity-alias");
         this.receiverNodes = this.axml.getNodesWithTag("receiver");
 
         // Process activityNodes and serviceNodes
         for (AXmlNode activityNode : activityNodes) {
             activityNodeList.add(new ActivityNode(activityNode, packageName));
+            for (AXmlNode aliasActivity : getAliasActivities()) {
+                String sourceActivity = findName(aliasActivity);
+                String targetActivitiy = findName(getAliasActivityTarget(aliasActivity));
+                for (ActivityNode activity : activityNodeList) {
+                    if (activity.getName().equalsIgnoreCase(sourceActivity))
+                        activity.setAlias(targetActivitiy);
+                }
+            }
         }
         for (AXmlNode serviceNode : serviceNodes) {
             serviceNodeList.add(new ServiceNode(serviceNode, packageName));
@@ -234,6 +248,16 @@ public class ProcessManifest {
     }
 
     /**
+     * Gets all activities in AXML form
+     * @return All activities nodes in AXML form
+     */
+    public ArrayList<AXmlNode> getAllActivities() {
+        ArrayList<AXmlNode> allActivities = new ArrayList<>(this.activityNodes);
+        allActivities.addAll(this.aliasActivities);
+        return allActivities;
+    }
+
+    /**
      * Gets all activity classes in this applications
      *
      * @return All activity classes in this applications
@@ -244,11 +268,11 @@ public class ProcessManifest {
             return Collections.emptySet();
 
         // Collect the components
-        Set<String> actitityClasses = new HashSet<>();
+        Set<String> activityClasses = new HashSet<>();
         for (AXmlNode node : this.activityNodes)
-            checkAndAddComponent(actitityClasses, node);
+            checkAndAddComponent(activityClasses, node);
 
-        return actitityClasses;
+        return activityClasses;
     }
 
     /**
@@ -309,8 +333,17 @@ public class ProcessManifest {
      *
      * @return list with all activityNodes
      */
-    public ArrayList<AXmlNode> getActivityNodes() {
-        return new ArrayList<>(this.activityNodes);
+    public List<AXmlNode> getActivityNodes() {
+        return this.activityNodes == null ? Collections.<AXmlNode>emptyList() : new ArrayList<>(this.activityNodes);
+    }
+
+    /**
+     * Returns a list containing all nodes with tag <code>activity-alias</code>
+     *
+     * @return list with all alias activities
+     */
+    public List<AXmlNode> getAliasActivities() {
+        return new ArrayList<>(this.aliasActivities);
     }
 
     /**
@@ -318,8 +351,9 @@ public class ProcessManifest {
      *
      * @return list with all receiverNodes
      */
-    public ArrayList<AXmlNode> getReceiverNodes() {
-        return new ArrayList<>(this.receiverNodes);
+    public List<AXmlNode> getReceiverNodes() {
+        return this.receiverNodes == null ? Collections.emptyList() : new ArrayList<>(this.receiverNodes);
+
     }
 
     /**
@@ -350,6 +384,42 @@ public class ProcessManifest {
      */
     public AXmlNode getActivity(String name) {
         return this.getNodeWithName(this.activityNodes, name);
+    }
+
+    /**
+     * Returns the <code>alias analysis</code> which has the given <code>name</code>
+     *
+     * @param name the alias activity's name
+     * @return alias activity with <code>name</code>
+     */
+    public AXmlNode getAliasActivity(String name) {
+        return this.getNodeWithName(this.aliasActivities, name);
+    }
+
+    /**
+     * Returns the target activity specified in the <code>targetActivity</code> attribute of the alias activity
+     *
+     * @param aliasActivity
+     * @return activity
+     */
+    public AXmlNode getAliasActivityTarget(AXmlNode aliasActivity) {
+        if (ProcessManifest.isAliasActivity(aliasActivity)) {
+            AXmlAttribute targetActivityAttribute = aliasActivity.getAttribute("targetActivity");
+            if (targetActivityAttribute != null) {
+                return this.getActivity((String) targetActivityAttribute.getValue());
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns whether the given activity is an alias activity or not
+     *
+     * @param activity
+     * @return True if the activity is an alias activity, False otherwise
+     */
+    public static boolean isAliasActivity(AXmlNode activity) {
+        return activity.getTag().equals("activity-alias");
     }
 
     /**
@@ -494,7 +564,7 @@ public class ProcessManifest {
     /**
      * Gets the permissions this application requests
      *
-     * @return
+     * @return The permissions requested by this application
      */
     public Set<String> getPermissions() {
         List<AXmlNode> usesPerms = this.manifest.getChildrenWithTag("uses-permission");
@@ -525,6 +595,12 @@ public class ProcessManifest {
     }
 
     /**
+     * Gets the number of activities from manifest
+     * @return The number of activities
+     */
+    public Integer getNumActivity(){ return activityNodeList.size(); }
+
+    /**
      * Gets the service node set for AWTG
      *
      * @return The service node set for AWTG
@@ -532,6 +608,12 @@ public class ProcessManifest {
     public List<ServiceNode> getServiceNodeList() {
         return serviceNodeList;
     }
+
+    /**
+     * Gets the number of service nodes from manifest
+     * @return The number of service nodes
+     */
+    public Integer getNumService(){ return serviceNodeList.size(); }
 
     /**
      * Gets the provider node set for AWTG
@@ -543,6 +625,12 @@ public class ProcessManifest {
     }
 
     /**
+     * Gets the number of provider nodes from manifest
+     * @return The number of provider nodes
+     */
+    public Integer getNumProvider(){ return providerNodeList.size(); }
+
+    /**
      * Gets the receiver node set for AWTG
      *
      * @return The receiver node set for AWTG
@@ -550,6 +638,12 @@ public class ProcessManifest {
     public List<BroadcastReceiverNode> getReceiverNodeList() {
         return receiverNodeList;
     }
+
+    /**
+     * Gets the number of receiver nodes from manifest
+     * @return The number of receiver nodes
+     */
+    public Integer getNumReceiver(){ return receiverNodeList.size(); }
 
     /**
      * Gets the launchable activities from Manifest
@@ -607,7 +701,7 @@ public class ProcessManifest {
      * @return
      */
     public Set<AXmlNode> getLaunchableActivityNodes() {
-        Set<AXmlNode> allLaunchableActivities = new HashSet<AXmlNode>();
+        Set<AXmlNode> allLaunchableActivities = new HashSet<>();
 
         for (AXmlNode activity : activityNodes) {
             for (AXmlNode activityChildren : activity.getChildren()) {

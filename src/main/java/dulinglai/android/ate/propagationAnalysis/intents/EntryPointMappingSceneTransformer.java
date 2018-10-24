@@ -21,7 +21,7 @@ package dulinglai.android.ate.propagationAnalysis.intents;
 import dulinglai.android.ate.propagationAnalysis.AnalysisParameters;
 import dulinglai.android.ate.propagationAnalysis.PropagationTimers;
 import dulinglai.android.ate.propagationAnalysis.Timers;
-import dulinglai.android.ate.resources.androidConstants.ComponentConstants;
+import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
 import org.pmw.tinylog.Level;
 import org.pmw.tinylog.Logger;
 import soot.*;
@@ -76,13 +76,13 @@ public class EntryPointMappingSceneTransformer extends SceneTransformer {
         // lifecycleMethods.addAll(AndroidEntryPointConstants.getBroadcastLifecycleMethods());
         // lifecycleMethods.addAll(AndroidEntryPointConstants.getContentproviderLifecycleMethods());
         // lifecycleMethods.addAll(AndroidEntryPointConstants.getServiceLifecycleMethods());
-        activityClass = Scene.v().getSootClass(ComponentConstants.ACTIVITYCLASS);
-        serviceClass = Scene.v().getSootClass(ComponentConstants.SERVICECLASS);
+        activityClass = Scene.v().getSootClass(ComponentLifecycleConstants.ACTIVITYCLASS);
+        serviceClass = Scene.v().getSootClass(ComponentLifecycleConstants.SERVICECLASS);
         gcmBaseIntentServiceClass =
-                Scene.v().getSootClass(ComponentConstants.GCMBASEINTENTSERVICECLASS);
-        receiverClass = Scene.v().getSootClass(ComponentConstants.BROADCASTRECEIVERCLASS);
-        providerClass = Scene.v().getSootClass(ComponentConstants.CONTENTPROVIDERCLASS);
-        applicationClass = Scene.v().getSootClass(ComponentConstants.APPLICATIONCLASS);
+                Scene.v().getSootClass(ComponentLifecycleConstants.GCMBASEINTENTSERVICECLASS);
+        receiverClass = Scene.v().getSootClass(ComponentLifecycleConstants.BROADCASTRECEIVERCLASS);
+        providerClass = Scene.v().getSootClass(ComponentLifecycleConstants.CONTENTPROVIDERCLASS);
+        applicationClass = Scene.v().getSootClass(ComponentLifecycleConstants.APPLICATIONCLASS);
 
         Logger.debug(this.callbackMethods.toString());
 
@@ -176,22 +176,22 @@ public class EntryPointMappingSceneTransformer extends SceneTransformer {
 
         if (hierarchy.isClassSubclassOf(entryPointClass, activityClass)) {
             addLifecycleMethodsHelper(entryPointClass,
-                    ComponentConstants.getActivityLifecycleMethods(), callbacks);
+                    ComponentLifecycleConstants.getActivityLifecycleMethods(), callbacks);
         } else if (hierarchy.isClassSubclassOf(entryPointClass, gcmBaseIntentServiceClass)) {
             addLifecycleMethodsHelper(entryPointClass,
-                    ComponentConstants.getGCMIntentServiceMethods(), callbacks);
+                    ComponentLifecycleConstants.getGCMIntentServiceMethods(), callbacks);
         } else if (hierarchy.isClassSubclassOf(entryPointClass, serviceClass)) {
             addLifecycleMethodsHelper(entryPointClass,
-                    ComponentConstants.getServiceLifecycleMethods(), callbacks);
+                    ComponentLifecycleConstants.getServiceLifecycleMethods(), callbacks);
         } else if (hierarchy.isClassSubclassOf(entryPointClass, receiverClass)) {
             addLifecycleMethodsHelper(entryPointClass,
-                    ComponentConstants.getBroadcastLifecycleMethods(), callbacks);
+                    ComponentLifecycleConstants.getBroadcastLifecycleMethods(), callbacks);
         } else if (hierarchy.isClassSubclassOf(entryPointClass, providerClass)) {
             addLifecycleMethodsHelper(entryPointClass,
-                    ComponentConstants.getContentproviderLifecycleMethods(), callbacks);
+                    ComponentLifecycleConstants.getContentproviderLifecycleMethods(), callbacks);
         } else if (hierarchy.isClassSubclassOf(entryPointClass, applicationClass)) {
             addLifecycleMethodsHelper(entryPointClass,
-                    ComponentConstants.getApplicationLifecycleMethods(), callbacks);
+                    ComponentLifecycleConstants.getApplicationLifecycleMethods(), callbacks);
         } else {
             System.err.println("Unknown entry point type: " + entryPointClass);
             result = false;

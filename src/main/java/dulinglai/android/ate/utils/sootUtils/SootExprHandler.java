@@ -1,13 +1,5 @@
 package dulinglai.android.ate.utils.sootUtils;
 
-import dulinglai.android.ate.config.AteConfig;
-import dulinglai.android.ate.utils.FileUtils;
-import soot.*;
-import soot.jimple.InvokeExpr;
-
-import java.util.List;
-import java.util.Optional;
-
 public class SootExprHandler {
 //    public static String[] handleOAuthInvokeExpr(Body b, Unit u, SootClass c, InvokeExpr invokeExpr, FastHierarchy classHierarchy) {
 //        String className = c.getName();

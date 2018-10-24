@@ -1,10 +1,10 @@
 package dulinglai.android.ate.resources.axml.parsers;
 
-import java.io.IOException;
-import java.util.List;
-
 import dulinglai.android.ate.resources.axml.AXmlDocument;
 import dulinglai.android.ate.resources.axml.AXmlNode;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * Common interface for all methods capable of parsing binary Android XML files

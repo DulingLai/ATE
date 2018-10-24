@@ -1,6 +1,7 @@
 package dulinglai.android.ate.analyzers;
 
 import dulinglai.android.ate.graphBuilder.TransitionEdge;
+import dulinglai.android.ate.propagationAnalysis.intents.IccIdentifier;
 import dulinglai.android.ate.resources.resources.LayoutFileParser;
 import dulinglai.android.ate.data.values.ResourceValueProvider;
 import heros.solver.Pair;
@@ -14,6 +15,7 @@ import soot.util.MultiMap;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -25,7 +27,7 @@ public class FastJimpleAnalyzer extends AbstractJimpleAnalyzer {
 
     public FastJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> activityList,
                               LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
-                              MultiMap<SootClass, Pair<TransitionEdge, SootMethod>> iccUnitsForWidgetAnalysis)
+                              List<IccIdentifier> iccUnitsForWidgetAnalysis)
             throws IOException {
         super(entryPointClasses, activityList, layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
         this.editTextWidgetList = new ArrayList<>();

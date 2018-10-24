@@ -2,12 +2,10 @@ package dulinglai.android.ate.memory;
 
 import java.util.Set;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import dulinglai.android.ate.data.soot.ConcurrentHashSet;
 import dulinglai.android.ate.memory.MemoryWarningSystem.OnMemoryThresholdReached;
 import dulinglai.android.ate.memory.reasons.OutOfMemoryReason;
-import soot.jimple.infoflow.collect.ConcurrentHashSet;
+import org.pmw.tinylog.Logger;
 
 /**
  * FlowDroid's implementation of a handler for the memory warning system
@@ -16,8 +14,6 @@ import soot.jimple.infoflow.collect.ConcurrentHashSet;
  *
  */
 public class MemoryWatcher {
-
-	private final Logger logger = LoggerFactory.getLogger(getClass());
 	private final MemoryWarningSystem warningSystem = new MemoryWarningSystem();
 
 	private final Set<IMemoryBoundedSolver> solvers = new ConcurrentHashSet<>();
@@ -35,7 +31,7 @@ public class MemoryWatcher {
 			public void onThresholdReached(long usedMemory, long maxMemory) {
 				// We stop the data flow analysis
 				forceTerminate();
-				logger.warn("Running out of memory, solvers terminated");
+				Logger.warn("Running out of memory, solvers terminated");
 			}
 
 		});

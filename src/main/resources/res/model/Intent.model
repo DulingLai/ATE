@@ -1,0 +1,179 @@
+/*
+ * Copyright (C) 2015 The Pennsylvania State University and the University of Wisconsin
+ * Systems and Internet Infrastructure Security Laboratory
+ *
+ * Author: Damien Octeau
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+class android.content.Intent {
+  String action;
+  Set<String> categories;
+  String package;
+  String clazz;
+
+  copy <android.content.Intent: void <init>(android.content.Intent)> {
+    0;
+  }
+  mod <android.content.Intent: void <init>()> {
+    /* Even though this does not record field values, we still need to keep
+     * track of an initialized but empty Intent value.*/
+  }
+  argument replaceAction0 = 0: replace action;
+  mod <android.content.Intent: void <init>(java.lang.String)> {
+    argument replaceAction0;
+  }
+  mod <android.content.Intent: void <init>(android.content.Context,java.lang.Class)> {
+    0: replace package, type context;
+    1: replace clazz, type Class;
+  }
+  mod <android.content.Intent: void <init>(java.lang.String,android.net.Uri,android.content.Context,java.lang.Class)> {
+    argument replaceAction0;
+    2: replace package, type context;
+    3: replace clazz, type Class;
+  }
+  mod <android.content.Intent: android.content.Intent addCategory(java.lang.String)> {
+    0: add categories;
+  }
+  mod <android.content.Intent: android.content.Intent fillIn(android.content.Intent,int)> {
+    clear action;
+    clear categories;
+    replace package "(.*)";
+    replace clazz "(.*)";
+  }
+  mod <android.content.Intent: void removeCategory(java.lang.String)> {
+    0: remove categories;
+  }
+  mod <android.content.Intent: android.content.Intent setAction(java.lang.String)> {
+    argument replaceAction0;
+  }
+  argument replacePackage = 0: replace package, type context;
+  mod <android.content.Intent: android.content.Intent setClass(android.content.Context,java.lang.Class)> {
+    argument replacePackage;
+    1: replace clazz, type Class;
+  }
+  argument replaceClass1 = 1: replace clazz;
+  mod <android.content.Intent: android.content.Intent setClassName(android.content.Context,java.lang.String)> {
+    argument replacePackage;
+    argument replaceClass1;
+  }
+  mod <android.content.Intent: android.content.Intent setClassName(java.lang.String,java.lang.String)> {
+    0: replace package;
+    argument replaceClass1;
+  }
+  mod <android.content.Intent: android.content.Intent setComponent(android.content.ComponentName)> {
+    0: replace package, type android.content.ComponentName:package;
+    0: replace clazz, type android.content.ComponentName:clazz;
+  }
+  mod <android.content.Intent: android.content.Intent setPackage(java.lang.String)> {
+    0: replace package;
+  }
+  mod gen <android.content.pm.PackageManager: android.content.Intent getLaunchIntentForPackage(java.lang.String)> {
+    replace action "android.intent.action.MAIN";
+    add categories ("android.intent.category.INFO", "android.intent.category.LAUNCHER");
+    0: replace package;
+    /* We don't include the class name because it is resolved at runtime using the fields above.*/
+  }
+  mod gen <android.content.Intent: android.content.Intent createChooser(android.content.Intent,java.lang.CharSequence)> {
+    replace action "android.intent.action.CHOOSER";
+  }
+  mod gen <android.content.Intent: android.content.Intent makeMainActivity(android.content.ComponentName)> {
+    0: replace package, type android.content.ComponentName:package;
+    0: replace clazz, type android.content.ComponentName:clazz;
+    replace action "android.intent.action.MAIN";
+    replace categories "android.intent.category.LAUNCHER";
+  }
+  super activity = android.app.Activity;
+  mod gen activity : android.content.Intent getIntent() {
+    replace action "<INTENT>";
+    add categories "<INTENT>";
+  }
+  source <android.content.Intent: java.lang.String getAction()> {
+    action;
+  }
+  source <android.content.Intent: java.util.Set getCategories()> {
+    categories;
+  }
+  source <android.content.Intent: android.content.ComponentName getComponentName()> {
+    package;
+    clazz;
+  }
+  source <android.content.Intent: java.lang.String getPackage()> {
+    package;
+  }
+  source <android.content.Intent: java.lang.String toString()> {
+    action;
+  }
+  argument intentArrayActivity = 0: type android.content.Intent[], prop "valueType": "activity";
+/*  super activity = android.app.Activity;*/
+/*  super receiver = android.content.BroadcastReceiver;*/
+/*  super service = android.app.Service;*/
+/*  super provider = android.content.ContentProvider;*/
+  super context = android.content.Context;
+  query context : void startActivities(android.content.Intent[],android.os.Bundle) {
+    argument intentArrayActivity;
+  }
+  query context : void startActivities(android.content.Intent[]) {
+    argument intentArrayActivity;
+  }
+  argument intentService0 = 0: type android.content.Intent, prop "valueType": "service";
+  query context : boolean bindService(android.content.Intent,android.content.ServiceConnection,int) {
+    argument intentService0;
+  }
+  argument intentReceiver0 = 0: type android.content.Intent, prop "valueType": "receiver";
+  query context : void sendBroadcast(android.content.Intent) {
+    argument intentReceiver0;
+  }
+  argument intentActivity0 = 0: type android.content.Intent, prop "valueType": "activity";
+  argument intentService0 = 0: type android.content.Intent, prop "valueType": "service";
+  query context : void startActivity(android.content.Intent) {
+    argument intentActivity0;
+  }
+  query context : void startActivity(android.content.Intent,android.os.Bundle) {
+    argument intentActivity0;
+  }
+  query context : void startActivityForResult(android.content.Intent,int) {
+    argument intentActivity0;
+  }
+  query context : void startActivityForResult(android.content.Intent,int,android.os.Bundle) {
+    argument intentActivity0;
+  }
+  argument intentActivity1 = 1: type android.content.Intent, prop "valueType": "activity";
+  query context : void startActivityFromChild(android.app.Activity,android.content.Intent,int,android.os.Bundle) {
+    argument intentActivity1;
+  }
+  query context : void startActivityFromChild(android.app.Activity,android.content.Intent,int) {
+    argument intentActivity1;
+  }
+  query context : void startActivityFromFragment(android.app.Fragment,android.content.Intent,int,android.os.Bundle) {
+    argument intentActivity1;
+  }
+  query context : void startActivityFromFragment(android.app.Fragment,android.content.Intent,int) {
+    argument intentActivity1;
+  }
+  query context : void startActivityIfNeeded(android.content.Intent,int,android.os.Bundle) {
+    argument intentActivity0;
+  }
+  query context : void startActivityIfNeeded(android.content.Intent,int) {
+    argument intentActivity0;
+  }
+  query context : android.content.ComponentName startService(android.content.Intent) {
+    argument intentService0;
+  }
+  query context : android.content.ComponentName bindService(android.content.Intent,android.content.ServiceConnection,int) {
+    argument intentService0;
+  }
+  exclude android.app.Activity;
+}
