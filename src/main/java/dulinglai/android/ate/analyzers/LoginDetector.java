@@ -1,9 +1,9 @@
 package dulinglai.android.ate.analyzers;
 
 import android.text.InputType;
-import dulinglai.android.ate.graphBuilder.componentNodes.ActivityNode;
-import dulinglai.android.ate.graphBuilder.widgetNodes.AbstractWidgetNode;
-import dulinglai.android.ate.graphBuilder.widgetNodes.EditWidgetNode;
+import dulinglai.android.ate.model.components.Activity;
+import dulinglai.android.ate.model.widgets.AbstractWidget;
+import dulinglai.android.ate.model.widgets.EditWidget;
 import dulinglai.android.ate.resources.androidConstants.EditTextInputType;
 import org.pmw.tinylog.Logger;
 import soot.SootClass;
@@ -33,21 +33,21 @@ public class LoginDetector {
     private static final Pattern userNameRegex_2 = Pattern.compile(".*(?i)(log|sign)[\\s_]*in.*");
 
     private MultiMap<SootClass, String> potentialLoginMap;
-    private List<ActivityNode> activityNodeList;
+    private List<Activity> activityList;
     private static boolean foundSignUp = false;
     private static boolean foundRecovery = false;
 
-    private Set<ActivityNode> potentialLoginActivity = new HashSet<>();
-    private MultiMap<ActivityNode, AbstractWidgetNode> potentialPasswordWidget = new HashMultiMap<>();
-    private MultiMap<ActivityNode, AbstractWidgetNode> potentialUsernameWidget = new HashMultiMap<>();
+    private Set<Activity> potentialLoginActivity = new HashSet<>();
+    private MultiMap<Activity, AbstractWidget> potentialPasswordWidget = new HashMultiMap<>();
+    private MultiMap<Activity, AbstractWidget> potentialUsernameWidget = new HashMultiMap<>();
 
-    private MultiMap<ActivityNode, AbstractWidgetNode> ownershipEdges;
+    private MultiMap<Activity, AbstractWidget> ownershipEdges;
 
-    public LoginDetector(MultiMap<SootClass, String> potentialLoginMap, MultiMap<ActivityNode,
-            AbstractWidgetNode> ownershipEdges, List<ActivityNode> activityNodeList) {
+    public LoginDetector(MultiMap<SootClass, String> potentialLoginMap, MultiMap<Activity,
+            AbstractWidget> ownershipEdges, List<Activity> activityList) {
         this.potentialLoginMap = potentialLoginMap;
         this.ownershipEdges = ownershipEdges;
-        this.activityNodeList = activityNodeList;
+        this.activityList = activityList;
     }
 
     /**
@@ -58,7 +58,7 @@ public class LoginDetector {
         // if the activity name matches regex
         // if the widget input type is of password type
         // if the widget properties match regex
-        for (ActivityNode activity : activityNodeList) {
+        for (Activity activity : activityList) {
             foundRecovery = false;
             foundSignUp = false;
             boolean isLoginActivity = false;
@@ -80,9 +80,9 @@ public class LoginDetector {
             }
 
             if (ownershipEdges.keySet().contains(activity)) {
-                for (AbstractWidgetNode widget : ownershipEdges.get(activity)) {
-                    if (widget instanceof EditWidgetNode) {
-                        int widgetInputType = ((EditWidgetNode) widget).getInputType();
+                for (AbstractWidget widget : ownershipEdges.get(activity)) {
+                    if (widget instanceof EditWidget) {
+                        int widgetInputType = ((EditWidget) widget).getInputType();
                         if (widgetInputType == InputType.TYPE_TEXT_VARIATION_PASSWORD
                                 || widgetInputType == EditTextInputType.textPassword
                                 || widgetInputType == EditTextInputType.textWebPassword) {
@@ -92,8 +92,8 @@ public class LoginDetector {
 
                         String widgetResIdString = widget.getResourceIdString();
                         String widgetText = widget.getText();
-                        String widgetHint = ((EditWidgetNode) widget).getHint();
-                        String widgetContent = ((EditWidgetNode) widget).getContentDescription();
+                        String widgetHint = ((EditWidget) widget).getHint();
+                        String widgetContent = ((EditWidget) widget).getContentDescription();
 
                         if (regexSearchOnWidgetProperty(widgetResIdString, activity, widget) ||
                             regexSearchOnWidgetProperty(widgetText, activity, widget) ||
@@ -138,7 +138,7 @@ public class LoginDetector {
         return false;
     }
 
-    private boolean regexSearchOnWidgetProperty(String searchString, ActivityNode activity, AbstractWidgetNode widget) {
+    private boolean regexSearchOnWidgetProperty(String searchString, Activity activity, AbstractWidget widget) {
         if (searchString!=null && !searchString.isEmpty()) {
             if (isSignupOrRecovery(searchString, false))
                 return false;
@@ -157,15 +157,15 @@ public class LoginDetector {
         return false;
     }
 
-    public Set<ActivityNode> getPotentialLoginActivity() {
+    public Set<Activity> getPotentialLoginActivity() {
         return potentialLoginActivity;
     }
 
-    public MultiMap<ActivityNode, AbstractWidgetNode> getPotentialPasswordWidget() {
+    public MultiMap<Activity, AbstractWidget> getPotentialPasswordWidget() {
         return potentialPasswordWidget;
     }
 
-    public MultiMap<ActivityNode, AbstractWidgetNode> getPotentialUsernameWidget() {
+    public MultiMap<Activity, AbstractWidget> getPotentialUsernameWidget() {
         return potentialUsernameWidget;
     }
 }

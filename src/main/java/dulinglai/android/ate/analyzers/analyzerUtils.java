@@ -1,6 +1,6 @@
 package dulinglai.android.ate.analyzers;
 
-import dulinglai.android.ate.graphBuilder.widgetNodes.ClickWidgetNode;
+import dulinglai.android.ate.model.widgets.ClickWidget;
 import dulinglai.android.ate.utils.sootUtils.SootMethodRepresentationParser;
 import heros.solver.Pair;
 import soot.*;
@@ -108,10 +108,10 @@ class analyzerUtils {
      * @param widgetNodeList The list of widgets to look through
      * @return A set of widgets with the given click listener
      */
-    static Set<ClickWidgetNode> findWidgetsWithClickListener(String clickListener,
-                                                                List<ClickWidgetNode> widgetNodeList) {
-        Set<ClickWidgetNode> clickWidgetSet = new HashSet<>();
-        for (ClickWidgetNode clickWidgetNode : widgetNodeList) {
+    static Set<ClickWidget> findWidgetsWithClickListener(String clickListener,
+                                                         List<ClickWidget> widgetNodeList) {
+        Set<ClickWidget> clickWidgetSet = new HashSet<>();
+        for (ClickWidget clickWidgetNode : widgetNodeList) {
             if (clickWidgetNode.getClickListener().equals(clickListener))
                 clickWidgetSet.add(clickWidgetNode);
         }

@@ -2,7 +2,9 @@ package dulinglai.android.ate.config.soot;
 
 import dulinglai.android.ate.config.AteConfiguration;
 import dulinglai.android.ate.utils.androidUtils.LibraryClassPatcher;
+
 import org.pmw.tinylog.Logger;
+
 import soot.G;
 import soot.PackManager;
 import soot.Scene;
@@ -18,10 +20,8 @@ public class SootSettings {
 
     public static void initializeSoot(AteConfiguration config){
         Logger.info("[{}] Initializing Soot...",TAG);
-
         final String androidJar = config.getAnalysisFileConfig().getAndroidPlatformDir();
         final String apkFileLocation = config.getAnalysisFileConfig().getTargetAPKFile();
-
         Logger.debug("Using Android Jar: {}", androidJar);
         Logger.debug("Input APK file: {}", apkFileLocation);
 

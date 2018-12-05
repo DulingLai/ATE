@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 class SootHelper {
-    //
+
     static void setSootExcludeLibs(Options options){
         // explicitly include packages for shorter runtime:
         List<String> excludeList = new LinkedList<String>();

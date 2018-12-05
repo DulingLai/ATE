@@ -12,9 +12,6 @@ import dulinglai.android.ate.utils.androidUtils.ClassUtils;
 import dulinglai.android.ate.utils.androidUtils.SystemClassHandler;
 import org.pmw.tinylog.Logger;
 import soot.*;
-import soot.jimple.InvokeExpr;
-import soot.jimple.Stmt;
-import soot.util.Chain;
 import soot.util.HashMultiMap;
 import soot.util.MultiMap;
 import soot.util.queue.QueueReader;
@@ -32,36 +29,34 @@ import java.util.*;
  */
 public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMemoryBoundedSolver {
 
-    private static final String TAG = "TransitionAnalyzer";
+    private static final String TAG = "JimpleAnalyzer";
 
     private MultiMap<SootClass, SootMethod> callbackWorklist;
     private MultiMap<SootClass, SootMethod> transitionWorklist;
     private ClassUtils entryPointUtils = new ClassUtils();
 
-    private Set<String> transitionMethods;
+//    private Set<String> transitionMethods;
 
     private Set<IMemoryBoundedSolverStatusNotification> notificationListeners = new HashSet<>();
     private ISolverTerminationReason isKilled = null;
     private final Integer maxCallbacksPerComponent = 100;
 
     public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> activityList,
-                                 LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
+                                 LayoutFileParser layoutFileParser,
                                  List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
-        super(entryPointClasses, activityList, layoutFileParser,
-                resourceValueProvider, iccUnitsForWidgetAnalysis);
+        super(entryPointClasses, activityList, layoutFileParser, iccUnitsForWidgetAnalysis);
     }
 
-    public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, String callbackFile, Set<String> activityList,
-                                 LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
+    public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, String callbackFile,
+                                 Set<String> activityList, LayoutFileParser layoutFileParser,
                                  List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
-        super(entryPointClasses, callbackFile, activityList, layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
+        super(entryPointClasses, callbackFile, activityList, layoutFileParser, iccUnitsForWidgetAnalysis);
     }
 
-    public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> androidCallbacks, Set<String> activityList,
-                                 LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
+    public DefaultJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> androidCallbacks,
+                                 Set<String> activityList, LayoutFileParser layoutFileParser,
                                  List<IccIdentifier> iccUnitsForWidgetAnalysis) {
-        super(entryPointClasses, androidCallbacks, activityList,
-                layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
+        super(entryPointClasses, androidCallbacks, activityList, layoutFileParser, iccUnitsForWidgetAnalysis);
     }
 
     /**
@@ -79,31 +74,35 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
                 for (IMemoryBoundedSolverStatusNotification listener : notificationListeners)
                     listener.notifySolverStarted(DefaultJimpleAnalyzer.this);
 
-                // Do we have to start from scratch or do we have a worklist to
-                // process?
+                // Do we have to start from scratch or do we have a worklist to process?
                 if (callbackWorklist == null && transitionWorklist == null) {
-                    Logger.info("[{}] Analyzing component transition methods...", TAG);
+                    Logger.info("[{}] Analyzing component transition and callback methods...", TAG);
                     callbackWorklist = new HashMultiMap<>();
                     transitionWorklist = new HashMultiMap<>();
 
-                    // Find the mappings between classes and layouts
-                    findClassLayoutMappings();
+                    // Check and add nested activities (activity that extends other activities)
+                    checkAndAddNestedActivities();
 
-                    // Process the callback classes directly reachable from the
-                    // entry points
+                    // Process the callback classes directly reachable from the entry points
                     for (SootClass sc : entryPointClasses) {
                         // Check whether we're still running
                         if (isKilled != null)
                             break;
 
+                        // get all lifecycle methods
                         List<MethodOrMethodContext> methods = new ArrayList<>(getLifecycleMethods(sc));
 
                         // Check for callbacks registered in the code
-                        analyzeRechableMethods(sc, methods);
+                        // Find activity fragment transitions
+                        analyzeReachableMethods(sc, methods);
 
                         // Check for method overrides
                         analyzeMethodOverrideCallbacks(sc);
                     }
+
+                    // Find the class to layout resource id mappings
+                    findClassLayoutMappings();
+
                     Logger.info("Callback analysis done.");
                 } else {
                     // Incremental mode, only process the worklist
@@ -132,7 +131,7 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
                         for (SootMethod sm : callbacks)
                             entryClasses.add(sm);
 
-                        analyzeRechableMethods(componentClass, entryClasses);
+                        analyzeReachableMethods(componentClass, entryClasses);
                         classIt.remove();
                     }
                     Logger.info("Incremental callback analysis done.");
@@ -150,8 +149,7 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
     /**
      * Gets all lifecycle methods in the given entry point class
      *
-     * @param sc
-     *            The class in which to look for lifecycle methods
+     * @param sc The class in which to look for lifecycle methods
      * @return The set of lifecycle methods in the given class
      */
     private Collection<? extends MethodOrMethodContext> getLifecycleMethods(SootClass sc) {
@@ -186,11 +184,9 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
      * one of its superclass overwrites the respective methods. All findings are
      * collected in a set and returned.
      *
-     * @param sc
-     *            The class in which to look for lifecycle method implementations
-     * @param methods
-     *            The list of lifecycle method subsignatures for the type of
-     *            component that the given class corresponds to
+     * @param sc The class in which to look for lifecycle method implementations
+     * @param methods The list of lifecycle method subsignatures for the type of
+     *                component that the given class corresponds to
      * @return The set of implemented lifecycle methods in the given class
      */
     private Collection<? extends MethodOrMethodContext> getLifecycleMethods(SootClass sc, List<String> methods) {
@@ -208,7 +204,12 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
         return lifecycleMethods;
     }
 
-    private void analyzeRechableMethods(SootClass lifecycleElement, List<MethodOrMethodContext> methods) {
+    /**
+     * Analyze the reachable methods for component transition and callback methods
+     * @param lifecycleElement The component class
+     * @param methods The lifecycle methods in the component class
+     */
+    private void analyzeReachableMethods(SootClass lifecycleElement, List<MethodOrMethodContext> methods) {
         // Make sure to exclude all other edges in the callgraph except for the
         // edges start in the lifecycle methods we explicitly pass in
         ComponentReachableMethods rm = new ComponentReachableMethods(lifecycleElement, methods);
@@ -226,15 +227,28 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
 
             SootMethod method = reachableMethods.next().method();
 
+            // Do not analyze system classes
+            if (SystemClassHandler.isClassInSystemPackage(method.getDeclaringClass().getName()))
+                continue;
+            if (!method.isConcrete() || !method.hasActiveBody())
+                continue;
+
+            // resource id
+            analyzeMethodForResourceId(lifecycleElement, method);
+
             // callbacks
             analyzeMethodForCallbackRegistrations(lifecycleElement, method);
             analyzeMethodForDynamicBroadcastReceiver(method);
 
-            // component transitions
-            analyzeMethodForComponentTransition(lifecycleElement, method);
-
+            // services and fragments
             analyzeMethodForServiceConnection(method);
             analyzeMethodForFragmentTransaction(lifecycleElement, method);
+
+            // listeners
+
+
+            // component transitions
+            analyzeMethodForComponentTransition(lifecycleElement, method);
         }
     }
 
@@ -249,42 +263,6 @@ public class DefaultJimpleAnalyzer extends AbstractJimpleAnalyzer implements IMe
             }
         }
         return false;
-    }
-
-    /**
-     * Finds the mappings between classes and their respective layout files
-     */
-    private void findClassLayoutMappings() {
-        Iterator<SootClass> classIterator = Scene.v().getApplicationClasses().iterator();
-        Iterator<MethodOrMethodContext> rmIterator = Scene.v().getReachableMethods().listener();
-        while (rmIterator.hasNext()) {
-            SootMethod sm = rmIterator.next().method();
-            if (!sm.isConcrete())
-                continue;
-            if (SystemClassHandler.isClassInSystemPackage(sm.getDeclaringClass().getName()))
-                continue;
-
-            // Here we try to prevent the multi-catch bug from happening
-            try{
-                Chain<Unit> units = sm.retrieveActiveBody().getUnits();
-                for (Unit u : units)
-                    if (u instanceof Stmt) {
-                        Stmt stmt = (Stmt) u;
-                        if (stmt.containsInvokeExpr()) {
-                            InvokeExpr inv = stmt.getInvokeExpr();
-                            if (invokesSetContentView(inv) || invokesInflate(inv)) { // check
-                                for (Value val : inv.getArgs()) {
-                                    Integer intValue = valueProvider.getValue(sm, stmt, val, Integer.class);
-                                    if (intValue != null)
-                                        this.layoutClasses.put(sm.getDeclaringClass(), intValue);
-                                }
-                            }
-                        }
-                    }
-            } catch (RuntimeException e){
-                Logger.warn(e.getMessage());
-            }
-        }
     }
 
     @Override

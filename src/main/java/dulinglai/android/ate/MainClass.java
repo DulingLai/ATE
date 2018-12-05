@@ -121,6 +121,9 @@ public class MainClass {
      * @param args the command line arguments passed from main().
      */
     private void run(String[] args) {
+        // Keep a track of the analysis time
+        long startTime = System.currentTimeMillis();
+
         // Initialize the command line options
         AteConfiguration config = parseCommandLineArgs(args);
 

@@ -12,14 +12,6 @@ import java.util.Set;
  */
 public class AteConfiguration {
 
-    private static AteConfiguration instance = new AteConfiguration();
-
-    public static AteConfiguration v() {
-        return instance;
-    }
-
-
-
     /**
      * Configuration for analysis file location
      */
@@ -331,7 +323,7 @@ public class AteConfiguration {
         private int maxCallbacksPerComponent = 100;
         private int callbackAnalysisTimeout = 0;
         private int maxCallbackAnalysisDepth = -1;
-        private CallgraphAlgorithm callgraphAlgorithm;
+        private CallgraphAlgorithm callgraphAlgorithm = CallgraphAlgorithm.SPARK;
 
         /**
          * Copies the settings of the given configuration into this configuration object

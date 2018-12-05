@@ -5,12 +5,12 @@ import dulinglai.android.ate.resources.axml.AXmlAttribute;
 import dulinglai.android.ate.resources.axml.AXmlHandler;
 import dulinglai.android.ate.resources.axml.AXmlNode;
 import dulinglai.android.ate.resources.axml.parsers.AXML20Parser;
-import dulinglai.android.ate.resources.resources.ARSCFileParser.AbstractResource;
-import dulinglai.android.ate.resources.resources.ARSCFileParser.StringResource;
 import dulinglai.android.ate.resources.resources.controls.AndroidLayoutControl;
 import dulinglai.android.ate.resources.resources.controls.LayoutControlFactory;
+
 import org.pmw.tinylog.Logger;
 import pxb.android.axml.AxmlVisitor;
+
 import soot.*;
 import soot.util.HashMultiMap;
 import soot.util.MultiMap;
@@ -34,7 +34,6 @@ public class LayoutFileParser extends AbstractResourceParser {
     private final MultiMap<String, SootClass> fragments = new HashMultiMap<>();
 
     private final String packageName;
-    private final ResourceValueProvider resParser;
 
     private SootClass scViewGroup = null;
     private SootClass scView = null;
@@ -42,9 +41,8 @@ public class LayoutFileParser extends AbstractResourceParser {
 
     private LayoutControlFactory controlFactory = new LayoutControlFactory();
 
-    public LayoutFileParser(String packageName, ResourceValueProvider resParser) {
+    public LayoutFileParser(String packageName) {
         this.packageName = packageName;
-        this.resParser = resParser;
     }
 
     private boolean isRealClass(SootClass sc) {
@@ -288,7 +286,7 @@ public class LayoutFileParser extends AbstractResourceParser {
                 if ((attr.getType() == AxmlVisitor.TYPE_REFERENCE || attr.getType() == AxmlVisitor.TYPE_INT_HEX)
                         && attr.getValue() instanceof Integer) {
                     // We need to get the target XML file from the binary manifest
-                    String targetRes = resParser.getLayoutResourceString((Integer) attr.getValue());
+                    String targetRes = ResourceValueProvider.v().getLayoutResourceString((Integer) attr.getValue());
                     if (targetRes == null) {
                         Logger.warn("Target resource " + attr.getValue() + " for layout include not found");
                         return;

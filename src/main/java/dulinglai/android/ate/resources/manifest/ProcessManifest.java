@@ -1,9 +1,9 @@
 package dulinglai.android.ate.resources.manifest;
 
-import dulinglai.android.ate.graphBuilder.componentNodes.ActivityNode;
-import dulinglai.android.ate.graphBuilder.componentNodes.BroadcastReceiverNode;
-import dulinglai.android.ate.graphBuilder.componentNodes.ContentProviderNode;
-import dulinglai.android.ate.graphBuilder.componentNodes.ServiceNode;
+import dulinglai.android.ate.model.components.Activity;
+import dulinglai.android.ate.model.components.BroadcastReceiver;
+import dulinglai.android.ate.model.components.ContentProvider;
+import dulinglai.android.ate.model.components.Service;
 import dulinglai.android.ate.resources.axml.AXmlAttribute;
 import dulinglai.android.ate.resources.axml.AXmlHandler;
 import dulinglai.android.ate.resources.axml.AXmlNode;
@@ -16,8 +16,8 @@ import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static dulinglai.android.ate.graphBuilder.NodeUtils.expandClassName;
-import static dulinglai.android.ate.graphBuilder.NodeUtils.isValidComponentName;
+import static dulinglai.android.ate.resources.axml.AxmlUtils.expandClassName;
+import static dulinglai.android.ate.resources.axml.AxmlUtils.isValidComponentName;
 
 /**
  * This class provides easy access to all data of an AppManifest.<br />
@@ -62,11 +62,11 @@ public class ProcessManifest implements Closeable {
     private List<AXmlNode> aliasActivities = null;
     private List<AXmlNode> receiverNodes = null;
 
-    private Set<String> launchableActivities = new HashSet<>();
-    private List<ActivityNode> activityNodeList = new ArrayList<>();
-    private List<ServiceNode> serviceNodeList = new ArrayList<>();
-    private List<ContentProviderNode> providerNodeList = new ArrayList<>();
-    private List<BroadcastReceiverNode> receiverNodeList = new ArrayList<>();
+    private Activity launchActivity;
+    private Set<Activity> activitySet = new HashSet<>();
+    private Set<Service> serviceSet = new HashSet<>();
+    private Set<ContentProvider> providerSet = new HashSet<>();
+    private Set<BroadcastReceiver> receiverSet = new HashSet<>();
 
     /**
      * Processes an AppManifest which is within the file identified by the given
@@ -155,31 +155,32 @@ public class ProcessManifest implements Closeable {
 
         // Process activityNodes and serviceNodes
         for (AXmlNode activityNode : activityNodes) {
-            activityNodeList.add(new ActivityNode(activityNode, packageName));
-            for (AXmlNode aliasActivity : getAliasActivities()) {
-                String sourceActivity = findName(aliasActivity);
-                String targetActivitiy = findName(getAliasActivityTarget(aliasActivity));
-                for (ActivityNode activity : activityNodeList) {
-                    if (activity.getName().equalsIgnoreCase(sourceActivity))
-                        activity.setAlias(targetActivitiy);
+            Activity newActivity = new Activity(activityNode, packageName);
+            // activities with null name are not enabled, and we do not care about them
+            if (newActivity.getName()!=null && !newActivity.getName().isEmpty()) {
+                activitySet.add(new Activity(activityNode, packageName));
+                for (AXmlNode aliasActivity : getAliasActivities()) {
+                    String sourceActivity = findName(aliasActivity);
+                    String targetActivity = findName(getAliasActivityTarget(aliasActivity));
+                    for (Activity activity : activitySet) {
+                        if (activity.getName().equalsIgnoreCase(sourceActivity))
+                            activity.setAlias(targetActivity);
+                    }
                 }
             }
         }
         for (AXmlNode serviceNode : serviceNodes) {
-            serviceNodeList.add(new ServiceNode(serviceNode, packageName));
+            serviceSet.add(new Service(serviceNode, packageName));
         }
         for (AXmlNode providerNode : providerNodes) {
-            providerNodeList.add(new ContentProviderNode(providerNode, packageName));
+            providerSet.add(new ContentProvider(providerNode, packageName));
         }
         for (AXmlNode receiverNode : receiverNodes) {
-            receiverNodeList.add(new BroadcastReceiverNode(receiverNode, packageName));
+            receiverSet.add(new BroadcastReceiver(receiverNode, packageName));
         }
 
-        // launchable activities
-        Set<AXmlNode> launchableNodes = getLaunchableActivityNodes();
-        for (AXmlNode node : launchableNodes) {
-            launchableActivities.add(findName(node));
-        }
+        // launch activity
+        setLaunchActivity(getLaunchableActivityNodes());
     }
 
     private String findName(AXmlNode node) {
@@ -590,72 +591,89 @@ public class ProcessManifest implements Closeable {
      *
      * @return The activity node set for AWTG
      */
-    public List<ActivityNode> getActivityNodeList() {
-        return activityNodeList;
+    public Set<Activity> getActivitySet() {
+        return activitySet;
+    }
+
+    /**
+     * Gets a specific activity by its name
+     * @param name The name to search
+     * @return The activity of specific name
+     */
+    public Activity getActivityByName(String name) {
+        if (activitySet == null || activitySet.isEmpty())
+            throw new RuntimeException("[ERROR] Try to access activity nodes in the Manifest but none was found!");
+
+        for (Activity activity : activitySet) {
+            if (activity.getName().equalsIgnoreCase(name))
+                return activity;
+        }
+
+        throw new IllegalArgumentException("[ERROR] Cannot find the activity with name: " + name + "!");
     }
 
     /**
      * Gets the number of activities from manifest
      * @return The number of activities
      */
-    public Integer getNumActivity(){ return activityNodeList.size(); }
+    public Integer getNumActivity(){ return activitySet.size(); }
 
     /**
      * Gets the service node set for AWTG
      *
      * @return The service node set for AWTG
      */
-    public List<ServiceNode> getServiceNodeList() {
-        return serviceNodeList;
+    public Set<Service> getServiceSet() {
+        return serviceSet;
     }
 
     /**
      * Gets the number of service nodes from manifest
      * @return The number of service nodes
      */
-    public Integer getNumService(){ return serviceNodeList.size(); }
+    public Integer getNumService(){ return serviceSet.size(); }
 
     /**
      * Gets the provider node set for AWTG
      *
      * @return The provider node set for AWTG
      */
-    public List<ContentProviderNode> getProviderNodeList() {
-        return providerNodeList;
+    public Set<ContentProvider> getProviderSet() {
+        return providerSet;
     }
 
     /**
      * Gets the number of provider nodes from manifest
      * @return The number of provider nodes
      */
-    public Integer getNumProvider(){ return providerNodeList.size(); }
+    public Integer getNumProvider(){ return providerSet.size(); }
 
     /**
      * Gets the receiver node set for AWTG
      *
      * @return The receiver node set for AWTG
      */
-    public List<BroadcastReceiverNode> getReceiverNodeList() {
-        return receiverNodeList;
+    public Set<BroadcastReceiver> getReceiverSet() {
+        return receiverSet;
     }
 
     /**
      * Gets the number of receiver nodes from manifest
      * @return The number of receiver nodes
      */
-    public Integer getNumReceiver(){ return receiverNodeList.size(); }
+    public Integer getNumReceiver(){ return receiverSet.size(); }
 
     /**
      * Gets the launchable activities from Manifest
      *
      * @return The launchable activities from Manifest
      */
-    public Set<String> getLaunchableActivities() {
-        return launchableActivities;
+    public Activity getLaunchActivity() {
+        return launchActivity;
     }
 
-    public void setLaunchableActivities(Set<String> launchableActivities) {
-        this.launchableActivities = launchableActivities;
+    private void setLaunchActivity(AXmlNode launchActivity) {
+        this.launchActivity = getActivityByName(findName(launchActivity));
     }
 
     /**
@@ -698,9 +716,9 @@ public class ProcessManifest implements Closeable {
      * Returns all activity nodes that are "launchable", i.e. that are called
      * when the user clicks on the button in the launcher.
      *
-     * @return
+     * @return launch activity
      */
-    public Set<AXmlNode> getLaunchableActivityNodes() {
+    public AXmlNode getLaunchableActivityNodes() {
         Set<AXmlNode> allLaunchableActivities = new HashSet<>();
 
         for (AXmlNode activity : activityNodes) {
@@ -708,6 +726,7 @@ public class ProcessManifest implements Closeable {
                 if (activityChildren.getTag().equals("intent-filter")) {
                     boolean actionFilter = false;
                     boolean categoryFilter = false;
+                    boolean defaultFilter = false;
                     for (AXmlNode intentFilter : activityChildren.getChildren()) {
                         if (intentFilter.getTag().equals("action")
                                 && intentFilter.getAttribute("name").getValue().toString()
@@ -717,15 +736,44 @@ public class ProcessManifest implements Closeable {
                                 && intentFilter.getAttribute("name").getValue().toString()
                                 .equals("android.intent.category.LAUNCHER"))
                             categoryFilter = true;
+                        else if (intentFilter.getTag().equals("category")
+                                && intentFilter.getAttribute("name").getValue().toString()
+                                .equals("android.intent.category.DEFAULT"))
+                            defaultFilter = true;
                     }
 
                     if (actionFilter && categoryFilter)
-                        allLaunchableActivities.add(activity);
+                        if (defaultFilter)
+                            return activity;
+                        else
+                            allLaunchableActivities.add(activity);
                 }
             }
-
         }
 
-        return allLaunchableActivities;
+        // Check the size of the launch activity (should be 1, or default should be specified, otherwise error)
+        for (AXmlNode launchActivity : allLaunchableActivities) {
+            if (allLaunchableActivities.size() == 1)
+                return launchActivity;
+            else {
+                for (AXmlNode activityChildren : launchActivity.getChildren()) {
+                    if (activityChildren.getTag().equals("intent-filter")) {
+                        boolean defaultFilter = false;
+                        for (AXmlNode intentFilter : activityChildren.getChildren()) {
+                            if (intentFilter.getTag().equals("category")
+                                    && intentFilter.getAttribute("name").getValue().toString()
+                                    .equals("android.intent.category.DEFAULT"))
+                                defaultFilter = true;
+                        }
+
+                        if (defaultFilter)
+                            return launchActivity;
+                    }
+                }
+            }
+        }
+
+        // we should not reach here
+        throw new RuntimeException("[ERROR] Multiple launch activity with no DEFAULT tag in the APK!");
     }
 }

@@ -2,28 +2,31 @@ package dulinglai.android.ate.analyzers;
 
 import dulinglai.android.ate.analyzers.CallbackDefinition.CallbackType;
 import dulinglai.android.ate.analyzers.filters.ICallbackFilter;
+import dulinglai.android.ate.data.android.AndroidClass;
+import dulinglai.android.ate.data.values.ResourceValueProvider;
 import dulinglai.android.ate.entryPointCreators.SimulatedCodeElementTag;
-import dulinglai.android.ate.graphBuilder.ICFG;
-import dulinglai.android.ate.graphBuilder.TransitionEdge;
-import dulinglai.android.ate.graphBuilder.widgetNodes.AbstractWidgetNode;
-import dulinglai.android.ate.graphBuilder.widgetNodes.ClickWidgetNode;
-import dulinglai.android.ate.graphBuilder.widgetNodes.EditWidgetNode;
+import dulinglai.android.ate.model.ICFG;
+import dulinglai.android.ate.model.App;
+import dulinglai.android.ate.model.TransitionEdge;
+import dulinglai.android.ate.model.components.Activity;
+import dulinglai.android.ate.model.widgets.AbstractWidget;
+import dulinglai.android.ate.model.widgets.ClickWidget;
+import dulinglai.android.ate.model.widgets.EditWidget;
 import dulinglai.android.ate.propagationAnalysis.intents.IccIdentifier;
 import dulinglai.android.ate.resources.androidConstants.AndroidSootClassConstants;
-import dulinglai.android.ate.resources.androidConstants.ComponentLifecycleConstants;
+
 import dulinglai.android.ate.resources.androidConstants.ComponentTransitionConstants;
 import dulinglai.android.ate.resources.resources.LayoutFileParser;
 import dulinglai.android.ate.resources.resources.controls.AndroidLayoutControl;
 import dulinglai.android.ate.resources.resources.controls.EditTextControl;
 import dulinglai.android.ate.resources.resources.controls.LayoutControl;
 import dulinglai.android.ate.data.values.IValueProvider;
-import dulinglai.android.ate.data.values.ResourceValueProvider;
 import dulinglai.android.ate.data.values.SimpleConstantValueProvider;
 import dulinglai.android.ate.utils.androidUtils.SystemClassHandler;
 import dulinglai.android.ate.utils.sootUtils.ResourceUtils;
 import dulinglai.android.ate.utils.sootUtils.SootMethodRepresentationParser;
+
 import heros.solver.Pair;
-import org.pmw.tinylog.Logger;
 import soot.*;
 import soot.jimple.*;
 import soot.jimple.toolkits.callgraph.Edge;
@@ -40,27 +43,13 @@ import soot.util.MultiMap;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
+import org.pmw.tinylog.Logger;
+
+import static dulinglai.android.ate.data.android.AndroidClass.SIG_CAR_CREATE;
 
 public abstract class AbstractJimpleAnalyzer {
-
-    private static final String SIG_CAR_CREATE = "<android.car.Car: android.car.Car createCar(android.content.Context,android.content.ServiceConnection)>";
-
-    protected final SootClass scContext = Scene.v().getSootClassUnsafe("android.content.Context");
-
-    protected final SootClass scBroadcastReceiver = Scene.v()
-            .getSootClassUnsafe(ComponentLifecycleConstants.BROADCASTRECEIVERCLASS);
-    protected final SootClass scServiceConnection = Scene.v()
-            .getSootClassUnsafe(ComponentLifecycleConstants.SERVICECONNECTIONINTERFACE);
-
-    protected final SootClass scFragmentTransaction = Scene.v().getSootClassUnsafe("android.app.FragmentTransaction");
-    protected final SootClass scFragment = Scene.v().getSootClassUnsafe(ComponentLifecycleConstants.FRAGMENTCLASS);
-
-    protected final SootClass scSupportFragmentTransaction = Scene.v()
-            .getSootClassUnsafe("android.support.v4.app.FragmentTransaction");
-    protected final SootClass scSupportFragment = Scene.v().getSootClassUnsafe("android.support.v4.app.Fragment");
-
-    protected final Set<SootClass> entryPointClasses;
-    protected final Set<String> androidCallbacks;
+    final Set<SootClass> entryPointClasses;
+    private final Set<String> androidCallbacks;
 
     protected final MultiMap<SootClass, CallbackDefinition> callbackMethods = new HashMultiMap<>();
     protected MultiMap<SootClass, CallbackDefinition> uicallbacks = new HashMultiMap<>();
@@ -77,7 +66,6 @@ public abstract class AbstractJimpleAnalyzer {
     protected List<IccIdentifier> iccUnitsForWidgetAnalysis;
 
     LayoutFileParser layoutFileParser;
-    final ResourceValueProvider resourceValueProvider;
     protected final MultiMap<SootClass, Integer> layoutClasses = new HashMultiMap<>();
 
     protected ICFG icfg;
@@ -90,33 +78,31 @@ public abstract class AbstractJimpleAnalyzer {
     Map<SootClass, String> setContentViewWrapperMap = new HashMap<>();
     Map<SootField, Integer> fieldWidgetMap = new HashMap<>();
 
-    protected List<EditWidgetNode> editTextWidgetList;
-    protected List<ClickWidgetNode> clickWidgetNodeList;
-    protected MultiMap<SootClass, AbstractWidgetNode> ownershipEdges;
+    protected List<EditWidget> editTextWidgetList;
+    protected List<ClickWidget> clickWidgetNodeList;
+    protected MultiMap<SootClass, AbstractWidget> ownershipEdges;
 
     public AbstractJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> activityList,
-                                  LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
+                                  LayoutFileParser layoutFileParser,
                                   List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
         this(entryPointClasses, "AndroidCallbacks.txt", activityList,
-                layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
+                layoutFileParser, iccUnitsForWidgetAnalysis);
     }
 
     public AbstractJimpleAnalyzer(Set<SootClass> entryPointClasses, String callbackFile, Set<String> activityList,
-                                  LayoutFileParser layoutFileParser, ResourceValueProvider resourceValueProvider,
+                                  LayoutFileParser layoutFileParser,
                                   List<IccIdentifier> iccUnitsForWidgetAnalysis) throws IOException {
         this(entryPointClasses, loadAndroidCallbacks(callbackFile), activityList,
-                layoutFileParser, resourceValueProvider, iccUnitsForWidgetAnalysis);
+                layoutFileParser, iccUnitsForWidgetAnalysis);
     }
 
     public AbstractJimpleAnalyzer(Set<SootClass> entryPointClasses, Set<String> androidCallbacks,
                                   Set<String> activityList, LayoutFileParser layoutFileParser,
-                                  ResourceValueProvider resourceValueProvider,
                                   List<IccIdentifier> iccUnitsForWidgetAnalysis) {
         this.entryPointClasses = entryPointClasses;
         this.androidCallbacks = androidCallbacks;
         this.activityList = activityList;
         this.layoutFileParser = layoutFileParser;
-        this.resourceValueProvider = resourceValueProvider;
         this.iccUnitsForWidgetAnalysis = iccUnitsForWidgetAnalysis;
     }
 
@@ -181,80 +167,72 @@ public abstract class AbstractJimpleAnalyzer {
 
     /**
      * Analyzes the given method and looks for callback registrations
-     *
-     * @param lifecycleElement
-     *            The lifecycle element (activity, etc.) with which to associate the
-     *            found callbacks
-     * @param method
-     *            The method in which to look for callbacks
+     * @param lifecycleElement The lifecycle element (activity, etc.) with which to associate the found callbacks
+     * @param method The method in which to look for callbacks
      */
      void analyzeMethodForCallbackRegistrations(SootClass lifecycleElement, SootMethod method) {
-        // Do not analyze system classes
-        if (SystemClassHandler.isClassInSystemPackage(method.getDeclaringClass().getName()))
-            return;
-        if (!method.isConcrete())
-            return;
-
         // Iterate over all statement and find callback registration methods
         Set<SootClass> callbackClasses = new HashSet<>();
         for (Unit u : method.retrieveActiveBody().getUnits()) {
             Stmt stmt = (Stmt) u;
             // Callback registrations are always instance invoke expressions
-            if (stmt.containsInvokeExpr() && stmt.getInvokeExpr() instanceof InstanceInvokeExpr) {
-                InstanceInvokeExpr iinv = (InstanceInvokeExpr) stmt.getInvokeExpr();
-
-                final SootMethodRef mref = iinv.getMethodRef();
-                for (int i = 0; i < iinv.getArgCount(); i++) {
-                    final Type type = mref.parameterType(i);
-                    if (!(type instanceof RefType))
-                        continue;
-                    String param = type.toString();
-                    if (androidCallbacks.contains(param)) {
-                        Value arg = iinv.getArg(i);
-
-                        // This call must be to a system API in order to
-                        // register an OS-level callback
-                        if (!SystemClassHandler.isClassInSystemPackage(iinv.getMethod().getDeclaringClass().getName()))
+            if (stmt.containsInvokeExpr()) {
+                if (stmt.getInvokeExpr() instanceof InstanceInvokeExpr ||
+                        stmt.getInvokeExpr() instanceof VirtualInvokeExpr) {
+                    InvokeExpr iinv = stmt.getInvokeExpr();
+                    final SootMethodRef mref = iinv.getMethodRef();
+                    for (int i = 0; i < iinv.getArgCount(); i++) {
+                        final Type type = mref.parameterType(i);
+                        if (!(type instanceof RefType))
                             continue;
+                        String param = type.toString();
+                        if (androidCallbacks.contains(param)) {
+                            Value arg = iinv.getArg(i);
 
-                        // We have a formal parameter type that corresponds to one of the Android
-                        // callback interfaces. Look for definitions of the parameter to estimate the
-                        // actual type.
-                        if (arg instanceof Local) {
-                            Set<Type> possibleTypes = Scene.v().getPointsToAnalysis().reachingObjects((Local) arg)
-                                    .possibleTypes();
-                            for (Type possibleType : possibleTypes) {
-                                RefType baseType;
-                                if (possibleType instanceof RefType)
-                                    baseType = (RefType) possibleType;
-                                else if (possibleType instanceof AnySubType)
-                                    baseType = ((AnySubType) possibleType).getBase();
-                                else {
-                                    Logger.warn("Unsupported type detected in callback analysis");
-                                    continue;
+                            // This call must be to a system API in order to
+                            // register an OS-level callback
+                            if (!SystemClassHandler.isClassInSystemPackage(iinv.getMethod().getDeclaringClass().getName()))
+                                continue;
+
+                            // We have a formal parameter type that corresponds to one of the Android
+                            // callback interfaces. Look for definitions of the parameter to estimate the
+                            // actual type.
+                            if (arg instanceof Local) {
+                                Set<Type> possibleTypes = Scene.v().getPointsToAnalysis().reachingObjects((Local) arg)
+                                        .possibleTypes();
+                                for (Type possibleType : possibleTypes) {
+                                    RefType baseType;
+                                    if (possibleType instanceof RefType)
+                                        baseType = (RefType) possibleType;
+                                    else if (possibleType instanceof AnySubType)
+                                        baseType = ((AnySubType) possibleType).getBase();
+                                    else {
+                                        Logger.warn("Unsupported type detected in callback analysis");
+                                        continue;
+                                    }
+
+                                    SootClass targetClass = baseType.getSootClass();
+                                    if (!SystemClassHandler.isClassInSystemPackage(targetClass.getName()))
+                                        callbackClasses.add(targetClass);
                                 }
 
-                                SootClass targetClass = baseType.getSootClass();
-                                if (!SystemClassHandler.isClassInSystemPackage(targetClass.getName()))
-                                    callbackClasses.add(targetClass);
-                            }
+                                // If we don't have pointsTo information, we take the type of the local
+                                if (possibleTypes.isEmpty()) {
+                                    Type argType = arg.getType();
+                                    RefType baseType;
+                                    if (argType instanceof RefType)
+                                        baseType = (RefType) argType;
+                                    else if (argType instanceof AnySubType)
+                                        baseType = ((AnySubType) argType).getBase();
+                                    else {
+                                        Logger.warn("Unsupported type detected in callback analysis");
+                                        continue;
+                                    }
 
-                            // If we don't have pointsTo information, we take the type of the local
-                            if (possibleTypes.isEmpty()) {
-                                Type argType = arg.getType();
-                                RefType baseType;
-                                if (argType instanceof RefType)
-                                    baseType = (RefType) argType;
-                                else if (argType instanceof AnySubType)
-                                    baseType = ((AnySubType) argType).getBase();
-                                else {
-                                    Logger.warn("Unsupported type detected in callback analysis");
-                                    continue;
+                                    SootClass targetClass = baseType.getSootClass();
+                                    if (!SystemClassHandler.isClassInSystemPackage(targetClass.getName()))
+                                        callbackClasses.add(targetClass);
                                 }
-
-                                SootClass targetClass = baseType.getSootClass();
-                                if (!SystemClassHandler.isClassInSystemPackage(targetClass.getName()))
-                                    callbackClasses.add(targetClass);
                             }
                         }
                     }
@@ -267,14 +245,8 @@ public abstract class AbstractJimpleAnalyzer {
             analyzeClassInterfaceCallbacks(callbackClass, callbackClass, lifecycleElement);
     }
 
-
     void analyzeMethodForComponentTransition(SootClass lifecycleElement, SootMethod method) {
-        // Do not analyze system classes
-        if (SystemClassHandler.isClassInSystemPackage(method.getDeclaringClass().getName()))
-            return;
-        if (!method.isConcrete())
-            return;
-
+        final FastHierarchy fastHierarchy = Scene.v().getFastHierarchy();
         // Iterate over all statement and find ICC methods
         for (Unit u : method.retrieveActiveBody().getUnits()) {
             Stmt stmt = (Stmt) u;
@@ -325,6 +297,34 @@ public abstract class AbstractJimpleAnalyzer {
     }
 
     /**
+     * Checks whether the method assigns a resource id to the activity
+     * @param lifecycleElement The lifecycle element (Android component or fragment)
+     * @param method The method to check for resource id
+     */
+    void analyzeMethodForResourceId(SootClass lifecycleElement, SootMethod method) {
+        for (Unit u : method.getActiveBody().getUnits()) {
+            Stmt stmt = (Stmt) u;
+            if (stmt.containsInvokeExpr()) {
+                InvokeExpr inv = stmt.getInvokeExpr();
+                // if it invokes setContentView or inflate
+                if (invokesSetContentView(inv) || invokesInflate(inv)) {
+                    Value val = inv.getArg(0);
+                    if (val.getType().toString().equals("int")) {
+                        Integer intValue = valueProvider.getValue(method, stmt, val, Integer.class);
+                        if (intValue != null)
+                            this.layoutClasses.put(lifecycleElement, intValue);
+                        else
+                            localIntValueAnalysis(lifecycleElement, method, val, u);
+                    }else if (val.getType().toString().equalsIgnoreCase("android.view.View")){
+                        // if the parameter to setContentView is not a constant int, it could be a view
+
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Checks whether the given method dynamically registers a new broadcast
      * receiver
      *
@@ -332,14 +332,8 @@ public abstract class AbstractJimpleAnalyzer {
      *            The method to check
      */
     protected void analyzeMethodForDynamicBroadcastReceiver(SootMethod method) {
-        // Do not analyze system classes
-        if (SystemClassHandler.isClassInSystemPackage(method.getDeclaringClass().getName()))
-            return;
-        if (!method.isConcrete() || !method.hasActiveBody())
-            return;
-
         final FastHierarchy fastHierarchy = Scene.v().getFastHierarchy();
-        final RefType contextType = scContext.getType();
+        final RefType contextType = AndroidClass.v().scContext.getType();
         for (Unit u : method.getActiveBody().getUnits()) {
             Stmt stmt = (Stmt) u;
             if (stmt.containsInvokeExpr()) {
@@ -362,16 +356,9 @@ public abstract class AbstractJimpleAnalyzer {
      * Checks whether the given method dynamically registers a new service
      * connection
      *
-     * @param method
-     *            The method to check
+     * @param method The method to check
      */
     protected void analyzeMethodForServiceConnection(SootMethod method) {
-        // Do not analyze system classes
-        if (SystemClassHandler.isClassInSystemPackage(method.getDeclaringClass().getName()))
-            return;
-        if (!method.isConcrete() || !method.hasActiveBody())
-            return;
-
         for (Unit u : method.getActiveBody().getUnits()) {
             Stmt stmt = (Stmt) u;
             if (stmt.containsInvokeExpr()) {
@@ -404,25 +391,55 @@ public abstract class AbstractJimpleAnalyzer {
     }
 
     /**
-     * Checks whether the given method executes a fragment transaction that creates
-     * new fragment
-     *
-     * @author Goran Piskachev
-     * @param method
-     *            The method to check
+     * Checks whether the given method executes a fragment transaction that creates new fragment
+     * @param method The method to check
      */
-    protected void analyzeMethodForFragmentTransaction(SootClass lifecycleElement, SootMethod method) {
-        if (scFragment == null || scFragmentTransaction == null)
-            if (scSupportFragment == null || scSupportFragmentTransaction == null)
+    void analyzeMethodForFragmentTransaction(SootClass lifecycleElement, SootMethod method) {
+        if (AndroidClass.v().scFragment == null || AndroidClass.v().scFragmentTransaction == null)
+            if (AndroidClass.v().scSupportFragment == null || AndroidClass.v().scSupportFragmentTransaction == null)
                 return;
-        if (!method.isConcrete() || !method.hasActiveBody())
-            return;
+
+        // Fragment to activity mapping
+        MultiMap<String, String> tmpFragmentMap = new HashMultiMap<>();
+        boolean isFragmentParam = false;
 
         // first check if there is a Fragment manager, a fragment transaction
         // and a call to the add method which adds the fragment to the transaction
         boolean isFragmentManager = false;
         boolean isFragmentTransaction = false;
         boolean isAddTransaction = false;
+
+        // Check if the parameter is Fragment or Fragment Manager
+        for (Type type : method.getParameterTypes()){
+            if (Scene.v().getOrMakeFastHierarchy().canStoreType(type, AndroidClass.v().scFragmentManager.getType()) ||
+                    Scene.v().getOrMakeFastHierarchy().canStoreType(type, AndroidClass.v().scSupportFragmentManager.getType())) {
+                isFragmentManager = true;
+            } else if (Scene.v().getOrMakeFastHierarchy().canStoreType(type, AndroidClass.v().scFragment.getType()) ||
+                    Scene.v().getOrMakeFastHierarchy().canStoreType(type, AndroidClass.v().scSupportFragment.getType())) {
+                for (Iterator<Edge> it = Scene.v().getCallGraph().edgesInto(method); it.hasNext(); ) {
+                    Edge edge = it.next();
+                    if (Scene.v().getOrMakeFastHierarchy().canStoreType(edge.src().getDeclaringClass().getType(),
+                            lifecycleElement.getType())) {
+                        Stmt stmt = edge.srcStmt();
+                        for (Value arg : stmt.getInvokeExpr().getArgs()) {
+                            if (Scene.v().getOrMakeFastHierarchy().canStoreType(arg.getType(), AndroidClass.v().scFragment.getType()) ||
+                                    Scene.v().getOrMakeFastHierarchy().canStoreType(arg.getType(), AndroidClass.v().scSupportFragment.getType())) {
+                                if (arg instanceof Local) {
+                                    for (Type possibleType : Scene.v().getPointsToAnalysis().reachingObjects((Local)arg).possibleTypes()) {
+                                        if (Scene.v().getOrMakeFastHierarchy().canStoreType(possibleType, AndroidClass.v().scFragment.getType()) ||
+                                                Scene.v().getOrMakeFastHierarchy().canStoreType(possibleType, AndroidClass.v().scSupportFragment.getType())) {
+                                            tmpFragmentMap.put(lifecycleElement.getName(), possibleType.toString());
+                                            isFragmentParam = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         for (Unit u : method.getActiveBody().getUnits()) {
             Stmt stmt = (Stmt) u;
             if (stmt.containsInvokeExpr()) {
@@ -454,10 +471,10 @@ public abstract class AbstractJimpleAnalyzer {
 
                         // Make sure that we referring to the correct class and
                         // method
-                        isFragmentTransaction = scFragmentTransaction != null && Scene.v().getFastHierarchy()
-                                .canStoreType(iinvExpr.getBase().getType(), scFragmentTransaction.getType());
-                        isFragmentTransaction |= scSupportFragmentTransaction != null && Scene.v().getFastHierarchy()
-                                .canStoreType(iinvExpr.getBase().getType(), scSupportFragmentTransaction.getType());
+                        isFragmentTransaction = AndroidClass.v().scFragmentTransaction != null && Scene.v().getFastHierarchy()
+                                .canStoreType(iinvExpr.getBase().getType(), AndroidClass.v().scFragmentTransaction.getType());
+                        isFragmentTransaction |= AndroidClass.v().scSupportFragmentTransaction != null && Scene.v().getFastHierarchy()
+                                .canStoreType(iinvExpr.getBase().getType(), AndroidClass.v().scSupportFragmentTransaction.getType());
                         isAddTransaction = stmt.getInvokeExpr().getMethod().getName().equals("add")
                                 || stmt.getInvokeExpr().getMethod().getName().equals("replace");
 
@@ -470,12 +487,28 @@ public abstract class AbstractJimpleAnalyzer {
                                 if (br.getType() instanceof RefType) {
                                     RefType rt = (RefType) br.getType();
 
-                                    boolean addFragment = scFragment != null
-                                            && Scene.v().getFastHierarchy().canStoreType(rt, scFragment.getType());
-                                    addFragment |= scSupportFragment != null && Scene.v().getFastHierarchy()
-                                            .canStoreType(rt, scSupportFragment.getType());
-                                    if (addFragment)
-                                        fragmentClasses.put(method.getDeclaringClass(), rt.getSootClass());
+                                    boolean addFragment = AndroidClass.v().scFragment != null
+                                            && Scene.v().getFastHierarchy().canStoreType(rt, AndroidClass.v().scFragment.getType());
+                                    addFragment |= AndroidClass.v().scSupportFragment != null && Scene.v().getFastHierarchy()
+                                            .canStoreType(rt, AndroidClass.v().scSupportFragment.getType());
+                                    if (addFragment) {
+                                        if (!isFragmentParam)
+                                            tmpFragmentMap.put(lifecycleElement.getName(), rt.getClassName());
+
+                                        // Map the activity to the fragment
+                                        for (String className : tmpFragmentMap.keySet()) {
+                                            for (String fragmentClassName : tmpFragmentMap.get(className)) {
+                                                Activity parentActivity = App.v().getActivityByName(className);
+                                                SootClass fragmentClass = Scene.v().getSootClassUnsafe(fragmentClassName);
+                                                if (parentActivity!=null)
+                                                    App.v().createFragment(fragmentClass, parentActivity);
+                                                else
+                                                    App.v().createFragment(fragmentClass);
+                                                App.v().getActivityByName(className).addFragment(
+                                                    App.v().getFragmentByName(fragmentClassName));
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -522,8 +555,7 @@ public abstract class AbstractJimpleAnalyzer {
     /**
      * Checks whether this invocation calls Android's Activity.setContentView method
      *
-     * @param inv
-     *            The invocaton to check
+     * @param inv The invocaton to check
      * @return True if this invocation calls setContentView, otherwise false
      */
     protected boolean invokesSetContentView(InvokeExpr inv) {
@@ -664,7 +696,7 @@ public abstract class AbstractJimpleAnalyzer {
      * @param invokeExprList The invoke expr list that invokes on the widget local variable
      * @return An edit text widget
      */
-    EditWidgetNode createNewEditTextWidget(List<InvokeExpr> invokeExprList) {
+    EditWidget createNewEditTextWidget(List<InvokeExpr> invokeExprList) {
         return createNewEditTextWidget(invokeExprList, -1);
     }
 
@@ -674,7 +706,7 @@ public abstract class AbstractJimpleAnalyzer {
      * @param resourceId The resource id of the widget
      * @return An edit text widget
      */
-    EditWidgetNode createNewEditTextWidget(List<InvokeExpr> invokeExprList, int resourceId) {
+    EditWidget createNewEditTextWidget(List<InvokeExpr> invokeExprList, int resourceId) {
         String text = "";
         String contentDescription = "";
         String hint = "";
@@ -700,7 +732,7 @@ public abstract class AbstractJimpleAnalyzer {
             if (sootMethod.getName().equals("setContentDescription"))
                 contentDescription = arg.toString();
         }
-        return new EditWidgetNode(resourceId,text,contentDescription,hint,inputType);
+        return new EditWidget(resourceId,text,contentDescription,hint,inputType);
     }
 
     /**
@@ -708,7 +740,7 @@ public abstract class AbstractJimpleAnalyzer {
      * @param invokeExprList The invoke expr list that invokes on the widget local variable
      * @return The clickable widget. If no click listener is attached, return null
      */
-    ClickWidgetNode createNewClickWidget(List<InvokeExpr> invokeExprList) {
+    ClickWidget createNewClickWidget(List<InvokeExpr> invokeExprList) {
         return createNewClickWidget(invokeExprList,-1);
     }
 
@@ -718,9 +750,9 @@ public abstract class AbstractJimpleAnalyzer {
      * @param resourceId The resource id of the widget
      * @return The clickable widget. If no click listener is attached, return null
      */
-    ClickWidgetNode createNewClickWidget(List<InvokeExpr> invokeExprList, int resourceId) {
+    ClickWidget createNewClickWidget(List<InvokeExpr> invokeExprList, int resourceId) {
         String text = "";
-        ClickWidgetNode.EventType eventType = ClickWidgetNode.EventType.None;
+        ClickWidget.EventType eventType = ClickWidget.EventType.None;
         String clickListener = null;
 
         for (InvokeExpr inv : invokeExprList) {
@@ -730,34 +762,34 @@ public abstract class AbstractJimpleAnalyzer {
                 case "setClickable":
                 case "setOnClickListener":
                 case "setOnItemClickListener":
-                    eventType = ClickWidgetNode.EventType.Click;
+                    eventType = ClickWidget.EventType.Click;
                     clickListener = inv.getArg(0).toString().replace("\"","");
                     break;
                 case "setContextClickable":
                 case "setOnContextClickListener":
                 case "setOnCreateContextMenuListener":
-                    eventType = ClickWidgetNode.EventType.ContextClick;
+                    eventType = ClickWidget.EventType.ContextClick;
                     clickListener = inv.getArg(0).toString().replace("\"","");
                     break;
                 case "setLongClickable":
                 case "setOnLongClickListener":
-                    eventType = ClickWidgetNode.EventType.LongClick;
+                    eventType = ClickWidget.EventType.LongClick;
                     clickListener = inv.getArg(0).toString().replace("\"","");
                     break;
                 case "setOnTouchListener":
-                    eventType = ClickWidgetNode.EventType.Touch;
+                    eventType = ClickWidget.EventType.Touch;
                     clickListener = inv.getArg(0).toString().replace("\"","");
                     break;
                 case "setOnKeyListener":
-                    eventType = ClickWidgetNode.EventType.Key;
+                    eventType = ClickWidget.EventType.Key;
                     clickListener = inv.getArg(0).toString().replace("\"","");
                     break;
             }
         }
-        if (eventType == ClickWidgetNode.EventType.None)
+        if (eventType == ClickWidget.EventType.None)
             return null;
         else
-            return new ClickWidgetNode(resourceId,text,eventType, clickListener);
+            return new ClickWidget(resourceId,text,eventType, clickListener);
     }
 
     /**
@@ -799,7 +831,7 @@ public abstract class AbstractJimpleAnalyzer {
                                 if (intValue != null)
                                     this.layoutClasses.put(sc, intValue);
                                 else
-                                    intValueAnalysis(sc, sm, val, u);
+                                    localIntValueAnalysis(sc, sm, val, u);
                             }else if (val.getType().toString().equalsIgnoreCase("android.view.View")){
                                 // if the parameter to setContentView is not a constant int, it could be a view
 
@@ -822,7 +854,7 @@ public abstract class AbstractJimpleAnalyzer {
                                 if (intValue != null)
                                     this.layoutClasses.put(sc, intValue);
                                 else {
-                                    intValueAnalysis(sc,sm,val,u);
+                                    localIntValueAnalysis(sc,sm,val,u);
                                 }
                             }
                         }
@@ -871,7 +903,7 @@ public abstract class AbstractJimpleAnalyzer {
                     if (rightOp instanceof FieldRef) {
                         SootField fieldRef = ((FieldRef)rightOp).getField();
                         if (fieldRef.getDeclaringClass().getName().contains("R$layout")) {
-                            return resourceValueProvider.getLayoutResourceId(fieldRef.getName());
+                            return ResourceValueProvider.v().getLayoutResourceId(fieldRef.getName());
                         }
                     }
                 }
@@ -895,18 +927,19 @@ public abstract class AbstractJimpleAnalyzer {
     }
 
     /**
-     * Analyze the return value of a method if the method is called on setContentView
+     * Gets the possible int constant value of a local (intra-procedural)
      * @param sc The SootClass
      * @param sm The SootMethod
      * @param val The value which is supposed to be a Local variable
      * @param u The unit
      */
-    void intValueAnalysis(SootClass sc, SootMethod sm, Value val, Unit u) {
+    void localIntValueAnalysis(SootClass sc, SootMethod sm, Value val, Unit u) {
         if (val instanceof Local) {
-            // Inter-procedural analysis to reveal the value
+            // prepare the Def-use analysis
             BriefUnitGraph unitGraph = new BriefUnitGraph(sm.retrieveActiveBody());
             SimpleLocalDefs localDefs = new SimpleLocalDefs(unitGraph);
 
+            // iterate over all def sites
             for (Unit defUnit : localDefs.getDefsOfAt((Local) val, u)) {
                 Stmt defStmt = (Stmt) defUnit;
                 if (defStmt.containsInvokeExpr()) {
@@ -928,7 +961,7 @@ public abstract class AbstractJimpleAnalyzer {
                     if (defValue instanceof FieldRef) {
                         SootField field = ((FieldRef) defValue).getField();
                         if (field.getDeclaringClass().getName().contains("R$layout")) {
-                            this.layoutClasses.put(sm.getDeclaringClass(), resourceValueProvider.getLayoutResourceId(field.getName()));
+                            this.layoutClasses.put(sm.getDeclaringClass(), ResourceValueProvider.v().getLayoutResourceId(field.getName()));
                         }
                     } else if (defValue.getType().toString().equals("int")) {
                         Integer defIntValue = valueProvider.getValue(sm, defStmt, defValue, Integer.class);
@@ -962,6 +995,10 @@ public abstract class AbstractJimpleAnalyzer {
         return null;
     }
 
+    /**
+     * Checks if the method overrides the system methods
+     * @param sootClass The soot class to check for method overrides
+     */
     protected void analyzeMethodOverrideCallbacks(SootClass sootClass) {
 
         if (!sootClass.isConcrete())
@@ -973,8 +1010,7 @@ public abstract class AbstractJimpleAnalyzer {
         if (SystemClassHandler.isClassInSystemPackage(sootClass.getName()))
             return;
 
-        // There are also some classes that implement interesting callback
-        // methods.
+        // There are also some classes that implement interesting callback methods.
         // We model this as follows: Whenever the user overwrites a method in an
         // Android OS class, we treat it as a potential callback.
         Map<String, SootMethod> systemMethods = new HashMap<>(10000);
@@ -1011,6 +1047,12 @@ public abstract class AbstractJimpleAnalyzer {
         return null;
     }
 
+    /**
+     * Check if the soot class implements one of the Android callback interfaces
+     * @param baseClass The base Soot class
+     * @param sootClass The duplicate of the base Soot class
+     * @param lifecycleElement The lifecycle element (Soot class for Android component)
+     */
     private void analyzeClassInterfaceCallbacks(SootClass baseClass, SootClass sootClass, SootClass lifecycleElement) {
         // We cannot create instances of abstract classes anyway, so there is no
         // reason to look for interface implementations
@@ -1029,8 +1071,7 @@ public abstract class AbstractJimpleAnalyzer {
         if (!filterAccepts(lifecycleElement, sootClass))
             return;
 
-        // If we are a class, one of our superclasses might implement an Android
-        // interface
+        // If we are a class, one of our superclasses might implement an Android interface
         SootClass superClass = sootClass.getSuperclassUnsafe();
         if (superClass != null)
             analyzeClassInterfaceCallbacks(baseClass, superClass, lifecycleElement);
@@ -1107,10 +1148,14 @@ public abstract class AbstractJimpleAnalyzer {
                 toRemove.add(sc);
         }
         baseActivitySet.removeAll(toRemove);
+
+        // add the activities as entrypoints
+        entryPointClasses.addAll(baseActivitySet);
     }
 
-    public Map<TransitionEdge, AbstractWidgetNode> resolveIccMethodToWidget() {
-        Map<TransitionEdge, AbstractWidgetNode> widgetEdgemap = new HashMap<>();
+
+    public Map<TransitionEdge, AbstractWidget> resolveIccMethodToWidget() {
+        Map<TransitionEdge, AbstractWidget> widgetEdgemap = new HashMap<>();
 
         // Resolving the ICC methods to callback methods to click listeners
         for (SootClass sc : Scene.v().getApplicationClasses()) {
@@ -1131,7 +1176,7 @@ public abstract class AbstractJimpleAnalyzer {
                             while (!unvisitedNodes.isEmpty()) {
                                 SootMethod callee = unvisitedNodes.poll();
                                 if (callbackMethodSet.contains(callee)) {
-                                    AbstractWidgetNode widget = findWidgetWithListener(callee.getDeclaringClass());
+                                    AbstractWidget widget = findWidgetWithListener(callee.getDeclaringClass());
                                     if (widget!=null) {
 //                                        widgetEdgemap.put(edge, widget);
                                     }
@@ -1140,7 +1185,7 @@ public abstract class AbstractJimpleAnalyzer {
                                     for (Unit caller : callers) {
                                         SootMethod callerMethod = icfg.getMethodOf(caller);
                                         if (callbackMethodSet.contains(callerMethod)) {
-                                            AbstractWidgetNode widget = findWidgetWithListener(callerMethod.getDeclaringClass());
+                                            AbstractWidget widget = findWidgetWithListener(callerMethod.getDeclaringClass());
                                             if (widget!=null) {
 //                                                widgetEdgemap.put(edge, widget);
                                             }
@@ -1157,8 +1202,106 @@ public abstract class AbstractJimpleAnalyzer {
         return widgetEdgemap;
     }
 
-    protected ClickWidgetNode findWidgetWithListener(SootClass declaringClass) {
-        for (ClickWidgetNode clickWidgetNode : clickWidgetNodeList) {
+    /**
+     * Finds the mappings between classes and their respective layout files
+     */
+    void findClassLayoutMappings() {
+        Iterator<MethodOrMethodContext> rmIterator = Scene.v().getReachableMethods().listener();
+
+        while (rmIterator.hasNext()) {
+            SootMethod sm = rmIterator.next().method();
+            if (!sm.isConcrete())
+                continue;
+            if (SystemClassHandler.isClassInSystemPackage(sm.getDeclaringClass().getName()))
+                continue;
+
+            for (Unit u : sm.retrieveActiveBody().getUnits())
+                if (u instanceof Stmt) {
+                    Stmt stmt = (Stmt) u;
+                    if (stmt.containsInvokeExpr()) {
+                        InvokeExpr inv = stmt.getInvokeExpr();
+                        if (invokesSetContentView(inv) || invokesInflate(inv)) { // check
+                            for (Value val : inv.getArgs()) {
+                                Integer intValue = valueProvider.getValue(sm, stmt, val, Integer.class);
+                                if (intValue != null)
+                                    this.layoutClasses.put(sm.getDeclaringClass(), intValue);
+                            }
+                        }
+                    }
+                }
+        }
+
+        for (SootClass sc : Scene.v().getApplicationClasses()) {
+            if (baseActivitySet.contains(sc)){
+                for (SootMethod sm : sc.getMethods()) {
+                    if (!sm.isConcrete())
+                        continue;
+                    if (SystemClassHandler.isClassInSystemPackage(sm.getDeclaringClass().getName()))
+                        continue;
+
+                    try {
+                        checkAndAddClassLayoutMappings(sm, sc,true);
+                    } catch (RuntimeException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else if (isExportedActivityClass(sc.getName())) {
+                for (SootMethod sm : sc.getMethods()) {
+                    if (!sm.isConcrete())
+                        continue;
+                    if (SystemClassHandler.isClassInSystemPackage(sm.getDeclaringClass().getName()))
+                        continue;
+
+                    try{
+                        // Here we add the method wrappers (for findViewById and setContentView)
+                        addMethodWrappers(sm);
+                        // Check for class layout mappings
+                        checkAndAddClassLayoutMappings(sm, sc,false);
+                    } catch (RuntimeException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+//    /**
+//     * Finds the mappings between classes and their respective layout files
+//     */
+//    public void findClassLayoutMappings() {
+//        Iterator<MethodOrMethodContext> rmIterator = Scene.v().getReachableMethods().listener();
+//        while (rmIterator.hasNext()) {
+//            SootMethod sm = rmIterator.next().method();
+//            if (!sm.isConcrete())
+//                continue;
+//            if (SystemClassHandler.isClassInSystemPackage(sm.getDeclaringClass().getName()))
+//                continue;
+//
+//            // Here we try to prevent the multi-catch bug from happening
+//            try{
+//                for (Unit u : sm.retrieveActiveBody().getUnits()) {
+//                    if (u instanceof Stmt) {
+//                        Stmt stmt = (Stmt) u;
+//                        if (stmt.containsInvokeExpr()) {
+//                            InvokeExpr inv = stmt.getInvokeExpr();
+//                            if (invokesSetContentView(inv) || invokesInflate(inv)) {
+//                                for (Value val : inv.getArgs()) {
+//                                    Integer intValue = valueProvider.getValue(sm, stmt, val, Integer.class);
+//                                    if (intValue != null)
+//                                        this.layoutClasses.put(sm.getDeclaringClass(), intValue);
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            } catch (RuntimeException e){
+//                Logger.warn(e.getMessage());
+//            }
+//        }
+//    }
+
+    protected ClickWidget findWidgetWithListener(SootClass declaringClass) {
+        for (ClickWidget clickWidgetNode : clickWidgetNodeList) {
             if (clickWidgetNode.getClickListener().equalsIgnoreCase(declaringClass.getName()))
                 return clickWidgetNode;
         }
@@ -1277,7 +1420,7 @@ public abstract class AbstractJimpleAnalyzer {
                                 if (assignStmt.getRightOp() instanceof FieldRef) {
                                     SootField fieldRef = ((FieldRef) assignStmt.getRightOp()).getField();
                                     if (fieldRef.getDeclaringClass().getName().contains("R$id")) {
-                                        resourceId = resourceValueProvider.getResouceIdByString(fieldRef.getName());
+                                        resourceId = ResourceValueProvider.v().getResouceIdByString(fieldRef.getName());
                                         userControl = this.layoutFileParser.findUserControlById(resourceId);
                                         break;
                                     }
@@ -1352,7 +1495,7 @@ public abstract class AbstractJimpleAnalyzer {
             List<InvokeExpr> invokeExprList = getInvokeExprOnLocal(widgetLocal, widgetUnit, simpleLocalDefs, unitGraph);
 
             if (userControl instanceof EditTextControl) {
-                EditWidgetNode newEditWidgetNode = createNewEditTextWidget(invokeExprList, resourceId);
+                EditWidget newEditWidgetNode = createNewEditTextWidget(invokeExprList, resourceId);
                 if (newEditWidgetNode != null) {
                     editTextWidgetList.add(newEditWidgetNode);
                     ownershipEdges.put(sc, newEditWidgetNode);
@@ -1360,7 +1503,7 @@ public abstract class AbstractJimpleAnalyzer {
             }
             // Clickable widgets
             else {
-                ClickWidgetNode newClickWidgetNode = createNewClickWidget(invokeExprList, resourceId);
+                ClickWidget newClickWidgetNode = createNewClickWidget(invokeExprList, resourceId);
                 if (newClickWidgetNode != null) {
                     clickWidgetNodeList.add(newClickWidgetNode);
                     ownershipEdges.put(sc, newClickWidgetNode);
@@ -1403,7 +1546,7 @@ public abstract class AbstractJimpleAnalyzer {
             List<InvokeExpr> invokeExprList = getInvokeExprOnLocal(widgetLocal, widgetUnit, localDefs, unitGraph);
 
             if (isEditTextWidget(newSootClass)) {
-                EditWidgetNode newEditWidgetNode = createNewEditTextWidget(invokeExprList);
+                EditWidget newEditWidgetNode = createNewEditTextWidget(invokeExprList);
                 if (newEditWidgetNode != null) {
                     editTextWidgetList.add(newEditWidgetNode);
                     ownershipEdges.put(sc, newEditWidgetNode);
@@ -1411,7 +1554,7 @@ public abstract class AbstractJimpleAnalyzer {
             }
             // Clickable widgets
             else {
-                ClickWidgetNode newClickWidgetNode = createNewClickWidget(invokeExprList);
+                ClickWidget newClickWidgetNode = createNewClickWidget(invokeExprList);
                 if (newClickWidgetNode != null) {
                     clickWidgetNodeList.add(newClickWidgetNode);
                     ownershipEdges.put(sc, newClickWidgetNode);
@@ -1534,7 +1677,7 @@ public abstract class AbstractJimpleAnalyzer {
                 if (assignStmt.getRightOp() instanceof FieldRef) {
                     SootField fieldRef = ((FieldRef) assignStmt.getRightOp()).getField();
                     if (fieldRef.getDeclaringClass().getName().contains("R$string")) {
-                        return resourceValueProvider.getResouceIdByString(fieldRef.getName());
+                        return ResourceValueProvider.v().getResouceIdByString(fieldRef.getName());
                     }
                 }
             }
@@ -1617,7 +1760,7 @@ public abstract class AbstractJimpleAnalyzer {
 
 
     private Set<SootClass> collectAllInterfaces(SootClass sootClass) {
-        Set<SootClass> interfaces = new HashSet<SootClass>(sootClass.getInterfaces());
+        Set<SootClass> interfaces = new HashSet<>(sootClass.getInterfaces());
         for (SootClass i : sootClass.getInterfaces())
             interfaces.addAll(collectAllInterfaces(i));
         return interfaces;
@@ -1687,7 +1830,7 @@ public abstract class AbstractJimpleAnalyzer {
      * Gets the EditText widgets set collected from the Jimple files
      * @return The EditText widgets set collected from the Jimple files
      */
-    public List<EditWidgetNode> getEditTextWidgetList() {
+    public List<EditWidget> getEditTextWidgetList() {
         return editTextWidgetList;
     }
 
@@ -1695,7 +1838,7 @@ public abstract class AbstractJimpleAnalyzer {
      * Gets the clickable widgets set collected from the Jimple files
      * @return The clickable widgets set collected from the Jimple files
      */
-    public List<ClickWidgetNode> getClickWidgetNodeList() {
+    public List<ClickWidget> getClickWidgetNodeList() {
         return clickWidgetNodeList;
     }
 
@@ -1703,7 +1846,7 @@ public abstract class AbstractJimpleAnalyzer {
      * Gets the ownership edges set collected from the Jimple files
      * @return The ownership edges set collected from the Jimple files
      */
-    public MultiMap<SootClass, AbstractWidgetNode> getOwnershipEdges() {
+    public MultiMap<SootClass, AbstractWidget> getOwnershipEdges() {
         return ownershipEdges;
     }
 

@@ -1,8 +1,8 @@
 package dulinglai.android.ate;
 
-import dulinglai.android.ate.graphBuilder.ComponentTransitionGraph;
-import dulinglai.android.ate.graphBuilder.TransitionEdge;
-import dulinglai.android.ate.graphBuilder.componentNodes.ActivityNode;
+import dulinglai.android.ate.model.ComponentTransitionGraph;
+import dulinglai.android.ate.model.TransitionEdge;
+import dulinglai.android.ate.model.components.Activity;
 import org.pmw.tinylog.Logger;
 import soot.util.dot.DotGraph;
 
@@ -12,8 +12,58 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class ResultWriter {
+
+    private static final String RESULT_WRITER = "ResultWriter";
+
+    private static FileWriter logFileWriter;
+
+    public static void initialize(String logDirString, String apkNameString) {
+        logFileWriter = createLogDirIfNotExist(logDirString, apkNameString);
+    }
+
+    /**
+     * Creates the logging directory if it does not exist
+     * @param logDir The logging direct
+     * @param apkName The name of the apk
+     */
+    private static FileWriter createLogDirIfNotExist(String logDir, String apkName) {
+        File dir = new File(logDir);
+        if (!dir.exists()) {
+            boolean success = dir.mkdirs();
+            if (success)
+                Logger.info("[{}] Successfully created the logging directory!");
+            else
+                Logger.warn("[WARN] Failed to create the loggin directory!");
+        }
+
+        File file = new File(dir + File.separator + apkName + "_log.txt");
+        try{
+            file.createNewFile();
+            FileWriter fileWriter = new FileWriter(file, true);
+            return fileWriter;
+        } catch (IOException e) {
+            Logger.error("[ERROR] Failed to create new log file: {}", e.getMessage());
+            System.exit(-1);
+            return null;
+        }
+    }
+
+    /**
+     * Append the string to the end of the file
+     * @param message The string to append to the file
+     */
+    public static void writeToFile(String message) {
+        BufferedWriter bufferedWriter = new BufferedWriter(logFileWriter);
+        try {
+            bufferedWriter.append(message).append("\n");
+            bufferedWriter.close();
+        } catch (IOException e) {
+            Logger.error("[ERROR] Failed to write to log file: {}", e.getMessage());
+        }
+    }
 
     public static void appendStringToResultFile(String outputPath, String packageName,
                                                 String fileName, String toAppend) throws IOException {
@@ -25,13 +75,13 @@ public class ResultWriter {
         resultWriter.close();
     }
 
-    public static void writeActivityListToFile(List<ActivityNode> activityNodeList,
+    public static void writeActivityListToFile(Set<Activity> activityList,
                                                String filename, String outputPath) {
         try {
             FileWriter fw = new FileWriter(outputPath + "/" + filename + "_activity.txt", true);
             BufferedWriter resultWriter = new BufferedWriter(fw);
-            for (ActivityNode activityNode : activityNodeList) {
-                resultWriter.write(activityNode.getName());
+            for (Activity activity : activityList) {
+                resultWriter.write(activity.getName());
                 resultWriter.newLine();
             }
             resultWriter.close();
